@@ -9,20 +9,20 @@ Linear regression is a huge topic in statistics, and the main technique used for
 
 \section*{Linear Regression}
 Consider a data set with $n$ points $(x_i, y_i)$ for $i = 1, \dots, n$. The goal of linear regression is to determine the best-fit line $y = mx + b$, called the \textbf{regression line}. Here, ``best-fit" is defined using the \textbf{method of least squares}, minimizing the sum of the squares of the residuals (or error) between the line and the data values. The residual of a data value is the difference between the predicted and observed value, or
-\begin{equation*}
+\begin{align*}
     \underbrace{mx_i + b}_{\text{predicted}} - \underbrace{y_i}_{\text{observed}}
-\end{equation*}
+\end{align*}
 In other words, minimize the quantity
-\begin{equation*}
+\begin{align*}
     \sum_{i=1}^n (mx_i + b - y_i)^2
-\end{equation*}
+\end{align*}
 In other words, determine the values of $m$ and $b$ such that this sum is minimized. This is a problem involving minimizing a function of two variables.
 
 \section*{Solving the Problem}
 The goal is to find the absolute minimum of the ``error" function
-\begin{equation*}
+\begin{align*}
     E(m,b) = \sum_{i=1}^n (mx_i + b - y_i)^2
-\end{equation*}
+\end{align*}
 To determine the critical points of $E$, we need to determine the partial derivatives of $E$. Recall that differentiation is linear, in that differentiating a (finite) sum can be done term-by-term. Then,
 \begin{align*}
     \frac{\partial E}{\partial m} & = \sum_{i=1}^n 2(mx_i + b - y_i) x_i
@@ -43,9 +43,9 @@ Setting these partial derivatives equation to 0, and simplifying each by dividin
     0 & = m \sum_{i=1}^n x_i + bn - \sum_{i=1}^n y_i
 \end{align*}
 In these two equations, there are a lot of symbols, however recall that all of the values of $x_i$ and $y_i$ are known, and so the value of any summation involving $x_i$ and $y_i$ is known, i.e. just a constant. The only unknowns (or variables) in this problem are $m$ and $b$. To make this clear, define
-\begin{equation*}
+\begin{align*}
     S_x = \sum_{i=1}^n x_i \qquad S_y = \sum_{i=1}^n y_i \qquad S_{x^2} = \sum_{i=1}^n x_i^2 \qquad S_{xy} = \sum_{i=1}^n x_i y_i
-\end{equation*}
+\end{align*}
 Then, the equations become
 \begin{align*}
     \begin{cases} mS_{x^2} + b S_x - S_{xy} = 0 \\ m S_x + bn - S_y = 0 \end{cases}
@@ -80,9 +80,9 @@ In summary,
 
 \begin{theorem}
 The line of best fit is given by $y = mx + b$, where
-\begin{equation*}
+\begin{align*}
     \boxed{m = \frac{nS_{xy} - S_x S_y}{nS_{x^2} - (S_x)^2}} \qquad \boxed{\frac{nS_{x^2} S_y - S_x S_{xy}}{nS_{x^2} - (S_x)^2}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \end{document}

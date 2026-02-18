@@ -20,9 +20,9 @@ The partial derivative $f_x$ differentiates $f$ by treating it as a function of 
 
 \section*{Geometric Interpretation of Partial Derivatives}
 The partial derivatives at a point $(a,b)$ are given by
-\begin{equation*}
+\begin{align*}
     f_x(a, b) = \lim_{h \to 0} \frac{f(a + h, b) - f(a, b)}{h} \qquad \text{and} \qquad f_y(a, b) = \lim_{h \to 0} \frac{f(a, b + h) - f(a, b)}{h}
-\end{equation*}
+\end{align*}
 Geometrically,
 \begin{itemize}
     \item $f_x(a, b)$ represents the slope of the tangent line to the curve formed by the intersection of the surface $f(x,y)$ and the plane $y = b$.
@@ -45,9 +45,9 @@ The most common notations are the subscript notation $f_x, f_y$ and the Leibniz 
 \section*{Examples}
 \begin{example}
 Let,
-\begin{equation*}
+\begin{align*}
     f(x,y) = \begin{cases} \frac{\cos{x} - \cos{y}}{x - y} & \text{if $x \neq y$} \\ 0 & \text{if $x = y$} \end{cases}
-\end{equation*}
+\end{align*}
 Determine the first partial derivative with respect to $y$.
 \\ \\ If $x \neq y$, then $f$ is continuous, and so by the quotient rule,
 \begin{align*}
@@ -113,9 +113,9 @@ Example section 12.4, Q16
 Partial derivatives can be generalized to functions of $n$ variables.
 \begin{definition}
 Let $f$ be a function of $n$ variables. Then, the first partial derivative with respect to the $i$th variable is
-\begin{equation*}
+\begin{align*}
     \frac{\partial}{\partial x_i} f(x_1, \dots, x_n) = \lim_{h \to 0} \frac{f(x_1, \dots, x_i + h, \dots, x_n) - f(x_1, \dots, x_n)}{h}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \end{document}

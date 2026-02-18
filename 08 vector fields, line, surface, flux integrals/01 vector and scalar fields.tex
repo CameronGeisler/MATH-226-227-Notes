@@ -5,12 +5,12 @@
 
 \begin{document}
 
-\begin{equation*}
+\begin{align*}
     \begin{array}{cc}
         \text{``Do vector calculus just for fun"} \\
         \text{--Wierd Al, in ``White and Nerdy"} 
     \end{array}
-\end{equation*}
+\end{align*}
 
 Recall that a scalar-valued function has inputs of scalars and outputs of scalars, and a vector-valued function has inputs of a scalar and outputs of a vector. Next, we will consider vector-valued functions of a vector variable, which are functions whose inputs and outputs are both vectors. These functions are called \textbf{vector fields}.
 
@@ -19,9 +19,9 @@ First, we will consider vector fields in two dimensions, where the output and in
 
 \begin{definition}
 A \textbf{vector field} in $\mathbb{R}^2$ (or a \textbf{plane vector field}) is a function $\vec{F}$ that assigns to each vector $\vec{x}$ in a domain $D \subseteq \mathbb{R}^2$, a unique vector $\vec{F}(\vec{x}) \in \mathbb{R}^2$. A vector field can be written in terms of its component functions, as
-\begin{equation*}
+\begin{align*}
     \vec{F}(x,y) = \vecii{f(x,y)}{g(x,y)} \qquad \text{or} \qquad \vec{F}(x,y) = f(x,y) \ihat + g(x,y) \jhat
-\end{equation*}
+\end{align*}
 where $f, g$ are scalar functions of $x$ and $y$, defined on $D$.
 \begin{itemize}
     \item Sometimes, we will omit the arguments for simplicity, $\vec{F} = \vecii{f}{g}$.
@@ -77,9 +77,9 @@ A vector field is \textbf{smooth} if its component scalar fields have continuous
 \section*{Radial Fields}
 \begin{definition}
 A vector field $\vec{F}$ is a \textbf{radial field} if all of its outputs either point away from or towards the origin. In other words, its outputs are proportional to its inputs, or $\vec{F}$ is of the form
-\begin{equation*}
+\begin{align*}
     \vec{F} = f(x,y) \vecii{x}{y}
-\end{equation*}
+\end{align*}
 where $f$ is a scalar-valued function.
 \end{definition}
 
@@ -105,18 +105,18 @@ By Newton's law of gravitation, the force of attraction exerted on a particle of
     \vec{F}(x,y,z) = - \dfrac{GmM}{x^2 + y^2 + z^2} \vec{u} && \text{or} && \vec{F}(\vec{r}) = -\dfrac{GmM}{\abs{\vec{r}}^2} \vec{u}
 \end{align*}
 where $G$ is the graviational constant, $\vec{u}$ is the unit vector with direction from the origin to $(x,y,z)$. Alternatively,
-\begin{equation*}
+\begin{align*}
     \vec{u} = \dfrac{\veciii{x}{y}{z}}{\sqrt{x^2 + y^2 + z^2}} = \dfrac{\vec{r}}{\abs{\vec{r}}}
-\end{equation*}
+\end{align*}
 and so
 \begin{align*}
     \vec{F}(\vec{r}) & = -\dfrac{GmM}{\abs{\vec{r}}^2} \cdot \dfrac{\vec{r}}{\abs{\vec{r}}} \\
     \vec{F}(\vec{r}) & = -\dfrac{GmM}{\abs{\vec{r}}^3} \cdot \vec{r}
 \end{align*}
 $\vec{F}$ is in the opposite direction of $\vec{r}$, so it points towards the origin, and the magnitude of $\vec{F}$ is given by
-\begin{equation*}
+\begin{align*}
     \abs{\vec{F}} = \dfrac{GmM}{\abs{\vec{r}}^3} \cdot \abs{\vec{r}} = \dfrac{GmM}{\abs{\vec{r}}^2} \vec{r}
-\end{equation*}
+\end{align*}
 Note that the magnitude of $\vec{F}$ is constant for all points equidistant from the origin.
 \end{example}
 
@@ -137,9 +137,9 @@ Note that this formula is equivalent to Newton's law of gravitation, with $-m_1$
 
 \begin{definition}
 A vector field $\vec{F}$ is an \textbf{inverse square field} if it is of the form
-\begin{equation*}
+\begin{align*}
     \vec{F}(\vec{r}) = \dfrac{k}{\abs{\vec{r}}^2} \vec{u}
-\end{equation*}
+\end{align*}
 for some $k \in \mathbb{R}$ and vector $\vec{u}$.
 \begin{itemize}
     \item Gravitational fields and electric fields are inverse square fields.
@@ -169,9 +169,9 @@ Let $\vec{F}$ be a vector field. A \textbf{field line} for $\vec{F}$ (or \textbf
 Vector fields can model the velocity of air as it moves around a wing of an airplane.
 
 If $\vec{r}(t)$ is a field line, then $\vec{r}'(t)$ is parallel to $\vec{F}(\vec{r}(t))$. In other words,
-\begin{equation*}
+\begin{align*}
     \vec{r}'(t) = \lambda(t) \vec{F}(\vec{r}(t))
-\end{equation*}
+\end{align*}
 for some $\lambda(t) > 0$. Alternatively, there exists a parametrization of $\vec{r}(u)$ such that $\vec{r}'(u) = \vec{F}(\vec{r}(u))$, but this can be difficult to find.
 \\ \\ For some vector fields, we can break $\vec{r}'(t)$ into it's components.
 \begin{align*}

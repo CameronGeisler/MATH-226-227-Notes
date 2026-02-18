@@ -13,9 +13,9 @@ We can extend the theory of limits to functions of multiple variables.
 
 \begin{definition}
 Let $f$ be a function of two variables, such that every open disk centered at $(a,b)$ contains a point of $f$ other than $(a,b)$. Then, the \textbf{limit} of $f$ as $(x,y)$ approaches $(a,b)$ equals $L$, denoted by,
-\begin{equation*}
+\begin{align*}
     \lim_{(x,y) \to (a,b)} f(x, y) = L
-\end{equation*}
+\end{align*}
 if, for all $\epsilon > 0$, there exists $\delta > 0$ such that for all $(x, y) \in D(f)$, if $0 < \sqrt{(x - a)^2 + (y - b)^2} < \delta$, then $\abs{f(x,y) - L} < \epsilon$.
 \end{definition}
 
@@ -24,35 +24,35 @@ The first condition basically means that the function is nicely defined around $
 
 \section*{Basic Limit Properties}
 
-\begin{equation*}
+\begin{align*}
     \lim_{(x,y) \to (a,b)} x = a \quad \lim_{(x,y) \to (a,b)} y = b \quad \lim_{(x,y) \to (a,b)} k = k
-\end{equation*}
+\end{align*}
 
 Slightly more generally, for any functions $g(x)$ and $h(y)$,
-\begin{equation*}
+\begin{align*}
     \lim_{(x,y) \to (a,b)} g(x) = \lim_{x \to a} g(x) \qquad \lim_{(x,y) \to (a,b)} h(y) = \lim_{y \to b} h(y)
-\end{equation*}
+\end{align*}
 That is, if $f(x,y)$ is really only a function of a single variable, then the limit is equivalent to a single-variable limit.
 
 \section*{Limit Rules}
 Let $f$, $g$ be functions of two variables, with $\lim_{(x,y) \to (a,b)} f(x,y) = L$, $\lim_{(x,y) \to (a,b)} g(x,y) = M$, and every neighbourhood of $(a,b)$ contains points of $D(f) \cap D(g)$. Then,
 \begin{enumerate}
     \item Sum rule
-    \begin{equation*}
+    \begin{align*}
         \lim_{(x,y) \to (a,b)} (f(x,y) + g(x,y)) = L + M
-    \end{equation*}
+    \end{align*}
     \item Difference rule
-    \begin{equation*}
+    \begin{align*}
         \lim_{(x,y) \to (a,b)} (f(x,y) - g(x,y)) = L - M
-    \end{equation*}
+    \end{align*}
     \item Product rule
-    \begin{equation*}
+    \begin{align*}
         \lim_{(x,y) \to (a,b)} f(x,y)g(x,y) = LM
-    \end{equation*}
+    \end{align*}
     \item Quotient rule (for $M \neq 0$)
-    \begin{equation*}
+    \begin{align*}
         \lim_{(x,y) \to (a,b)} \frac{f(x,y)}{g(x,y)} = \frac{L}{M}
-    \end{equation*}
+    \end{align*}
 \end{enumerate}
 
 \section*{Proving a Limit Exists Using Limit Rules}
@@ -187,9 +187,9 @@ Let $f(x,y) = \frac{xy}{x^2 + y^2}$. Prove that $\lim_{(x,y) \to (0,0)} f(x,y)$ 
 \end{example}
 \begin{proof}
 Approaching along $x = 0$,
-\begin{equation*}
+\begin{align*}
     f(0,y) = \frac{0 \cdot y}{0^2 + y^2} = \frac{0}{y^2} = 0
-\end{equation*}
+\end{align*}
 However, approaching along the line $y = mx$, for $m \neq 0$,
 \begin{align*}
     f(x,mx) & = \frac{x(mx)}{x^2 + (mx)^2} = \frac{mx^2}{x^2 + m^2x^2} = \frac{m}{1 + m^2} \neq 0
@@ -215,9 +215,9 @@ Prove that $\lim_{(x,y) \to (0,0)} \frac{x^4+3y^4}{x^2+y^2} = 0$
 Let $f(x,y) = \frac{x^4y^4}{(x^2 + y^4)^3}$. Prove that $\lim_{(x,y) \to (0,0)} f(x,y)$ does not exist.
 \begin{proof}
 Approaching along $x = 0$, $f(0,y) = 0$, so $f \rightarrow 0$. Approaching along $y = 0$, $f(x,0) = 0$, so $f \rightarrow 0$. Approaching along $y = mx$, for $m \in \mathbb{R}$, we get
-\begin{equation*}
+\begin{align*}
     f(x,mx) = \frac{x^4 (mx)^4}{(x^2 + (mx)^4)^3} = \frac{m^4 x^8}{(x^2 + m^4x^4)^3} = \frac{m^4 x^2}{(1 + m^4x^2)^3}
-\end{equation*}
+\end{align*}
 Thus,
 \begin{align*}
     \lim_{x \to 0} \frac{m^4 x^2}{(1 + m^4x^2)^3} = \frac{m^4 \cdot 0}{1} = 0

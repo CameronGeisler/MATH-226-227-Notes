@@ -13,9 +13,9 @@ A change of variables is a \textbf{transformation} that relates two sets of vari
 \section*{Jacobian Determinant}
 \begin{definition}
 Let $T: x = g(u,v), y = h(u,v)$ be a transformation, where $g, h$ are differentiable on a region of the $uv$-plane. Then, the \textbf{Jacobian determinant} (or simply \textbf{Jacobian}) of $T$ is the determinant of an array of the partial derivatives of $g$ and $h$,
-\begin{equation*}
+\begin{align*}
     \boxed{J(u,v) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\[10pt] \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} \end{vmatrix} = \frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item Note that $J(u,v)$ and $\frac{\partial(x,y)}{\partial(u,v)}$ are both notation used to represent the Jacobian.
 \end{itemize}
@@ -24,13 +24,13 @@ Let $T: x = g(u,v), y = h(u,v)$ be a transformation, where $g, h$ are differenti
 \section*{Change of Variables for Double Integrals}
 \begin{theorem}
 Let $T: x = g(u,v), y = h(u,v)$ be a transformation that maps a closed bounded region $S$ in the $uv$-plane to a region $R$ in the $xy$-plane, which is one-to-one on the interior of $S$, and let $g, h$ have continuous first partial derivatives there. Then, if $f$ is continuous on $R$, then
-\begin{equation*}
+\begin{align*}
     \boxed{\iint_R f(x,y) \,dA = \iint_S f(g(u,v), h(u,v)) \abs{J(u,v)} \,dA}
-\end{equation*}
+\end{align*}
 In other words,
-\begin{equation*}
+\begin{align*}
     \boxed{dx \,dy = \abs{J(u,v)} \,du \,dv}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 

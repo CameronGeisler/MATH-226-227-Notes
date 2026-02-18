@@ -5,48 +5,113 @@
 
 \begin{document}
 
-The partial derivatives of a function $f$ represent the rate of change of $f$ in the direction parallel to the $x$-axis and $y$-axis. This can be generalized to the directional derivative, the rate of change of a function in any of the infinitely many directions.
+Partial derivatives give us information about the rate of change. In particular, the rate of change in the direction parallel to the $x$-axis, and the $y$-axis. It turns out that we can generalize partial derivatives to the \textit{directional derivative}, which gives the rate of change of a function in any directions.
 
 \section*{Directional Derivatives}
+Let $(a,b,f(a,b))$ be a point on the graph of $z=f(x,y)$, and let $\hat{u}$. The goal is to find the rate of change of $f$ in the direction of $\hat{u}$. If $\hat{u} = \vecii{u_1}{u_2}$, then the slope of the secant line between $(a,b,f(a,b))$ and $(a + hu_1, b + hu_2, f(a + hu_1, b + hu_2))$ is given by,
+\begin{align*}
+    \frac{f(a + hu_1, b + hu_2) - f(a,b)}{\sqrt{(hu_1)^2 + (hu_2)^2}} = \frac{f(a + hu_1, b + hu_2) - f(a,b)}{h}
+\end{align*}
+As $h \to 0$, the secant line approaches the tangent line, and the slope of the secant line approaches the slope of the tangent line. Thus, we can define the directional derivative as follows.
+
 \begin{definition}
-Let $f$ be a function of two variables, defined on a neighbourhood of $(a,b)$, $\hat{u} = \vecii{u_1}{u_2}$ be a unit vector. Then, the \textbf{directional derivative} of $f$ at $(a,b)$ \textbf{in the direction of} $\hat{u}$ is given by
-\begin{equation*}
-    \boxed{D_{\vec{u}} f(a,b) = \lim_{h \to 0^{+}} \dfrac{f(a + hu_1, b + hu_2) - f(a,b)}{h}}
-\end{equation*}
+Let $f$ be a function of two variables, defined on a neighbourhood of $(a,b)$, $\hat{u} = \vecii{u_1}{u_2}$ be a unit vector. Then, the \textbf{directional derivative} of $f$ at $(a,b)$ \textbf{in the direction of} $\hat{u}$ is given by,
+\begin{align*}
+    \boxed{D_{\vec{u}} f(a,b) = \lim_{h \to 0^{+}} \frac{f(a + hu_1, b + hu_2) - f(a,b)}{h}}
+\end{align*}
 provided the limit exists.
 \end{definition}
 
-Intuitively, the directional derivative represents the rate of change of $f$ with respect to distance measured at $(a,b)$ along a ray of in the direction of $\hat{u}$ in the $xy$-plane.
+Intuitively, the directional derivative represents the rate of change of $f$ in the direction of $\hat{u}$.
 
 \begin{itemize}
     \item **Exercise** verify this formula for $\hat{u} = \ihat$ or $\hat{u} = \jhat$.
 \end{itemize}
 
-Alternatively, if $f$ is differentiable at $(a,b)$, then by the chain rule,
+There is a simplified formula for the directional derivative, in terms of partial derivatives.
+
+If $f$ is differentiable at $(a,b)$, then by the chain rule,
 \begin{align*}
-    D_{\vec{u}} f(a,b) & = \left. \dfrac{d}{dt} \right|_{t = 0} f(a + tu_1, b + tu_2) \\
+    D_{\vec{u}} f(a,b) & = \left. \frac{d}{dt} \right|_{t = 0} f(a + tu_1, b + tu_2) \\
     & = f_1(a,b)u_1 + f_2(a,b)u_2
 \end{align*}
 
-\begin{definition}
-Let $f$ be a function of $x$ and $y$, where $f_x$ and $f_y$ exist. The \textbf{gradient}, $\nabla f$, is a vector with $x$ and $y$ components given by their respective partial derivative,
-\begin{equation*}
-    \boxed{\nabla f = \vecii{f_x}{f_y} = f_x \ihat + f_y \jhat}
-\end{equation*}
-\end{definition}
+
 
 \begin{theorem}
 Let $f$ be differentiable at $(a,b)$, $\vec{u} = \vecii{u_1}{u_2}$ be a unit vector in the $xy$-plane. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{D_{\vec{u}} f(a,b) = f_x(a,b) u_1 + f_y(a,b) u_2}
-\end{equation*}
-This can be rewritten as a dot product of the gradient with the unit vector,
-\begin{equation*}
-    \boxed{D_{\vec{u}} f(a,b) = \nabla f(a,b) \bullet \hat{u}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
+Intuitively, the directional derivative is a weighted average of the partial derivatives, with the components of $\hat{u}$ as the weights. This should make sense, because the directional derivative is the rate of change in the direction of $\hat{u}$, which is a linear combination of the $x$ and $y$ directions. Thus, the directional derivative should be a linear combination of the rates of change in the $x$ and $y$ directions, which are given by the partial derivatives.
 
+\section*{Gradient}
+The formula for the directional derivative can be rewritten in terms of the \textit{gradient} of $f$.
+\begin{definition}
+Let $f$ be a function of $x$ and $y$, where $f_x$ and $f_y$ exist. The \textbf{gradient}, $\nabla f$, is a vector with $x$ and $y$ components given by their respective partial derivative,
+\begin{align*}
+    \boxed{\nabla f = \vecii{f_x}{f_y} = f_x \ihat + f_y \jhat}
+\end{align*}
+\end{definition}
+
+Then, the directional derivative can be rewritten as a dot product of the gradient with the unit vector,
+\begin{align*}
+    \boxed{D_{\vec{u}} f(a,b) = \nabla f(a,b) \bullet \hat{u}}
+\end{align*}
+In short,
+\begin{align*}
+    \boxed{D_{\vec{u}} f = \nabla f \bullet \hat{u}}
+\end{align*}
+
+\section*{Interpretation of the Gradient}
+
+The gradient is a vector that points in the direction of steepest ascent. The magnitude of the gradient gives the rate of change in that direction. The directional derivative is the projection of the gradient onto the direction of $\hat{u}$, which gives the rate of change in the direction of $\hat{u}$.
+
+This is because, using the formula for the dot product,
+\begin{align*}
+    D_{\vec{u}} f(a,b) & = \nabla f(a,b) \bullet \hat{u} \\
+    & = \abs{\nabla f(a,b)} \abs{\hat{u}} \cos{\theta} \\
+    & = \abs{\nabla f(a,b)} \cos{\theta}
+\end{align*}
+Where $\theta$ is the angle between $\nabla f(a,b)$ and $\hat{u}$. Thus, the directional derivative is maximized when $\cos{\theta} = 1$, i.e. when $\theta = 0$, which means that $\hat{u}$ is in the same direction as $\nabla f(a,b)$. This shows that the gradient points in the direction of steepest ascent. On the other hand, the directional derivative is minimized when $\cos{\theta} = -1$, i.e. when $\theta = \pi$, which means that $\hat{u}$ is in the opposite direction as $\nabla f(a,b)$.
+
+Also, the directional derivative is zero when $\cos{\theta} = 0$, i.e. when $\theta = \pi/2$ or $3\pi/2$, which means that $\hat{u}$ is perpendicular to $\nabla f(a,b)$.
+
+\begin{theorem}
+Let $f$ be differentiable at $(a,b)$, $\vec{u} = \vecii{u_1}{u_2}$ be a unit vector in the $xy$-plane. Then,
+\begin{enumerate}
+    \item $f$ has its maximum rate of change in the direction of $\nabla f$, and the maximum rate of change is $\abs{\nabla f}$.
+    \item $f$ has its minimum rate of change in the direction opposite to $\nabla f$ (i.e. in the direction of $-\nabla f$), and the minimum rate of change is $-\abs{\nabla f}$.
+    \item $f$ has zero rate of change in the direction perpendicular to $\nabla f$.
+\end{enumerate}
+\end{theorem}
+
+In addition, the gradient is perpendicular to the level curve of $f$ at $(a,b)$. This is because the directional derivative tangent to a level curve is zero, which means that the gradient must be perpendicular to the level curve.
+
+\begin{theorem}
+The gradient $\nabla f(a,b)$ is perpendicular to the level curve of $f$ at $(a,b)$.
+\end{theorem}
+
+\section*{Directional Derivative and Gradient in 3 Dimensions}
+The directional derivative and gradient can be generalized to functions of three variables. Let $f$ be a function of three variables, then its directional derivative in the direction of a unit vector $\vec{u} = \veciii{u_1}{u_2}{u_3}$ is given by,
+\begin{align*}
+    D_{\vec{u}} f(a,b,c) = \nabla f(a,b,c) \bullet \vec{u}
+\end{align*}
+And, its gradient is given by,
+\begin{align*}
+    \nabla f = \veciii{f_x}{f_y}{f_z}
+\end{align*}
+
+
+
+
+
+
+
+
+\section*{Examples}
 \begin{example}
 Let $f(x,y) = x^2y^3$.
 \begin{enumerate}[(a)]
@@ -56,24 +121,24 @@ Let $f(x,y) = x^2y^3$.
     \end{align*}
     \item Determine $D_{\vec{u}} f(2,1)$ for $\vec{u} = \vecii{\sqrt{2}/2}{-\sqrt{2}/2}$.
     First, check $\abs{\vec{u}} = 1$.
-    \begin{equation*}
-        \abs{\vec{u}} = \sqrt{\left(\dfrac{\sqrt{2}}{2} \right)^2 + \left(-\dfrac{\sqrt{2}}{2} \right)^2} = 1
-    \end{equation*}
+    \begin{align*}
+        \abs{\vec{u}} = \sqrt{\left(\frac{\sqrt{2}}{2} \right)^2 + \left(-\frac{\sqrt{2}}{2} \right)^2} = 1
+    \end{align*}
     Then,
     \begin{align*}
-        D_{\vec{u}} f = \vecii{4}{12} \bullet \vecii{\dfrac{\sqrt{2}}{2}}{\dfrac{\sqrt{2}}{2}} = -4 \sqrt{2}
+        D_{\vec{u}} f = \vecii{4}{12} \bullet \vecii{\frac{\sqrt{2}}{2}}{\frac{\sqrt{2}}{2}} = -4 \sqrt{2}
     \end{align*}
     \item Determine the directional derivative at $(2,1)$ in the direction of $\vec{v} = \vecii{3}{5}$.
     \begin{align*}
-        D_{\vec{u}} f(2,1) = \vecii{4}{12} \bullet \vecii{\dfrac{3}{\sqrt{34}}}{\dfrac{5}{\sqrt{34}}} = \dfrac{12}{\sqrt{34}} + \dfrac{60}{\sqrt{34}}
+        D_{\vec{u}} f(2,1) = \vecii{4}{12} \bullet \vecii{\frac{3}{\sqrt{34}}}{\frac{5}{\sqrt{34}}} = \frac{12}{\sqrt{34}} + \frac{60}{\sqrt{34}}
     \end{align*}
 \end{enumerate}
 \end{example}
 
 Let $f(x,y)$ be differentiable on $D$. Let $\vec{r} = \vecii{x}{y}$. Then,
 \begin{align*}
-    D_{\vec{u}} & = \lim_{h \to 0} \dfrac{f(\vec{r} + h\vec{u}) - f(\vec{r})}{h} \\
-    & = \left. \dfrac{d}{dt} f(\vec{r} + t \vec{u}) \right|_{t=0}
+    D_{\vec{u}} & = \lim_{h \to 0} \frac{f(\vec{r} + h\vec{u}) - f(\vec{r})}{h} \\
+    & = \left. \frac{d}{dt} f(\vec{r} + t \vec{u}) \right|_{t=0}
 \end{align*}
 $\vec{r} + t\vec{u}$ is the path trajectory, and $D_{\vec{u}} f$ is the observed rate of change.
 \\ \\ The directional derivative tangent to a level curve is $0$.
@@ -101,7 +166,7 @@ Let $f$ be a function of two variables. If $f$ is differentiable at $(a,b)$, the
 \\ \\ If $\nabla f \neq 0$ at $(a,b)$, then 
 \begin{enumerate}
     \item for $\vec{u}$, $\abs{\vec{u}} = 1$, $D_{\vec{u}} f(a,b) = \vec{u} \bullet \nabla f(a,b)$.
-    \item $\nabla f$ represents the direction of steepest decent. If $\vec{u} = \dfrac{\nabla f}{\abs{\nabla f}}$ then this maximizes $D_{\vec{u}} f(a,b)$
+    \item $\nabla f$ represents the direction of steepest decent. If $\vec{u} = \frac{\nabla f}{\abs{\nabla f}}$ then this maximizes $D_{\vec{u}} f(a,b)$
     \item $\nabla f$ is perpendicular to the level curve of $f$ at $(a,b)$
 \end{enumerate}
 If $\nabla f(a,b) = 0$, $2$ and $3$ does not hold.
@@ -117,11 +182,11 @@ Determine the equation of the tangent plane to the ellipsoid $\frac{x^2}{4} + y^
 \end{align*}
 \end{example}
 
-If $f$ is not differentiable at $(a,b)$, then $\nabla f(a,b) = \vecii{f_1(a,b)}{f_2(a,b)}$ if $f_1(a,b)$ and $f_2(a,b)$ both exist. Also, $D_{\vec{u}} f(a,b) = \lim_{h \to 0} \dfrac{f(a + hu_1, b + hu_2) - f(a,b)}{h}$ if it exists.
+If $f$ is not differentiable at $(a,b)$, then $\nabla f(a,b) = \vecii{f_1(a,b)}{f_2(a,b)}$ if $f_1(a,b)$ and $f_2(a,b)$ both exist. Also, $D_{\vec{u}} f(a,b) = \lim_{h \to 0} \frac{f(a + hu_1, b + hu_2) - f(a,b)}{h}$ if it exists.
 \\ \\ The formula $D_{\vec{u}} = \nabla f \bullet \vec{u}$ is not always true. $\nabla f$ cannot be used to find the tangent plane, unless you use a function of more variables as in the previous example.
 
 \begin{example}
-Let $f(x,y) = \begin{cases} \dfrac{xy^2}{x^2 + y^4} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}$
+Let $f(x,y) = \begin{cases} \frac{xy^2}{x^2 + y^4} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0) \end{cases}$
 \\ $f$ is not continuous at $(0,0)$, so it is not differentiable at $(0,0)$. However,
 \begin{align*}
     f(x,0) & = 0 \\
@@ -133,42 +198,42 @@ Let $f(x,y) = \begin{cases} \dfrac{xy^2}{x^2 + y^4} & (x,y) \neq (0,0) \\ 0 & (x
 \begin{align*}
     D_{\vec{u}} f(0,0), \vec{u} = \vecii{u_1}{u_2} \\
     f(t \vec{u}) & = f(tu_1, tu_2) \\
-    & = \dfrac{tu_1 (tu_2)^2}{(tu_1)^2 + (tu_2)^4} \\
-    & = \dfrac{u_1 u_2^2 t^3}{u_1^2 t^2 + u_2^4 t^4} \\
-    & = \dfrac{u_1 u_2^2 t}{u_1^2 + u_2^4 t^2}
+    & = \frac{tu_1 (tu_2)^2}{(tu_1)^2 + (tu_2)^4} \\
+    & = \frac{u_1 u_2^2 t^3}{u_1^2 t^2 + u_2^4 t^4} \\
+    & = \frac{u_1 u_2^2 t}{u_1^2 + u_2^4 t^2}
 \end{align*}
 Next, determine the direction derivative from the definition.
 \begin{align*}
-    D_{\vec{u}} f(0,0) & = \lim_{t \to 0} \dfrac{f(t \vec{u}) - f(\vec{0})}{t} \\
-    & = \lim_{t \to 0} \dfrac{\dfrac{u_1 u_2^2 t}{u_1^2 + u_2^4 t^2} - 0}{t} \\
-    & = \lim_{t \to 0} \dfrac{u_1 u_2^2}{u_1^2 + u_2^4 t^2} \\
-    & = \dfrac{u_2^2}{u_1} && u_1 \neq 0
+    D_{\vec{u}} f(0,0) & = \lim_{t \to 0} \frac{f(t \vec{u}) - f(\vec{0})}{t} \\
+    & = \lim_{t \to 0} \frac{\frac{u_1 u_2^2 t}{u_1^2 + u_2^4 t^2} - 0}{t} \\
+    & = \lim_{t \to 0} \frac{u_1 u_2^2}{u_1^2 + u_2^4 t^2} \\
+    & = \frac{u_2^2}{u_1} && u_1 \neq 0
 \end{align*}
 Thus,
-\begin{equation*}
-    D_{\vec{u}} f(0,0) = \begin{cases} \dfrac{u_2^2}{u_1} & u_1 \neq 0 \\ 0 & u_1 = 0 \end{cases}
-\end{equation*}
+\begin{align*}
+    D_{\vec{u}} f(0,0) = \begin{cases} \frac{u_2^2}{u_1} & u_1 \neq 0 \\ 0 & u_1 = 0 \end{cases}
+\end{align*}
 Exists for all $\vec{u}$, however, the formula $D_{\vec{u}} = \nabla f \bullet \vec{u}$ doesn't hold.
 \end{example}
 
 \begin{example}
-Let $f(x,y) = \begin{cases} \dfrac{3x^4-y^3}{x^4+2y^2} & \text{if } (x,y) \neq (0,0) \\ 0 & \text{if } (x,y) = (0,0) \end{cases}$
+Let $f(x,y) = \begin{cases} \frac{3x^4-y^3}{x^4+2y^2} & \text{if } (x,y) \neq (0,0) \\ 0 & \text{if } (x,y) = (0,0) \end{cases}$
 \\ \\ Determine the directional derivative $D_{\hat{u}}f(0,0)$ for $\hat{u} = \vecii{\sqrt{3}/2}{1/2}$
 \begin{align*}
     D_{\hat{u}}f(0,0) & = \lim_{h \to 0^{+}} \frac{f \left( \frac{\sqrt{3}}{2}h, \frac{h}{2} \right) - f(0,0)}{h} \\
-    & = \lim_{h \to 0^{+}} \dfrac{\frac{27h^2 - 2h}{9h^2 + 8} - 0}{h} \\
-    & = \lim_{h \to 0^{+}} \dfrac{27h - 2}{9h^2 + 8} \\
-    & = -\dfrac{1}{4}
+    & = \lim_{h \to 0^{+}} \frac{\frac{27h^2 - 2h}{9h^2 + 8} - 0}{h} \\
+    & = \lim_{h \to 0^{+}} \frac{27h - 2}{9h^2 + 8} \\
+    & = -\frac{1}{4}
 \end{align*}
 \end{example}
 
 \begin{example}
 Let $f(x,y,z) = e^{xy} + 3xz$. Determine the directional derivative in the direction of $\vec{v} = \veciii{1}{2}{3}$ at $(1,5,6)$.
 \begin{align*}
-    \hat{u} & = \dfrac{1}{\sqrt{14}} \veciii{1}{2}{3} \\
+    \hat{u} & = \frac{1}{\sqrt{14}} \veciii{1}{2}{3} \\
     \nabla f(x,y,z) & = \veciii{ye^{xy} + 3z}{xe^{xy}}{3x} && \nabla f(1,5,6) = \veciii{5e^5 + 18}{e^5}{3} \\
-    D_{\hat{u}} f(1,5,6) & = \veciii{5e^5 + 18}{e^5}{3} \bullet \dfrac{1}{\sqrt{14}} \veciii{1}{2}{3} \\
-    & = \dfrac{7e^5 + 27}{\sqrt{14}}
+    D_{\hat{u}} f(1,5,6) & = \veciii{5e^5 + 18}{e^5}{3} \bullet \frac{1}{\sqrt{14}} \veciii{1}{2}{3} \\
+    & = \frac{7e^5 + 27}{\sqrt{14}}
 \end{align*}
 \end{example}
 

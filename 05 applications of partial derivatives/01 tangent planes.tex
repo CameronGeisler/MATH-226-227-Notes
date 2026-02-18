@@ -6,25 +6,25 @@
 \begin{document}
 
 Recall that for a single-variable function $f$, if $f$ is differentiable at $a$, then the equation of the tangent line is given by
-\begin{equation*}
+\begin{align*}
     T(x) = f(a) + f'(a)(x - a)
-\end{equation*}
+\end{align*}
 This plane touches the curve $y = f(x)$ at $x = a$, and can be used to approximate $f$ for values near $x = a$. For functions of two variables, the analogous approximation is the \textbf{tangent plane}, a plane that touches the surface $z = f(x,y)$ at $(a,b)$, and can be used to approximate $f$ for values near $(a,b)$.
 
 \section*{Tangent Planes}
 \begin{theorem}
 Let $f$ be a function of two variables. If $f$ is smooth at $(a,b)$, then a normal vector at $(a,b)$ (vector perpendicular to the surface of $f$ at $(a,b)$) is given by
-\begin{equation*}
+\begin{align*}
     \vec{n} = \veciii{f_x(a,b)}{f_y(a,b)}{-1}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 Assume that $f$ has a non-vertical tangent plane at $(a,b)$, so that the normal vector will be perpendicular to this plane.
 \\ \\ Then, the intersection of the tangent plane and the vertical plane $y = b$ is a straight line that is tangent to the intersection of the curve $z = f(x,y)$ and the plane $y = b$. This line has slope $f_x(a,b)$, so it is parallel to the vector $v_1 = \ihat + f_x(a,b) \hat{k}$. Similarly, the intersection of the tangent plane and the plane $x = a$ is a straight line that is tangent to the intersection of $z = f(x,y)$ and $x = a$. This line has slope $f_y(a,b)$, so it is parallel to the vector $v_2 = \jhat + f_y(a,b) \hat{k}$.
 \\ \\ Thus, the tangent plane (and the surface $z = f(x,y)$) has normal vector
-\begin{equation*}
+\begin{align*}
     \vec{n} = v_1 \times v_2 = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ 0 & 1 & f_y(a,b) \\ 1 & 0 & f_x(a,b) \end{vmatrix} = f_x(a,b) \ihat + f_y(a,b) \jhat - \hat{k}
-\end{equation*}
+\end{align*}
 \end{proof}
 
 The tangent plane has normal vector $\vec{n} = \veciii{f_x(a,b)}{f_y(a,b)}{-1}$, and passes through $(a,b,f(a,b))$, so it has equation
@@ -32,16 +32,16 @@ The tangent plane has normal vector $\vec{n} = \veciii{f_x(a,b)}{f_y(a,b)}{-1}$,
     f_x(a,b)(x - a) + f_y(a,b)(y - b) - 1(z - f(a,b)) = 0
 \end{align*}
 Rearranging, the equation of the tangent plane is given by
-\begin{equation*}
+\begin{align*}
     \boxed{z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)}
-\end{equation*}
+\end{align*}
 
 \section*{Normal Lines}
 \begin{theorem}
 The normal line to $z = f(x,y)$ at $(a,b,f(a,b))$ has equation
-\begin{equation*}
+\begin{align*}
     \dfrac{x - a}{f_x(a,b)} = \dfrac{y - b}{f_y(a,b)} = \dfrac{z - f(a,b)}{-1}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Examples}
@@ -102,9 +102,9 @@ Thus, the equation of the tangent plane is
 
 \section*{Tangent Hyperplanes}
 Let $f$ be a function of $n$ variables. It's graph $x_{n+1} = f(x_1, \dots, x_n)$ is a hypersurface in $\mathbb{R}^{n+1}$. Its tangent hyperplane at $\vec{a} = (a_1, \dots, a_n)$ is
-\begin{equation*}
+\begin{align*}
     x_{n+1} = f(\vec{a}) + f_1(\vec{a})(x_1 - a_1) + \dots + f_n(\vec{a})(x_n - a_n)
-\end{equation*}
+\end{align*}
 
 
 

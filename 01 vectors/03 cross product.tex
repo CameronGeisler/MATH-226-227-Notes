@@ -14,13 +14,13 @@ Let $P, Q, R$ be 3 distinct points in $\mathbb{R}^3$, that are not all on the sa
     w_1 x_1 + w_2 x_2 + w_3 x_3 & = 0
 \end{align*}
 Then, by solving this system of equations, we will get a vector that is perpendicular to both $\vec{v}$ and $\vec{w}$. There are 2 equations and 3 variables, so we expect that there are infinitely many solutions in general. The coefficient matrix is,
-\begin{equation*}
+\begin{align*}
     \begin{bmatrix} v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{bmatrix}
-\end{equation*}
+\end{align*}
 Then, converting to RREF,
-\begin{equation*}
+\begin{align*}
     \begin{bmatrix} 1 & 0 & \frac{v_2 w_3 - v_3 w_2}{v_2 w_1 - v_1 w_2} \\ 0 & 1 & \frac{v_3 w_1 - v_1 w_3}{v_2 w_1 - v_1 w_2} \end{bmatrix}
-\end{equation*}
+\end{align*}
 which correspond to the equations,
 \begin{align*}
     x_1 + \frac{v_2 w_3 - v_3 w_2}{v_2 w_1 - v_1 w_2} x_3 & = 0 \\
@@ -31,37 +31,37 @@ Here, $x_3$ is a free variable, as expected, and the general solution is,
     \begin{bmatrix} \frac{v_3 w_2 - v_2 w_3}{v_2 w_1 - v_1 w_2} x_3 \\ \frac{v_1 w_3 - v_3 w_1}{v_2 w_1 - v_1 w_2} x_3 \\ x_3 \end{bmatrix} = x_3 \begin{bmatrix} \frac{v_3 w_2 - v_2 w_3}{v_2 w_1 - v_1 w_2} \\ \frac{v_1 w_3 - v_3 w_1}{v_2 w_1 - v_1 w_2} \\ 1 \end{bmatrix}
 \end{align*}
 As expected, there are infinitely many solutions, corresponding to various values of $x_3$. For the cross product, it turns out that a convenient solution is $x_3 = -(v_2 w_1 - v_1 w_2)$. This solution cancels out the denominator, which cleans up the algebra. Also, the negative sign will turn out to mean that the cross product follows the so-called \textit{right-hand rule}. Then, the solution is,
-\begin{equation*}
+\begin{align*}
     \veciii{v_2 w_3 - v_3 w_2}{v_3 w_1 - v_1 w_2}{v_1 w_2 - v_2 w_1}
-\end{equation*}
+\end{align*}
 
 \section*{Cross Product}
 \begin{definition}
 Let $\vec{v}, \vec{w} \in \mathbb{R}^3$. The \text{cross product} of $\vec{v}$ and $\vec{w}$, denoted by $\vec{v} \times \vec{w}$, is given by,
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{v} \times \vec{w} = \veciii{v_2 w_3 - v_3 w_2}{v_3 w_1 - v_1 w_3}{v_1 w_2 - v_2 w_1}}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 The entries of the cross product seem complicated, but it is helpful to notice they are $2 \times 2$ determinants,
-\begin{equation*}
+\begin{align*}
     \vec{v} \times \vec{w} = \veciii{\begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix}}{-\begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix}}{\begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix}}
-\end{equation*}
+\end{align*}
 Further, you may notice that this has the form of a $3 \times 3$ determinant that has been expanded into $2 \times 2$ minors. In particular, using the standard basis vectors,
 \begin{align*}
     \vec{v} \times \vec{w} & = \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \ihat - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \jhat + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \khat
 \end{align*}
 This has the form of the expansion of the determinant,
-\begin{equation*}
+\begin{align*}
     \begin{vmatrix} \ihat & \jhat & \khat \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}
-\end{equation*}
+\end{align*}
 Strictly speaking, this is a formal expansion, meaning it is purely symbolic. This is because a determinant is defined for a matrix with number entries and outputs a number, whereas this has vector entries like $\ihat$ and $\jhat$ and outputs a vector. This is the formula that is typically used to compute the cross product by-hand.
 
 \begin{theorem}
 \textbf{Cross product determinant formula}.
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{v} \times \vec{w} = \begin{vmatrix} \ihat & \jhat & \khat \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix} = \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \ihat - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \jhat + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \khat}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
@@ -113,9 +113,9 @@ The cross product $\vec{v} \times \vec{w}$ is perpendicular to both $\vec{v}$ an
 \begin{theorem}
 \begin{itemize}
     \item \textbf{Anti-commutative property}.
-    \begin{equation*}
+    \begin{align*}
         \vec{v} \times \vec{w} = - (\vec{w} \times \vec{v})
-    \end{equation*}
+    \end{align*}
     \item \textbf{Distributive property}.
     \begin{align*}
         \vec{u} \times (\vec{v} + \vec{w}) & = \vec{u} \times \vec{v} + \vec{u} \times \vec{w} \\
@@ -141,9 +141,9 @@ If $\vec{v} = \veciii{1}{2}{-1}$ and $\vec{w} = \veciii{1}{0}{3}$, then
 
 \begin{example}
 Let $\vec{u} = u_1 \ihat = u_2 \jhat$, $\vec{v} = v_1 \ihat + v_2 \jhat$ (in $\mathbb{R}^3$). Then,
-\begin{equation*}
+\begin{align*}
     \vec{u} \times \vec{v} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ u_1 & u_2 & 0 \\ v_1 & v_2 & 0 \end{vmatrix} = \begin{vmatrix} u_2 & 0 \\ v_2 & 0 \end{vmatrix} \ihat - \begin{vmatrix} u_1 & 0 \\ v_1 & 0 \end{vmatrix} \jhat + \begin{vmatrix} u_1 & u_2 \\ v_1 & v_2 \end{vmatrix} \hat{k} = (u_1 v_2 - u_2 v_1) \hat{k}
-\end{equation*}
+\end{align*}
 The resulting vector $\vec{u} \times \vec{v}$ only has a $\hat{k}$ component, so it is perpendicular to both $\vec{u}$ and $\vec{v}$.
 \end{example}
 
@@ -154,24 +154,24 @@ The resulting vector $\vec{u} \times \vec{v}$ only has a $\hat{k}$ component, so
 \section*{Area of a Triangle Using the Cross Product}
 \begin{theorem}
 Let $\bigtriangleup ABC$ be a triangle. Then the area of the triangle is given by,
-\begin{equation*}
+\begin{align*}
     \boxed{A = \frac{1}{2} \abs{\avec{AB} \times \avec{AC}}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Scalar Triple Product}
 \begin{definition}
 Let $\vec{u}, \vec{v}, \vec{w}$ be vectors. The \textbf{scalar triple product} is the dot product of one of the vectors with the cross product of the other two. For example, the quantity,
-\begin{equation*}
+\begin{align*}
     \vec{u} \bullet (\vec{v} \times \vec{w})
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{theorem}
 Let $\vec{u} = u_1 \ihat + u_2 \jhat + u_3 \hat{k}$, $\vec{v} = v_1 \ihat + v_2 \jhat + v_3 \hat{k}$, $\vec{w} = w_1 \ihat + w_2 \jhat + w_3 \hat{k}$. The scalar triple product can be expressed as the determinant,
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{u} \bullet (\vec{v} \times \vec{w}) = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 \begin{align*}
@@ -183,9 +183,9 @@ Let $\vec{u} = u_1 \ihat + u_2 \jhat + u_3 \hat{k}$, $\vec{v} = v_1 \ihat + v_2 
 
 \begin{theorem}
 The scalar triple product is associative only in the same cyclic order. That is, rearranging the scalar triple product with same cyclic order does not change the quantity,
-\begin{equation*}
+\begin{align*}
     \vec{u} \bullet (\vec{v} \times \vec{w}) = \vec{v} \bullet (\vec{w} \times \vec{u}) = \vec{w} \bullet (\vec{u} \times \vec{v})
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
@@ -207,18 +207,18 @@ If $\vec{u} \bullet (\vec{v} \times \vec{w}) \neq 0$, then every $\vec{x} \in \m
 
 \begin{theorem}
 Let $\vec{u}, \vec{v}, \vec{w}$ be vectors in $\mathbb{R}^3$, such that $\vec{v} \times \vec{w} \neq \vec{0}$. If $\vec{u} \bullet (\vec{v} \times \vec{w}) = 0$, then,
-\begin{equation*}
+\begin{align*}
     \vec{u} = \lambda \vec{v} + \mu \vec{w}
-\end{equation*}
+\end{align*}
 for some $\lambda, \mu \in \mathbb{R}$.
 \end{theorem}
 
 \section*{Volume of a Parallelepiped Using the Scalar Triple Product}
 \begin{theorem}
 The volume of a parallelepiped spanned by vectors $\vec{u}$, $\vec{v}$, and $\vec{w}$ is
-\begin{equation*}
+\begin{align*}
     V = \abs{\vec{u} \bullet (\vec{v} \times \vec{w})}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 The base area of the parallelepiped is $\abs{\vec{v} \times \vec{w}}$, and the height is $\abs{\operatorname{proj}_{\vec{v} \times \vec{w}}(\vec{u})}$. Thus,
@@ -232,20 +232,20 @@ The base area of the parallelepiped is $\abs{\vec{v} \times \vec{w}}$, and the h
 
 \begin{example}
 Determine the volume of the parallelepiped spanned by the vectors $\vec{u} = \veciii{2}{0}{0}$, $\vec{v} = \veciii{0}{1}{-1}$, and $\vec{w} = \veciii{3}{0}{1}$.
-\begin{equation*}
+\begin{align*}
     V = \abs{\begin{vmatrix} 2 & 0 & 0 \\ 0 & 1 & -1 \\ 3 & 0 & 1 \end{vmatrix}} = \abs{2 \begin{vmatrix} 1 & -1 \\ 0 & 1 \end{vmatrix} - 0 + 0} = 2
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
 Give an example of non-zero vectors $\vec{u}$, $\vec{v}$, $\vec{w}$ such that $\vec{v} \times \vec{w} \neq 0$ but $\vec{u} \bullet (\vec{v} \times \vec{w}) = 0$. Let $\vec{u} = \vec{v} = \ihat$, $\vec{w} = \jhat$. Then,
-\begin{equation*}
+\begin{align*}
     \vec{v} \times \vec{w} = \ihat \times \jhat = \hat{k} \neq \vec{0}
-\end{equation*}
+\end{align*}
 Also,
-\begin{equation*}
+\begin{align*}
     \vec{u} \bullet (\vec{v} \times \vec{w}) = \ihat \bullet \hat{k} = 0
-\end{equation*}
+\end{align*}
 \end{example}
 
 
@@ -256,9 +256,9 @@ Let $\vec{v}, \vec{w} \neq \vec{0}$ be non-parallel vectors (so $\vec{v} \times 
 \section*{Coplanar Vectors}
 
 Every two vectors $\vec{u}, \vec{v}$ are co-planar, in that there is a plane (that passes through the origin) for which both vectors lie in that plane. However, if a third vector $\vec{w}$ is introduced, these vectors are co-planar only if $\vec{w}$ lies in the same plane as $\vec{u}$ and $\vec{v}$. By definition, the plane spanned by $\vec{u}$ and $\vec{v}$ has normal vector $\vec{u} \times \vec{v}$. Then, a vector $\vec{w}$ lies in the plane only if it is perpendicular to $\vec{u} \times \vec{v}$, or,
-\begin{equation*}
+\begin{align*}
     \vec{w} \bullet (\vec{u} \times \vec{v}) = 0
-\end{equation*}
+\end{align*}
 
 \section*{Applications of the Cross Product}
 \begin{itemize}
@@ -277,9 +277,9 @@ Consider a point $P = (x_1, y_1, z_1)$ and a line in 3D given by $\vec{r} = \vec
 
 \begin{theorem}
 \textbf{Distance from line to point}. The distance from a point $P$ to a line in 3d defined by a point $P_0$ on the line and direction vector $\vec{v}$ is given by,
-\begin{equation*}
+\begin{align*}
     \boxed{d = \frac{\abs{\vec{PP_0} \times \vec{v}}}{\abs{\vec{v}}}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 
@@ -296,9 +296,9 @@ Consider a point $P = (x_1, y_1, z_1)$ and a plane with normal vector $\vec{n}$ 
 \end{align*}
 
 For a plane $Ax + By + Cz = D$ and point $P_0 = (x_0,y_0,z_0)$, this becomes,
-\begin{equation*}
+\begin{align*}
     d = \frac{\abs{Ax_0 + By_0 + Cz_0 - D}}{\sqrt{A^2 + B^2 + C^2}}
-\end{equation*}
+\end{align*}
 
 \section*{Distance Between Line and Plane}
 With a line and a plane, there are 3 cases:
@@ -313,9 +313,9 @@ If the line is parallel to the plane (but doesn't lie in the plane), then the li
 
 \section*{Angle Between Planes}
 Angle between normal vectors.
-\begin{equation*}
+\begin{align*}
     \theta = \cos^{-1}\brac{\frac{\vec{n}_1 \bullet \vec{n}_2}{\abs{\vec{n}_1} \cdot \abs{\vec{n}_2}}}
-\end{equation*}
+\end{align*}
 
 
 \end{document}

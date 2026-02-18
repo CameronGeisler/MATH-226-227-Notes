@@ -7,9 +7,9 @@
 \section*{Differentiability}
 \begin{definition}
 Let $f$ be a function of one variable. If $f'(a)$ exists, then the \textbf{linearization} (or \textbf{tangent line}) of $f$ at $a$ is
-\begin{equation*}
+\begin{align*}
     L(x) = f(a) + f'(a)(x - a)
-\end{equation*}
+\end{align*}
 \end{definition}
 
 Geometrically, $L$ is a good approximation of $f$ near $a$. The vertical distance between $f$ and $L$ is small for $x$ near $a$. In other words,
@@ -22,9 +22,9 @@ Geometrically, $L$ is a good approximation of $f$ near $a$. The vertical distanc
 
 \begin{definition}
 Let $f$ be a function of two variables. If $f_x$ and $f_y$ exist, then the \textbf{linearization} (or the \textbf{tangent plane}) of $f$ at $(a,b)$ is
-\begin{equation*}
+\begin{align*}
     L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{definition}
@@ -33,22 +33,22 @@ Let $f$ be a function of $n$ variables. Then, the linearization of $f$ is a hype
 
 \begin{definition}
 Let $f$ be a function of two variables. Then, $f$ is \textbf{differentiable} at $(a,b)$ if and only if
-\begin{equation*}
+\begin{align*}
     \lim_{(x, y) \to (a, b)} \frac{f(x, y) - L(x, y)}{\sqrt{(x - a)^2 + (y - b)^2}} = 0
-\end{equation*}
+\end{align*}
 Equivalently, if $h = x - a$, $k = y - k$
-\begin{equation*}
+\begin{align*}
     \lim_{(h,k) \to (0,0)} \frac{f(a+h,b+k) - f(a,b) - hf_x(a,b) - kf_y(a,b)}{\sqrt{h^2 + k^2}} = 0
-\end{equation*}
+\end{align*}
 \end{definition}
 
-\begin{equation*}
+\begin{align*}
     L(x,y) = f(a, b) + \frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b)
-\end{equation*}
+\end{align*}
 In terms of differentials,
-\begin{equation*}
+\begin{align*}
     dz = f_x(x,y)dx + f_y(x, y)dy
-\end{equation*}
+\end{align*}
 
 \section*{Continuous Partial Derivatives implies Differentiable}
 \begin{theorem}
@@ -125,14 +125,14 @@ Extending to higher dimensions,
 Let $f$: $\mathbb{R}^n \longrightarrow \mathbb{R}$, at $\vec{a} = \left< a_1, \dots, a_n \right>$.
 
 $f(\vec{x})$ is approximated by
-\begin{equation*}
+\begin{align*}
     L(\vec{x}) = f(\vec{a}) + f_1(\vec{a})(x_1 - a_1) + \dots + f_n(\vec{a})(x_n - a_n)
-\end{equation*}
+\end{align*}
 
 $f$ is differentiable at $\vec{a}$ if
-\begin{equation*}
+\begin{align*}
     \lim_{\vec{x} \to \vec{a}} \frac{f(\vec{x}) - L(\vec{a})}{\norm{\vec{x} - \vec{a}}}
-\end{equation*}
+\end{align*}
 
 This also extends to vector-valued functions,
 Let $\vec{f}: \mathbb{R}_x^n \longrightarrow \mathbb{R}_y^m$
@@ -143,13 +143,13 @@ Let $\vec{f}: \mathbb{R}_x^n \longrightarrow \mathbb{R}_y^m$
 \end{align*}
 
 We can approximate at $\vec{a}$ by $L(\vec{x}) = A \vec{x}$, with
-\begin{equation*}
+\begin{align*}
     \begin{pmatrix}
     \frac{\partial f_1}{\partial x_1} \dots \frac{\partial f_1}{x_n} \\
     \dots \\
     \frac{\partial f_m}{\partial x_1} \dots \frac{\partial f_m}{ \partial x_n}
     \end{pmatrix}
-\end{equation*}
+\end{align*}
 
 \section*{Differentiability Examples}
 To determine if a function is differentiable at $(a,b)$

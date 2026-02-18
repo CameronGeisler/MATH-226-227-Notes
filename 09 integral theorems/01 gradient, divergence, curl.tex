@@ -6,26 +6,26 @@
 \begin{document}
 
 Recall that the \textbf{gradient} of a function is the vector-valued function containing the first partial derivatives of the function. The gradient can be thought of as an \textbf{differential operator}, that operates on a function.
-\begin{equation*}
+\begin{align*}
     \grad{f(x,y,z)} = \nabla f(x,y,z) = \veciii{\dfrac{\partial f}{\partial x}}{\dfrac{\partial f}{\partial y}}{\dfrac{\partial f}{\partial z}}
-\end{equation*}
+\end{align*}
 In this way, the gradient is a single function that contains the rate of change information of a function.
 
 \section*{Divergence, Curl}
 The ``divergence" and ``curl" are differential operators that operate on a vector field, and they capture rate of change information about the vector field. Let $\vec{F} = \veciii{F_1}{F_2}{F_3}$ be a vector field.
 \begin{definition}
 The \textbf{divergence} of $\vec{F}$, $\div{F}$ or $\nabla \bullet \vec{F}$, is given by,
-\begin{equation*}
+\begin{align*}
     \div{F} = \nabla \bullet \vec{F} = \dfrac{\partial F_1}{\partial x} + \dfrac{\partial F_2}{\partial y} + \dfrac{\partial F_3}{\partial z}
-\end{equation*}
+\end{align*}
 The divergence can be thought of as the vector differential operator $\nabla \bullet$, that operates on a vector field $\vec{F}$ and takes the ``dot product" of $\nabla$ and $\vec{F}$.
 \end{definition}
 
 \begin{definition}
 The \textbf{curl} of $\vec{F}$, $\curl{F}$ or $\nabla \times \vec{F}$, is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\curl{F} = \nabla \times \vec{F} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\[4pt] \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\[10pt] F_1 & F_2 & F_3 \end{vmatrix} = \veciii{\dfrac{\partial F_3}{\partial y} - \dfrac{\partial F_2}{\partial z}}{\dfrac{\partial F_2}{\partial z} - \dfrac{\partial F_3}{\partial x}}{\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}}}
-\end{equation*}
+\end{align*}
 Similarly, curl can be thought of as the vector differential operator $\nabla \times$, that operates on a vector field $\vec{F}$ and takes the ``cross product" of $\nabla$ and $\vec{F}$.
 \end{definition}
 
@@ -34,9 +34,9 @@ Intuitively, the divergence of a vector field $\vec{F}$ at point $P = (x,y,z)$ m
 
 \begin{theorem}
 Let $\vec{F}$ be a smooth vector field, $\mathcal{S}_{\epsilon}$ be a sphere of radius $\epsilon > 0$ and center $P$. Then,
-\begin{equation*}
+\begin{align*}
     \div{F}(P) = \lim_{\epsilon \to 0+} \dfrac{3}{4\pi \epsilon^3} \varoiint_{\mathcal{S}_{\epsilon}} \vec{F} \bullet \hat{\vec{N}} dS
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{proof}
@@ -61,16 +61,16 @@ A vector field $\vec{F}$ is \textbf{solenoidal} (or \textbf{incompressible}) in 
 
 \begin{example}
 The circular field $\vec{F} = \vecii{-y}{x}$ is solenoidal, as
-\begin{equation*}
+\begin{align*}
     \div{\vec{F}} = 0 + 0 = 0
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
 For the radial field $\vec{F} = \vecii{x}{y}$, any point is a source, as
-\begin{equation*}
+\begin{align*}
     \div{\vec{F}} = 1 + 1 = 2
-\end{equation*}
+\end{align*}
 for any point $(x,y)$.
 \end{example}
 

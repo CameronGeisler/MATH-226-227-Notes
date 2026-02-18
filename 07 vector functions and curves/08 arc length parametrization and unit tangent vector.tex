@@ -8,9 +8,9 @@
 \section*{Curves and Parameterizations}
 \begin{definition}
 For these purposes, a \textbf{curve} is a set of points in $\mathbb{R}^3$ whose positions are given by a vector-valued function
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)}
-\end{equation*}
+\end{align*}
 for $a \leq t \leq b$.
 \begin{itemize}
     \item A curve's parameterization is not unique.
@@ -23,26 +23,26 @@ for $a \leq t \leq b$.
 
 \section*{Arc Length Parameterization}
 Let $\vec{r}(t)$ be a parametrization of a smooth curve, $a \leq t \leq b$. Recall that if the arc length $s$ of $\vec{r}(t)$ is measured forward from some fixed point $t_0 \in [a,b]$, then,
-\begin{equation*}
+\begin{align*}
     s(t) = \int_{t_0}^t \sqrt{\brac{\frac{dx}{dt}}^2 + \brac{\frac{dy}{dt}}^2} \,dt
-\end{equation*}
+\end{align*}
 Or, by the FTC,
-\begin{equation*}
+\begin{align*}
     \frac{ds}{dt} = \sqrt{\brac{\frac{dx}{dt}}^2 + \brac{\frac{dy}{dt}}^2}
-\end{equation*}
+\end{align*}
 Then, since $\frac{d\vec{r}}{dt} = \vecii{\frac{dx}{dt}}{\frac{dy}{dt}}$, the right-hand side is precisely the magnitude of the tangent vector. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{ds}{dt} = \abs{\frac{d\vec{r}}{dt}}}
-\end{equation*}
+\end{align*}
 
 Then, if the parameter $t$ happens to be the arc length function $s$ (which is a function of $t$), then, $\frac{ds}{dt} = 1$, and so,
-\begin{equation*}
+\begin{align*}
     \abs{\frac{d\vec{r}}{dt}} = 1
-\end{equation*}
+\end{align*}
 Thus, the tangent vector is always a unit vector. Intuitively, this makes the arc length the most natural parameter for parametrization. This means the curve is traced out at unit speed, $v(s) = 1$. This is because,
-\begin{equation*}
+\begin{align*}
     \frac{d\vec{r}}{dt} = \frac{d\vec{r}}{ds} \cdot \frac{ds}{dt}
-\end{equation*}
+\end{align*}
 by the chain rule for vector functions. Then,
 \begin{align*}
     v(s) = \abs{\frac{d\vec{r}}{ds}} & = \abs{\frac{\frac{d\vec{r}}{dt}}{\frac{ds}{dt}}} \\
@@ -58,41 +58,41 @@ Often, this parameterization is difficult or impossible to find explicitly, beca
 
 \begin{theorem}
 The arc length parameter is the arc length function, from base point $t_0$
-\begin{equation*}
+\begin{align*}
     \boxed{s(t) = \int_{t_0}^t \abs{\vec{r}'(u)} \,du = \int_{t_0}^t \sqrt{(x'(u))^2 + (y'(u))^2 + (z'(u))^2} \,du}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{example}
 Determine the arc length parameterization of $\vec{r}(t) = \veciii{a \cos{t}}{a \sin{t}}{bt}$, $a > 0$, $b > 0$, from the point $(a,0,0)$.
 \\ \\ The initial point corresponds to $t = 0$. Then,
-\begin{equation*}
+\begin{align*}
     s(t) = \int_{0}^{t} v(u)\,du = \int_{0}^{t} \sqrt{a^2 + b^2}\,du = \sqrt{a^2 + b^2} t
-\end{equation*}
+\end{align*}
 Thus, $t = s/\sqrt{a^2 + b^2}$, and so the arc length parameterization is
-\begin{equation*}
+\begin{align*}
     \vec{r}(s) = \veciii{a \cos{\left(\frac{s}{\sqrt{a^2 + b^2}} \right)}}{a \sin{\left(\frac{s}{\sqrt{a^2 + b^2}} \right)}}{\frac{bs}{\sqrt{a^2 + b^2}}}
-\end{equation*}
+\end{align*}
 \end{example}
 
 \section*{Unit Tangent Vector}
 
 Let $\mathcal{C}$ be a curve with parametrization $\vec{r}(t)$, and with arc length $s(t)$. Then, recall that,
-\begin{equation*}
+\begin{align*}
     \frac{d\vec{r}}{dt} = \frac{d\vec{r}}{ds} \cdot \frac{ds}{dt}
-\end{equation*}
+\end{align*}
 Roughly, this means that the tangent vector $\frac{d\vec{r}}{dt}$ can be written in terms of a unit vector $\frac{d\vec{r}}{ds}$ (since $\abs{\frac{d\vec{r}}{ds}} = 1$), and $\frac{ds}{dt}$ is the magnitude of the tangent vector $\frac{d\vec{r}}{dt}$.
 
 \begin{definition}
 Let $\mathcal{C}$ be a curve with parameterization $\vec{r}(t)$. The \textbf{unit tangent vector} is a vector function tangent to $\vec{r}(t)$ with unit length. In other words,
-\begin{equation*}
+\begin{align*}
     \hat{\vec{T}}(t) = \frac{\vec{r}'(t)}{\abs{\vec{r}'(t)}} = \frac{\vec{v}(t)}{v(t)}
-\end{equation*}
+\end{align*}
 \end{definition}
 If the curve is defined in terms of arc length $\vec{r}(s)$, then $v(s) = 1$, and so
-\begin{equation*}
+\begin{align*}
     \hat{\vec{T}}(s) = \vec{r}'(s)
-\end{equation*}
+\end{align*}
 
 Intuitively, the unit tangent vector gives the direction of the curve. Note that $\hat{\vec{T}}$ is differentiable as long as $\vec{v}$ is differentiable (as long as the curve is smooth). Also, $v(t) \neq 0$ for a smooth curve.
 

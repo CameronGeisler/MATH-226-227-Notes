@@ -30,9 +30,9 @@ Probability density & Total probability in the region \\
 
 \begin{example}
 Let $R$ be the region bounded by the plane $x + 2y + 3z = 5$ and the coordinate planes. The region is given by
-\begin{equation*}
+\begin{align*}
     R = \set{(x,y,z): 0 \leq z \leq (5 - x - 2y)/3, 0 \leq y \leq (5 - x)/2, 0 \leq x \leq 5}
-\end{equation*}
+\end{align*}
 \end{example}
 
 
@@ -57,9 +57,9 @@ Determine the volume of the solid in $\mathbb{R}^3$ bounded by $y = x^2$, $x = y
 
 \begin{example}
 Determine
-\begin{equation*}
+\begin{align*}
     \iiint_{D} xy \,dV
-\end{equation*}
+\end{align*}
 where $D$ is the solid tetrahedron with vertices $(0,0,0)$, $(7,0,0)$, $(0,9,0)$, and $(0,0,9)$.
 \\ \\ The plane that bounds the region above is
 \begin{align*}
@@ -86,9 +86,9 @@ Thus, $D = \set{(x,y,z): 0 \leq x \leq 4,  0 \leq y \leq \frac{63 - 9x}{7}, 0 \l
 
 \begin{example}
 Evaluate the integral
-\begin{equation*}
+\begin{align*}
     \iiint_{D} z \,dV
-\end{equation*}
+\end{align*}
 where $D$ is the region bounded by the cylinder $y^2 + z^2 = 9$, and the planes $x = 0$, $y = 3x$, $z = 0$ in the first octant.
 \\ \\ $D = \set{(x,y,z): 0 \leq x \leq 1, 3x \leq y \leq 3, 0 \leq z \leq \sqrt{9-y^2}}$
 \begin{align*}
@@ -104,9 +104,9 @@ where $D$ is the region bounded by the cylinder $y^2 + z^2 = 9$, and the planes 
 \begin{example}
 Determine the mass of a ball $\mathcal{S}$ of radius 1 given by $x^2 + y^2 + z^2 = 1$, with mass density given by $\rho(x,y,z) = \abs{xyz}$.
 \\ \\ By symmetry, the mass of the ball is 8 times the mass of the ball in the first octant. The region in the first octant $\mathcal{S}_1$ can be given by
-\begin{equation*}
+\begin{align*}
     \mathcal{S}_1 = \set{(x,y,z): 0 \leq z \leq 1, 0 \leq y \leq \sqrt{1 - z^2}, 0 \leq x \leq \sqrt{1 - y^2 - z^2}}
-\end{equation*}
+\end{align*}
 Then,
 \begin{align*}
     m & = 8 \iiint_{\mathcal{S}_1} xyz \,dV \\
@@ -121,9 +121,9 @@ Then,
 
 \begin{example}
 Let $R$ be the region given by $R = [1,4] \times [0,3] \times [1,4]$. Evaluate
-\begin{equation*}
+\begin{align*}
     \iiint_{R} x^2 e^{y + 3z} \,dV
-\end{equation*}
+\end{align*}
 \begin{align*}
     \iiint_{R} x^2 e^{y + 3z} \,dV & = \int_{1}^{4} \int_{0}^{3} \int_{2}^{6} x^2 e^{y + 3z} \,dz \,dy \,dx \\
     & = \int_{1}^{4} x^2 \,dx \int_{0}^{3} e^y \,dy \int_{2}^{6} e^{3z} \,dz \\
@@ -134,9 +134,9 @@ Let $R$ be the region given by $R = [1,4] \times [0,3] \times [1,4]$. Evaluate
 
 \begin{example}
 Let $R$ be the region between the planes $z = x + y$, $z = 3x + 5y$, and over $[0,3] \times [0,2]$. Evaluate
-\begin{equation*}
+\begin{align*}
     \iiint_{R} z \,dV
-\end{equation*}
+\end{align*}
 The region is given by $R = \set{(x,y,z): 0 \leq x \leq 3, 0 \leq y \leq 2, x + y \leq z \leq 3x + 5y}$. Then,
 \begin{align*}
     \iiint_{R} z \,dV & = \int_{0}^{3} \int_{0}^{2} \int_{x+y}^{3x+5y} z \,dz \,dy \,dx \\
@@ -148,9 +148,9 @@ The region is given by $R = \set{(x,y,z): 0 \leq x \leq 3, 0 \leq y \leq 2, x + 
 
 \begin{example}
 Let $R$ be the region bounded by the paraboloids $z = x^2 + 3y^2$ and $z = 4 - x^2 - y^2$. Evaluate
-\begin{equation*}
+\begin{align*}
     \iiint_{R} x \,dV
-\end{equation*}
+\end{align*}
 The intersection of the paraboloids is $x^2 + 3y^2 = 4 - x^2 - y^2$, or $x^2 + 2y^2 = 2$. Then, the region $R$ can be given by $R = \set{(x,y,z): -1 \leq x \leq 1, -\sqrt{1 - x^2/2} \leq y \leq \sqrt{1 - x^2/2}, x^2 + 3y^2 \leq z \leq 4 - x^2 - y^2}$. Then,
 \begin{align*}
     \iiint_{R} x \,dV & = \int_{-1}^{1} \int_{}

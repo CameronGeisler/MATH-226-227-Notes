@@ -10,16 +10,16 @@ A particle's position at time $t$ can be represented in parametric form as $x = 
 
 \begin{definition}
 Let $x, y, z$ be continuous functions of $t$, for $a \leq t \leq b$. The \textbf{position function} of a particle is given by
-\begin{equation*}
+\begin{align*}
     \vec{r} = \vec{r}(t) = x(t) \ihat + y(t) \jhat + z(t) \hat{k}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{definition}
 The \textbf{average velocity} from time $t$ to $t + \Delta t$ is given by
-\begin{equation*}
+\begin{align*}
     \dfrac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item This is a vector parallel to the secant vector from $\vec{r}(t)$ to $\vec{r}(t + \Delta t)$
 \end{itemize}
@@ -27,32 +27,32 @@ The \textbf{average velocity} from time $t$ to $t + \Delta t$ is given by
 
 \begin{definition}
 The \textbf{velocity} (or \textbf{instantaneous velocity}) at time $t$, $\vec{v}(t)$ is the derivative of $\vec{r}(t)$, or
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{v}(t) = \vec{r}'(t) = \frac{d\vec{r}}{dt}}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 The instantaneous velocity vector is tangent to the curve at the point $\vec{r}(t)$, and it points in the direction of motion. Also, if the velocity vector exists and is continuous and is non-zero, the position function is a \textbf{smooth} curve.
 
 \begin{definition}
 The \textbf{speed} of a particle, $v(t)$, is the magnitude of the velocity vector
-\begin{equation*}
+\begin{align*}
     \boxed{v(t) = \abs{\vec{v}(t)}}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{definition}
 The \textbf{acceleration} of a particle, $\vec{a}(t)$, is the derivative of velocity with respect to time, or
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{a}(t) = \dfrac{d\vec{v}}{dt} = \dfrac{d^2 \vec{r}}{dt^2}}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{example}
 \textbf{Circular motion}. Consider a circle of radius $r$ centered at the origin, given by
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = \vecii{\cos{t}}{\sin{t}}
-\end{equation*}
+\end{align*}
 Then, $\vec{v}(t) = \vecii{-\sin{t}}{\cos{t}}$, and $\vec{a}(t) = \vecii{-\cos{t}}{-\sin{t}}$. Notice that,
 \begin{align*}
     \vec{v}(t) \bullet \vec{a}(t) & = \vecii{-\sin{t}}{\cos{t}} \bullet \vecii{-\cos{t}}{-\sin{t}} \\
@@ -63,17 +63,17 @@ Thus, the velocity and acceleration are perpendicular, for all $t$.
 \end{example}
 
 \section*{Projectile Motion and Vector-Valued Functions}
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = -\frac{1}{2}gt^2 \vec{j} + \vec{v}_0 t + \vec{r}_0
-\end{equation*}
+\end{align*}
 or
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = -\frac{1}{2} gt^2 \vec{j} + \brac{v_0 \cos{\theta} \vec{i} + v_0 \sin{\theta} \vec{j}} t + h \vec{j}
-\end{equation*}
+\end{align*}
 or
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = (v_0 \cos{\theta}) t \vec{i} + \brac{-\frac{1}{2}gt^2 + (v_0 \sin{\theta}) t + h} \vec{j}
-\end{equation*}
+\end{align*}
 
 \section*{Examples}
 Determine the velocity, speed, and acceleration of the particle, and describe the path of the particle.

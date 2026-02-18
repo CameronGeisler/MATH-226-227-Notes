@@ -58,9 +58,9 @@ This test can be extended to functions of multiple variables, however the added 
 
 \begin{theorem}
 Let $f$ be a function of $x$ and $y$, $(a,b)$ be a critical point of $f$, and let $f$ have continuous second partial derivatives on an open disc centered at $(a,b)$. Then, let
-\begin{equation*}
+\begin{align*}
     D(x,y) = f_{xx}(x,y) f_{yy}(x,y) - (f_{xy}(x,y))^2
-\end{equation*}
+\end{align*}
 Then,
 \begin{enumerate}[(a)]
     \item If $D(a,b) > 0$ and $f_{xx}(a,b) < 0$, then $f$ has a local maximum value at $(a,b)$.
@@ -125,14 +125,14 @@ Finding the critical points,
 \end{align}
 From $(1)$, $y = x^3$. From $(2)$, $y = 2x$. Solving the system of equations, $x = 0, \sqrt{2}, -\sqrt{2}$. Thus, the critical points are $(0,0)$, $(\sqrt{2}, 2\sqrt{2})$, $(-\sqrt{2}, -2\sqrt{2})$.
 \\ \\ At $(0,0)$,
-\begin{equation*}
+\begin{align*}
 \det{(\mathcal{H}f(0,0))} = \begin{vmatrix} 0 & -4 \\ -4 & 2 \end{vmatrix} = -16 < 0
-\end{equation*}
+\end{align*}
 Thus, $(0,0)$ is a saddle point.
 \\ \\ At $(\sqrt{2}, 2\sqrt{2})$ and $(-\sqrt{2}, -2\sqrt{2})$, $f_{11} = 24 > 0$, and
-\begin{equation*}
+\begin{align*}
     \det{(\mathcal{H}f)} = \begin{vmatrix} 24 & -4 \\ -4 & 2 \end{vmatrix} = 32 > 0
-\end{equation*}
+\end{align*}
 Thus, $(\sqrt{2}, 2\sqrt{2})$ and $(-\sqrt{2}, -2\sqrt{2})$ are local minima.
 \end{example}
 
@@ -152,14 +152,14 @@ Finding the critical points,
 \end{align}
 From $(1)$, $y = x^2$. From $(2)$, $y = 3x - 2$. Solving the system of equations, we get critical points $(1,1)$ and $(2,4)$.
 \\ \\ At $(1,1)$,
-\begin{equation*}
+\begin{align*}
     \det{(\mathcal{H}f(1,1))} = \begin{vmatrix} 12 & -6 \\ -6 & 2 \end{vmatrix} = -12 < 0
-\end{equation*}
+\end{align*}
 Thus, $(1,1)$ is a saddle point.
 \\ \\ At $(2,4)$, $f_{xx}(2,4) = 24 > 0$, and
-\begin{equation*}
+\begin{align*}
     \det{(\mathcal{H}f(2,4))} = \begin{vmatrix} 24 & -6 \\ -6 & 2 \end{vmatrix} = 12 > 0
-\end{equation*}
+\end{align*}
 Thus, $(2,4)$ is a local minimum.
 \end{example}
 
@@ -203,13 +203,13 @@ We want to determine the minimum and maximum values for $x$, $y \in (0, \infty)$
 \begin{example}
 A delivery company requires that any box delivered must have a length plus girth (distance around) totaling no more than 96 inches. Find the dimensions of the box with maximum volume that can be sent.
 \\ \\ Let $x, y, z$ be the length, width, and height of the box, respectively. Then, the volume of the box, to be maximized, is
-\begin{equation*}
+\begin{align*}
     V = xyz
-\end{equation*}
+\end{align*}
 Then, the length of the box is $x$, and the girth of the box is $2y + 2z$, so the constraint is
-\begin{equation*}
+\begin{align*}
     x + 2y + 2z \leq 96
-\end{equation*}
+\end{align*}
 At the maximum point, this constraint will be an equality, so
 \begin{align*}
     x + 2y + 2z & = 96 \\
@@ -237,13 +237,13 @@ Solving this quadratic equation, we get $x = 32, 96$. Notice that $x = 96$ would
 \begin{example}
 A rectangular metal tank with an open top is to hold 4 cubic feet of liquid. What are the dimensions of the tank that require the least material to build?
 \\ \\ Let $x, y, z$ be the length, width, and height of the tank, respectively. Then, the surface area of material to be minimized is
-\begin{equation*}
+\begin{align*}
     A = xy + 2xz + 2yz
-\end{equation*}
+\end{align*}
 The constraint of volume is
-\begin{equation*}
+\begin{align*}
     V = xyz = 4
-\end{equation*}
+\end{align*}
 Then, solving for $z$, we get $z = \frac{4}{xy}$. Substituting this into the area equation,
 \begin{align*}
     A & = xy + 2x\brac{\frac{4}{xy}} + 2y\brac{\frac{4}{xy}} \\

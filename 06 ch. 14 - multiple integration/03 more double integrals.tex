@@ -8,15 +8,15 @@
 
 \section*{Volume of a Solid Given by a Function}
 Recall: The area of the region bounded by $y = 0$, $y = f(x)$, $x = a$, and $x = b$  (where $f(x) \geq 0$ for all $x \in [a,b]$) is given by,
-\begin{equation*}
+\begin{align*}
     A = \int_a^b f(x) \,dx
-\end{equation*}
+\end{align*}
 Similarly,
 \begin{theorem}
 Let $f(x,y)$ be a bounded, continuous function on $D$, $f(x,y) \geq 0$ for all $(x,y) \in D$. Then, the volume of the solid bounded by $z = 0$, $z = f(x,y)$, and the boundary of $D$, is given by
-\begin{equation*}
+\begin{align*}
     V = \iint_D f(x,y) \,dA
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{example}
@@ -47,9 +47,9 @@ Alternatively,
 
 \begin{example}
 Evaluate
-\begin{equation*}
+\begin{align*}
     \int_{0}^{1} \int_{\sqrt{y}}^{1} \sqrt{x^3 + 1} \,dx \,dy
-\end{equation*}
+\end{align*}
 The region of integration is $D = \set{(x,y): \sqrt{y} \leq x \leq 1, 0 \leq y \leq 1}$. Switching the limits of integrations, $R = \set{(x,y): 0 \leq x \leq 1, 0 \leq y \leq x^2}$. Then,
 \begin{align*}
     \int_{0}^{1} \int_{\sqrt{y}}^{1} \sqrt{x^3 + 1} \,dx \,dy & = \int_{0}^{1} \int_{0}^{x^2} \sqrt{x^3 + 1} \,dy \,dx \\
@@ -62,25 +62,25 @@ The region of integration is $D = \set{(x,y): \sqrt{y} \leq x \leq 1, 0 \leq y \
 
 \section*{Mean-Value Theorem for Double integrals}
 Recall: By the mean-value theorem, let $f(x)$ be a function, continuous on $[a,b]$. Then, there exists $c \in (a,b)$ such that
-\begin{equation*}
+\begin{align*}
     \int_{a}^{b} f(x) \,dx = f(c)(b - a)
-\end{equation*}
+\end{align*}
 Here, $f(c)$ represents the average value of $f$ on $[a,b]$, and $b - a$ is the length of the interval.
 
 
 \begin{theorem}
 \textbf{Mean value theorem for double integrals}. Let $f(x,y)$ be a function, continuous on a closed, bounded, connected set $D$. Then, there exists a point $(x_0, y_0) \in D$ such that
-\begin{equation*}
+\begin{align*}
     \iint_{D} f(x,y) \,dA = f(x_0,y_0) \cdot A_D
-\end{equation*}
+\end{align*}
 where $f(x_0, y_0)$ represents the average value of $f$ on $D$, and $A_D$ is the area of $D$.
 \end{theorem}
 
 \begin{example}
 Determine an upper bound for
-\begin{equation*}
+\begin{align*}
     \int_{0}^{2} \int_{0}^{2} e^{x^2} \,dx \,dy
-\end{equation*}
+\end{align*}
 \begin{align*}
     0 & \leq x \leq 2 \\
     0 & \leq x^2 \leq 4 \\
@@ -130,20 +130,20 @@ Thus, $\int_{D} 1/\sqrt{x^2+y^2}$ is convergent.
 \section*{Average Value}
 \begin{theorem}
 Let $f(x,y)$ be a function, integrable on a domain $D$. Then, the average value of $f$ on $D$ is
-\begin{equation*}
+\begin{align*}
     \boxed{\overline{f} = \frac{\iint_{D} f(x,y) \,dA}{\iint_{D} dA}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{example}
 Consider a hemisphere (or ``dome") of height $a$, given by $z^2 = a^2 - x^2 - y^2$, $z \geq 0$, or $z = \sqrt{a^2 - x^2 - y^2}$. Then, the average height $\overline{z}$ is
-\begin{equation*}
+\begin{align*}
     \overline{z} = \frac{\iint_{R} \sqrt{a^2 - x^2 - y^2} \,dA}{\iint_{R} \,dA}
-\end{equation*}
+\end{align*}
 Both integrals can be determined geometrically. The first integral is the volume of the hemisphere, given by $2\pi a^3/3$. The second integral is the area of the region $R$, i.e. a circle with radius $a$, or $\pi a^2$. Then,
-\begin{equation*}
+\begin{align*}
     \overline{z} = \frac{\frac{2}{3}\pi a^3}{\pi a^2} = \frac{2a}{3}
-\end{equation*}
+\end{align*}
 Intuitively, this makes sense, since $0 < 2a/3 < a$.
 \end{example}
 
@@ -158,9 +158,9 @@ Intuitively, this makes sense, since $0 < 2a/3 < a$.
 \section*{Surface Area of a Cylinder}
 \begin{example}
 Let $r$, $h > 0$, $\mathcal{S}$ be a cylinder, given by $\mathcal{S} = \set{(x,y,z): x^2 + z^2 = r^2, 0 \leq y \leq h}$. Then, the surface area can be defined 4 times the surface area of the surface $\mathcal{S}_1$ given by
-\begin{equation*}
+\begin{align*}
     \mathcal{S}_1 = \set{(x,y,z): z = \sqrt{r^2 - x^2}, 0 \leq x \leq r, 0 \leq y \leq h}
-\end{equation*}
+\end{align*}
 \begin{align*}
     f_x = -\frac{x}{\sqrt{r^2 - x^2}} && f_y = 0
 \end{align*}
@@ -183,9 +183,9 @@ Then,
 
 \section*{Surface Area of a Sphere}
 Let $\mathcal{S}$ be a sphere of radius $r$, given by $\mathcal{S} = \set{(x,y,z): x^2 + y^2 + z^2 = r^2}$. The surface area of $\mathcal{S}$ is twice the surface area of the top hemisphere $\mathcal{S}_1$, given by
-\begin{equation*}
+\begin{align*}
     \mathcal{S}_1 = \set{(x,y,z): z = \sqrt{r^2 - x^2 - y^2}, x^2 + y^2 \leq r^2}
-\end{equation*}
+\end{align*}
 Then,
 \begin{align*}
     f_x = -\frac{x}{\sqrt{r^2 - x^2 - y^2}} && f_y & = -\frac{y}{\sqrt{r^2 - x^2 - y^2}}
@@ -222,9 +222,9 @@ Consider the plane $4x + 7y + z = 56$ over the rectangle $R$ with vertices $(0,0
     & = 56ab - 2a^2b - \frac{7ab^2}{2}
 \end{align*}
 In other words, the volume of the solid is given by
-\begin{equation*}
+\begin{align*}
     V(a,b) = 56ab - 2a^2b - \frac{7ab^2}{2}
-\end{equation*}
+\end{align*}
 This is a function of both $a$ and $b$ to be maximized, where $a$ and $b$ are subject to the constraint that $4a + 7b = 56$. We can use the constraint to reduce the equation for $V$ to a single variable function. Solving for $b$ in the constraint, we get $b = 8 - \frac{4a}{7}$. Then,
 \begin{align*}
     V(a) & = 56a\brac{8 - \frac{4a}{7}} - 2a^2 \brac{8 - \frac{4a}{7}} - \frac{7a}{2}\brac{8 - \frac{4a}{7}}^2 \\

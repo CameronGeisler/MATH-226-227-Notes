@@ -6,35 +6,35 @@
 \begin{document}
 
 Recall the Divergence theorem in 2D
-\begin{equation*}
+\begin{align*}
     \iint_{D} \div{\vec{F}} \,dA = \oint_{\mathcal{C}} \vec{F} \bullet \vec{\hat{N}} \,ds
-\end{equation*}
+\end{align*}
 where $\vec{\hat{N}}$ is the outward unit normal. Green's theorem,
-\begin{equation*}
+\begin{align*}
     \iint_{D} \curl{\vec{F}} \bullet \hat{k} \,dA = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
-\end{equation*}
+\end{align*}
 When $\vec{G} = -F_2 \ihat + F_1 \jhat$, using Green's theorem, we get the Divergence theorem in 2D. The Divergence theorem in 3D,
-\begin{equation*}
+\begin{align*}
     \iiint_{R} \div{\vec{F}} \,dV = \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} \,dS
-\end{equation*}
+\end{align*}
 where $\hat{N}$ is the outward unit normal.
 
 
 \section*{Stokes's Theorem}
 \begin{theorem}
 Let $\mathcal{S}$ be a piecewise smooth, oriented surface, with unit normal field $\hat{N}$ and boundary $\mathcal{C}$ consisting of a finite number of piecewise smooth, closed curves with orientation inherited from $\mathcal{S}$ (i.e. oriented counter-clockwise when seen from the direction of $\vec{N}$). Let $\vec{F}$ be a smooth vector field. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS}
-\end{equation*}
+\end{align*}
 \end{theorem}
 Intuitively, under the hypotheses of the theorem, the accumulated rotation of the vector field over a surface $\mathcal{S}$ is equal to the net circulation along the boundary $\mathcal{C}$ of $\mathcal{S}$.
 \\ \\ Notice that if $\mathcal{S}, \mathcal{C}$ are in the plane, then Stokes's theorem reduces to Green's theorem with $\vec{\hat{N}} = \hat{k}$.
 
 \section*{Infinitesimal Version}
 Let $\mathcal{S}$ be a disk of radius $\epsilon$ and center $P$, perpendicular to $\vec{\hat{N}}$, $\mathcal{C}$ be the circle boundary of $\mathcal{S}$. By Stokes's theorem,
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS
-\end{equation*}
+\end{align*}
 If $\epsilon > 0$ is small, then $\curl{\vec{F}} \approx \curl{\vec{F}(P)}$, and
 \begin{align*}
     \int_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS & \approx \curl{\vec{F}} \bullet \vec{\hat{N}} (area of \mathcal{S}) \\
@@ -45,9 +45,9 @@ where $\theta$ is the angle between $\curl{\vec{F}}$ and $\vec{\hat{N}}$. $\thet
 \section*{Examples}
 \begin{example}
 Let $\mathcal{S}$ be a surface bounded by $\mathcal{C}$, then
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
-\end{equation*}
+\end{align*}
 The surface $\mathcal{S}$ is not unique, there are infinitely many choices that make the equation true. For two surfaces with parallel unit normals $\vec{\hat{N}}$, let $\mathcal{S} = \mathcal{S}_2 - \mathcal{S}_1$. Then, by the divergence theorem,
 \begin{align*}
     \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \iiint_{R} \div{(\curl{\vec{F}})} \,dV \\
@@ -122,9 +122,9 @@ Since $D$ is simply connected, by Stokes's theorem,
 Let $\vec{F}(x,y,z) = \veciii{-\dfrac{y}{x^2+y^2}}{\dfrac{x}{x^2+y^2}}{0}$.
 \\ \\ $\curl{F} = \vec{0}$ except on the $z$-axis. Then, for a general circle $C$ given by $x^2 + y^2 = 1$, $z = 1$, $\int_{\mathcal{C}} \vec{F} \bullet d\vec{r} \neq 0$. For a circle $\mathcal{C}_1$ with different $z$-value and same orientation, the line integral is equal.
 \\ \\ Also, using delta functions
-\begin{equation*}
+\begin{align*}
     \curl{\vec{F}} = 2\pi \delta_0(x) \delta_0(y)
-\end{equation*}
+\end{align*}
 where $2\pi$ comes from evaluating $\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}$, for $C: x^2 + y^2 = 1$, $z = 0$.
 \end{example}
 
@@ -139,17 +139,17 @@ if $\mathcal{S}$ is part of the cylinder. Let $\mathcal{S}$ be the part of the c
     \int_{\mathcal{C}} - \int_{\mathcal{C}_1} = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} = 0
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} = \int_{\mathcal{C}_1} = \dfrac{3\pi}{2}
-\end{equation*}
+\end{align*}
 \end{example}
 
 
 \section*{Stokes Theorem Proof}
 \begin{theorem}
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 Special case. Let $\mathcal{S}$ be represented by $z = g(x,y)$, for $(x,y) \in R$, where $R$ is bounded by a closed, simple, piecewise smooth curve $\mathcal{C}_1$, $C$, $C_1$ oriented counterclockwise.
@@ -192,9 +192,9 @@ Applications in physics, differential equations, wave equations, Maxwell's equat
 
 \begin{example}
 Laplace operator in $\mathbb{R}^3$, $\nabla^2$ or $\Delta$
-\begin{equation*}
+\begin{align*}
     \nabla^2 = \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2} + \dfrac{\partial}{\partial z^2}
-\end{equation*}
+\end{align*}
 used in Laplace's equation $\nabla^2 f = 0$, heat equation $du/dt = c \nabla^2 u$, wave equation, etc.
 \end{example}
 
@@ -264,9 +264,9 @@ Then, by Stokes' theorem,
 
 \begin{example}
 Let $\vec{F} = \veciii{x}{y}{9(x^2 + y^2)}$, $\mathcal{C}$ be the boundary of the part of the paraboloid $z = 81 - x^2 - y^2$ above the $xy$-plane, oriented counterclockwise when viewed from above. Evaluate
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
-\end{equation*}
+\end{align*}
 $\mathcal{S}$ is the paraboloid $z = 81 - x^2 - y^2$, $z \geq 0$.
 \begin{align*}
     \vec{n} & = \veciii{2x}{2y}{1} \\
@@ -286,9 +286,9 @@ Thus, by Stokes' theorem,
 
 \begin{example}
 Let $\vec{F} = \veciii{zx + z^2y + 2y}{z^3yx + 4x}{z^4x^2}$, $\mathcal{S}$ be the capped cylindrical surface which is the union of two surfaces, a cylinder given by $x^2 + y^2 = 1$, $0 \leq z \leq 1$, and a hemispherical cap given by $x^2 + y^2 + (z - 1)^2 = 1$, $z \geq 1$. Evaluate
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 The boundary of $\mathcal{S}$ is $x^2 + y^2 = 1$, $z = 0$, parametrized by
 \begin{align*}
     \vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{0} && 0 \leq t \leq 2\pi \\

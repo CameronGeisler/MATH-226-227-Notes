@@ -30,13 +30,13 @@ A piece-wise smooth surface $\mathcal{S}$ is orientable if whenever two smooth c
 \section*{Flux Integrals}
 \begin{definition}
 Let $\vec{F}$ be a continuous vector field, $\mathcal{S}$ be an orientable surface. The \textbf{flux} of $\vec{F}$ across $\mathcal{S}$ is the surface integral of the normal component of $\vec{F}$ over $\mathcal{S}$.
-\begin{equation*}
+\begin{align*}
     \boxed{\iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} dS}
-\end{equation*}
+\end{align*}
 For a closed surface, the flux integral can be denoted by
-\begin{equation*}
+\begin{align*}
     \varoiint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \varoiint_{\mathcal{S}} \vec{F} \bullet \hat{N} dS
-\end{equation*}
+\end{align*}
 and is referred to the flux \textbf{out} of $\mathcal{S}$ if $\hat{N}$ is oriented outward, and the flux \textbf{into} $\mathcal{S}$ if $\hat{N}$ is the oriented inwards.
 
 \begin{itemize}
@@ -46,27 +46,27 @@ and is referred to the flux \textbf{out} of $\mathcal{S}$ if $\hat{N}$ is orient
 
 \section*{Evaluating Flux Integrals}
 \textbf{Parametrization}. Let $\mathcal{S}$ be a surface with parametrization $\vec{r}(u,v)$ for $(u,v)$ in domain $D$ in the $uv$-plane. Then, the vector $\vec{n} = \vec{r_u} \times \vec{r_v}$ is normal to $\mathcal{S}$, and $dS = \abs{\vec{n}} \,du \,dv$ is an area element on $\mathcal{S}$. Then, the vector area element for $\mathcal{S}$ is given by
-\begin{equation*}
+\begin{align*}
     d\vec{S} = \hat{N} \,dS = \pm \dfrac{\vec{n}}{\abs{\vec{n}}} \cdot \abs{\vec{n}} \,du \,dv = \pm \vec{n} \,du \,dv
-\end{equation*}
+\end{align*}
 where the sign depends on the desired orientation of $\mathcal{S}$. Thus, the flux of $\vec{F} = \veciii{F_1}{F_2}{F_3}$ through $\mathcal{S}$ is given by
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \pm \iint_{D} \vec{F} \bullet \vec{n} \,du \,dv
-\end{equation*}
+\end{align*}
 
 \textbf{Implicit function}. Let $\mathcal{S}$ be a smooth, orientable surface given by $G(x,y,z) = 0$. Then, the vector area element for $\mathcal{S}$ is given by
-\begin{equation*}
+\begin{align*}
     d\vec{S} = \hat{N} \,dS = \pm \dfrac{\nabla G(x,y,z)}{G_z(x,y,z)} \,dx \,dy
-\end{equation*}
+\end{align*}
 where the sign depends on the desired orientation of $\mathcal{S}$.
 \\ \\ \textbf{Explicit function}. Let $\mathcal{S}$ be a smooth, orientable surface given by $z = g(x,y)$ Then, $G(x,y,z) = z - g(x,y)$, and so the unit normal vector (oriented upward) is
-\begin{equation*}
+\begin{align*}
     \vec{\hat{N}} = \frac{\nabla G}{G_z} = \veciii{-g_x}{-g_y}{1}
-\end{equation*}
+\end{align*}
 Then,
-\begin{equation*}
+\begin{align*}
     \boxed{d\vec{S} = \vec{\hat{N}} \,dS = \veciii{-g_x}{-g_y}{1} \,dx \,dy}
-\end{equation*}
+\end{align*}
 
 \section*{Examples}
 \begin{example}

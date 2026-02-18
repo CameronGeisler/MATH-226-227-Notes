@@ -8,9 +8,9 @@
 \section*{Manifold Pieces with Boundary}
 Let $\mathcal{M}$ be an manifold oriented by $\omega$ k-form, $M \subseteq \mathcal{M}$ be a piece of $\mathcal{M}$ with piecewise smooth boundary $\partial M$.
 \\ \\ The inherited (or induced) orientation on $\partial M$, given by the $(k-1)$-form
-\begin{equation*}
+\begin{align*}
     \partial \omega(\vec{v}_1, \dots, \vec{v}_{k-1}) = \omega(\vec{n}, \vec{v}_1, \dots, \vec{v}_{k-1})
-\end{equation*}
+\end{align*}
 where $\vec{n}$ is tangent to $\mathcal{M}$ and perpendicular to $\partial M$, points ``away" from $M$.
 
 \begin{example}
@@ -19,9 +19,9 @@ Let $\mathcal{M} = \mathbb{R}^3$, $M \subseteq \mathcal{M}$ be a region bounded 
 
 \begin{theorem}
 Let $M$ be a $k$-dimensional, oriented, bounded, closed manifold piece with boundary $\partial M$, $\Phi$ be a $(k-1)$ differential form smooth on a neighbourhood of $M$. Then,
-\begin{equation*}
+\begin{align*}
     \int_{M} d\Phi = \int_{\partial M} \Phi
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item $M$ and $\partial M$ are oriented manifolds, given by $\omega$ on $M$, inherited from $M$ on $\partial M$
     \item $\partial M$ is $(k-1)$-dimensional, $d\Phi$ has dimension $k$.
@@ -79,18 +79,18 @@ using polar coordinates.
 
 \section*{Stokes' Theorem}
 Recall: Stokes' theorem in $\mathbb{R}^3$.
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 
 
 
 
 \begin{theorem}
 Let $\omega$ be a $k$-form, $D$ be a $(k+1)$-dimensional region of integration. Then,
-\begin{equation*}
+\begin{align*}
     \int_{D} \,d\omega = \int_{\partial D} \omega
-\end{equation*}
+\end{align*}
 For $k = 0$, Stokes' theorem simplifies to the Fundamental theorem of calculus. For $k = 1$, it simplifies to Green's theorem and the ``regular" Stokes theorem, and for $k = 2$, it simplifies to the divergence theorem.
 \end{theorem}
 

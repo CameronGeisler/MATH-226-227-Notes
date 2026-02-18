@@ -16,9 +16,9 @@ Let $\mathcal{C}$ be a curve in the plane with parametrization $\vec{r}(t)$, $a 
 \begin{itemize}
     \item If $\vec{F}$ is a force field, then the line integral over $\vec{F}$ represents \textbf{work}.
     \item If $\mathcal{C}$ is a closed curve, the line integral of the tangential component of $\vec{F}$ along $\mathcal{C}$ is called the \textbf{circulation} of $\vec{F}$ around $\mathcal{C}$. For a closed curve, the integral is often written with a small circle on the integral sign.
-    \begin{equation*}
+    \begin{align*}
         \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
-    \end{equation*}
+    \end{align*}
     \item Note that the line integral depends on the orientation of $\mathcal{C}$. Reversing the direction of $\mathcal{C}$ changes the sign of the line integral.
 \end{itemize}
 
@@ -42,9 +42,9 @@ Alternatively,
     & = \int_{a}^{b} \left(F_1(x(t),y(t)) \dfrac{dx}{dt} + F_2(x(t),y(t)) \dfrac{dy}{dt} \right) \,dt
 \end{align*}
 Then, by ``distributing" the $dt$ and cancelling,
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{C}} F_1(x,y) dx + F_2(x,y) dy
-\end{equation*}
+\end{align*}
 This notation is somewhat counterintuitive, since it involves a sum of terms without brackets.
 \\ \\ Extending to 3-space, for a curve $\mathcal{C}$ in 3-space with parametrization $\vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)}$, $a \leq t \leq b$, $\vec{F}(x,y,z)$ be a vector field, continuous on $\mathcal{C}$. We get
 \begin{align*}
@@ -103,9 +103,9 @@ Then,
 
 \begin{example}
 If $\mathcal{C}$ is the part of the circle $(x/6)^2 + (y/6)^2 = 1$ in the first quadrant, find the following line integral with respect to arc length.
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} (2x - 4y) \,ds
-\end{equation*}
+\end{align*}
 $\mathcal{C}$ is the circle $x^2 + y^2 = 36$ in the first quadrant, can be parameterized (with counterclockwise orientation) using polar coordinates, where $x = 6 \cos{t}$, $y = 6 \sin{t}$, for $0 \leq t \leq \pi/2$.
 \begin{align*}
     ds & = \abs{\vec{r}'(t)} \,dt \\
@@ -123,9 +123,9 @@ Then,
 
 \begin{example}
 Let $\mathcal{C}$ be the part of the curve of intersection of the surfaces $z = x + y^2$ and $y = 2x$ from the origin to the point $(2,4,18)$. Determine
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} 2y \,dx + x \,dy + 2 \,dz
-\end{equation*}
+\end{align*}
 $\mathcal{C}$ can be parametrized by $x = t$, $y = 2t$, $z = t + 4t^2$, $0 \leq t \leq 2$. Then,
 \begin{align*}
     dx = dt && dy = 2 \,dt && dz = (1 + 8t) \,dt
@@ -215,13 +215,13 @@ Let $D$ be an open, connected domain, $\vec{F}$ be a smooth vector field on $D$.
 \begin{enumerate}
     \item $\vec{F}$ is conservative in $D$.
     \item For every piecewise smooth, closed curve $\mathcal{C}$ in $D$,
-    \begin{equation*}
+    \begin{align*}
         \oint_{\mathcal{C}} \vec{F} \bullet \,d\vec{r} = 0
-    \end{equation*}
+    \end{align*}
     \item For every pair of points $P$ and $Q$ in $D$, curves $\mathcal{C}_1$ and $\mathcal{C}_2$ starting at $P$ and ending at $Q$, we have
-    \begin{equation*}
+    \begin{align*}
         \int_{\mathcal{C}_1} \vec{F} \bullet \,d\vec{r} = \int_{\mathcal{C}_2} \vec{F} \bullet \,d\vec{r}
-    \end{equation*}
+    \end{align*}
 \end{enumerate}
 In particular, $\vec{F}$ is conservative if and only if $\vec{F}$ is path independent.
 \end{theorem}
@@ -231,17 +231,17 @@ In particular, $\vec{F}$ is conservative if and only if $\vec{F}$ is path indepe
 
 \section*{Fundamental Theorem of Line Integrals (Gradient Theorem)}
 Recall: the fundamental theorem of calculus says that for a function $f'$ which is the derivative of some function $f$, the definite integral of $f'$ over the interval $[a,b]$ is given by the difference of $f$ evaluated at the endpoints of the interval.
-\begin{equation*}
+\begin{align*}
     \int_{a}^{b} f'(x) \,dx = f(b) - f(a)
-\end{equation*}
+\end{align*}
 This involves an integral over a curve, the $x$-axis from $x = a$ to $x = b$.
 \\ \\ This can be generalized to curves in the plane or space. The fundamental theorem of line integrals says that for a vector field $\vec{F}$ which is the gradient (a type of derivative) of some potential function $\phi$ (i.e. $\vec{F}$ is conservative), the line integral of $\vec{F}$ over a curve $\mathcal{C}$ starting at $P$ and ending at $Q$ (the endpoints of the curve) is given by the difference of $\phi$ evaluated at $P$ and $Q$.
 
 \begin{theorem}
 Let $D$ be an open, connected domain, $\vec{F}$ be a smooth, conservative vector field on $D$, $\vec{F} = \nabla \phi$, $\mathcal{C}$ be a smooth curve with parametrization $\vec{r}(t)$, $a \leq t \leq b$. Then,
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{C}} d\phi = \phi(\vec{r}(b)) - \phi(\vec{r}(a))
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 

@@ -8,13 +8,13 @@
 \section*{Implicit Differentiation as Partial Differentiation}
 Recall that in single-variable calculus, for relations which are defined implicitly (not explicitly), we can use \textbf{implicit differentiation} in order to find derivatives. In particular, if $x$ and $y$ are related implicitly, and $y$ is treated as a function of $x$, we can determine $\frac{dy}{dx}$ using implicit differentiation. The process of implicit differentiation can be viewed more clearly through the perspective of the chain rule for partial derivatives.
 \\ \\ Consider an implicit relation, for example,
-\begin{equation*}
+\begin{align*}
     x^2 + y^2 = 1
-\end{equation*}
+\end{align*}
 Implicit relationships can be written in the form
-\begin{equation*}
+\begin{align*}
     F(x,y) = 0
-\end{equation*}
+\end{align*}
 where $F$ is a function of two variables. Intuitively, this means ``moving" all the terms to one side of the equation. For the above example, $F(x,y) = x^2 + y^2 - 1$. Previously, we would have differentiated both sides implicitly with respect to $x$, and then collect and rearrange terms to solve for $y' = \frac{dy}{dx}$. 
 \\ \\ Instead, we can differentiate both sides with respect to $x$, treating $y = y(x)$ as a function of $x$. By the chain rule for multivariable functions,
 \begin{align*}
@@ -22,35 +22,35 @@ where $F$ is a function of two variables. Intuitively, this means ``moving" all 
     \frac{\partial F}{\partial x} \underbrace{\frac{\partial x}{\partial x}}_{1} + \frac{\partial F}{\partial y} \frac{dy}{dx} & = 0
 \end{align*}
 Then, solving for $\frac{dy}{dx}$, we get
-\begin{equation*}
+\begin{align*}
     \frac{\partial y}{\partial x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}
-\end{equation*}
+\end{align*}
 This relates the slope of the curve $y = y(x)$ as a function of the partial derivatives of the function $F$. In summary,
 
 \section*{Implicit Differentiation}
 \begin{theorem}
 Let $F(x,y) = 0$ define $y$ as a differentiable function of $x$, $F$ be differentiable at $(x,y)$, and $F_y(x,y) \neq 0$. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)}}
-\end{equation*}
+\end{align*}
 Omitting the arguments for simplicity,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{dy}{dx} = -\frac{F_x}{F_y}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Extending to Functions in Space}
 The formula for finding derivatives of implicit functions can be extended to implicit functions of two variables, i.e. relations of the form
-\begin{equation*}
+\begin{align*}
     F(x,y,z) = 0
-\end{equation*}
+\end{align*}
 where $z = f(x,y)$ is an implicit function of $x$ and $y$.
 
 \begin{theorem}
 Let $F(x,y,z(x,y))$ implicitly defines $z$ as a differentiable function of $x$ and $y$. Then, the partial derivatives of $z$ with respect to $x$ and $y$ are given by,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}} \quad \text{and} \quad \boxed{\frac{\partial z}{\partial y} = -\frac{F_y}{F_z}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 
@@ -75,9 +75,9 @@ Let $F(x,y) = 0$ be an equation, If $F_x$ and $F_y$ are continuous on a neighbou
 \begin{enumerate}
     \item[]
     \item[2] Let $F_x$ and $F_y$ be continuous on a neighbourhood of $(a,b)$ with $F(x,f(x)) = 0$. Then, differentiating implicitly with respect to $x$, we get
-    \begin{equation*}
+    \begin{align*}
         F_x(x,f(x)) + F_y(x,f(x)) f'(x) = 0
-    \end{equation*}
+    \end{align*}
     Thus, $f'(x) = -F_x(x,f(x))/F_y(x,f(x))$
 \end{enumerate}
 \end{proof}
@@ -146,9 +146,9 @@ Let $x$ be an implicit function of $y$, $z$ defined by $xy^3 + e^{xy+z} = 1 + e^
     \frac{\partial x}{\partial z} = -\frac{F_z}{F_x} = -\frac{e^{xy+z}}{y^3 + ye^{xy+z}}
 \end{align*}
 At $(1,1,2)$,
-\begin{equation*}
+\begin{align*}
     \frac{\partial x}{\partial z} = -\frac{e^3}{1+e^3}
-\end{equation*}
+\end{align*}
 \end{example}
 
 
@@ -215,11 +215,11 @@ satisfies
 \end{align*}
 
 \begin{example}
-\begin{equation*}
+\begin{align*}
     \begin{cases}
     u = x^2 + 2y \\
     v = y^2 - 2x \end{cases}
-\end{equation*}
+\end{align*}
 \\ \\ First, find $\frac{\partial x}{\partial u}$ and $\frac{\partial y}{\partial u}$ where they exist. Differentiate in $u$ to get
 \begin{align*}
     1 = 2x \frac{\partial x}{\partial u} + 2 \frac{\partial y}{\partial u} \\

@@ -56,33 +56,33 @@ Similar to the single-variable case, these points do not necessarily have to be 
     \Delta A_{ij} = \Delta x_i \Delta y_i = (x_i - x_{i-1})(y_i - y_{i-1})
 \end{equation}
 Then, let $(x_{ij}^{*}, y_{ij}^{*})$ be a point in subrectangle $R_{ij}$ for all $(i,j)$. Then, the volume of the box corresponding to $R_{ij}$ is approximated by
-\begin{equation*}
+\begin{align*}
     \underbrace{f(x_{ij}^{*}, y_{ij}^{*})}_{\text{height of box}} \cdot \underbrace{A_{ij}}_{\text{area of base}} = f(x_{ij}^{*}, y_{ij}^{*}) A_{ij}
-\end{equation*}
+\end{align*}
 Then, the volume of $S$ is approximated by the \textbf{Riemann sum} $R(f,P)$ of the volumes of all of the boxes,
 \begin{align*}
     R(f,P) = \sum_{i=1}^n \sum_{j=1}^m f(x_{ij}^{*}, y_{ij}^{*}) \Delta A_{ij}
 \end{align*}
 This is a double summation, where the inner sum first is evaluated from $j = 1$ to $j = m$, and then the result is summed from $i = 1$ to $i = n$. This produces $nm$ terms, i.e. sums all of the subrectangle over the ``grid".
 \\ \\ As the number of subrectangles increases (i.e. as $n$ and $m$ increase), the Riemann sum will converge to the volume of the solid. More precisely, if the \textbf{diameter} of a subrectangle $R_{ij}$ is the length of its diagonal,
-\begin{equation*}
+\begin{align*}
     \operatorname{diam}{(R_{ij})} = \sqrt{(\Delta x_i)^2 + (\Delta y_j)^2} = \sqrt{(x_i - x_{i-1})^2 + (y_j - y_{j-1})^2}
-\end{equation*}
+\end{align*}
 and defining the \textbf{norm} of the partition $P$, $\norm{P}$, as the largest of these subrectangles,
-\begin{equation*}
+\begin{align*}
     \norm{P} = \max_{1 \leq i \leq n, 1 \leq j \leq m} \operatorname{diam}{(R_{ij})}
-\end{equation*}
+\end{align*}
 Then, taking the limit as $n \to \infty$ and $m \to \infty$ such that $\norm{P} \to 0$, if this limit exists and is independent of the choices of the points $(x_{ij}^{*}, y_{ij}^{*})$, then this limit value is defined to be the double integral of $f$ over $D$.
 
 \begin{definition}
 Let $f$ be a function of $x$ and $y$, defined on a rectangular region $D$ in the $xy$-plane. Then, $f$ is \textbf{integrable} on $D$ if the limit
-\begin{equation*}
+\begin{align*}
     \lim_{\norm{P} \to 0} \sum_{i=1}^n \sum_{j=1}^m f(x_{ij}^{*}, y_{ij}^{*}) \Delta A_{ij}
-\end{equation*}
+\end{align*}
 exists for all partitions $P$ of $R$ and for all choices of $(x_{ij}^{*}, y_{ij}^{*})$ within those partitions. Then, the value of the limit is the \textbf{double integral} of $f$ \textbf{over} $D$, or
-\begin{equation*}
+\begin{align*}
     \boxed{\iint_D f(x,y) \,dA = \lim_{\norm{P} \to 0} \sum_{i=1}^n \sum_{j=1}^m f(x_{ij}^{*}, y_{ij}^{*}) \Delta A_{ij}}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item The domain $D$ is called the \textbf{region of integration}.
 \end{itemize}
@@ -96,13 +96,13 @@ The double integral developed previously can be naturally extended to integrals 
 
 \begin{definition}
 Let $f$ be a function of $x$ and $y$, bounded on a domain $D$, and let $\hat{f}$ be the extension of $f$ that is zero everywhere outside $D$, or
-\begin{equation*}
+\begin{align*}
     \hat{f}(x,y) = \begin{cases} f(x,y) & \text{if $(x,y) \in D$} \\ 0 & \text{otherwise} \end{cases}
-\end{equation*}
+\end{align*}
 Let $R$ be a rectangle that contains $D$. If $\hat{f}$ is integrable over $R$, then we say that $f$ is \textbf{integrable} over $D$, and the \textbf{double integral} of $f$ \textbf{over} $D$ is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\iint_D f(x,y) \,dA = \iint_R \hat{f}(x,y) \,dA}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 Intuitively, the added area outside of $D$ does not contribute anything to the value of the integral since $\hat{f}(x,y) = 0$ there. Notice that $\hat{f}$ will not be continuous on $R$, unless $f(x,y) \to 0$ on the boundary of $D$. Even in this case, if $f$ and $D$ are ``well behaved" then the integral will exist.
@@ -131,22 +131,22 @@ Many of the properties of the single-variable definite integral can be extended 
 
 \begin{theorem}
 \textbf{Integral over a domain with zero area}. Let $f$ be integrable over $D$. If $D$ has zero area, then
-\begin{equation*}
+\begin{align*}
     \iint_D f(x,y) \,dA = 0
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 For example, if $D$ is a point, or a line segment.
 \\ \\ Here, we can make precise the volume interpretation of the double integral.
 \begin{theorem}
 \textbf{Double integral representing volume}. If $f(x,y) \geq 0$ on $D$, then,
-\begin{equation*}
+\begin{align*}
     \iint_D f(x,y) \,dA = V \geq 0
-\end{equation*}
+\end{align*}
 where $V$ is the volume of the solid lying vertically above $D$ and below the surface $z = f(x,y)$. Similarly, if $f(x,y) \leq 0$, then,
-\begin{equation*}
+\begin{align*}
     \iint_D f(x,y) \,dA = -V \leq 0
-\end{equation*}
+\end{align*}
 where here $V$ is the volume of the solid lying vertically below $D$ and above the surface $z = f(x,y)$.
 \end{theorem}
 
@@ -154,30 +154,30 @@ Notice that this property also says that the double integral of a non-negative f
 \\ \\ Like single-variable integrals, double integrals are linear with respect to the integrand.
 \begin{theorem}
 \textbf{Linearity of double integrals}. For $L, M \in \mathbb{R}$,
-\begin{equation*}
+\begin{align*}
     \iint_D \brac{Lf(x,y) + Mg(x,y)} \,dA = L \iint_D f(x,y) \,dA + M \iint_D g(x,y) \,dA
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
 \textbf{Inequalities are preserved}. If $f(x,y) \leq g(x,y)$ on $D$, then
-\begin{equation*}
+\begin{align*}
     \iint_D f(x,y) \,dA \leq \iint_D g(x,y) \,dA
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
 \textbf{Triangle inequality for double integrals}.
-\begin{equation*}
+\begin{align*}
     \abs{\iint_D f(x,y) \,dA} \leq \iint_D \abs{f(x,y)} \,dA
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
 \textbf{Additivity of domains}. If $D$ can be partitioned into $D_1, \dots, D_n$ domains (non-overlapping), then
-\begin{equation*}
+\begin{align*}
     \iint_D f(x,y) \,dA = \sum_{k=1}^n \iint_{D_k} f(x,y) \,dA
-\end{equation*}
+\end{align*}
 \end{theorem}
 This is the analogous property to the additivity of intervals for single-variable integrals.
 
@@ -186,9 +186,9 @@ Sometimes the value of an integral only needs to be estimated, rather than evalu
 \\ \\ Let $f(x,y)$ be a function, integrable on $D$. Then,
 \begin{theorem}
 \textbf{Bounds for itegral of bounded function}. If $f$ is bounded, so there exists $m, M \in \mathbb{R}$ such that $m \leq f(x,y) \leq M$ on $D$, then
-\begin{equation*}
+\begin{align*}
     m \cdot A_D \leq \iint_{R} f(x,y) \,dx \,dy \leq M \cdot A_D
-\end{equation*}
+\end{align*}
 where $A_D$ is the area of $D$.
 \end{theorem}
 
@@ -196,9 +196,9 @@ where $A_D$ is the area of $D$.
 
 \section*{Misc}
 If $f(x,y) \leq g(x,y)$ for all $(x,y) \in D$, then
-\begin{equation*}
+\begin{align*}
     f_{avg} \leq g_{avg}
-\end{equation*}
+\end{align*}
 
 \begin{example}
 $f(x,y) = 1/(x+y)^{\alpha}$, for $\alpha > 0$, is not bounded on $D$ as $f \to \infty$ as $(x,y) \to (0,0)$, so it is an improper integral, and may or may not be finite.

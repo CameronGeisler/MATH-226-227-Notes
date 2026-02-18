@@ -10,20 +10,20 @@ Recall that the chain rule (for single-variable functions) gives information abo
 \section*{Chain Rule with One Independent Variable}
 
 First, consider the case where $z = f(x,y)$, and both $x$ and $y$ are dependent on $t$. In other words,
-\begin{equation*}
+\begin{align*}
     z = f(x(t), y(t))
-\end{equation*}
+\end{align*}
 In this case, $f$ is really a function of a single independent variable $t$, and $x$ and $y$ are just \textbf{intermediate variables}, variables which are determined by other variables, but are then also used to determine the value of another variable.
 
 \begin{theorem}
 Let $f$ be a function of $x$ and $y$, with $x = x(t)$ and $y = y(t)$. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{d}{dt} f(x(t),y(t)) = f_x(x(t),y(t))x'(t) + f_y(x(t),y(t))y'(t)}
-\end{equation*}
+\end{align*}
 If $z = f(x,y)$, then in Leibniz notation,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{dz}{dt} = \frac{\partial z}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial z}{\partial y} \cdot \frac{dy}{dt}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{proof}
@@ -45,13 +45,13 @@ This can be extended to functions of 3 variables.
 
 \begin{corollary}
 Let $f$ be a function of $x$, $y$, and $z$, with $x = x(t)$, $y = y(t)$, and $z = z(t)$. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{d}{dt} f(x(t),y(t),z(t)) = f_x(x(t),y(t),z(t))x'(t) + f_y(x(t),y(t),z(t))y'(t) + f_z(x(t),y(t),z(t))z'(t)}
-\end{equation*}
+\end{align*}
 If $w = f(x,y,z)$, then in Leibniz notation,
-\begin{equation*}
+\begin{align*}
     \boxed{\frac{dw}{dt} = \frac{\partial w}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial w}{\partial y} \cdot \frac{dy}{dt} + \frac{\partial w}{\partial z} \cdot \frac{dz}{dt}}
-\end{equation*}
+\end{align*}
 \end{corollary}
 
 \begin{example}

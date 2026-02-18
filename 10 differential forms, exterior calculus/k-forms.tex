@@ -11,13 +11,13 @@ A 0-form on $\mathbb{R}^n$ is a function $f: \mathbb{R}^n \mapsto \mathbb{R}$.
 
 \begin{definition}
 Let $\phi: \mathbb{R}^n \rightarrow \mathbb{R}$ be a function. $\phi$ is a \textbf{1-form} (or \textbf{linear functional}) on $\mathbb{R}^n$ if for all $\vec{x}$, $\vec{y} \in \mathbb{R}^n$, $a$, $b \in \mathbb{R}$,
-\begin{equation*}
+\begin{align*}
     \phi(a\vec{x} = b\vec{y}) = a \phi(\vec{x}) + b \phi(\vec{y})
-\end{equation*}
+\end{align*}
 Alternatively? an expression of the form
-\begin{equation*}
+\begin{align*}
     F_1(x,y,z) \,dx + F_2(x,y,z) \,dy + F_3(x,y,z) \,dz
-\end{equation*}
+\end{align*}
 where $F_1$, $F_2$, $F_3$ are functions.
 \begin{itemize}
     \item The set of all 1-forms on $\mathbb{R}^n$, denoted by $\Lambda_1(\mathbb{R}^n)$, is called the \textbf{dual space} of $\mathbb{R}^n$, a real vector space of $\mathbb{R}^n$.
@@ -27,16 +27,16 @@ where $F_1$, $F_2$, $F_3$ are functions.
 \begin{definition}
 A \textbf{2-form} is a bilinear form on $\mathbb{R}^n$ that is \textbf{anti-symmetric} (or \textbf{skew-symmetric}).
 \\ \\ Alternatively, an expression of the form
-\begin{equation*}
+\begin{align*}
     F_1(x,y,z) \,dx \wedge dy + F_2(x,y,z) \,dy \wedge dz + F_3(x,y,z) \,dx \wedge dz
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{definition}
 A \textbf{3-form} is an expression of the form
-\begin{equation*}
+\begin{align*}
     f(x,y,z) \,dx \wedge dy \wedge dz
-\end{equation*}
+\end{align*}
 \end{definition}
 
 
@@ -50,23 +50,23 @@ Intuitively, a $k$-form is the integrand when integrating over a $k$-dimensional
 
 \section*{Addition of k-Forms}
 Addition of $k$-forms is defined in the obvious way. For 0-forms,
-\begin{equation*}
+\begin{align*}
     f + g = 0
-\end{equation*}
+\end{align*}
 For 1-forms,
-\begin{equation*}
+\begin{align*}
     (F_1 \,dx + F_2 \,dy + F_3 \,dz) + (G_1 \,dx + G_2 \,dy + G_3 \,dz) = (F_1 + G_1) \,dx + (F_2 + G_2) \,dy + (F_3 + G_3) \,dz
-\end{equation*}
+\end{align*}
 And so on, adding each corresponding ``component".
 
 All $k$-forms are linear combinations of the elementary $k$-forms
-\begin{equation*}
+\begin{align*}
     dx_{i_1} \wedge \dots \wedge dx_{i_k}(\vec{v}_1, \dots, \vec{v}_k) = \begin{vmatrix} v_{1i_k} & \dots & v_{1i_k} \\ \vdots & & \vdots \\ v_{ki_1} & \dots & v_{ki_k} \end{vmatrix}
-\end{equation*}
+\end{align*}
 A basis for $\Lambda_k(\mathbb{R}^n)$ is
-\begin{equation*}
+\begin{align*}
     dx_{i_1} \wedge \dots \wedge dx_{i_k}
-\end{equation*}
+\end{align*}
 where $i_1 < i_2 < \dots < i_k$.
 \\ \\ Interchanging the order of two differentials in a $k$-form adds a negative sign if odd number, no change if even number.
 
@@ -117,9 +117,9 @@ where $a_{i_1}, \dots, a_{i_k}$ are smooth functions (continuous derivatives of 
 Let $\Phi$ be a differential $k$-form. The \textbf{exterior derivative} (or \textbf{derivative}) $d: \Phi \mapsto d\Phi$, where $d\Phi$ is a differential $(k+1)$-form.
 \end{definition}
 For 0-forms,
-\begin{equation*}
+\begin{align*}
     df = \sum \dfrac{df}{dx_i} dx_i
-\end{equation*}
+\end{align*}
 For $k$-forms,
 \begin{align*}
     \Phi = \sum a_{i_1, \dots, i_k}(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k} \\
@@ -143,9 +143,9 @@ For $k$-forms,
 
 \begin{theorem}
 Derivative of the derviative of a differential form is 0.
-\begin{equation*}
+\begin{align*}
     d(d\Phi) = d^2 \Phi = 0
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 Let $\Phi = a(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k}$. Then,

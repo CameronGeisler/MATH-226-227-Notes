@@ -13,9 +13,9 @@ k-dimensional smooth manifold in $\mathbb{R}^n$
     \item For $k = n$, open set in $\mathbb{R}^n$
     \item For $k = 0$, single point
     \item For $1 \leq k \leq n - 1$, a manifold can be defined using a system of equations
-    \begin{equation*}
+    \begin{align*}
         \vec{f}(\vec{x}) = \left< f_1(\vec{x}), f_2(\vec{x}), \dots, f_{n-k}(\vec{x}) \right> = \vec{0}
-    \end{equation*}
+    \end{align*}
     for $\vec{x} \in \mathbb{R}^n$.
 \end{itemize}
 In general, $k$ equations represent an $n - k$ dimensional object.
@@ -27,19 +27,19 @@ For example, in $\mathbb{R}^3$
 \end{itemize}
 
 Let $\vec{f}: U \mapsto \mathbb{R}^{n-k}$ be smooth, $U \subset \mathbb{R}^n$ be an open set. Also, the Hessian matrix
-\begin{equation*}
+\begin{align*}
     D\vec{f}(\vec{x}) = \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n} \\
     \vdots & & \vdots \\
     \frac{\partial f_{n-k}}{\partial x_1}  & \dots & \frac{\partial f_{n-k}}{\partial x_n} \end{bmatrix}
-\end{equation*}
+\end{align*}
 has rank $n - k$ (max rank). This makes it so that the hypersurface has dimension $n - k$.
 \\ \\ Alternatively, a manifold can be defined using parametrization. Let $\vec{p}: U \mapsto \mathbb{R}^n$, $U \subset R^k$, $\vec{p} = \veciii{p_1(\vec{u})}{\dots}{p_n(\vec{u})}$, for $\vec{u} \in \mathbb{R}^k$. Manifold $x_1 = p_1(\vec{u}), \dots, x_n = p_n(\vec{u})$. For example, a surface in $\mathbb{R}^3$ is given by $\vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}$.
 \\ \\ Assume
-\begin{equation*}
+\begin{align*}
     D\vec{f}(\vec{x}) = \begin{bmatrix} \frac{\partial p_1}{\partial u_1} & \dots & \frac{\partial p_1}{\partial u_k} \\
     \vdots & & \vdots \\
     \frac{\partial p_n}{\partial u_1}  & \dots & \frac{\partial p_n}{\partial u_k} \end{bmatrix}
-\end{equation*}
+\end{align*}
 has rank $k$ (max rank).
 \\ \\ Let $\mathcal{M}$ be a $k$-dimensional manifold in $\mathbb{R}^n$.
 \begin{definition}
@@ -51,9 +51,9 @@ The \textbf{tangent space} $T_{\vec{x}}(\mathcal{M})$ is the $k$-dimensional man
 
 \begin{definition}
 The \textbf{normal space} $N_{\vec{x}}(\mathcal{M})$ is an $(n - k)$-dimensional manifold given by
-\begin{equation*}
+\begin{align*}
     \vec{N}_j = \nabla f_j(\vec{x})
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item e.g. a surface has a normal line, a curve has a normal plane
     \item e.g. in $\mathbb{R}^4$, the paraboloid $x_4 = x_1^2 + x_2^2 + x_3^2$ is a 3-dimensional manifold, its normal vector is $\nabla f$ where $f = x_4 - x_1^2 - x_2^2 - x_3^2$.
@@ -64,18 +64,18 @@ The \textbf{normal space} $N_{\vec{x}}(\mathcal{M})$ is an $(n - k)$-dimensional
 \section*{Integration on Manifolds}
 \begin{definition}
 The \textbf{volume} of $R = \set{\vec{x}: a_i \leq x_i \leq b_i, i = 1, \dots, n}$ is given by
-\begin{equation*}
+\begin{align*}
     V = \prod_{i=1}^n (b_i - a_i) = (b_1 - a_1) \cdots (b_n - a_n)
-\end{equation*}
+\end{align*}
 \end{definition}
 Let $D \in \mathbb{R}^n$ be a domain, $f: D \mapsto \mathbb{R}$ be continuous, then the integral of $f$ on $D$ is given by
 \begin{align*}
     \int_{D} f(\vec{x}) \,d\vec{x} = \int_{D} f(\vec{x}) \,dV_n = \lim \sum f(\vec{x}_j) volume of (R_j)
 \end{align*}
 where $R_j$ are rectangular boxes approximating $D$. If $D = R$ is a rectangular box, then
-\begin{equation*}
+\begin{align*}
     \int_{R} f(\vec{x}) \,d\vec{x} = \int_{a_1}^{b_1} \int_{a_2}^{b_2} \dots \int_{a_n}^{b_n} f(x_1, \dots, x_n) \, dx_n \cdots dx_1
-\end{equation*}
+\end{align*}
 
 \begin{example}
 Let $f(x_1, \dots, x_4) = x_1^2$, $R = [0,1]^4$ be the unit cube in 4 dimensions. Then,
@@ -86,15 +86,15 @@ Let $f(x_1, \dots, x_4) = x_1^2$, $R = [0,1]^4$ be the unit cube in 4 dimensions
 \end{align*}
 \end{example}
 Integration on $k$-dimensional manifolds, $1 \leq k \leq n - 1$,
-\begin{equation*}
+\begin{align*}
     dS = \abs{\vec{r}_n \times \vec{r}_v} \,du \,dv
-\end{equation*}
+\end{align*}
 
 \section*{Volume of a Parallelogram in $\mathbb{R}^n$}
 Let $R$ be a $k$-dimensional parallelogram spanned by linearly independent vectors $\vec{v}_1, \dots, \vec{v}_k \in \mathbb{R}^n$. In other words,
-\begin{equation*}
+\begin{align*}
     R = \set{\vec{x} \in \mathbb{R}^n: \vec{x} = t_1 \vec{v}_1 + \dots + t_k \vec{v}_k, 0 \leq t_1, \dots, t_k \leq 1}
-\end{equation*}
+\end{align*}
 The $k$-dimensional volume of $R$ is given by
 \begin{align*}
     V & = \sqrt{G_k(\vec{v}_1, \dots, \vec{v}_k)} \\
@@ -102,9 +102,9 @@ The $k$-dimensional volume of $R$ is given by
 \end{align*}
 \begin{proof}
 Proof for the special case $k = n$, $k = 1, 2$. Let
-\begin{equation*}
+\begin{align*}
     A = \begin{bmatrix} \vec{v}_1 & \dots & \vec{v}_k \end{bmatrix}
-\end{equation*}
+\end{align*}
 matrix $A$ with columns given by vectors. Then,
 \begin{align*}
     A^{T} A & = \begin{bmatrix} \vec{v}_1^T \\ \vdots \\ \vec{v}_n^T \end{bmatrix} \begin{bmatrix} \vec{v}_1 & \dots & \vec{v}_n \end{bmatrix} \\
@@ -120,9 +120,9 @@ Recall: In $\mathbb{R}^3$,
     V = \abs{(\vec{u} \times \vec{v}) \bullet \vec{w}} = \abs{\det{\begin{bmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{bmatrix}}}
 \end{align*}
 For $k = 1$,
-\begin{equation*}
+\begin{align*}
     G_1(\vec{v}) = \abs{\det{\begin{bmatrix} \vec{v}_1 \bullet \vec{v}_2 \end{bmatrix}}} = \abs{\vec{v}_1}^2
-\end{equation*}
+\end{align*}
 For $k = 2$,
 \begin{align*}
     G_2(\vec{v}, \vec{w}) & = \begin{vmatrix} \vec{v} \bullet \vec{v} & \vec{v} \bullet \vec{w} \\ \vec{w} \bullet \vec{v} & \vec{w} \bullet \vec{w} \end{vmatrix} \\
@@ -135,15 +135,15 @@ For $k = 2$,
 
 \section*{Integration on Manifolds}
 Generalize the surface element to higher dimensions. Recall: For a parametric surface given by $\vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)}$,
-\begin{equation*}
+\begin{align*}
     dS = \abs{\vec{r}_u \times \vec{r}_v} \,du \,dv
-\end{equation*}
+\end{align*}
 and $\abs{\vec{r}_u \times \vec{r}_v}$ can be thought of as the volume of the parallelogram spanned by $\vec{r}_u$ and $\vec{r}_v$.
 
 Let $\mathcal{M}$ be a $k$-manifold in $\mathbb{R}^n$ with parametrization
-\begin{equation*}
+\begin{align*}
     \vec{p}(\vec{u}) = \veciii{p_1(\vec{u})}{\dots}{p_n(\vec{u})}
-\end{equation*}
+\end{align*}
 for $\vec{u} \in U \subset \mathbb{R}^k$. Choose $k$ tangent vectors $\vec{T}_j = \dfrac{\partial \vec{p}}{\partial u_j}$ for $j = 1, \dots, k$. Assuming the Jacobian has maximal rank, the tangent vectors are linearly independent for all $\vec{x} \in \mathcal{M}$. The surface element is given by
 \begin{align*}
     \sqrt{G_k(\vec{T}_1, \dots, \vec{T}_k)} \,du_1 \cdots \,du_k
@@ -171,9 +171,9 @@ Determine the 3-volume of the part of the hyperplane $x_1 + x_2 - 2x_3 + 2x_4 = 
 
 \begin{example}
 Let $\mathcal{S}$ be the 2-manifold in $\mathbb{R}^4$ given by
-\begin{equation*}
+\begin{align*}
     \mathcal{S} = \set{(3 \cos{\theta}, 3 \sin{\theta}, \cos{\phi}, \sin{\phi}): 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq 2\pi}
-\end{equation*}
+\end{align*}
 Evaluate
 \begin{equation}
     \int_{\mathcal{S}} = x_2^2 \,dV_2
@@ -198,9 +198,9 @@ Let $\mathcal{M}$ be a $k$-manifold on $\mathbb{R}^n$, $U \subset \mathbb{R}^n$,
 \end{align*}
 where $\vec{T}_j = \partial \vec{p}/ \partial u_j$.
 \\ \\ The, define the integral of $\Phi$ on $\mathcal{M}$ is given by
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{M}} \Phi = \int_{U} \Phi\left(\dfrac{\partial \vec{p}}{\partial u_1}, \dots, \dfrac{\partial \vec{p}}{\partial u_k} \right) \,du_1 \cdots \,du_k
-\end{equation*}
+\end{align*}
 
 \begin{example}
 Special case, $k = n$, $\mathcal{M} = U$, parametrized by $\vec{x}$, $\Phi = f(\vec{x}) dx_1 \wedge \cdots \wedge dx_n$ be a differential $n$-form. Then,
@@ -210,9 +210,9 @@ Special case, $k = n$, $\mathcal{M} = U$, parametrized by $\vec{x}$, $\Phi = f(\
     \vdots & & \ddots & \\ 0 & \dots & & 1 \end{vmatrix} = f(\vec{x})
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     \int_{U} \Phi = \int_{U} f(\vec{x}) \,dx_1 \cdots \,dx_n
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
@@ -234,13 +234,13 @@ analogous to line integrals in $\mathbb{R}^3$.
 
 \begin{example}
 Let $\mathcal{S}$ be a surface in $\mathbb{R}^3$, parametrized by $\vec{r}: D \mapsto \mathcal{S}$, $D \subset \mathbb{R}^2$, $\vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}$, $\Phi$ be a differential 2-form given by
-\begin{equation*}
+\begin{align*}
     \Phi = F_1 \,dy \wedge dz + F_2 \,dz \wedge dx + F_3 \,dx \wedge dy
-\end{equation*}
+\end{align*}
 Then,
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{S}} \Phi = \int_{D} \Phi(\vec{r}_u, \vec{r}_v) \,du \,dv
-\end{equation*}
+\end{align*}
 Then,
 \begin{align*}
     & \int_{D} \left(F_1(dy \wedge dz)(\vec{r}_u, \vec{r}_v) + \dots \right) \,du \,dv \\
@@ -251,13 +251,13 @@ For comparison, consider a flux integral in $\mathbb{R}^3$, $\vec{F} = \veciii{F
     \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{D} \vec{F} \bullet (\vec{r}_u \times \vec{r}_v) \,du \,dv 
 \end{align*}
 where
-\begin{equation*}
+\begin{align*}
     \vec{r}_u \times \vec{r}_v = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ x_u & y_u & z_U \\ x_v & y_v & z_v \end{vmatrix} = \begin{vmatrix} y_u & z_u \\ y_v & z_v \end{vmatrix} \ihat + \dots
-\end{equation*}
+\end{align*}
 and so
-\begin{equation*}
+\begin{align*}
     \int_{D} \left(F_1 \begin{vmatrix} y_u & z_u \\ y_v & z_v \end{vmatrix} + \dots \right) \,du \,dv
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
@@ -280,9 +280,9 @@ where $\vec{F} = \veciii{F_1}{\dots}{F_n}$
 
 \begin{example}
 Let $\Phi = 4 \,dx_1 \wedge dx_2 - x_1^2 \,dx_3 \wedge dx_4$, $\mathcal{M}$ be a 2-manifold parametrized by $\vec{x}(t,s) = (t,s,t\cos{s}, t\sin{s})$, $0 \leq t \leq 1$, $0 \leq s \leq 2\pi$. Evaluate
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{M}} \Phi
-\end{equation*}
+\end{align*}
 \begin{align*}
     \vec{T}_t & = (1, 0 \cos{s}, \sin{s}) \\
     \vec{T}_s & = (0, 1, -t\sin{s}, t\cos{s}) \\
@@ -313,9 +313,9 @@ corresponding to 2 choices of orientation.
 
 \begin{example}
 In $\mathbb{R}^2$, the usual choice of orientation $\omega = dx \wedge dy$
-\begin{equation*}
+\begin{align*}
     dx \wedge dy(\ihat, \jhat) = \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} = 1 > 0
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
@@ -333,8 +333,8 @@ Orientation on $k$-manifolds is given by a differential $k$-form $\omega$ which 
     \omega(\vec{v}_1, \vec{v}_2) = \begin{vmatrix} \vec{N} & \vec{v_1} & \vec{v_2} \end{vmatrix}
 \end{align*}
 Generalizing, let $\mathcal{S}$ be a hypersurface (of dimension $n-1$) on $\mathbb{R}^n$, such that a unit normal $\vec{N}(\vec{x})$ can be chosen continuously on $\mathcal{S}$. Let
-\begin{equation*}
+\begin{align*}
     \omega(\vec{v}_1, \dots, \vec{v}_{n-1}) = \begin{vmatrix} \vec{N} & \vec{v}_1 & \dots & \vec{v}_{n-1} \end{vmatrix}
-\end{equation*}
+\end{align*}
 
 \end{document}

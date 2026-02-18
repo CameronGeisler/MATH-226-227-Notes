@@ -14,9 +14,9 @@ Recall that a curve is a one-dimensional object, which can be defined as the ran
 
 \begin{definition}
 A \textbf{parametric surface} is a continuous function $\vec{r}(u,v)$ defined on a rectangle $R$ given by $a \leq u \leq b$, $c \leq v \leq d$ in the $uv$-plane, of the form
-\begin{equation*}
+\begin{align*}
     \vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item More precisely, the parametric surface is actually the range of the function $\vec{r}(u,v)$.
     \item The function $\vec{r}(u,v)$ maps a rectangle $R$ in the $uv$-plane to a surface in 3-space.
@@ -27,17 +27,17 @@ A \textbf{parametric surface} is a continuous function $\vec{r}(u,v)$ defined on
 
 \begin{example}
 The surface given by the graph of a function $z = f(x,y)$, where $f$ has a rectangle $R$ as its domain, can be represented as the parametric surface
-\begin{equation*}
+\begin{align*}
     \vec{r}(x,y) = \veciii{x}{y}{f(x,y)}
-\end{equation*}
+\end{align*}
 for $(x,y) \in R$.
 \end{example}
 
 \begin{example}
 \textbf{Sphere}. A sphere $x^2 + y^2 + z^2 = R^2$ can be represented as a parametric surface using spherical coordinates ($\theta$ and $\phi$),
-\begin{equation*}
+\begin{align*}
     \vec{r}(\theta, \phi) = \veciii{R \sin{\theta} \cos{\phi}}{R \sin{\phi} \sin{\theta}}{R \cos{\phi}}
-\end{equation*}
+\end{align*}
 for the rectangle in the $\theta \phi$-plane given by $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$.
 \end{example}
 
@@ -53,33 +53,33 @@ where $0 \leq r \leq 1$, $-\infty < t < \infty$.
 
 \begin{example}
 \textbf{Cylinder}. A vertical cylinder of radius $r$ and height $h$, with axis along the $z$-axis, can be represented by the parametrization
-\begin{equation*}
+\begin{align*}
     \vec{r}(u,v) = \veciii{r\cos{u}}{r\sin{u}}{v}
-\end{equation*}
+\end{align*}
 for $0 \leq u \leq 2\pi$, $0 \leq v \leq h$.
 \end{example}
 
 \begin{example}
 \textbf{Cone}. The surface of a cone with radius $R$ and height $h$, with its vertex at the origin, can be described in cylindrical coordinates by
-\begin{equation*}
+\begin{align*}
     \set{(r,\theta,z): 0 \leq r \leq R: 0 \leq \theta \leq 2\pi, z = \frac{rh}{R}}
-\end{equation*}
+\end{align*}
 For a fixed value of $z$, we have $r = \frac{Rz}{h}$, so on the surface of the cone,
-\begin{equation*}
+\begin{align*}
     x = r \cos{\theta} = \frac{Rz}{h} \cos{\theta} \qquad \text{and} \qquad y = r\sin{\theta} = \frac{Rz}{h} \sin{\theta}
-\end{equation*}
+\end{align*}
 Using the parameters $u = \theta$ and $v = z$, the cone can be described by the parametrization
-\begin{equation*}
+\begin{align*}
     \vec{r}(u,v) = \veciii{\frac{Rv}{h} \cos{u}}{\frac{Rv}{h} \sin{u}}{v}
-\end{equation*}
+\end{align*}
 for $0 \leq u \leq 2\pi$, $0 \leq v \leq h$.
 \end{example}
 
 \begin{example}
 \textbf{Mobius strip}.
-\begin{equation*}
+\begin{align*}
     \vec{r}(u,v) = \veciii{\left(3 + u\cos{(v/2)} \right) \cos{v}}{\left(3 + u \cos{(v/2)} \right)}{u \sin{(v/2)}}
-\end{equation*}
+\end{align*}
 for $-1 \leq u \leq 1$, $0 \leq v \leq 2\pi$.
 \end{example}
 
@@ -88,13 +88,13 @@ Find a normal vector by taking $\vec{n} = \vec{r}_u \times \vec{r}_v$.
 
 \section*{Surface Integrals}
 Let $\mathcal{S}$ be a smooth surface with parametrization $\vec{r}$, which is ``smooth enough" in that all necessary derivatives exist and are continuous on $D$. Then, let $f(x,y,z)$ be a bounded function defined for all points on $\mathcal{S}$. Then, subdivide $\mathcal{S}$ into small, non-overlapping pieces $\mathcal{S}_1, \mathcal{S}_2, \dots, \mathcal{S}_n$ where each $\mathcal{S}_i$ has area $\Delta S_i$. Then, we can form a Riemann sum for $f$ on $\mathcal{S}$ by choosing arbitrary points $(x_i, y_i, z_i)$ in $\mathcal{S}_i$, and letting
-\begin{equation*}
+\begin{align*}
     R_n = \sum_{i=1}^n f(x_i, y_i, z_i) \Delta S_i
-\end{equation*}
+\end{align*}
 If the Riemann sum has a unique limit as $n \to \infty$, and the diameters of the pieces approach zero (independently of how the points $(x_i, y_i, z_i)$ are chosen), then $f$ is integrable on $\mathcal{S}$ and the \textbf{surface integral} of $f$ over $\mathcal{S}$,
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} f(x,y,z) \,dS
-\end{equation*}
+\end{align*}
 
 
 \section*{Smooth Surfaces}
@@ -113,21 +113,21 @@ Let $\vec{r}(u,v)$ be a parametric surface defined on domain $R$. For a point $(
     \dfrac{\partial \vec{r}}{du}(u_0,v_0) && \text{and} && \dfrac{\partial \vec{r}}{dv}(u_0,v_0)
 \end{align*}
 respectively. If these tangent vectors are not parallel and non-zero, then their cross product is normal to $\mathcal{S}$ at $(u_0, v_0)$.
-\begin{equation*}
+\begin{align*}
     \vec{n} = \dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v} = \vec{r_u} \times \vec{r_v}
-\end{equation*}
+\end{align*}
 Then, the area element $\Delta \mathcal{S}$ can be approximated by
-\begin{equation*}
+\begin{align*}
     \Delta S = \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} \Delta u \Delta v
-\end{equation*}
+\end{align*}
 As $\Delta u \to 0$ and $\Delta v \to 0$, we get
-\begin{equation*}
+\begin{align*}
     dS = \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} du \,dv
-\end{equation*}
+\end{align*}
 The surface area of $\mathcal{S}$ is the sum of these area elements
-\begin{equation*}
+\begin{align*}
     \text{Area of $\mathcal{S}$} = \iint_{\mathcal{S}} dS
-\end{equation*}
+\end{align*}
 More generally, the surface integral of a function $f(\vec{r}) = f(x,y,z)$ over a surface $\mathcal{S}$ with parametrization $\vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}$ for $(u,v) \in D$, is given by
 \begin{align*}
     \boxed{\iint_{\mathcal{S}} f(x,y,z) \,dS = \iint_D f(\vec{r}(u,v)) \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} du \,dv}
@@ -168,13 +168,13 @@ Then, the normal vector is
     \abs{\vec{n}} & = \sqrt{g_x^2 + g_y^2 + 1}
 \end{align*}
 Then,
-\begin{equation*}
+\begin{align*}
     dS = \sqrt{g_x^2 + g_y^2 + 1} \,\,dx \,dy
-\end{equation*}
+\end{align*}
 Thus, the surface integral of $f$ over $\mathcal{S}$ is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\iint_{\mathcal{S}} f(x,y,z) \,dS = \iint_{D} f(x,y,g(x,y)) \sqrt{g_x^2 + g_y^2 + 1} \,\, dA}
-\end{equation*}
+\end{align*}
 
 \section*{Geometric Interpretation}
 Let $\gamma$ be the angle between $\vec{n}$ and $\hat{k}$. Then,
@@ -190,24 +190,24 @@ Consider a plane $Ax + By + Cz = D$. A normal vector is $\vec{n_0} = \veciii{A}{
     \abs{\vec{n}} & = \dfrac{\sqrt{A^2 + B^2 + C^2}}{\abs{C}}
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     dS = \dfrac{\sqrt{A^2 + B^2 + C^2}}{\abs{C}} \,dx \,dy
-\end{equation*}
+\end{align*}
 \end{example}
 
 \begin{example}
 Consider a surface $\mathcal{S}$ given by $G(x,y,z) = 0$. If $G$ has continuous first partial derivatives, and $\nabla G \leq 0$, then the non-zero vector
-\begin{equation*}
+\begin{align*}
     \vec{n} = \nabla G(x,y,z)
-\end{equation*}
+\end{align*}
 is normal to $\mathcal{S}$ at $(x,y,z)$. Then,
-\begin{equation*}
+\begin{align*}
     \cos{\gamma} = \dfrac{\nabla G \bullet \vec{\hat{k}}}{\abs{\nabla G} \cdot \abs{\vec{\hat{k}}}} = \dfrac{G_z}{\abs{\nabla G}}
-\end{equation*}
+\end{align*}
 Thus, if $G_z \neq 0$, then
-\begin{equation*}
+\begin{align*}
     dS = \dfrac{\abs{\nabla G}}{\abs{G_z}} \,dx \,dy
-\end{equation*}
+\end{align*}
 If $G_z = 0$ (and either $G_x \neq 0$ or $G_y \neq 0$), then
 \begin{align*}
     dS = \dfrac{\abs{\nabla G}}{\abs{G_x}} \,dy \,dz && dS = \dfrac{\abs{\nabla G}}{\abs{G_y}} \,dx \,dz
@@ -231,17 +231,17 @@ for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$. Then,
     & = r^2 \sin{\phi}
 \end{align*}
 where $\abs{\sin{\phi}} = \sin{\phi}$ as $0 \leq \phi \leq \pi$. Thus,
-\begin{equation*}
+\begin{align*}
     dS = r^2 \sin{\phi} \,d\phi \,d\theta
-\end{equation*}
+\end{align*}
 \end{example}
 
 \section*{Surface Area of a Sphere}
 \begin{example}
 Determine the surface area of a sphere of radius $r > 0$. Let
-\begin{equation*}
+\begin{align*}
     \vec{r}(\theta, \phi) = \veciii{r \cos{\theta} \sin{\phi}}{r \sin{\theta} \sin{\phi}}{r \cos{\phi}}
-\end{equation*}
+\end{align*}
 for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$. Then, $dS = r^2 \sin{\phi} \,d\theta \,d\phi$. Then,
 \begin{align*}
     \iint_{\mathcal{S}} \,dS & = \int_{0}^{2\pi} \int_{0}^{\pi} r^2 \sin{\phi} \,d\phi \,d\theta \\
@@ -290,16 +290,16 @@ Then,
 
 \begin{example}
 Let $\mathcal{S}$ be the part of the cone $z = \sqrt{x^2 + y^2}$ where $0 \leq x \leq 1 - y^2$. Determine
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} x \,dS
-\end{equation*}
+\end{align*}
 \begin{align*}
     \dfrac{\partial z}{\partial x} = \dfrac{x}{\sqrt{x^2 + y^2}} = \dfrac{x}{z} && \dfrac{\partial z}{\partial y} = \dfrac{y}{\sqrt{x^2 + y^2}} = \dfrac{y}{z}
 \end{align*}
 Then,
-\begin{equation*}
+\begin{align*}
     dS = \sqrt{1 + \dfrac{x^2}{z^2} + \dfrac{y^2}{z^2}} \,dx \,dy = \sqrt{2} \,dx \,dy
-\end{equation*}
+\end{align*}
 Since $0 \leq x \leq 1 - y^2$, we have $0 \leq 1 - y^2$ and so $-1 \leq y \leq 1$.
 \begin{align*}
     \iint_{\mathcal{S}} x \,dS & = \int_{-1}^{1} \int_{0}^{1-y^2} \sqrt{2} \,x \,dx \,dy \\
@@ -312,9 +312,9 @@ Since $0 \leq x \leq 1 - y^2$, we have $0 \leq 1 - y^2$ and so $-1 \leq y \leq 1
 
 \begin{example}
 Let $\mathcal{S}$ be the part of the plane $x + y + z = 1$ in the first octant. Determine
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} xyz \,dS
-\end{equation*}
+\end{align*}
 The surface element is
 \begin{align*}
     dS & = \dfrac{\sqrt{1^2 + 1^2 + 1^2}}{1} \,dx \,dy = \sqrt{3} \,dx \,dy
@@ -331,13 +331,13 @@ For this plane in the first octant, $0 \leq x \leq 1$, $0 \leq y \leq 1 - x$, an
 
 \begin{example}
 Let $\mathcal{S}$ be the part of the surface $z = x^2$ in the first octant, and inside the paraboloid $z = 1 - 3x^2 - y^2$. Determine
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}} xz \,dS
-\end{equation*}
+\end{align*}
 The surface element is
-\begin{equation*}
+\begin{align*}
     dS = \sqrt{1 + 4x^2} \,dx \,dy
-\end{equation*}
+\end{align*}
 For this surface in the first octant, its projection onto the $xy$-plane is $x^2 = 1 - 3x^2 - y^2$, or the ellipse $1 = 4x^2 + y^2$. Then, $0 \leq x \leq 1/2$, $0 \leq y \leq \sqrt{1 - 4x^2}$. Then,
 \begin{align*}
     \iint_{\mathcal{S}} xz \,dS & = \int_{0}^{1/2} \int_{0}^{\sqrt{1-4x^2}} x^3 \sqrt{1 + 4x^2} \,dy \,dx \\
@@ -350,41 +350,41 @@ For this surface in the first octant, its projection onto the $xy$-plane is $x^2
 \section*{Theoretical Question}
 \begin{example}
 Suppose $\vec{F}$ is a radial force field, $\mathcal{S}_1$ is a sphere of radius 8 centered at the origin, and the flux integral
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}_1} \vec{F} \bullet d\vec{S} = 7
-\end{equation*}
+\end{align*}
 Let $\mathcal{S}_2$ be a sphere of radius 56 centered at the origin, and consider the flux integral
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 \textbf{(a)} If the magnitude of $\vec{F}$ is inversely proportional to the square of the distance from the origin, what is the value of
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 The unit normal for a sphere is $\vec{n} = \vec{r}/\abs{\vec{r}}$, parallel to the radial force field $\vec{F}$. Then,
 \begin{align*}
     \vec{F} \bullet \vec{n} & = \abs{\vec{F}} \abs{\vec{n}} \cos{\theta} = \abs{\vec{F}}
 \end{align*}
 where $\theta$ is the angle between $\vec{F}$ and $\vec{n}$. The magnitude of $\vec{F}$ is inversely proportional to the square of the distance from the origin, so
-\begin{equation*}
+\begin{align*}
     \abs{\vec{F}} = \dfrac{k}{r^2}
-\end{equation*}
+\end{align*}
 where $r$ is the distance from the origin. On a sphere, $r$ is constant. Then, for a general sphere $\mathcal{S}$ of radius $r$,
 \begin{align*}
     \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \iint_{\mathcal{S}} \vec{F} \bullet \vec{n} \,dS = \iint_{\mathcal{S}} \dfrac{k}{r^2} \,dS = \dfrac{k}{r^2} \iint_{\mathcal{S}} \,dS = \dfrac{k}{r^2} \cdot 4\pi r^2 = 4\pi k = K
 \end{align*}
 In other words, the integral over a sphere $\mathcal{S}$ is a constant independent on the radius of the sphere. Thus,
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S} = 7
-\end{equation*}
+\end{align*}
 \textbf{(b)} If the magnitude of $\vec{F}$ is inversely proportional to the cube of the distance from the origin, what is the value of
-\begin{equation*}
+\begin{align*}
     \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
-\end{equation*}
+\end{align*}
 Here,
-\begin{equation*}
+\begin{align*}
     \abs{\vec{F}} = \dfrac{k}{r^3}
-\end{equation*}
+\end{align*}
 Then, for a general sphere of radius $r$,
 \begin{align*}
     \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \iint_{\mathcal{S}} \vec{F} \bullet \vec{n} \,dS = \iint_{\mathcal{S}} \dfrac{k}{r^3} \,dS  = \dfrac{k}{r^3} \cdot 4\pi r^2 = \dfrac{K}{r}

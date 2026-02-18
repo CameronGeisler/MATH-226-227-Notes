@@ -23,9 +23,9 @@ To most easily analyze Kepler's laws, we will first decompose the vector motion 
     & = r \hat{\vec{r}}
 \end{align*}
 where $r = \abs{\vec{r}}$ is the distance from the point $\vec{r}$ to the origin, and $\hat{\vec{r}}$ is a unit vector pointing in the direction of $\vec{r}$. Then,
-\begin{equation*}
+\begin{align*}
     \hat{\vec{r}} = \vecii{\cos{\theta}}{\sin{\theta}}
-\end{equation*}
+\end{align*}
 where $\theta$ is the angle formed by $\vec{r}$ in standard position. Note that $\theta$ is also a function of $t$, as it changes over time.
 \\ \\ Then, we will also consider another vector that is perpendicular to $\hat{\vec{r}}$ in the direction $\ang{90}$ rotated counter-clockwise, i.e. in the direction of increasing $\theta$, or the counter-clockwise direction. We will denote this vector by $\hat{\vec{\theta}}$. Then,
 \begin{align*}
@@ -47,9 +47,9 @@ which depends on $\frac{d\vec{r}}{dt}$. Then,
     & = \dot{\theta} \hat{\vec{\theta}}
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{v} = \dot{r} \hat{\vec{r}} + r \dot{\theta} \hat{\vec{\theta}}}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item The \textbf{radial component} of velocity is $\dot{r}$.
     \item The \textbf{transverse component} of velocity is $r \dot{\theta}$.
@@ -76,9 +76,9 @@ which requires $\frac{d\hat{\vec{\theta}}}{dt}$. Then,
     & = -\dot{\theta} \hat{\vec{r}}
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{a} = \brac{\ddot{r} - r \dot{\theta}^2} \hat{\vec{r}} + \brac{r \ddot{\theta} + 2 \dot{r} \dot{\theta}} \hat{\vec{\theta}}}
-\end{equation*}
+\end{align*}
 \begin{itemize}
     \item The \textbf{radial component} of acceleration is $\ddot{r} - r \dot{\theta}^2$.
     \item The \textbf{transverse component} of acceleration is $r \ddot{\theta} + 2 \dot{r} \dot{\theta}$.
@@ -96,40 +96,40 @@ Thus,
 
 \section*{Deriving Newton's Law of Universal Gravitation Using Kepler's Laws}
 First, we can show that Kepler's first and second law imply Newton's law of universal gravitation. Consider a curve in the polar form as above. Then, let $A(t)$ be the area enclosed by the graph from $\theta_0$ to $t$. Then, Then, Kepler's second law says that the area is being swept out at a constant rate, in other words,
-\begin{equation*}
+\begin{align*}
     \frac{dA}{dt} = \text{constant}
-\end{equation*}
+\end{align*}
 for some constant $C$. Then, recall that the area enclosed by the polar graph from an initial point $\theta_0$ to $\theta(t)$ is given by,
-\begin{equation*}
+\begin{align*}
     A(t) = \int_{\theta_0}^{\theta(t)} \frac{1}{2} r^2 \,d\theta
-\end{equation*}
+\end{align*}
 Then, by the FTC,
-\begin{equation*}
+\begin{align*}
     \frac{dA}{d\theta} = \frac{1}{2} r^2
-\end{equation*}
+\end{align*}
 Then, by the chain rule,
 \begin{align*}
     \frac{dA}{dt} & = \frac{dA}{d\theta} \cdot \frac{d\theta}{dt} \\
     & = \frac{1}{2} r^2 \cdot \dot{\theta}
 \end{align*}
 Then, putting these together with Kepler's second law,
-\begin{equation*}
+\begin{align*}
     \frac{1}{2} r^2 \dot{\theta} = \text{constant} \qquad \text{or, more simply,} \qquad r^2 \dot{\theta} = \text{constant}
-\end{equation*}
+\end{align*}
 Then, also,
 \begin{align*}
     \frac{d}{dt} \brac{r^2 \dot{\theta}} & = \frac{d}{dt} C \\
     \ddot{\theta} r^2 + 2 \dot{\theta} r \dot{r} & = 0
 \end{align*}
 In particular, $r \brac{\ddot{\theta} r + 2 \dot{\theta} \dot{r}} = 0$. Since $r \neq 0$, this implies that $\ddot{\theta} r + 2 \dot{\theta} \dot{r}$, and so the acceleration vector reduces to have no transverse component,
-\begin{equation*}
+\begin{align*}
     \vec{a} = \brac{\ddot{r} - \dot{r} \dot{\theta}^2} \vec{\hat{r}}
-\end{equation*}
+\end{align*}
 This shows that if a path $\vec{r}$ satisfies Kepler's second law, then its acceleration is parallel to $\vec{r}$. Notice that a circle is a special case of this principle.
 \\ \\ Next, Kepler's first law says that the orbit of a planet is an ellipse with the sun at one of the two foci. If the sun is placed at the origin, and the major axis of the ellipse is chosen to be the $x$-axis, then the ellipse has the polar form,
-\begin{equation*}
+\begin{align*}
     r = \frac{k}{1 - \epsilon \cos{\theta}}
-\end{equation*}
+\end{align*}
 where $\epsilon \in (0,1)$ and $k > 0$. Then, to compute $\vec{a}$, we need to first compute $\ddot{r}$. Then,
 \begin{align*}
     \dot{r} & = -\frac{k \epsilon \sin{\theta}}{\brac{1 - \epsilon \cos{\theta}}^2} \dot{\theta}
@@ -153,22 +153,22 @@ Then, the radial component of the acceleration is given by,
     & = -\frac{C^2}{k} \cdot \frac{1}{r^2} && \text{using $r^2 \dot{\theta} = C$ again}
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{a} = -\frac{C^2}{k} \cdot \frac{1}{r^2} \hat{\vec{r}}}
-\end{equation*}
+\end{align*}
 This shows that the acceleration $\vec{a}$ is inversely proportional to $r^2$, and also is directed towards the origin.
 \\ \\ Further, we can show that,
-\begin{equation*}
+\begin{align*}
     \vec{a} = \frac{G M}{r^2} \hat{\vec{r}}
-\end{equation*}
+\end{align*}
 where $M$ is the mass of the sun, and $G$ is the gravitational constant.
 
 \section*{Kepler's Laws from Newton's Law of Motions}
 
 In addition, we can use Newton's laws of motion, to derive Kepler's laws. First, consider a force on an object which is directed towards the origin, given by $\vec{F} = \lambda(\vec{r}) \vec{r}$, where $\lambda(\vec{r})$ is a scalar function which depends on the position $\vec{r}$. Then, by Newton's second law of motion, $\vec{F} = m \vec{a}$. Combining these,
-\begin{equation*}
+\begin{align*}
     m \vec{a} = \lambda(\vec{r}) \vec{r}
-\end{equation*}
+\end{align*}
 This shows that $\vec{a}$ and $\vec{r}$ are parallel, i.e. the acceleration is in the same direction as the force. Then,
 \begin{align*}
     \frac{d}{dt} \brac{\vec{r} \times \vec{v}} & = \dot{\vec{r}} \times \vec{v} + \vec{r} \times \dot{\vec{v}} \\
@@ -176,13 +176,13 @@ This shows that $\vec{a}$ and $\vec{r}$ are parallel, i.e. the acceleration is i
     & = \vec{0}
 \end{align*}
 where the two cross products are zero because the cross product of parallel vectors is zero. Then,
-\begin{equation*}
+\begin{align*}
     \frac{d}{dt} \brac{\vec{r} \times \vec{v}} = \vec{0}
-\end{equation*}
+\end{align*}
 which implies that,
-\begin{equation*}
+\begin{align*}
     \vec{r} \times \vec{v} = \vec{h}
-\end{equation*}
+\end{align*}
 where $\vec{h}$ is a constant vector. In fact, $\vec{h}$ represents the angular momentum per unit mass of the object about the origin. Also, this says that $\vec{r}$ is always perpendicular to $\vec{h}$, so the motion takes places in a plane through the origin with normal vector $\vec{h}$. If we take the plane of orbit to be the $xy$-plane, then $\vec{h} = h \hat{\vec{k}}$ is in the direction of the $z$-axis (where $h = \abs{\vec{h}}$). Then,
 \begin{align*}
     \vec{r} \times \vec{v} & = (r \hat{\vec{v}}) \times \brac{\dot{r} \hat{\vec{r}} + r \dot{\theta} \hat{\vec{\theta}}} \\
@@ -190,13 +190,13 @@ where $\vec{h}$ is a constant vector. In fact, $\vec{h}$ represents the angular 
     & = r^2 \dot{\theta} \hat{\vec{k}}
 \end{align*}
 Then, putting this together,
-\begin{equation*}
+\begin{align*}
     h \hat{\vec{k}} = r^2 \dot{\theta} \hat{\vec{k}}
-\end{equation*}
+\end{align*}
 which implies that,
-\begin{equation*}
+\begin{align*}
     h = r^2 \dot{\theta}
-\end{equation*}
+\end{align*}
 That is, $r^2 \dot{\theta} = h$ is constant for the motion.
 \\ \\ Next,
 \begin{align*}
@@ -225,42 +225,42 @@ Then, to evaluate $\hat{\vec{r}} \times \hat{\vec{j}}$, recall that $\hat{\vec{r
     & = \cos{\theta} \khat
 \end{align*}
 Thus,
-\begin{equation*}
+\begin{align*}
     h \khat = \brac{\frac{k}{h} r + Cr \cos{\theta}} \khat
-\end{equation*}
+\end{align*}
 which implies that,
-\begin{equation*}
+\begin{align*}
     h = r \brac{\frac{k}{h} + C\cos{\theta}}
-\end{equation*}
+\end{align*}
 Then, solving for $r$,
 \begin{align*}
     r & = \frac{h}{\frac{k}{h} + C \cos{\theta}} \\
     r & = \frac{\frac{h^2}{k}}{1 + \frac{Ch}{k} \cos{\theta}}
 \end{align*}
 This is the polar equation of the orbit. If we let $C = \frac{\epsilon k}{h}$, then it reduces to,
-\begin{equation*}
+\begin{align*}
     r = \frac{\frac{h^2}{k}}{1 + \epsilon \cos{\theta}}
-\end{equation*}
+\end{align*}
 and $\epsilon$ is the eccentricity of the curve. If $\epsilon < 1$, then it is an ellipse, with one focus at the origin (the sun). This is Kepler's first law.
 
 \section*{Kepler's Second Law}
 If $A(t)$ represents the area bounded by the orbit and the radial lines $\theta = \theta_0$ and $\theta = \theta(t)$, then recall that,
-\begin{equation*}
+\begin{align*}
     \frac{dA}{dt} = \frac{1}{2} r^2 \dot{\theta}
-\end{equation*}
+\end{align*}
 Then, combining this with before, we get that,
-\begin{equation*}
+\begin{align*}
     \frac{dA}{dt} = \frac{1}{2}h
-\end{equation*}
+\end{align*}
 which means that $\frac{dA}{dt}$ is constant, which is precisely Kepler's second law. In fact, this could also be derived directly from considering the derivative of $r^2 \dot{\theta}$,
 \begin{align*}
     \frac{d}{dt} \brac{r^2 \dot{\theta}} & = 2r \dot{r} \dot{\theta} + r^2 \ddot{\theta} \\
     & = r \brac{2 \dot{r} \dot{\theta} + r \ddot{\theta}}
 \end{align*}
 Then, since the acceleration has no transverse component, $r \ddot{\theta} + 2 \dot{r} \dot{\theta} = 0$, which implies that $\frac{d}{dt} \brac{r^2 \dot{\theta}} = 0$. Then, $r^2 \dot{\theta} = h$ for some constant $h$, and so,
-\begin{equation*}
+\begin{align*}
     \frac{dA}{dt} = \frac{1}{2} h
-\end{equation*}
+\end{align*}
 as before.
 
 \end{document}

@@ -40,9 +40,9 @@ Thus, $\lim_{(x,y) \to (0,0)} f(x,y) = 0 = f(0,0)$, so $f$ is continuous at $(0,
 Let $f(x,y) = \begin{cases} \frac{x^3}{x^2 + y^2} & \text{if $(x,y) \neq (0,0)$} \\ 0 & \text{if $(x,y) = (0,0)$} \end{cases}$
 \\ \\ Prove that $f$ is continuous at $(0,0)$.
 \\ \\ If $(x,y) \neq (0,0)$, then
-\begin{equation*}
+\begin{align*}
     0 \leq \abs{f(x,y)} = \abs{\frac{x^3}{x^2+y^2}} = \abs{x} \cdot \abs{\frac{x^2}{x^2+y^2}} \leq \abs{x} \cdot \abs{\frac{x^2}{x^2}} = \abs{x}
-\end{equation*}
+\end{align*}
 As $(x,y) \to (0,0)$, $0 \to 0$ and $\abs{x} \to 0$. Thus, by the squeeze theorem, $\lim_{(x,y) \to (0,0)} f(x,y) = 0 = f(0,0)$. Therefore, $f$ is continuous of $(0,0)$.
 \end{example}
 

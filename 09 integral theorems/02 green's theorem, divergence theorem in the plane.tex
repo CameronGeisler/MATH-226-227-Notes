@@ -7,14 +7,14 @@
 
 \section*{Integral Theorems}
 Recall that fundamental theorem of calculus for the single-variable definite integral,
-\begin{equation*}
+\begin{align*}
     \int_a^b \dfrac{d}{dx} f(x) \,dx = f(b) - f(a)
-\end{equation*}
+\end{align*}
 expresses the integral, over the interval $[a,b]$, of the derivative of a single-variable function $f$, in terms of the values of $f$ on the boundary of the interval $[a,b]$. In particular, as a sum of values of $f$ at the oriented boundary of $[a,b]$, where $a$ gives a negative contribution and $b$ gives a positive contribution.
 \\ \\ In a similar way, the fundamental theorem for line integrals states that for a conservative vector field $\nabla \phi$ over a curve $\mathcal{C}$ from $A$ to $B$,
-\begin{equation*}
+\begin{align*}
     \int_{\mathcal{C}} \nabla \phi \bullet d\vec{r} = \phi(B) - \phi(A)
-\end{equation*}
+\end{align*}
 This has a similar interpretation, in that it expresses the integral, over the one-dimensional object $\mathcal{C}$, of the derivative of a single-variable function $\phi$, as the sum of values at the boundary of $\mathcal{C}$.
 
 \section*{Green's Theorem in the Plane}
@@ -22,26 +22,26 @@ Green's theorem is the extension of the fundamental theorem of calculus to two d
 
 \begin{theorem}
 Let $R$ be a regular, closed region in the $xy$-plane, with boundary $\mathcal{C}$ that is made up of one or more piecewise smooth, simple closed curves that are positively oriented with respect to $R$. Let $\vec{F} = \vecii{F_1(x,y)}{F_2(x,y)}$ be a smooth vector field on $R$. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{R} \curl{F} \bullet \vec{\hat{k}} \,dA}
-\end{equation*}
+\end{align*}
 More explicitly,
-\begin{equation*}
+\begin{align*}
     \boxed{\oint_{\mathcal{C}} F_1(x,y) \,dx + F_2(x,y) \,dy = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) \,dA}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Examples}
 \begin{example}
 Evaluate
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vecii{8y - 3}{2x^2 + 4} \bullet \,d\vec{r}
-\end{equation*}
+\end{align*}
 where $\mathcal{C}$ is the boundary of the rectangle with vertices $(0,0), (6,0), (6,4), (0,4)$, oriented counterclockwise.
 \\ \\ Notice that here, the line integral will require 4 parametrizations, one for each side of the rectangle. On the other hand, the region enclosed by $\mathcal{C}$ is just a rectangle, so evaluating a double integral over this region will be easier. By Green's theorem,
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} \vecii{8y - 3}{2x^2 + 4} \bullet \,d\vec{r} = \iint_R (4x - 8) \,dA
-\end{equation*}
+\end{align*}
 where $R$ is the rectangle bounded by $\mathcal{C}$, given by $0 \leq x \leq 6, 0 \leq y \leq 4$. Then,
 \begin{align*}
     & = \int_0^6 \int_0^4 (4x - 8) \,dy \,dx \\
@@ -69,17 +69,17 @@ Then, by Green's theorem,
 In summary,
 \begin{theorem}
 Let $\mathcal{C}$ be a positively oriented, piecewise smooth, simple closed curve, that bounds a region $R$ in the $xy$-plane. Then, the area of $R$ is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\text{Area of $R$} = \oint_{\mathcal{C}} x \,dy = - \oint_{\mathcal{C}} y \,dx = \dfrac{1}{2} \oint_{\mathcal{C}} x \,dy - y \,dx}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Connection to Fundamental Theorem of Calculus for Line Integrals}
 Recall that for a conservative vector field $\vec{F}$ and a closed curve $\mathcal{C}$, the line integral of $\vec{F}$ around $\mathcal{C}$ is 0. This can be proved using Green's theorem.
 \\ \\ For a conservative vector field, $\vec{F}$,
-\begin{equation*}
+\begin{align*}
     \dfrac{\partial F_2}{\partial x} = \dfrac{\partial F_1}{\partial y}
-\end{equation*}
+\end{align*}
 and so, by Green's theorem,
 \begin{align*}
     \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) = 0
@@ -92,9 +92,9 @@ Intuitively, Green's theorem gives the double integral (``area") of a region onl
 \section*{Area of an Ellipse}
 \begin{example}
 Determine the area of the ellipse given by
-\begin{equation*}
+\begin{align*}
     \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1
-\end{equation*}
+\end{align*}
 The boundary of the ellipse can be parametrized with positive orientation by $x = a \cos{t}$, $y = b \sin{t}$, $0 \leq t \leq 2\pi$. Then, $dx = -a \sin{t}$, $dy = b \cos{t}$. Then, by Green's theorem,
 \begin{align*}
     A & = \dfrac{1}{2} \oint_{\mathcal{C}} a\cos{t} \cdot b\cos{t} - b\sin{t} \cdot -a\sin{t} \\
@@ -107,26 +107,26 @@ The boundary of the ellipse can be parametrized with positive orientation by $x 
 \section*{Divergence Theorem in the Plane}
 \begin{theorem}
 Let $R$ be a regular, closed region in the $xy$-plane whose boundary $\mathcal{C}$ consists of finitely many piecewise smooth, simple closed curves. Let $\vec{\hat{N}}$ be the unit normal field on $\mathcal{C}$, oriented outward from $R$. Let $\vec{F} = \vecii{F_1(x,y)}{F_2(x,y)}$ be a smooth vector field. Then,
-\begin{equation*}
+\begin{align*}
     \boxed{\oint_{\mathcal{C}} \vec{F} \bullet \vec{\hat{N}} \,ds = \iint_{R} \div{F} \,dA}
-\end{equation*}
+\end{align*}
 More explicitly,
-\begin{equation*}
+\begin{align*}
     \boxed{\oint_{\mathcal{C}} F_1 \,dy - F_2 \,dx = \iint_R \brac{\frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y}} \,dA}
-\end{equation*}
+\end{align*}
 In other words, the outward flux of $\vec{F}$ across $\mathcal{C}$ is equal to the double integral over $R$ of the divergence of $\vec{F}$.
 \end{theorem}
 
 \begin{example}
 Evaluate
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} (2x + \ln{(2y)}) \,dy - (7y^2 - \sinh{x}) \,dx
-\end{equation*}
+\end{align*}
 where $\mathcal{C}$ is the boundary of the square with vertices $(0,3), (3,3), (3,6), (0,6)$, oriented counterclockwise.
 \\ \\ By the divergence theorem,
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} (2x + \ln{(2y)}) \,dy - (7y^2 - \sinh{x}) \,dx = \iint_R (2 + 14y) \,dA
-\end{equation*}
+\end{align*}
 The region $R$ enclosed by $\mathcal{C}$ is given by $0 \leq x \leq 3, 3 \leq y \leq 6$. Then,
 \begin{align*}
     & = \int_0^3 \int_3^6 (2 + 14y) \,dy \,dx \\
@@ -139,9 +139,9 @@ The region $R$ enclosed by $\mathcal{C}$ is given by $0 \leq x \leq 3, 3 \leq y 
 
 \begin{example}
 Evaluate
-\begin{equation*}
+\begin{align*}
     \oint_{\mathcal{C}} f \,dy - g \,dx
-\end{equation*}
+\end{align*}
 where $\vecii{f}{g} = \vecii{9x^2}{2y^2}$, and $\mathcal{C}$ is the upper half of the unit circle and the line segment $-1 \leq x \leq 1$, oriented clockwise.
 \\ \\ By the divergence theorem,
 \begin{align*}

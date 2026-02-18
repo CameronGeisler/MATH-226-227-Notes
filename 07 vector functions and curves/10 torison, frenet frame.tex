@@ -21,9 +21,9 @@ Consider the circle $\vec{r}(t) = \veciii{r \cos{t}}{r \sin{t}}{0}$.
     \hat{\vec{T}}'(t) = \frac{\vec{r}'(t)}{\abs{\vec{r}(t)}} = \frac{\veciii{-r \sin{t}}{r \cos{t}}{0}}{r} = \veciii{-\sin{t}}{\cos{t}}{0} = \hat{\vec{N}}(s)
 \end{align*}
 Then,
-\begin{equation*}
+\begin{align*}
     \kappa(t) = \frac{\abs{\hat{\vec{T}}'(t)}}{\abs{\vec{r}'(t)}} = \frac{1}{r}
-\end{equation*}
+\end{align*}
 Note that curvature is constant, and $r$ increases, curvature decreases.
 \end{example}
 
@@ -43,16 +43,16 @@ Note that as $a \to \infty$ (radius increases), $\kappa \to 1/a$. As $b \to 0$, 
 \section*{Osculating Circle}
 \begin{definition}
 The \textbf{radius of curvature}, $\rho(s)$, is the reciprocal of curvature.
-\begin{equation*}
+\begin{align*}
     \rho(s) = \frac{1}{\kappa(s)}
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{definition}
 The \textbf{center of curvature} of $\mathcal{C}$ at $\vec{r}(s)$, $\vec{r_c}(s)$, is the point
-\begin{equation*}
+\begin{align*}
     \vec{r_c}(s) = \vec{r}(s) + \rho(s) \hat{\vec{N}}(s)
-\end{equation*}
+\end{align*}
 \end{definition}
 
 It is one radius distance from the curve, in the direction of the unit normal vector.
@@ -71,16 +71,16 @@ Consider a circle $\vec{r}(t) = \vecii{r \cos{t}}{r \sin{t}}$. Then, the osculat
 
 \section*{Unit Binormal Vector}
 The cross product,
-\begin{equation*}
+\begin{align*}
     \vec{\hat{T}} \times \vec{\hat{N}}
-\end{equation*}
+\end{align*}
 is another unit vector, which is perpendicular to both $\vec{\hat{T}}$ and $\vec{\hat{N}}$.
 
 \begin{definition}
 The \textbf{binormal vector}, $\vec{\hat{B}}(s)$, is the cross product of the unit tangent and unit normal,
-\begin{equation*}
+\begin{align*}
     \vec{\hat{B}}(s) = \hat{\vec{T}}(s) \times \hat{\vec{N}}(s)
-\end{equation*}
+\end{align*}
 
 \end{definition}
 
@@ -95,9 +95,9 @@ The \textbf{Frenet frame} for $\mathcal{C}$ at $\vec{r}(s)$ is the orthonormal b
 
 \section*{Torsion}
 Recall that $\vec{\hat{B}}$ determines the osculating plane. Then, the derivative $\frac{d\vec{\hat{B}}}{ds}$ intuitively is the (vector) rate of change of space orientation of the osculating plane, or the rate of change at which the curve is twisting. Then, it turns out that $\frac{d\vec{\hat{B}}}{ds}$ is perpendicular to both $\vec{\hat{T}}$ and $\vec{\hat{B}}$. This is because first, any vector with constant length is perpendicular to its derivative, because,
-\begin{equation*}
+\begin{align*}
     0 = \frac{d}{ds} (\vec{\hat{B}} \bullet \vec{\hat{B}}) = 2 \vec{\hat{B}} \cdot \frac{d\vec{\hat{B}}}{ds}
-\end{equation*}
+\end{align*}
 and so $\frac{d\vec{\hat{B}}}{ds}$ is perpendicular to $\vec{\hat{B}}$. Also,
 \begin{align*}
     \frac{d\hat{\vec{B}}}{ds} & = \frac{d\hat{\vec{T}}}{ds} \times \hat{\vec{N}} + \hat{\vec{T}} \times \frac{d\hat{\vec{N}}}{ds} \\
@@ -105,23 +105,23 @@ and so $\frac{d\vec{\hat{B}}}{ds}$ is perpendicular to $\vec{\hat{B}}$. Also,
     \frac{d\hat{\vec{B}}}{ds} & = \hat{\vec{T}} \times \frac{d\hat{\vec{N}}}{ds}
 \end{align*}
 Thus, $\frac{d\hat{\vec{B}}}{ds}$ is perpendicular to $\hat{\vec{T}}$. Then, since $\set{\vec{T}, \vec{N}, \vec{B}}$ is an orthogonal basis, it follows that $\frac{d\hat{\vec{B}}}{ds}$ must be proportional to $\hat{\vec{N}}$, say,
-\begin{equation*}
+\begin{align*}
     \frac{d\vec{\hat{B}}}{ds} = -\tau \hat{\vec{N}}
-\end{equation*}
+\end{align*}
 where $\tau > 0$. Then, the magnitude of $\frac{d\vec{\hat{B}}}{ds}$, denoted by $\tau$, is called the \textit{torison} of the curve.
 
 \begin{definition}
 The \textbf{torsion} of $\mathcal{C}$ at $\vec{r}(s)$, $\tau(s)$, measures the rate of change of direction of the osculating plane.
-\begin{equation*}
+\begin{align*}
     \frac{d\vec{\hat{B}}}{ds} = -\tau(s) \hat{\vec{N}}(s)
-\end{equation*}
+\end{align*}
 \end{definition}
 
 \begin{theorem}
 The magnitude of torsion at $\vec{r}(s)$ is the rate of turning of the unit binormal
-\begin{equation*}
+\begin{align*}
     \lim_{\Delta s \to 0} \abs{\frac{\Delta \psi}{\Delta s}} = \abs{\tau(s)}
-\end{equation*}
+\end{align*}
 where $\Delta \psi$ is the angle between $\vec{\hat{B}}(s + \Delta s)$ and $\vec{\hat{B}}(s)$.
 \end{theorem}
 
@@ -193,9 +193,9 @@ Let $\mathcal{C}$ be a curve with constant non-zero curvature function $\kappa(s
 \end{corollary}
 \begin{proof}
 Let $\mathcal{C}_1$ be a circle defined as
-\begin{equation*}
+\begin{align*}
     \vec{r}(s) = \vecii{\frac{1}{C}\cos{(Cs)}}{\frac{1}{C}\sin{(Cs)}}
-\end{equation*}
+\end{align*}
 with $C > 0$. This circle is defined in terms of arc length, since
 \begin{align*}
     \vec{r}'(s) & = \vecii{-\sin{(Cs)}}{\cos{(Cs)}} \\
@@ -209,9 +209,9 @@ Let $\mathcal{C}$ be a curve with constant non-zero curvature function $\kappa(s
 \end{corollary}
 \begin{proof}
 Let $\mathcal{C}_1$ be a circular helix defined as
-\begin{equation*}
+\begin{align*}
     \vec{r}(t) = \veciii{a \cos{t}}{a \sin{t}}{bt}
-\end{equation*}
+\end{align*}
 Then, $\vec{r}(t)$ has curvature and torsion given by
 \begin{align*}
     \kappa(s) & = \frac{a}{a^2 + b^2} \\
@@ -230,19 +230,19 @@ Thus, by the fundamental theorem of space curves, $\mathcal{C}$ is a helix.
 
 \begin{theorem}
 The binormal vector is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\vec{\hat{B}} = \frac{\vec{v} \times \vec{a}}{\abs{\vec{v} \times \vec{a}}}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{theorem}
 The curvature is given by,
-\begin{equation*}
+\begin{align*}
     \boxed{\kappa = \frac{\abs{\vec{v} \times \vec{a}}}{v^3}}
-\end{equation*}
+\end{align*}
 Equivalently,
-\begin{equation*}
+\begin{align*}
     \boxed{\kappa = \frac{\abs{\vec{r}'(t) \times \vec{r}''(t)}}{\abs{\vec{r}'(t)}^3}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 \begin{proof}
 \begin{align*}
@@ -255,9 +255,9 @@ Equivalently,
 
 \begin{theorem}
 The normal vector is given by
-\begin{equation*}
+\begin{align*}
     \boxed{\hat{\vec{N}} = \frac{\hat{\vec{T}}'(t)}{\abs{\hat{\vec{T}}'(t)}}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \section*{Examples}

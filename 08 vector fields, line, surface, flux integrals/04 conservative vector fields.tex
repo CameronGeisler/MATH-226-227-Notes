@@ -24,13 +24,13 @@ Viewing the gradient as a type of derivative, the potential function function of
 \section*{Examples}
 \begin{example}
 The gravitational field is conservative except at $\vec{r} = \vec{r_0}$.
-\begin{equation*}
+\begin{align*}
     \vec{F}(\vec{r}) = \dfrac{-km}{\abs{\vec{r} - \vec{r_0}}^3} (\vec{r} - \vec{r_0})
-\end{equation*}
+\end{align*}
 The potential function is
-\begin{equation*}
+\begin{align*}
     \phi(x,y,z) = \dfrac{km}{\abs{\vec{r} - \vec{r_0}}}
-\end{equation*}
+\end{align*}
 \end{example}
 
 
@@ -39,9 +39,9 @@ The potential function is
 For conservative fields, the mixed partial derivatives should be equal.
 \begin{theorem}
 Let $\vec{F}(x,y) = \vecii{F_1(x,y)}{F_2(x,y)}$ be a vector field. Then, if $\vec{F}$ is conservative on a domain $D$, then for all points in $D$
-\begin{equation*}
+\begin{align*}
     \boxed{\dfrac{\partial F_1}{\partial y} = \dfrac{\partial F_2}{\partial x}}
-\end{equation*}
+\end{align*}
 \end{theorem}
 
 \begin{theorem}
@@ -61,9 +61,9 @@ Since $F_1, F_2, F_3$ are all smooth, their partial derivatives exists and are c
 
 Here is an example of equal mixed partials, but the field is not conservative.
 \begin{example}
-\begin{equation*}
+\begin{align*}
     \vec{F}(x,y) = \vecii{-\dfrac{y}{x^2 + y^2}}{\dfrac{x}{x^2 + y^2}}
-\end{equation*}
+\end{align*}
 \begin{align*}
     \dfrac{\partial F_1}{\partial y} = \dfrac{y^2 - x^2}{x^2 + y^2} = \dfrac{\partial F_2}{\partial x}
 \end{align*}
@@ -168,13 +168,13 @@ which is a contradiction.
 
 \begin{example}
 Determine the potential function for
-\begin{equation*}
+\begin{align*}
     \vec{F}(x,y,z) = \veciii{5yz}{5xz}{5xy}
-\end{equation*}
+\end{align*}
 on $\mathbb{R}^3$.
-\begin{equation*}
+\begin{align*}
     \phi_x = 5yz \qquad \phi_y = 5xz \qquad \phi_z = 5xy
-\end{equation*}
+\end{align*}
 From $\phi_x = 5yz$, we get $\phi(x,y,z) = 5xyz + C(y,z)$. Then,
 \begin{align*}
     \phi_y = 5xz + C_y(y,z) & = 5xz \\
@@ -192,13 +192,13 @@ Thus, $\phi(x,y,z) = 5xyz + C$.
 
 \begin{example}
 Determine the potential function for
-\begin{equation*}
+\begin{align*}
     \vec{F}(x,y,z) = \veciii{5yz}{5xz}{5xy}
-\end{equation*}
+\end{align*}
 on $\mathbb{R}^3$.
-\begin{equation*}
+\begin{align*}
     \phi_x = y + 2z \qquad \phi_y = x + 4z \qquad \phi_z = 2x + 4z
-\end{equation*}
+\end{align*}
 From $\phi_x = y + 2z$, we get $\phi = xy + 2xz + C(y,z)$. Then,
 \begin{align*}
     \phi_y = x + C_y(y,z) & = x + 4z \\

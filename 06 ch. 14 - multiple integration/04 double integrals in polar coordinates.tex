@@ -9,9 +9,9 @@ Recall that polar coordinates is an alternative coordinate system which uses the
 
 \section*{Polar Coordinates}
 We make the substitution $x = r \cos{\theta}$, $y = r \sin{\theta}$, for some $r > 0$, $\theta \in [0,2\pi]$. Then,
-\begin{equation*}
+\begin{align*}
     dA = r \,dr \,d\theta
-\end{equation*}
+\end{align*}
 
 Polar coordinates is particularly useful when the domain of integrating is ``circular" for example a circle, an ellipse, or an annulus (ring).
 \\ \\ There is no definitive rule stating in which situations it is best to convert from Cartesian to polar coordinates or not. In most cases, if doing so will simplify the domain of integration, then it is better to do so.
@@ -19,9 +19,9 @@ Polar coordinates is particularly useful when the domain of integrating is ``cir
 
 \begin{example}
 Evaluate the double integral
-\begin{equation*}
+\begin{align*}
     \iint_R (2x - y) \,dA
-\end{equation*}
+\end{align*}
 where $R$ is the region in the first quadrant enclosed by the circle $x^2 + y^2 = 4$ and lines $x = 0$ and $y = x$.
 \\ \\ The region $R$ can be represented in polar coordinates as $R = \set{(r,\theta): 0 \leq r \leq 2, \pi/4 \leq \theta \leq \pi/2}$. Then,
 \begin{align*}
@@ -52,9 +52,9 @@ Using polar coordinates, $D = \set{(r, \theta): 0 \leq r \leq 2, 0 \leq \theta \
 
 \begin{example}
 Evaluate
-\begin{equation*}
+\begin{align*}
     \int_{0}^{1} \int_{0}^{x} y \sqrt{x^2 + y^2} \,dy \,dx
-\end{equation*}
+\end{align*}
 Using polar coordinates,
 \begin{align*}
     \int_{0}^{1} \int_{0}^{x} y \sqrt{x^2 + y^2} \,dy \,dx & = \int_{0}^{\pi/4} \int_{0}^{\sec{\theta}} r\sin{\theta} \cdot r \cdot r \,dr \,d\theta \\
@@ -154,9 +154,9 @@ Determine the area of one petal of the three petal rose, given by $r = \sin{(3\t
 
 \begin{example}
 \textbf{Area of a circle using a double integral with polar coordinates}. Consider a circle of radius $R$. The region of integration is
-\begin{equation*}
+\begin{align*}
     D = \set{(r, \theta): 0 \leq r \leq R, 0 \leq \theta \leq 2\pi}
-\end{equation*}
+\end{align*}
 Then, the area $A$ is given by
 \begin{align*}
     A = \iint_{D} \,dA & = \int_{0}^{2\pi} \int_{0}^{R} r \,dr \,d\theta \\
@@ -168,9 +168,9 @@ Then, the area $A$ is given by
 
 \begin{example}
 \textbf{Volume of a cone using a double integral and polar coordinates}. Consider a cone with radius $R$ and height $h$. It can be represented by the equation $z = h - \sqrt{x^2 + y^2}$, which has base in the $xy$-plane of $x^2 + y^2 = h^2$. Then, in polar coordinates, the domain of integration is
-\begin{equation*}
+\begin{align*}
     D = \set{(r,\theta): 0 \leq r \leq R, 0 \leq \theta \leq 2\pi}
-\end{equation*}
+\end{align*}
 Then, the volume $V$ is given by
 \begin{align*}
     V = \iint_D \brac{h - \sqrt{x^2 + y^2}} \,dA & = \int_0^{2\pi} \int_0^R (h - r) r \,dr \,d\theta \\
