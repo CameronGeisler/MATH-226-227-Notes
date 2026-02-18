@@ -1,0 +1,407 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Surfaces and Surface Integrals}
+
+\begin{document}
+
+Recall that we have developed integrals on a interval in $\mathbb{R}$ (the single-variable definite integral), on regions in the plane (double integrals), on regions in space (triple integrals), and on curves in space (line integrals). We can also develop \textbf{surface integrals}, which are integrals over a surface. Note that these are not triple integrals, i.e. integrals over a 3D region (which may be bounded by a surface), but rather an integral over the surface itself.
+\\ \\ For example, consider planet Earth as a sphere, with a particular (surface) temperature distribution function, and determining the average temperature on Earth. Similar to previous average value calculations, we would ``integrate" the temperature function over the sphere, and divide by the surface area of the sphere.
+\\ \\ Recall that previously, we thought of surfaces as either the graphs of functions $z = f(x,y)$, or the graph of an equation $f(x,y,z) = 0$. In order to develop surface integrals, we will first need a more systematic way to specify surfaces. 
+
+\section*{Parametric Surfaces}
+Recall that a curve is a one-dimensional object, which can be defined as the range (the set of all outputs) of a vector valued function $\vec{r}(t)$ of a single real variable, where $a \leq t \leq b$. This concept can be naturally extended to surfaces, which are two dimensional objects. A surface can be defined as the range of a vector valued function $\vec{r}(u,v)$ of two real variables, where $a \leq u \leq b, c \leq v \leq d$.
+
+\begin{definition}
+A \textbf{parametric surface} is a continuous function $\vec{r}(u,v)$ defined on a rectangle $R$ given by $a \leq u \leq b$, $c \leq v \leq d$ in the $uv$-plane, of the form
+\begin{equation*}
+    \vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}
+\end{equation*}
+\begin{itemize}
+    \item More precisely, the parametric surface is actually the range of the function $\vec{r}(u,v)$.
+    \item The function $\vec{r}(u,v)$ maps a rectangle $R$ in the $uv$-plane to a surface in 3-space.
+    \item The \textbf{boundary} of a parametric surface is the curve that the boundary of the rectangle $R$ in the $uv$-plane is mapped to by $\vec{r}$.
+    \item More generally, the domain $D$ of a parametric surface can be any connected, closed, bounded set in the $uv$-plane $D \subseteq \mathbb{R}^2$, with well-defined area and consisting of an open set together with its boundary points.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+The surface given by the graph of a function $z = f(x,y)$, where $f$ has a rectangle $R$ as its domain, can be represented as the parametric surface
+\begin{equation*}
+    \vec{r}(x,y) = \veciii{x}{y}{f(x,y)}
+\end{equation*}
+for $(x,y) \in R$.
+\end{example}
+
+\begin{example}
+\textbf{Sphere}. A sphere $x^2 + y^2 + z^2 = R^2$ can be represented as a parametric surface using spherical coordinates ($\theta$ and $\phi$),
+\begin{equation*}
+    \vec{r}(\theta, \phi) = \veciii{R \sin{\theta} \cos{\phi}}{R \sin{\phi} \sin{\theta}}{R \cos{\phi}}
+\end{equation*}
+for the rectangle in the $\theta \phi$-plane given by $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$.
+\end{example}
+
+\begin{example}
+The parametrization
+\begin{align*}
+    x & = r \cos{t} \\
+    y & = r \sin{t} \\
+    z & = t
+\end{align*}
+where $0 \leq r \leq 1$, $-\infty < t < \infty$.
+\end{example}
+
+\begin{example}
+\textbf{Cylinder}. A vertical cylinder of radius $r$ and height $h$, with axis along the $z$-axis, can be represented by the parametrization
+\begin{equation*}
+    \vec{r}(u,v) = \veciii{r\cos{u}}{r\sin{u}}{v}
+\end{equation*}
+for $0 \leq u \leq 2\pi$, $0 \leq v \leq h$.
+\end{example}
+
+\begin{example}
+\textbf{Cone}. The surface of a cone with radius $R$ and height $h$, with its vertex at the origin, can be described in cylindrical coordinates by
+\begin{equation*}
+    \set{(r,\theta,z): 0 \leq r \leq R: 0 \leq \theta \leq 2\pi, z = \frac{rh}{R}}
+\end{equation*}
+For a fixed value of $z$, we have $r = \frac{Rz}{h}$, so on the surface of the cone,
+\begin{equation*}
+    x = r \cos{\theta} = \frac{Rz}{h} \cos{\theta} \qquad \text{and} \qquad y = r\sin{\theta} = \frac{Rz}{h} \sin{\theta}
+\end{equation*}
+Using the parameters $u = \theta$ and $v = z$, the cone can be described by the parametrization
+\begin{equation*}
+    \vec{r}(u,v) = \veciii{\frac{Rv}{h} \cos{u}}{\frac{Rv}{h} \sin{u}}{v}
+\end{equation*}
+for $0 \leq u \leq 2\pi$, $0 \leq v \leq h$.
+\end{example}
+
+\begin{example}
+\textbf{Mobius strip}.
+\begin{equation*}
+    \vec{r}(u,v) = \veciii{\left(3 + u\cos{(v/2)} \right) \cos{v}}{\left(3 + u \cos{(v/2)} \right)}{u \sin{(v/2)}}
+\end{equation*}
+for $-1 \leq u \leq 1$, $0 \leq v \leq 2\pi$.
+\end{example}
+
+\section*{Tangent Planes to Parametric Surfaces}
+Find a normal vector by taking $\vec{n} = \vec{r}_u \times \vec{r}_v$.
+
+\section*{Surface Integrals}
+Let $\mathcal{S}$ be a smooth surface with parametrization $\vec{r}$, which is ``smooth enough" in that all necessary derivatives exist and are continuous on $D$. Then, let $f(x,y,z)$ be a bounded function defined for all points on $\mathcal{S}$. Then, subdivide $\mathcal{S}$ into small, non-overlapping pieces $\mathcal{S}_1, \mathcal{S}_2, \dots, \mathcal{S}_n$ where each $\mathcal{S}_i$ has area $\Delta S_i$. Then, we can form a Riemann sum for $f$ on $\mathcal{S}$ by choosing arbitrary points $(x_i, y_i, z_i)$ in $\mathcal{S}_i$, and letting
+\begin{equation*}
+    R_n = \sum_{i=1}^n f(x_i, y_i, z_i) \Delta S_i
+\end{equation*}
+If the Riemann sum has a unique limit as $n \to \infty$, and the diameters of the pieces approach zero (independently of how the points $(x_i, y_i, z_i)$ are chosen), then $f$ is integrable on $\mathcal{S}$ and the \textbf{surface integral} of $f$ over $\mathcal{S}$,
+\begin{equation*}
+    \iint_{\mathcal{S}} f(x,y,z) \,dS
+\end{equation*}
+
+
+\section*{Smooth Surfaces}
+Intuitively, a surface is smooth at an interior point $P$ if it has a unique tangent plane there.
+\begin{definition}
+A set $S$ in 3-space is a \textbf{smooth surface} if for every point $P$ in $S$, a neighbourhood $N$ exists that is the domain of a smooth function $g(x,y,z)$ such that
+\begin{enumerate}
+    \item $N \cap S = \set{Q \in N: g(Q) = 0}$
+    \item If $Q \in N \cap S$, then $\nabla g(Q) \neq 0$
+\end{enumerate}
+\end{definition}
+
+\section*{Evaluating Surface Integrals}
+Let $\vec{r}(u,v)$ be a parametric surface defined on domain $R$. For a point $(u_0, v_0)$ in the interior of $R$, then $\vec{r}(u,v_0)$ and $\vec{r}(u_0,v)$ are two curves on $\mathcal{S}$, intersecting at $\vec{r}(u_0,v_0)$, and with tangent vectors
+\begin{align*}
+    \dfrac{\partial \vec{r}}{du}(u_0,v_0) && \text{and} && \dfrac{\partial \vec{r}}{dv}(u_0,v_0)
+\end{align*}
+respectively. If these tangent vectors are not parallel and non-zero, then their cross product is normal to $\mathcal{S}$ at $(u_0, v_0)$.
+\begin{equation*}
+    \vec{n} = \dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v} = \vec{r_u} \times \vec{r_v}
+\end{equation*}
+Then, the area element $\Delta \mathcal{S}$ can be approximated by
+\begin{equation*}
+    \Delta S = \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} \Delta u \Delta v
+\end{equation*}
+As $\Delta u \to 0$ and $\Delta v \to 0$, we get
+\begin{equation*}
+    dS = \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} du \,dv
+\end{equation*}
+The surface area of $\mathcal{S}$ is the sum of these area elements
+\begin{equation*}
+    \text{Area of $\mathcal{S}$} = \iint_{\mathcal{S}} dS
+\end{equation*}
+More generally, the surface integral of a function $f(\vec{r}) = f(x,y,z)$ over a surface $\mathcal{S}$ with parametrization $\vec{r}(u,v) = \veciii{x(u,v)}{y(u,v)}{z(u,v)}$ for $(u,v) \in D$, is given by
+\begin{align*}
+    \boxed{\iint_{\mathcal{S}} f(x,y,z) \,dS = \iint_D f(\vec{r}(u,v)) \abs{\dfrac{\partial \vec{r}}{\partial u} \times \dfrac{\partial \vec{r}}{\partial v}} du \,dv}
+\end{align*}
+
+\section*{Surface Area}
+
+\section*{Examples}
+\begin{example}
+Let $\mathcal{S}$ be the part of the plane $2x - y + z = 10$, above the disc $(x - 3)^2 + y^2 \leq 1$. Determine the area of $S$.
+\\ \\ Using $x$ and $y$ to parametrize the plane,
+\begin{align*}
+    \vec{r}(x,y) & = \veciii{x}{y}{10-2x+y} \\
+    \vec{r}_x & = \veciii{1}{0}{-2} \\
+    \vec{r}_y & = \veciii{0}{1}{1}
+\end{align*}
+Then,
+\begin{align*}
+    \vec{n} = \vec{r}_x \times \vec{r}_y = \begin{vmatrix} \ihat & \jhat & \vec{\hat{k}} \\ 1 & 0 & -2 \\ 0 & 1 & 1 \end{vmatrix} = \veciii{2}{-1}{1}
+\end{align*}
+and $\abs{\vec{n}} = \sqrt{6}$. Then, the area of $\mathcal{S}$ is given by
+\begin{align*}
+    \iint_{\mathcal{S}} \,dS & = \iint_{\mathcal{S}} \sqrt{6} \,dx \,dy \\
+    & = \pi \sqrt{6}
+\end{align*}
+\end{example}
+
+\section*{Explicit Function}
+Consider a smooth surface $\mathcal{S}$ given by the graph of the explicit function $z = g(x,y)$, for $(x,y)$ in a domain $D$ in the $xy$-plane. This surface can be represented as a parametrized surface, as it is one-to-one to its projection onto the $xy$-plane. Using $x$ and $y$ to parametrize the surface, we get
+\begin{align*}
+    \vec{r}(x,y) & = \veciii{x}{y}{g(x,y)} \\
+    \vec{r}_x & = \veciii{1}{0}{g_x} \\
+    \vec{r}_y & = \veciii{0}{1}{g_y}
+\end{align*}
+Then, the normal vector is
+\begin{align*}
+    \vec{n} & = \vec{r}_x \times \vec{r}_y = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ 1 & 0 & g_x \\ 0 & 1 & g_y \end{vmatrix} = \veciii{-g_x}{-g_y}{1} \\
+    \abs{\vec{n}} & = \sqrt{g_x^2 + g_y^2 + 1}
+\end{align*}
+Then,
+\begin{equation*}
+    dS = \sqrt{g_x^2 + g_y^2 + 1} \,\,dx \,dy
+\end{equation*}
+Thus, the surface integral of $f$ over $\mathcal{S}$ is given by
+\begin{equation*}
+    \boxed{\iint_{\mathcal{S}} f(x,y,z) \,dS = \iint_{D} f(x,y,g(x,y)) \sqrt{g_x^2 + g_y^2 + 1} \,\, dA}
+\end{equation*}
+
+\section*{Geometric Interpretation}
+Let $\gamma$ be the angle between $\vec{n}$ and $\hat{k}$. Then,
+\begin{align*}
+    \cos{\gamma} & = \dfrac{\vec{n} \bullet \hat{k}}{\abs{\vec{n}} \cdot \abs{\hat{k}}} = \dfrac{1}{\abs{\vec{n}}} \\
+    \abs{\vec{n}} & = \dfrac{1}{\cos{\gamma}}
+\end{align*}
+
+\begin{example}
+Consider a plane $Ax + By + Cz = D$. A normal vector is $\vec{n_0} = \veciii{A}{B}{C}$, however, any multiple of this vector is also a normal vector. To determine the area element $dS$, we need a specific normal vector $\vec{n}$ determined by the partial derivatives. Since all normal vectors are parallel, we have
+\begin{align*}
+    \cos{\gamma} & = \dfrac{\vec{n} \bullet \hat{k}}{\abs{\vec{n}} \cdot \abs{\hat{k}}} = \dfrac{\abs{\vec{n_0} \bullet \vec{\hat{k}}}}{\abs{\vec{n_0}} \cdot \abs{\vec{\hat{k}}}} = \dfrac{\abs{C}}{\sqrt{A^2 + B^2 + C^2}} \\
+    \abs{\vec{n}} & = \dfrac{\sqrt{A^2 + B^2 + C^2}}{\abs{C}}
+\end{align*}
+Thus,
+\begin{equation*}
+    dS = \dfrac{\sqrt{A^2 + B^2 + C^2}}{\abs{C}} \,dx \,dy
+\end{equation*}
+\end{example}
+
+\begin{example}
+Consider a surface $\mathcal{S}$ given by $G(x,y,z) = 0$. If $G$ has continuous first partial derivatives, and $\nabla G \leq 0$, then the non-zero vector
+\begin{equation*}
+    \vec{n} = \nabla G(x,y,z)
+\end{equation*}
+is normal to $\mathcal{S}$ at $(x,y,z)$. Then,
+\begin{equation*}
+    \cos{\gamma} = \dfrac{\nabla G \bullet \vec{\hat{k}}}{\abs{\nabla G} \cdot \abs{\vec{\hat{k}}}} = \dfrac{G_z}{\abs{\nabla G}}
+\end{equation*}
+Thus, if $G_z \neq 0$, then
+\begin{equation*}
+    dS = \dfrac{\abs{\nabla G}}{\abs{G_z}} \,dx \,dy
+\end{equation*}
+If $G_z = 0$ (and either $G_x \neq 0$ or $G_y \neq 0$), then
+\begin{align*}
+    dS = \dfrac{\abs{\nabla G}}{\abs{G_x}} \,dy \,dz && dS = \dfrac{\abs{\nabla G}}{\abs{G_y}} \,dx \,dz
+\end{align*}
+\end{example}
+
+\section*{Surface Element of a Sphere Derivation}
+\begin{example}
+Let $\mathcal{S}$ be a sphere $x^2 + y^2 + z^2 = r^2$, $r > 0$, parameterized using spherical coordinates as
+\begin{align*}
+    \vec{r}(\theta, \phi) & = \veciii{r \cos{\theta} \sin{\phi}}{r \sin{\theta} \sin{\phi}}{r \cos{\phi}}
+\end{align*}
+for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$. Then,
+\begin{align*}
+    \vec{r_{\theta}} & = \veciii{-r \sin{\theta} \sin{\phi}}{r \cos{\theta} \sin{\phi}}{0} \\
+    \vec{r_{\phi}} & = \veciii{r \cos{\theta} \cos{\phi}}{r \sin{\theta} \cos{\phi}}{-r \sin{\phi}} \\
+    \vec{n} & = \vec{r_{\theta}} \times \vec{r_{\phi}} = \begin{vmatrix} \ihat & \jhat & \vec{\hat{k}} \\ -r \sin{\theta} \sin{\phi} & r \cos{\theta} \sin{\phi} & 0 \\ r \cos{\theta} \cos{\phi} & r \sin{\theta} \cos{\phi} & -r \sin{\phi} \end{vmatrix} \\
+    & = \veciii{-r^2 \cos{\theta} \sin^2{\phi}}{-r^2 \sin{\theta} \sin^2{\phi}}{-r^2 \sin^2{\theta} \sin{\phi} \cos{\phi} - r^2 \cos^2{\theta} \sin{\phi} \cos{\phi}} \\
+    & = -r^2 \sin{\phi} \veciii{\cos{\theta} \sin{\phi}}{\sin{\theta} \sin{\phi}}{\cos{\phi}} \\
+    \abs{\vec{n}} & = \abs{-r^2 \sin{\phi}} \sqrt{\cos^2{\theta} \sin^2{\phi} + \sin^2{\theta} \sin^2{\phi} + \cos^2{\phi}} \\
+    & = r^2 \sin{\phi}
+\end{align*}
+where $\abs{\sin{\phi}} = \sin{\phi}$ as $0 \leq \phi \leq \pi$. Thus,
+\begin{equation*}
+    dS = r^2 \sin{\phi} \,d\phi \,d\theta
+\end{equation*}
+\end{example}
+
+\section*{Surface Area of a Sphere}
+\begin{example}
+Determine the surface area of a sphere of radius $r > 0$. Let
+\begin{equation*}
+    \vec{r}(\theta, \phi) = \veciii{r \cos{\theta} \sin{\phi}}{r \sin{\theta} \sin{\phi}}{r \cos{\phi}}
+\end{equation*}
+for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$. Then, $dS = r^2 \sin{\phi} \,d\theta \,d\phi$. Then,
+\begin{align*}
+    \iint_{\mathcal{S}} \,dS & = \int_{0}^{2\pi} \int_{0}^{\pi} r^2 \sin{\phi} \,d\phi \,d\theta \\
+    & = r^2 \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi} \sin{\phi} \,d\phi \\
+    & = r^2 \cdot 2\pi \cdot 2 \\
+    & = 4\pi r^2
+\end{align*}
+\end{example}
+
+\section*{Examples}
+\begin{example}
+Let $\mathcal{S}$ be the sphere $x^2 + y^2 + z^2 = 1$. Evaluate $\int_{\mathcal{S}} z^2 \,dS$.
+\begin{align*}
+    dS & = \sin{\phi} \,d\phi \,d\theta \\
+    S & = \int_{0}^{2\pi} \int_{0}^{\pi} \cos^2{\phi} \sin{\phi} \,d\phi \,d\theta \\
+    & = \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi} \cos^2{\phi} \sin{\phi} \,d\phi \\
+    & = 2\pi \cdot \dfrac{2}{3} \\
+    & = \dfrac{4\pi}{3}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the cone $z^2 = b^2(x^2 + y^2)$, on the disc $x^2 + y^2 \leq r^2, (r > 0)$, and $z \geq 0$.
+\\ \\ Parametrize $\mathcal{S}$ as
+\begin{align*}
+    x & = t \cos{\theta} \\
+    y & = t \sin{\theta} \\
+    z & = b\sqrt{x^2 + y^2} = bt
+\end{align*}
+for $0 \leq \theta \leq 2\pi$, $0 \leq t \leq r$. Then,
+\begin{align*}
+    \vec{r}(t, \theta) & = \veciii{t \cos{\theta}}{t \sin{\theta}}{bt} \\
+    \vec{r}_t & = \veciii{\cos{\theta}}{\sin{\theta}}{\theta} \\
+    \vec{r}_{\theta} & = \veciii{-t \sin{\theta}}{t \cos{\theta}}{0}
+    \abs{\vec{r_t} \times \vec{r_{\theta}}} & = \sqrt{1 + b^2} t \\
+    dS & = t \sqrt{1 + b^2} \,dt \,d\theta
+\end{align*}
+Then,
+\begin{align*}
+    S & = \int_{0}^{2\pi} \int_{0}^{r} t \sqrt{1 + b^2} \,dt \,d\theta \\
+    & = \sqrt{1 + b^2} \int_{0}^{2\pi} \,d\theta \int_{0}^{r} t \,dt \\
+    & = \sqrt{1 + b^2} \cdot 2\pi \cdot \dfrac{r^2}{2} \\
+    & = \pi r^2 \sqrt{1 + b^2}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the part of the cone $z = \sqrt{x^2 + y^2}$ where $0 \leq x \leq 1 - y^2$. Determine
+\begin{equation*}
+    \iint_{\mathcal{S}} x \,dS
+\end{equation*}
+\begin{align*}
+    \dfrac{\partial z}{\partial x} = \dfrac{x}{\sqrt{x^2 + y^2}} = \dfrac{x}{z} && \dfrac{\partial z}{\partial y} = \dfrac{y}{\sqrt{x^2 + y^2}} = \dfrac{y}{z}
+\end{align*}
+Then,
+\begin{equation*}
+    dS = \sqrt{1 + \dfrac{x^2}{z^2} + \dfrac{y^2}{z^2}} \,dx \,dy = \sqrt{2} \,dx \,dy
+\end{equation*}
+Since $0 \leq x \leq 1 - y^2$, we have $0 \leq 1 - y^2$ and so $-1 \leq y \leq 1$.
+\begin{align*}
+    \iint_{\mathcal{S}} x \,dS & = \int_{-1}^{1} \int_{0}^{1-y^2} \sqrt{2} \,x \,dx \,dy \\
+    & = \sqrt{2} \int_{-1}^{1} \left. \dfrac{x^2}{2} \right|_{x=0}^{x=1-y^2} \,dy \\
+    & = \sqrt{2} \int_{-1}^{1} \dfrac{(1 - y^2)^2}{2} \,dy \\
+    & = \dfrac{\sqrt{2}}{2} \int_{-1}^{1} (1 - 2y^2 + y^4) \,dy \\
+    & = \dfrac{8\sqrt{2}}{15}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the part of the plane $x + y + z = 1$ in the first octant. Determine
+\begin{equation*}
+    \iint_{\mathcal{S}} xyz \,dS
+\end{equation*}
+The surface element is
+\begin{align*}
+    dS & = \dfrac{\sqrt{1^2 + 1^2 + 1^2}}{1} \,dx \,dy = \sqrt{3} \,dx \,dy
+\end{align*}
+For this plane in the first octant, $0 \leq x \leq 1$, $0 \leq y \leq 1 - x$, and $z = 1 - x - y$. Then,
+\begin{align*}
+    \iint_{\mathcal{S}} xyz \,dS & = \int_{0}^{1} \int_{0}^{1-x} xy(1 - x - y) \cdot \sqrt{3} \,dx \,dy \\
+    & = \sqrt{3} \int_{0}^{1} x \int_{0}^{1-x} \left((1 - x)y - y^2 \right) \,dy \,dx \\
+    & = \sqrt{3} \int_{0}^{1} x \left. \left(\dfrac{(1-x)y^2}{2} - \dfrac{y^3}{3} \right) \right|_{y=0}^{y=1-x} \,dx \\
+    & = \dfrac{\sqrt{3}}{6} \int_{0}^{1} x(1 - x)^3 \,dx \\
+    & = \dfrac{\sqrt{3}}{120}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the part of the surface $z = x^2$ in the first octant, and inside the paraboloid $z = 1 - 3x^2 - y^2$. Determine
+\begin{equation*}
+    \iint_{\mathcal{S}} xz \,dS
+\end{equation*}
+The surface element is
+\begin{equation*}
+    dS = \sqrt{1 + 4x^2} \,dx \,dy
+\end{equation*}
+For this surface in the first octant, its projection onto the $xy$-plane is $x^2 = 1 - 3x^2 - y^2$, or the ellipse $1 = 4x^2 + y^2$. Then, $0 \leq x \leq 1/2$, $0 \leq y \leq \sqrt{1 - 4x^2}$. Then,
+\begin{align*}
+    \iint_{\mathcal{S}} xz \,dS & = \int_{0}^{1/2} \int_{0}^{\sqrt{1-4x^2}} x^3 \sqrt{1 + 4x^2} \,dy \,dx \\
+    & = \int_{0}^{1/2} x^3 \sqrt{1 + 4x^2} \cdot \sqrt{1 - 4x^2} \,dx \\
+    & = \int_{0}^{1/2} x^3 \sqrt{1 - 16x^4} \,dx \\
+    & = \dfrac{1}{96}
+\end{align*}
+\end{example}
+
+\section*{Theoretical Question}
+\begin{example}
+Suppose $\vec{F}$ is a radial force field, $\mathcal{S}_1$ is a sphere of radius 8 centered at the origin, and the flux integral
+\begin{equation*}
+    \iint_{\mathcal{S}_1} \vec{F} \bullet d\vec{S} = 7
+\end{equation*}
+Let $\mathcal{S}_2$ be a sphere of radius 56 centered at the origin, and consider the flux integral
+\begin{equation*}
+    \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
+\end{equation*}
+\textbf{(a)} If the magnitude of $\vec{F}$ is inversely proportional to the square of the distance from the origin, what is the value of
+\begin{equation*}
+    \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
+\end{equation*}
+The unit normal for a sphere is $\vec{n} = \vec{r}/\abs{\vec{r}}$, parallel to the radial force field $\vec{F}$. Then,
+\begin{align*}
+    \vec{F} \bullet \vec{n} & = \abs{\vec{F}} \abs{\vec{n}} \cos{\theta} = \abs{\vec{F}}
+\end{align*}
+where $\theta$ is the angle between $\vec{F}$ and $\vec{n}$. The magnitude of $\vec{F}$ is inversely proportional to the square of the distance from the origin, so
+\begin{equation*}
+    \abs{\vec{F}} = \dfrac{k}{r^2}
+\end{equation*}
+where $r$ is the distance from the origin. On a sphere, $r$ is constant. Then, for a general sphere $\mathcal{S}$ of radius $r$,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \iint_{\mathcal{S}} \vec{F} \bullet \vec{n} \,dS = \iint_{\mathcal{S}} \dfrac{k}{r^2} \,dS = \dfrac{k}{r^2} \iint_{\mathcal{S}} \,dS = \dfrac{k}{r^2} \cdot 4\pi r^2 = 4\pi k = K
+\end{align*}
+In other words, the integral over a sphere $\mathcal{S}$ is a constant independent on the radius of the sphere. Thus,
+\begin{equation*}
+    \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S} = 7
+\end{equation*}
+\textbf{(b)} If the magnitude of $\vec{F}$ is inversely proportional to the cube of the distance from the origin, what is the value of
+\begin{equation*}
+    \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S}
+\end{equation*}
+Here,
+\begin{equation*}
+    \abs{\vec{F}} = \dfrac{k}{r^3}
+\end{equation*}
+Then, for a general sphere of radius $r$,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \iint_{\mathcal{S}} \vec{F} \bullet \vec{n} \,dS = \iint_{\mathcal{S}} \dfrac{k}{r^3} \,dS  = \dfrac{k}{r^3} \cdot 4\pi r^2 = \dfrac{K}{r}
+\end{align*}
+For $\mathcal{S}_1$,
+\begin{align*}
+    7 & = \iint_{\mathcal{S}_1} \vec{F} \bullet d\vec{S} = \dfrac{K}{8} \\
+    K & = 56
+\end{align*}
+Thus, for $\mathcal{S}_2$,
+\begin{align*}
+    \iint_{\mathcal{S}_2} \vec{F} \bullet d\vec{S} & = \dfrac{56}{56} = 1
+\end{align*}
+\end{example}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Divergence Theorem}
+
+\begin{document}
+
+Recall that the divergence theorem in the plane, which states that the outward flux of $\vec{F}$ across $\mathcal{C}$ is equal to the double integral over $R$ of the divergence of $\vec{F}$, or
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet \vec{\hat{N}} \,ds = \iint_{R} \div{F} \,dA
+\end{align*}
+
+\section*{Divergence Theorem in Space}
+
+\begin{theorem}
+Let $D$ be a closed domain in space whose boundary $\mathcal{S}$ is an piecewise smooth, orientable surface, with unit normal field $\vec{\hat{N}}$. Let $\vec{F} = \veciii{F_1(x,y,z)}{F_2(x,y,z)}{F_3(x,y,z)}$ be a smooth vector field. Then,
+\begin{align*}
+    \boxed{\iint_{\mathcal{S}} \vec{F} \bullet \vec{\hat{N}} \,dS = \iiint_{D} \div{\vec{F}} \,dV}
+\end{align*}
+\end{theorem}
+
+Intuitively, the cumulative expansion or contraction of a vector field over a domain $D$ is equal to the net flux (or flow) of the field on the boundary $\mathcal{S}$ of $D$.
+\begin{itemize}
+    \item If you think of $\vec{F}$ as fluid flow, then the total fluid created inside is equal to the flow out through the boundary surface.
+    \item Often converts a hard surface integral into an easier triple integral.
+\end{itemize}
+
+
+
+\section*{Examples}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/divergence-theorem/01.jpg}
+\end{figure}
+\begin{example}
+Let $R$ be the region $x^2 + y^2 + z^2 \leq 9$, with boundary $M$. Using spherical coordinates,
+\begin{align*}
+    R & = \set{(r,\theta,\phi): 0 \leq r \leq 3, 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq \pi} \\
+    \div{\vec{F}} & = 3y^2 + 3x^2 + 3z^2 = 3(x^2 + y^2 + z^2) = 3r^2
+\end{align*}
+Then, by the divergence theorem,
+\begin{align*}
+    \iint_{M} \vec{F} \bullet d\vec{S} & = \iiint_{R} 3r^2 \,dV \\
+    & = \int_{0}^{\pi} \int_{0}^{2\pi} \int_{0}^{3} 3r^2 \cdot r^2 \sin{\phi} \,dr \,d\theta \,d\phi \\
+    & = 3 \int_{0}^{\pi} \sin{\phi} \,d\phi \int_{0}^{2\pi} \,d\theta \int_{0}^{3} r^4 \,dr \\
+    & = 3 \cdot 2 \cdot 2\pi \cdot \dfrac{243}{5} \\
+    & = \dfrac{2916\pi}{5}
+\end{align*}
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/divergence-theorem/02.jpg}
+\end{figure}
+\begin{example}
+Let $R$ be the region with boundary $\mathcal{S}$. $R$ is given by
+\begin{align*}
+    R = \set{(r, \theta, z): 0 \leq r \leq 3, 0 \leq \theta \leq 2\pi, 0 \leq z \leq 9 - r^2}
+\end{align*}Then,
+\begin{align*}
+    \div{\vec{F}} = 2 + 0 + 8 = 10
+\end{align*}
+Then, by the divergence theorem,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \iiint_{R} 10 \,dV \\
+    & = 10 \int_{0}^{2\pi} \int_{0}^{3} \int_{0}^{9-r^2} r\,dz \,dr \,d\theta \\
+    & = 10 \int_{0}^{2\pi} \int_{0}^{3} (9r - r^3) \,dr \,d\theta \\
+    & = 10 \int_{0}^{2\pi} \,d\theta \int_{0}^{3} (9r - r^3) \,dr \\
+    & = 10 \cdot 2\pi \cdot \dfrac{81}{4} \\
+    & = 405\pi
+\end{align*}
+\end{example}
+
+
+
+
+\end{document}

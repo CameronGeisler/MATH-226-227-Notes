@@ -1,0 +1,228 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Oriented Surfaces and Flux Integrals}
+
+\begin{document}
+
+\section*{Oriented Surfaces}
+Intuitively, a surface is orientable if it ``has two sides".
+\begin{definition}
+A smooth surface $\mathcal{S}$ is \textbf{orientable} if there exists a unit normal vector field $\hat{N}(P)$ defined and continuous on $\mathcal{S}$.
+\begin{itemize}
+    \item The chosen unit normal vector field is the \textbf{orientation} of $P$.
+    \item The side out of which $\hat{N}$ points is the positive side; the other side is the negative side.
+    \item An \textbf{oriented surface} is a smooth surface together with a particular choice of orienting unit normal vector field $\hat{N}(P)$.
+    \item e.g. a Mobius strip is not a orientable surface, or a Klein bottle.
+    \item For a closed surface, the convention is for the orientation to be outward.
+    \item For a surface that is not closed, it has at least one boundary curve. For a boundary curve $\mathcal{C}$, the \textbf{induced orientation} is the orientation such that if we stand on the positive side of $\mathcal{S}$ and walk around $\mathcal{C}$ in the direction of its orientation, then the surface $\mathcal{S}$ will be on our left side.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A piece-wise smooth surface $\mathcal{S}$ is orientable if whenever two smooth component surfaces meet along a common boundary curve $\mathcal{C}$, they induce opposite orientations along $\mathcal{C}$.
+\begin{itemize}
+    \item This implies that the unit normal vectors $\hat{N}$ are on the same side of adjacent components.
+    \item e.g. a cube is a piecewise smooth surface that is orientable.
+\end{itemize}
+\end{definition}
+
+\section*{Flux Integrals}
+\begin{definition}
+Let $\vec{F}$ be a continuous vector field, $\mathcal{S}$ be an orientable surface. The \textbf{flux} of $\vec{F}$ across $\mathcal{S}$ is the surface integral of the normal component of $\vec{F}$ over $\mathcal{S}$.
+\begin{equation*}
+    \boxed{\iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} dS}
+\end{equation*}
+For a closed surface, the flux integral can be denoted by
+\begin{equation*}
+    \varoiint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \varoiint_{\mathcal{S}} \vec{F} \bullet \hat{N} dS
+\end{equation*}
+and is referred to the flux \textbf{out} of $\mathcal{S}$ if $\hat{N}$ is oriented outward, and the flux \textbf{into} $\mathcal{S}$ if $\hat{N}$ is the oriented inwards.
+
+\begin{itemize}
+    \item The surface $\mathcal{S}$ must be orientable in order for $\hat{N}$ to be well-defined.
+\end{itemize}
+\end{definition}
+
+\section*{Evaluating Flux Integrals}
+\textbf{Parametrization}. Let $\mathcal{S}$ be a surface with parametrization $\vec{r}(u,v)$ for $(u,v)$ in domain $D$ in the $uv$-plane. Then, the vector $\vec{n} = \vec{r_u} \times \vec{r_v}$ is normal to $\mathcal{S}$, and $dS = \abs{\vec{n}} \,du \,dv$ is an area element on $\mathcal{S}$. Then, the vector area element for $\mathcal{S}$ is given by
+\begin{equation*}
+    d\vec{S} = \hat{N} \,dS = \pm \dfrac{\vec{n}}{\abs{\vec{n}}} \cdot \abs{\vec{n}} \,du \,dv = \pm \vec{n} \,du \,dv
+\end{equation*}
+where the sign depends on the desired orientation of $\mathcal{S}$. Thus, the flux of $\vec{F} = \veciii{F_1}{F_2}{F_3}$ through $\mathcal{S}$ is given by
+\begin{equation*}
+    \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = \pm \iint_{D} \vec{F} \bullet \vec{n} \,du \,dv
+\end{equation*}
+
+\textbf{Implicit function}. Let $\mathcal{S}$ be a smooth, orientable surface given by $G(x,y,z) = 0$. Then, the vector area element for $\mathcal{S}$ is given by
+\begin{equation*}
+    d\vec{S} = \hat{N} \,dS = \pm \dfrac{\nabla G(x,y,z)}{G_z(x,y,z)} \,dx \,dy
+\end{equation*}
+where the sign depends on the desired orientation of $\mathcal{S}$.
+\\ \\ \textbf{Explicit function}. Let $\mathcal{S}$ be a smooth, orientable surface given by $z = g(x,y)$ Then, $G(x,y,z) = z - g(x,y)$, and so the unit normal vector (oriented upward) is
+\begin{equation*}
+    \vec{\hat{N}} = \frac{\nabla G}{G_z} = \veciii{-g_x}{-g_y}{1}
+\end{equation*}
+Then,
+\begin{equation*}
+    \boxed{d\vec{S} = \vec{\hat{N}} \,dS = \veciii{-g_x}{-g_y}{1} \,dx \,dy}
+\end{equation*}
+
+\section*{Examples}
+\begin{example}
+Let $\mathcal{S}$ be the surface $z = xy$, $0 \leq x \leq 1$, $0 \leq y \leq 1$, $\vec{F}(x,y,z) = \veciii{x^2 y}{-10xy^2}{0}$. Determine the flux upward through $\mathcal{S}$.
+\begin{align*}
+    \vec{F} \bullet \hat{N} & = \veciii{x^2 y}{-10xy^2}{0} \bullet \veciii{-y}{-x}{1} = 9x^2y^2
+\end{align*}
+Then,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} \,dS & = \int_{0}^{1} \int_{0}^{1} 9x^2y^2 \,dx \,dy \\
+    & = \int_{0}^{1} y^2 \,dy \int_{0}^{1} 9x^2 \,dx \\
+    & = \dfrac{1}{3} \cdot 3 \\
+    & = 1
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the plane $x + 2y + 3z = 6$ in the first octant, $\vec{F}(x,y,z) = \veciii{x}{y}{z}$. Determine the flux downward through $\mathcal{S}$.
+\begin{align*}
+    \vec{F} \bullet \hat{N} \,dS & = \veciii{x}{y}{z} \bullet \dfrac{1}{3} \veciii{-1}{-2}{-3} \,dx \,dy \\
+    & = -2 \,dx \,dy
+\end{align*}
+The plane $x + 2y + 3z = 6$ in the first octant projects onto the $xy$-plane $0 \leq x \leq 6$, $0 \leq y \leq -x/2 + 3$. Then,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} \,dS & = -2 \int_{0}^{6} \int_{0}^{-x/2 + 3} \,dy \,dx \\
+    & = -2 \int_{0}^{6} \left(-\dfrac{x}{2} + 3 \right) \,dx \\
+    & = -18
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the surface with parametrization $\vec{r}(u,v) = \veciii{u^2}{uv}{v^2/2}$, $0 \leq u \leq 1$, $0 \leq v \leq 1$, $\vec{F}(x,y,z) = \veciii{x}{0}{z}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector $\hat{N}$ pointed upwards.
+\begin{align*}
+    \vec{r_u} & = \veciii{2u}{v}{0} \\
+    \vec{r_v} & = \veciii{0}{u}{v} \\
+    \vec{n} & = \vec{r_u} \times \vec{r_v} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ 2u & v & 0 \\ 0 & u & v \end{vmatrix} = \veciii{v^2}{-2uv}{2u^2} && \text{oriented upward as $2u^2 \geq 0$} \\
+    \vec{F} \bullet \hat{n} & = \veciii{u^2}{0}{\dfrac{v^2}{2}} \bullet \veciii{v^2}{-2uv}{2u^2} \\
+    & = 2u^2 v^2
+\end{align*}
+Then,
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{1} \int_{0}^{1} 2u^2 v^2 \,du \,dv \\
+    & = 2 \int_{0}^{1} v^2 \,dv \int_{0}^{1} u^2 \,du \\
+    & = \dfrac{2}{9}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the plane $x + y + z = 1$ in the first octant, $\vec{F}(x,y,z) = \veciii{0}{x}{2y}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector $\hat{N}$ oriented upwards.
+\\ \\ Let $G(x,y,z) = x + y + z - 1$ such that $\mathcal{S}$ is represented by $G(x,y,z) = 0$.
+\begin{align*}
+    \dfrac{\nabla G}{G_z} & = \veciii{1}{1}{1} \\
+    \vec{F} \bullet d\vec{S} & = \vec{F} \bullet \dfrac{\nabla G}{G_z} \,dx \,dy = \veciii{0}{x}{2y} \bullet \veciii{1}{1}{1} = x + 2y
+\end{align*}
+The plane $x + y + z = 1$ in the first octant projects onto the $xy$-plane $0 \leq x \leq 1$, $0 \leq y \leq 1-x$.
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{1} \int_{0}^{1-x} (x + 2y) \,dy \,dx \\
+    & = \int_{0}^{1} (1 - x) \,dx \\
+    & = \dfrac{1}{2}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the graph $z = x + y^2$ above the rectangle $[0,3] \times [0,2]$, $\vec{F}(x,y,z) = \veciii{y}{-x}{0}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector $\hat{N}$ oriented upwards.
+\begin{align*}
+    d\vec{S} & = \veciii{-1}{-2y}{1} \,dx \,dy \\
+    \vec{F} \bullet d\vec{S} & = \veciii{y}{-x}{0} \bullet \veciii{-1}{-2y}{1} = -y + 2xy
+\end{align*}
+Then,
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{2} \int_{0}^{3} (-y + 2xy) \,dx \,dy \\
+    & = \int_{0}^{3} (-2 + 4x) \,dx \\
+    & = 12
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the sphere $x^2 + y^2 + z^2 = r^2$, $r > 0$, $\vec{F}(x,y,z) = \veciii{0}{0}{z^2}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector $\hat{N}$ oriented upwards.
+\\ \\ Using spherical coordinates, $x = r \cos{\theta} \sin{\phi}$, $y = r \sin{\theta} \sin{\phi}$, $z = r \cos{\phi}$, for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$. Then, since $\hat{N}$ is parallel to $\vec{r} = \veciii{x}{y}{z}$ and $\abs{\vec{r}} = r$, we have
+\begin{align*}
+    d\vec{S} & = \hat{N} dS = \veciii{\dfrac{x}{r}}{\dfrac{y}{r}}{\dfrac{z}{r}} r^2 \sin{\phi} \,d\phi \,d\theta = \veciii{\cos{\theta}\sin{\phi}}{\sin{\theta}\sin{\phi}}{\cos{\phi}} r^2 \sin{\phi} \,d\phi \,d\theta \\
+    \vec{F} \bullet d\vec{S} & = \veciii{0}{0}{r^2 \cos^2{\phi}} \bullet \veciii{\cos{\theta}\sin{\phi}}{\sin{\theta}\sin{\phi}}{\cos{\phi}} r^2 \sin{\phi} \,d\phi \,d\theta \\
+    & = r^4 \cos^3{\phi} \sin{\phi} \,d\phi \,d\theta
+\end{align*}
+Then,
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{2\pi} \int_{0}^{\pi} r^4 \cos^3{\phi} \sin{\phi} \,d\phi \,d\theta \\
+    & = r^4 \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi} \cos^3{\phi} \sin{\phi} \,d\phi \\
+    & = 0
+\end{align*}
+Since the sphere is symmetrical about the $xy$-plane, the contribution from the top half is exactly the negative of the contribution from the bottom half.
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the part of the sphere $x^2 + y^2 + z^2 = 4$ in the first octant, $\vec{F} = \veciii{5x}{-5z}{5y}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector oriented towards the origin.
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the part of the plane $x + y + z = 1$ in the first octant, $\vec{F} = \veciii{y^3}{3}{-x}$. Determine the flux $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$ with normal vector oriented downwards.
+\\ \\ The normal vector oriented downwards of $\mathcal{S}$ is $\vec{n} = \veciii{-1}{-1}{-1}$. Then,
+\begin{align*}
+    \vec{F} \bullet d\vec{S} & = \veciii{y^3}{3}{-x} \bullet \veciii{-1}{-1}{-1} \,dx \,dy \\
+    & = (-y^3 - 3 + x) \,dx \,dy
+\end{align*}
+$\mathcal{S}$ projects onto the $xy$-plane as $0 \leq x \leq 1$, $0 \leq y \leq 1-x$. Then,
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{1} \int_{0}^{1-x} (-y^3 - 3 + x) \,dx \,dy \\
+    & = \int_{0}^{1} \left. \left(-\dfrac{y^4}{4} - 3y  + xy \right) \right|_{y=0}^{y=1-x} \,dx \\
+    & = \int_{0}^{1} \left(-\dfrac{(1 - x)^4}{4} - 3(1 - x) + x(1 - x) \right) \,dx \\
+    & = \int_{0}^{1} \left(-\dfrac{(x - 1)^4}{4} - 3 + 4x - x^2 \right) \,dx \\
+    & = -83/60
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\vec{F} = \veciii{x}{y}{0}$, $\mathcal{S}$ be the half-sphere $x^2 + y^2 + z^2 = 1$, $z \geq 0$, with unit normal upward. Determine $\int_{\mathcal{S}} \vec{F} \bullet d\vec{S}$.
+\\ \\ The unit vector oriented upwards is $\vec{N} = \veciii{x}{y}{z}$. Then, using spherical coordinates,
+\begin{align*}
+    x & = \cos{\theta} \sin{\phi} \\
+    y & = \sin{\theta} \sin{\phi} \\
+    z & = \cos{\phi}
+\end{align*}
+for $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi/2$.
+\begin{align*}
+    \vec{F} \bullet \vec{N} & = \veciii{x}{y}{0} \bullet \veciii{x}{y}{z} \\
+    & = x^2 + y^2 \\
+    & = \cos^2{\theta} \sin^2{\phi} + \sin^2{\theta} \sin^2{\phi} \\
+    & = \sin^2{\phi}
+\end{align*}
+Then,
+\begin{align*}
+    \int_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{2\pi} \int_{0}^{\pi/2} \sin^2{\phi} \cdot \sin{\phi} \,d\phi \,d\theta \\
+    & = \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi/2} (1 - \cos^2{\phi}) \sin{\phi} \,d\phi \\
+    & = 2\pi \cdot \dfrac{2}{3} \\
+    & = \dfrac{4\pi}{3}
+\end{align*}
+\end{example}
+
+\begin{example}
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{images/flux-integrals/01.jpg}
+\end{figure}
+$\mathcal{S}$ can be parametrized by $\vec{r}(x,y) = \veciii{x}{y}{1-x-y}$. The unit normal of $\mathcal{S}$, oriented downwards, is $\vec{\hat{N}} = \veciii{-1}{-1}{-1}$. Then,
+\begin{align*}
+    \vec{F} \bullet \vec{\hat{N}} = -y^4 - 7 + x
+\end{align*}
+Then,
+\begin{align*}
+    \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} & = \int_{0}^{1} \int_{0}^{1-x} (-y^4 - 7 + x) \,dy \,dx \\
+    & = \int_{0}^{1} \left(-\dfrac{(1 - x)^5}{5} - 7(1 - x) + x(1 - x) \right) \,dx \\
+    & = \int_{0}^{1} \left(\dfrac{(x - 1)^5}{5} - x^2 + 8x - 7 \right) \,dx \\
+    & = -\dfrac{101}{30}
+\end{align*}
+\end{example}
+
+
+
+
+\end{document}

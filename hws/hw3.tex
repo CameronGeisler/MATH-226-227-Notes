@@ -1,0 +1,132 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage{esint} % for integral over closed surface
+\pagestyle{fancy}
+
+\lhead{Math 227}
+\chead{Homework 3}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+
+%% Vectors
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\vecii}[2]{\left< #1, #2 \right>}
+\newcommand{\veciii}[3]{\left< #1, #2, #3 \right>}
+\newcommand{\grad}[1]{\mathbf{grad} \, \vec{#1}}
+\renewcommand{\div}[1]{\mathbf{div} \, \vec{#1}}
+\newcommand{\curl}[1]{\mathbf{curl} \, \vec{#1}}
+
+\begin{document}
+
+\subsection*{Question 1}
+Let $\vec{r}(t)$, $a \leq t \leq b$ be a parametrization of $C$. Since $\vec{F}(\vec{r}(t)) \bullet \vec{r}'(t)$ is a scalar-valued function, the triangle inequality holds for it,
+\begin{equation}
+    \abs{\int_{a}^{b} \vec{F}(\vec{r}(t)) \bullet \vec{r}'(t) \,dx} \leq \int_{a}^{b} \abs{\vec{F}(\vec{r}(t)) \bullet \vec{r}'(t)} \,dx
+\end{equation}
+Also, if $\theta$ is the angle between $\vec{F}(\vec{r}(t))$ and $\vec{r}'(t)$, then
+\begin{equation}
+    \abs{\vec{F}(\vec{r}(t)) \bullet \vec{r}'(t)} = \abs{\abs{\vec{F}(\vec{r}(t))} \cdot \abs{\vec{r}'(t)} \cos{\theta}} \leq \abs{\vec{F}(\vec{r}(t))} \cdot \abs{\vec{r}'(t)}
+\end{equation}
+Then,
+\begin{align*}
+    \abs{\int_{C} \vec{F} \bullet d\vec{r}} & = \abs{\int_{a}^{b} \vec{F}(\vec{r}(t)) \bullet \vec{r}'(t) \,dt} \\
+    & \leq \int_{a}^{b} \abs{\vec{F}(\vec{r}(t)) \bullet \vec{r}'(t)} \,dt && \text{from (1)} \\
+    & \leq \int_{a}^{b} \abs{\vec{F}(\vec{r}(t))} \cdot \abs{\vec{r}'(t)} \,dt && \text{from (2)} \\
+    & = \int_{a}^{b} \abs{\vec{F}(\vec{r}(t))} \cdot ds && \text{as $ds = \abs{\vec{r}'(t)} \,dt$}
+\end{align*}
+
+\subsection*{Question 2}
+Let $C$ have endpoints $P_1$, $P_2$, oriented from $P_1$ to $P_2$. Since $C$ is containted in $S$, and $S$ is the set of all points where $f(\vec{r}) = a$, we have $f(P_1) = a$ and $f(P_2) = a$. Then,
+\begin{align*}
+    \int_{C} \nabla f \bullet d\vec{r} = f(P_2) - f(P_1) = a - a = 0
+\end{align*}
+
+\subsection*{Question 3}
+Using Green's theorem,
+\begin{align*}
+    \oint_{C} (y^3 + 4x) \,dx + (3x - 4x^3) \,dy & = \iint_{D} \left(\dfrac{\partial}{\partial x}(y^3 + 4x) - \dfrac{\partial}{\partial y}(3x - 4x^3) \right) \,dA \\
+    & = \iint_{D} \left(3 - 12x^2 - 3y^2 \right) \,dA
+\end{align*}
+where $D$ is the region bounded by $C$. The integral will be maximized when $C$ encloses the largest region where the integrand is non-negative. In other words,
+\begin{align*}
+    3 - 12x^2 - 3y^2 & \geq 0 \\
+    4x^2 + y^2 & \leq 1
+\end{align*}
+The curve that maximizes the integral is the ellipse $4x^2 + y^2 = 1$, which can be parametrized as
+\begin{align*}
+    \vec{r}(t) = \vecii{\dfrac{1}{2}\cos{t}}{\sin{t}} && 0 \leq t \leq 2\pi
+\end{align*}
+
+
+\subsection*{Question 4}
+The circle $C_{\epsilon}$ is parametrized by $\vec{r}(\theta) = \veciii{\epsilon \cos{\theta}}{\epsilon \sin{\theta}}{0}$, and so
+\begin{equation*}
+    \vec{r}'(\theta) = \veciii{-\epsilon \sin{\theta}}{\epsilon \cos{\theta}}{0}
+\end{equation*}The Taylor series of the components of $\vec{F}$ is given by
+\begin{align*}
+    \vec{F}(x,y,z) & = \vec{F}(\vec{0}) + \vec{F}_x(\vec{0}) x + \vec{F}_y(\vec{0}) y + \vec{F}_{\vec{0}} z + \dots
+\end{align*}
+where ``$\dots$" represents terms with degree $\geq 2$ in $x$, $y$, and $z$, and the subscripts represent partial derivatives. Then,
+\begin{align*}
+    \vec{F} \bullet d\vec{r} & = (\vec{F}(\vec{0}) + \vec{F}_x(\vec{0}) x + \vec{F}_y(\vec{0}) y + \vec{F}_{\vec{0}} z + \dots) \bullet \veciii{-\epsilon \sin{\theta}}{\epsilon \cos{\theta}}{0} \,d\theta \\
+    & = \big(-\epsilon \sin{\theta} \cdot \vec{F}(\vec{0}) \bullet \ihat + \epsilon \cos{\theta} \cdot \vec{F}(\vec{0}) \bullet \ihat - \epsilon \sin{\theta} \cdot \vec{F}_x(\vec{0}) x \bullet \ihat + \epsilon \cos{\theta} \cdot \vec{F}_x(\vec{0}) x \bullet \jhat + \\
+    & \qquad \qquad -\epsilon \sin{\theta} \cdot \vec{F}_y(\vec{0}) y \bullet \ihat + \epsilon \cos{\theta} \cdot \vec{F}_y(\vec{0}) y \bullet \jhat + \dots \big) \,d\theta \\
+    & = \big(-\epsilon \sin{\theta} \cdot \vec{F}(\vec{0}) \bullet \ihat + \epsilon \cos{\theta} \cdot \vec{F}(\vec{0}) \bullet \ihat - \epsilon^2 \sin{\theta} \cos{\theta} \cdot \vec{F}_x(\vec{0}) \bullet \ihat + \epsilon^2 \cos^2{\theta} \cdot \vec{F}_x(\vec{0}) \bullet \jhat + \\
+    & \qquad \qquad -\epsilon^2 \sin^2{\theta} \cdot \vec{F}_y(\vec{0}) \bullet \ihat + \epsilon^2 \sin{\theta} \cos{\theta} \cdot \vec{F}_y(\vec{0}) \bullet \jhat + \dots \big) \,d\theta 
+\end{align*}
+where ``$\dots$" represent terms with degree $\geq 3$ in $\epsilon$. Taking the line integral over $C_{\epsilon}$, we use the following integrals
+\begin{align*}
+    \int_{0}^{2\pi} \sin{\theta} \,d\theta = \int_{0}^{2\pi} \cos{\theta} \,d\theta = \int_{0}^{2\pi} \sin{\theta} \cos{\theta} \,d\theta = 0 \\
+    \int_{0}^{2\pi} \cos^2{\theta} \,d\theta = \left. \dfrac{1}{2}(\theta + \sin{\theta} \cos{\theta}) \right|_{0}^{2\pi} = \pi \\
+    \int_{0}^{2\pi} \sin^2{\theta} \,d\theta = \left. \dfrac{1}{2}(\theta -  \sin{\theta} \cos{\theta}) \right|_{0}^{2\pi} = \pi
+\end{align*}
+Then,
+\begin{align*}
+    \oint_{C_{\epsilon}} \vec{F} \bullet d\vec{r} & = \pi \epsilon^2 \vec{F}_x(\vec{0}) \bullet \jhat - \pi \epsilon^2 \vec{F}_y(\vec{0}) \bullet \ihat + \dots
+\end{align*}
+where ``$\dots$" represent terms with degree $\geq 3$ in $\epsilon$. Then,
+\begin{align*}
+    \dfrac{1}{\pi \epsilon^2} \oint_{C_{\epsilon}} \vec{F} \bullet d\vec{r} & = \vec{F}_x(\vec{0}) \bullet \jhat - \vec{F}_y(\vec{0}) \bullet \ihat + \dots
+\end{align*}
+where ``$\dots$" represent terms with degree $\geq 1$ in $\epsilon$, and so as $\epsilon \to 0^{+}$, those terms go to $0$. Then,
+\begin{align*}
+    \lim_{\epsilon \to 0^{+}} \dfrac{1}{\pi \epsilon^2} \oint_{C_{\epsilon}} \vec{F} \bullet d\vec{r} & = \vec{F}_x(\vec{0}) \bullet \jhat - \vec{F}_y(\vec{0}) \bullet \ihat \\
+    & = \dfrac{\partial F_2}{\partial x}(\vec{0}) - \dfrac{\partial F_1}{\partial y}(\vec{0}) \\
+    & = \curl{F}(\vec{0}) \bullet \hat{k}
+\end{align*}
+
+
+
+
+
+
+
+\end{document}

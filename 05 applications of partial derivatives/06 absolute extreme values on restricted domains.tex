@@ -1,0 +1,54 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Absolute Extreme Values on Restricted Domains}
+
+\begin{document}
+
+Recall that we considered methods of determining local extreme values of a multivariable function.
+\\ \\ Recall that for single-variable functions $f$, we can also consider determining absolute extrema, on a closed domain. In particular, given a function $f$ on a closed interval $[a,b]$, the \textbf{extreme value theorem} says that $f$ has both a maximium and a minimum value on this interval. An analogous statement is true for functions with 2 variables, and more generally $n$ variables. The key that makes this true is that the interval $[a,b]$ is closed and bounded.
+
+\section*{Extreme Value Theorem for Multivariable Functions}
+
+\begin{theorem}
+\textbf{Extreme value theorem}. Let $f$ be a function of two variables, continuous on a domain $D \subseteq \mathbb{R}^2$ that is closed and bounded. Then, $f$ attains its maximum and minimum values on $D$.
+\end{theorem}
+
+Here, recall that a \textbf{closed} set in $\mathbb{R}^2$ contains its boundary, and a \textbf{bounded} set in $\mathbb{R}^2$ can be enclosed by a circle of finite radius.
+
+\section*{Extrema of Functions on Compact Domains}
+\begin{definition}
+A set $S \subset \mathbb{R}^n$ is \textbf{compact} if it is bounded and closed.
+\end{definition}
+
+\begin{theorem}
+Let $f$ be a function of $n$ variables. If $D \subset \mathbb{R}^n$ is compact, then $f$ attains an absolute minimum and absolute maximum on $D$.
+\end{theorem}
+
+\section*{Determining Absolute Extrema on Compact Domains}
+\begin{enumerate}
+    \item Determine the critical points (and singular points) of $f$ on $D$
+    \item Determine the boundary points of $D$ where $f$ may have a extreme value
+    \item Evaluate $f$ at each of these points, the largest value is the absolute maximum, and the smallest value is the absolute minimum.
+\end{enumerate}
+
+\section*{Examples}
+\begin{example}
+Let $f(x,y) = x^2 - 2xy + 2y$. Determine the maximum and minimum values for $f$ on $D = \set{(x,y): 0 \leq x \leq 3, 0 \leq y \leq 2}$.
+\\ \\ Finding the critical values,
+\begin{align}
+    0 & = f_1(x,y) = 2x - 2y \\
+    0 & = f_2(x,y) = -2x + 2 \\
+\end{align}
+From $(1)$, $x = 1$. From $(2)$, $y = 1$. Thus, $(1,1)$ is a critical point, and $f(1,1) = 1$
+\\ \\ Finding any boundary points with extreme values,
+\begin{itemize}
+    \item For $y = 0$, $x \in [0,3]$, $f(x,0) = x^2$, so $f(x,y) \in [0,9]$.
+    \item For $x = 0$, $y \in [0,2]$, $f(0,y) = 2y$, so $f(x,y) \in [0,4]$.
+    \item For $x = 3$, $y \in [0,2]$, $f(3,y) = 9 - 4y$, so $f(x,y) \in [1,9]$.
+    \item For $y = 2$, $x \in [0,3]$, $f(x,2) = x^2 - 4x + 4$, so $f(x,y) \in [0,4]$.
+\end{itemize}
+Thus, the minimum of $f$ is $f(0,0) = f(2,2) = 0$ and the maximum is $f(3,0) = f(3,2) = 9$.
+\end{example}
+
+\end{document}

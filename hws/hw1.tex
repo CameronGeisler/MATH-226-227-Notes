@@ -1,0 +1,103 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 227}
+\chead{Homework 1}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+
+%% Vectors
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\newcommand{\vecii}[2]{\left< #1, #2 \right>}
+\newcommand{\veciii}[3]{\left< #1, #2, #3 \right>}
+
+\begin{document}
+
+\subsection*{Question 1}
+A counterexample is $\vec{r}(t) = \veciii{0}{t^2}{t^3}$ on $[0,1]$. Then,
+\begin{align*}
+    \vec{r}'(t) & = \veciii{0}{2t}{3t^2} \\
+    \vec{r}(1) - \vec{r}(0) & = (1 - 0) \vec{r}'(t_0) \\
+    \veciii{0}{1}{1} - \veciii{0}{0}{0} & = \veciii{0}{2t_0}{3t_{0}^{2}} \\
+    \veciii{0}{1}{1} & = \veciii{0}{2t_0}{3t_{0}^{2}}
+\end{align*}
+Then, $2t_0 = 1$, so $t_0 = 1/2$. However, $3t_0^2 = 1$, so $t_0 = \pm 1/3$. Thus, there is no $t_0$ such that the equation is satisfied.
+
+\subsection*{Question 3a}
+\begin{align*}
+    \vec{r}'(t) & = \vecii{1}{2at} \\
+    \abs{\vec{r}'(t)} & = \sqrt{1 + 4a^2 t^2} \\
+    \hat{T}(t) & = \dfrac{\vec{r}'(t)}{\abs{\vec{r}'(t)}} = \dfrac{1}{\sqrt{1 + 4a^2 t^2}} \vecii{1}{2at} \\
+    \hat{T}'(t) & = \vecii{-\dfrac{4a^2 t}{(1 + 4a^2 t^2)^{3/2}}}{\dfrac{2a}{(1 + 4a^2 t^2)^{3/2}}} = \dfrac{2a}{(1 + 4a^2 t^2)^{3/2}} \vecii{-2at}{1} \\
+    \abs{\hat{T}'(t)} & = \sqrt{\dfrac{16 a^4 t^2}{(1 + 4a^2 t^2)^3} + \dfrac{4a^2}{(1 + 4a^2 t^2)^3}} = \sqrt{\left(\dfrac{2a}{1 + 4a^2 t^2} \right)} = \dfrac{2\abs{a}}{1 + 4a^2 t^2} \\
+    \hat{N}(t) & = \dfrac{\hat{T}'(t)}{\abs{\hat{T}'(t)}} = \dfrac{a}{\abs{a}\sqrt{1 + 4a^2 t^2}} \vecii{-2at}{1} \\
+    \kappa(t) & = \dfrac{\abs{\vec{T}'(t)}}{\abs{\vec{r}'(t)}} = \dfrac{2\abs{a}}{(1 + 4a^2 t^2)^{3/2}} \\
+    \rho(t) & = \dfrac{1}{\kappa(t)} = \dfrac{(1 + 4a^2 t^2)^{3/2}}{2\abs{a}}
+\end{align*}
+At $(0,0)$, $t = 0$. Then, the radius of curvature is
+\begin{equation*}
+    \rho(0) = \dfrac{1}{2\abs{a}}
+\end{equation*}
+and the center of the osculating circle is
+\begin{align*}
+    \vec{r_c}(0) & = \vec{r}(0) + \rho(0) \hat{N}(0) \\
+    & = \vecii{0}{0} + \dfrac{1}{2\abs{a}} \vecii{0}{\dfrac{a}{\abs{a}}} \\
+    \vec{r_c}(0) & = \vecii{0}{\dfrac{1}{2a}}
+\end{align*}
+
+\subsection*{Question 3b}
+$\vec{r}$ is smooth, so it has an arc length parametrization $s = s(t)$. Then, by Question 2, since $\abs{\vec{r}(t)} = r \in \mathbb{R}$, we have
+\begin{align*}
+    \vec{r}(s) \bullet \vec{r}'(s) & = 0 \\
+    \vec{r}'(s) \bullet \vec{r}'(s) + \vec{r}(s) \bullet \vec{r}''(s) & = 0 && \text{differentiating both sides} \\
+    \abs{\vec{r}'(s)}^2 - \vec{PO} \bullet \vec{r}''(s) & = 0 \\
+    1 - \vec{PO} \bullet \vec{r}''(s) & = 0
+\end{align*}
+Since $\hat{T}(s) = \vec{r}'(s)$ by definition, $\hat{T}'(s) = \vec{r}''(s)$. Then, since $T'(s) = \kappa \hat{N}(s)$, we have $\vec{r}''(s) = \kappa \hat{N}(s)$. Then,
+\begin{align*}
+    1 - \kappa \vec{PO} \bullet \hat{N}(s) & = 0 \\
+    \vec{PQ} \bullet \hat{N}(s) & = \dfrac{1}{\kappa} = \rho
+\end{align*}
+Thus, the angle between $\vec{PQ}$ and $\hat{N}(s)$ is given by
+\begin{align*}
+    \cos{\theta} = \dfrac{\vec{PQ} \bullet \hat{N}(s)}{\abs{\vec{PQ}} \cdot \abs{\hat{N}(s)}} & = \dfrac{\rho}{r}
+\end{align*}
+Thus, $\rho = r \cos{\theta}$. Finally,
+\begin{align*}
+    \kappa = \dfrac{1}{\rho} = \dfrac{1}{r \cos{\theta}} \geq \dfrac{1}{r} && \text{as $\cos{\theta} \leq 1$}
+\end{align*}
+
+
+
+
+
+\end{document}

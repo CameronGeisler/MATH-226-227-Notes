@@ -1,0 +1,242 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Differentiability}
+
+\begin{document}
+\section*{Differentiability}
+\begin{definition}
+Let $f$ be a function of one variable. If $f'(a)$ exists, then the \textbf{linearization} (or \textbf{tangent line}) of $f$ at $a$ is
+\begin{equation*}
+    L(x) = f(a) + f'(a)(x - a)
+\end{equation*}
+\end{definition}
+
+Geometrically, $L$ is a good approximation of $f$ near $a$. The vertical distance between $f$ and $L$ is small for $x$ near $a$. In other words,
+\begin{align*}
+    \lim_{h \to 0} \frac{f(a+h) - L(a+h)}{h} & = \lim_{h \to 0} \frac{f(a+h) - f(a) - f'(a)h}{h} \\
+    & = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} - f'(a) \\
+    & = f'(a) - f'(a) \\
+    & = 0
+\end{align*}
+
+\begin{definition}
+Let $f$ be a function of two variables. If $f_x$ and $f_y$ exist, then the \textbf{linearization} (or the \textbf{tangent plane}) of $f$ at $(a,b)$ is
+\begin{equation*}
+    L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+Let $f$ be a function of $n$ variables. Then, the linearization of $f$ is a hyperplane in $(n-1)$ dimensions.
+\end{definition}
+
+\begin{definition}
+Let $f$ be a function of two variables. Then, $f$ is \textbf{differentiable} at $(a,b)$ if and only if
+\begin{equation*}
+    \lim_{(x, y) \to (a, b)} \frac{f(x, y) - L(x, y)}{\sqrt{(x - a)^2 + (y - b)^2}} = 0
+\end{equation*}
+Equivalently, if $h = x - a$, $k = y - k$
+\begin{equation*}
+    \lim_{(h,k) \to (0,0)} \frac{f(a+h,b+k) - f(a,b) - hf_x(a,b) - kf_y(a,b)}{\sqrt{h^2 + k^2}} = 0
+\end{equation*}
+\end{definition}
+
+\begin{equation*}
+    L(x,y) = f(a, b) + \frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b)
+\end{equation*}
+In terms of differentials,
+\begin{equation*}
+    dz = f_x(x,y)dx + f_y(x, y)dy
+\end{equation*}
+
+\section*{Continuous Partial Derivatives implies Differentiable}
+\begin{theorem}
+Let $f$ be a function of two variables. If $f_x$ and $f_y$ are continuous on a neighborhood of $(a,b)$, then $f$ is differentiable at $(a, b)$.
+\end{theorem}
+
+\begin{theorem}
+Let $f$ be a function of two variables. If $f_x$ and $f_y$ are all continuous on a neighbourhood of $(a, b)$, then $f$ is differentiable at $(a, b)$.
+\end{theorem}
+\begin{proof}
+Let $f_x$ and $f_y$ be continuous on a neighbourhood of $(a, b)$. Then,
+\begin{align*}
+    f(x,y) - L(x,y) & = f(x,y) - (f(a,b) + f_1(a,b)(x - a) + f_2(a,b)(y - b)) \\
+    & = f(x,y) - f(a,b) - f_1(a,b)(x - a) - f_2(a,b)(y - b) \\
+    & = f(x,y) - f(a,b) - f_1(a,b)(x - a) - f_2(a,b)(y - b) + f(x,b) - f(x,b) \\
+    & = (f(x,y) - f(x,b) - f_2(a,b)(y - b)) + (f(x,b) - f(a,b) - f_1(a,b)(x - a))
+\end{align*}
+Then,
+\begin{align*}
+    & f(x,y) - f(x,b) - f_2(a,b)(y - b) \\
+    & = f_2(x,c)(y - b) - f_2(a,b)(y - b) && \text{by the mean value theorem, for some $c \in [y, b]$}\\
+    & = (f_2(x,c) - f_2(a,b))(y - b)
+\end{align*}
+Then,
+\begin{align*}
+    & \lim_{(x,y) \to (a,b)} \frac{f(x,y) - f(x,b) - f_2(a,b)(y - b)}{\sqrt{(x - a)^2 + (y - b)^2}} \\
+    & = \lim_{(x,y) \to (a,b)} (f_2(x,c) - f_2(a,b)) \frac{y - b}{\sqrt{(x - a)^2 + (y - b)^2}}
+\end{align*}
+\begin{align*}
+    \lim_{(x,y) \to (a,b)} (f_2(x,c) - f_2(a,b)) & = 0 && \text{since $f_2$ is continuous}
+\end{align*}
+\begin{align*}
+    -1 \leq \frac{y - b}{\sqrt{(x - a)^2 + (y - b)^2}} \leq 1
+\end{align*}
+By the squeeze theorem, the limit is zero.
+\end{proof}
+
+\section*{Differentiability implies Continuity}
+\begin{theorem}
+If $f(x, y)$ is differentiable at $(a, b)$, then it is continuous at $(a, b)$.
+\begin{itemize}
+    \item Equivalently, if $f$ is not continuous, then $f$ is not differentiable.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Consider
+\begin{align*}
+    & \lim_{(x,y) \to (a,b)} (f(x,y) - L(x,y)) \\
+    & = \lim_{(x,y) \to (a,b)} \frac{f(x,y) - L(x,y)}{\sqrt{(x-a)^2+(y-b)^2}} \sqrt{(x-a)^2+(y-b)^2} \\
+    & = \lim_{(x,y) \to (a,b)} \frac{f(x,y) - L(x,y)}{\sqrt{(x-a)^2+(y-b)^2}} \cdot \lim_{(x,y) \to (a,b)} \sqrt{(x-a)^2+(y-b)^2} && \text{product rule for limits} \\
+    & = f'(a,b) \cdot 0 && \text{as $f$ is differentiable at $(a,b)$} \\
+    & = 0
+\end{align*}
+Thus,
+\begin{align*}
+    0 & = \lim_{(x,y) \to (a,b)} (f(x,y) - L(x,y)) \\
+    & = \lim_{(x,y) \to (a,b)} f(x,y) - \lim_{(x,y) \to (a,b)} L(x,y) \\
+    & = \lim_{(x,y) \to (a,b)} f(x,y) - f(a,b)
+\end{align*}
+Thus, $\lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)$, so $f$ is continuous at $(a,b)$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\section*{Differentiability of Functions of $n$ Variables}
+Extending to higher dimensions,
+Let $f$: $\mathbb{R}^n \longrightarrow \mathbb{R}$, at $\vec{a} = \left< a_1, \dots, a_n \right>$.
+
+$f(\vec{x})$ is approximated by
+\begin{equation*}
+    L(\vec{x}) = f(\vec{a}) + f_1(\vec{a})(x_1 - a_1) + \dots + f_n(\vec{a})(x_n - a_n)
+\end{equation*}
+
+$f$ is differentiable at $\vec{a}$ if
+\begin{equation*}
+    \lim_{\vec{x} \to \vec{a}} \frac{f(\vec{x}) - L(\vec{a})}{\norm{\vec{x} - \vec{a}}}
+\end{equation*}
+
+This also extends to vector-valued functions,
+Let $\vec{f}: \mathbb{R}_x^n \longrightarrow \mathbb{R}_y^m$
+\begin{align*}
+    y_1 & = f_1(x_1, \dots, x_n) \\
+    & \dots \\
+    y_m & = f_m(x_1, \dots, x_n)
+\end{align*}
+
+We can approximate at $\vec{a}$ by $L(\vec{x}) = A \vec{x}$, with
+\begin{equation*}
+    \begin{pmatrix}
+    \frac{\partial f_1}{\partial x_1} \dots \frac{\partial f_1}{x_n} \\
+    \dots \\
+    \frac{\partial f_m}{\partial x_1} \dots \frac{\partial f_m}{ \partial x_n}
+    \end{pmatrix}
+\end{equation*}
+
+\section*{Differentiability Examples}
+To determine if a function is differentiable at $(a,b)$
+\begin{itemize}
+    \item For a ``nice" function, (i.e. some composition of polynomials, exponential functions, trig functions, etc.) use the continuity of partial derivatives to show differentiability. 
+    \item For functions that are not nice, use the limit definition of differentiability.
+\end{itemize}
+\begin{example}
+Let $f(x, y) = \begin{cases} x^2 + y^2 & \text{if $x$, $y$ rational} \\ 0 & \text{otherwise} \end{cases}$
+\\ Prove that $f$ is differentiable at $(0,0)$.
+\begin{proof}
+First, $L(x,y) = f(0,0) + f_x(0,0)x + f_y(0,0) = 0$. Thus,
+\begin{align*}
+    \lim_{(x,y) \to (0,0)} \frac{f(x,y)}{\sqrt{x^2 + y^2}} & = \lim_{(x,y) \to (0,0)} \begin{cases} \sqrt{x^2 + y^2} & \text{$x$, $y$ rational} \\ 0 & \text{otherwise} \end{cases} \\
+    & = 0 && \text{in either case}
+\end{align*}
+Thus, $f$ is differentiable at $(0,0)$. Note that $f$ is continuous at $(0, 0)$, but $f$, $f_x$, and $f_y$ are not continuous on a neighbourhood of $(0,0)$.
+\end{proof}
+\end{example}
+
+To determine if a function $f$ is differentiable at $(a,b)$,
+\begin{enumerate}
+    \item Determine $f(a,b)$, and find $f_x$, $f_y$ and evaluate them at $(a,b)$, then form $L(x,y)$
+    \item Use the definition of differentiability at $(a,b)$
+\end{enumerate}
+
+\begin{example}
+Let $f(x,y) = \begin{cases} \frac{x^3}{x^2 + y^2} & (x, y) \neq (0, 0) \\ 0 & (x, y) = (0, 0) \end{cases}$
+\\ \\ Prove that $f$ is not differentiable at $(0,0)$.
+\begin{align*}
+    f(0,0) & = 0
+    f_1(0,0) & = \lim_{x \to 0} \frac{f(x, 0) - f(0,0)}{x} \\
+    & = \lim_{x \to 0} \frac{x - 0}{x} \\
+    & = \lim_{x \to 0} 1 \\
+    & = 1 \\
+    f_2(0,0) & = \lim_{y \to 0} \frac{f(0, y) - f(0, 0)}{y} \\
+    & = 0
+\end{align*}
+Thus,
+\begin{align*}
+    L(x, y) & = f(0,0) + f_x(0,0)x + f_y(0,0)y \\
+    & = x
+\end{align*}
+Thus,
+\begin{align*}
+    \lim_{(x,y) \to (0,0)} \frac{f(x,y) - L(x,y)}{\sqrt{x^2 + y^2}} & = \lim_{(x,y) \to (0,0)} \frac{\frac{x^3}{x^2 + y^2} - x}{\sqrt{x^2 + y^2}} \\
+    & = \lim_{(x,y) \to (0,0)} \frac{-xy^2}{(x^2 + y^2)^{3/2}} \\
+    & = \text{ DNE}
+\end{align*}
+Thus, $f$ is not differentiable at $(0,0)$.
+\end{example}
+
+\begin{example}
+Let $f(x,y) = \begin{cases} \frac{x^4}{x^2 + y^2} & (x,y) \neq (0,0) \\ 0 & (x, y) = (0,0) \end{cases}$
+\\ \\ Determine if $f$ is differentiable at $(0, 0)$.
+\end{example}
+
+\section*{Linear Approximation Examples}
+\begin{example}
+Determine the linear approximation of $f(x) = x^3y^2 - y^3$ at $(2,1)$.
+\\ \\ First, note that $f$ is a polynomial in $x$ and $y$, so $f$, $f_x$, and $f_y$ are continuous everywhere. Then,
+\begin{align*}
+    f(2,1) & = 7 \\
+    f_x & = 3x^2y^2 && f_x(2,1) = 12 \\
+    f_y & = 2x^3y - 3y^2 && f_y(2,1) = 13
+\end{align*}
+Thus, the linear approximation at $(2, 1)$ is
+\begin{align*}
+    L(x,y) & = 7 + 12(x - 2) + 13(y - 1) \\
+    L(x,y) & = 12x + 13y - 30
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $f(x,y) = e^{2x + y^2}$. Determine the approximate value of $f(0.1,-0.1)$ using the linear approximation of $f$ at $(0,0)$.
+\begin{align*}
+    f(0, 0) & = 1 \\
+    f_x(x, y) & = 2e^{2x + y^2} && f_x(0, 0) = 2 \\
+    f_y(x, y) & = 2ye^{2x + y^2} && f_y(0, 0) = 0
+\end{align*}
+Thus, the linear approximation at $(0,0)$ is
+\begin{align*}
+    L(x, y) & = 1 + 2(x - 0) + 0(y - 0) \\
+    & = 1 + 2x
+\end{align*}
+Thus, $L(0.1, -0.1) = 1.2$
+\end{example}
+
+
+\end{document}

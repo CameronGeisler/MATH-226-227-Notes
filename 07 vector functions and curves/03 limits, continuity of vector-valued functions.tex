@@ -1,0 +1,109 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Limits and Continuity of Vector-Valued Functions}
+
+\begin{document}
+
+\section*{Calculus with Vector Functions}
+The concepts of calculus: limits, continuity, derivatives, and integrals, can all be applied to vector-valued functions in a natural way, in terms of the corresponding definitions for scalar functions. This makes sense, as a vector function is essentially 3 (or 2) scalar functions combined together.
+
+\section*{Limits of Vector Functions}
+\begin{definition}
+Let $\vec{r}(t)$ be a vector-valued function. Then, the \textbf{limit} of $\vec{r}$ as $t$ approaches $a$ is $\vec{L}$,
+\begin{equation*}
+    \lim_{t \to a} \vec{r}(t) = \vec{L}
+\end{equation*}
+if $\lim_{t \to a} \abs{\vec{r}(t) - \vec{L}} = 0$. In other words, if for all $\epsilon > 0$, there exists $\delta > 0$ such that if $0 < \abs{t - a} < \delta$, then
+\begin{equation*}
+    \abs{\vec{r}(t) - L} < \epsilon
+\end{equation*}
+\end{definition}
+
+Notice that the first limit $\lim_{t \to a} \vec{r}(t) = \vec{L}$ is a limit of a vector function which results in a vector. The second limit, $\lim_{t \to a} \abs{\vec{r}(t) - \vec{L}} = 0$ is a limit of the scalar function $\abs{\vec{r}(t) - \vec{L}}$ of the variable $t$, and so all of the familiar limit rules apply. In particular, the definition says that the vector limit holds if the magnitude of the difference of vectors $\vec{r}(t) - \vec{L}$ becomes small as $t \to a$.
+
+\section*{Evaluating Vector Function Limits}
+\begin{theorem}
+Let $\vec{r}(t) = \veciii{f(t)}{g(t)}{h(t)}$ be a vector-valued function, $\vec{L} = \veciii{L_1}{L_2}{L_3}$. Then,
+\begin{equation*}
+    \lim_{t \to a} \vec{r}(t) = \vec{L}
+\end{equation*}
+if and only if
+\begin{equation*}
+    \lim_{t \to a} f(t) = L_1 \qquad \lim_{t \to a} g(t) = L_2 \quad \text{and} \quad \lim_{t \to a} h(t) = L_3
+\end{equation*}
+In other words, the limit of a vector function is equal to the limits of its component functions, or
+\begin{equation*}
+    \boxed{\lim_{t \to a} \vec{r}(t) = \veciii{\lim_{t \to a} f(t)}{\lim_{t \to a} g(t)}{\lim_{t \to a} h(t)}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+The proof is quite elaborate and is postponed to below.
+\end{proof}
+
+\section*{Limit Laws for Vector Functions}
+Many of the familiar limit laws for scalar functions also apply to vector-valued functions.
+\begin{theorem}
+Let $\lim_{t \to a} \vec{r}(t), \lim_{t \to a} \vec{s}(t)$ exists and $c \in \mathbb{R}$. Then,
+\begin{align*}
+    \lim_{t \to a} (\vec{r}(t) \pm \vec{s}(t)) & = \lim_{t \to a} \vec{r}(t) \pm \lim_{t \to a} \vec{s}(t) \\
+    \lim_{t \to a} c \vec{r}(t) & = c \lim_{t \to a} \vec{r}(t)
+\end{align*}
+\end{theorem}
+
+\section*{Continuity of Vector Functions}
+The concept of continuity also can be naturally extended to vector-valued functions.
+
+\begin{definition}
+Let $\vec{r}(t)$ be a vector-valued function. Then, $\vec{r}(t)$ is \textbf{continuous} at $x = a$ if
+\begin{equation*}
+    \lim_{t \to a} \vec{r}(t) = \vec{r}(a)
+\end{equation*}
+\begin{itemize}
+    \item Similarly, $\vec{r}(t)$ is \textbf{continuous} on an interval $I$ if $\vec{r}(t)$ is continuous for all $t \in I$.
+\end{itemize}
+\end{definition}
+Intuitively, continuity has the same interpretation as with scalar functions, in that if $\vec{r}(t)$ is continuous on an interval, then its curve has no breaks, jumps, or gaps.
+\\ \\ Since the limit of a vector function is equivalent to the limits of its component functions, a direct consequence is that a vector-valued function $\vec{r}(t) = \veciii{f(t)}{g(t)}{h(t)}$ is continuous at $x = a$ if and only if each $f, g, h$ are all continuous at $x = a$.
+
+
+\section*{Proof of Limit of Vector Function as Limit of Components}
+\begin{proof}
+Let $\lim_{t \to a} \vec{r}(t) = \vec{L}$. Then, $\lim_{t \to a} \abs{\vec{r}(t) - \vec{L}} = 0$, or
+\begin{equation*}
+    \lim_{t \to a} \sqrt{(f(t) - L_1)^2 + (g(t) - L_2)^2 + (h(t) - L_3)^2} = 0
+\end{equation*}
+Roughly, this expression goes to 0 as $t \to a$ precisely when each of the three inside expressions goes to 0 to as $t \to a$. Then, note that
+\begin{align*}
+    0 \leq \abs{f(t) - L_1} & = \sqrt{(f(t) - L_1)^2} \\
+    & \leq \sqrt{(f(t) - L_1)^2 + (g(t) - L_2)^2 + (h(t) - L_3)^2}
+\end{align*}
+and similarly for $\abs{g(t) - L_2}$ and $\abs{h(t) - L_3}$. Then, by the squeeze theorem,
+\begin{equation*}
+    \lim_{t \to a} f(t) = L_1 \qquad \lim_{t \to a} g(t) = L_2 \qquad \lim_{t \to a} h(t) = L_3
+\end{equation*}
+This forward direction can be proved more directly using the definition of a limit. Let $\epsilon > 0$. Then, $\lim_{t \to a} \abs{\vec{r}(t) - \vec{L}} = 0$, so there exists $\delta > 0$ such that if $0 < \abs{t - a} < \delta$, then 
+\begin{equation*}
+    \sqrt{(f(t) - L_1)^2 + (g(t) - L_2)^2 + (h(t) - L_3)^2} < \epsilon
+\end{equation*}
+Then, each absolute value of the difference of each coordinate function is less than
+\begin{equation*}
+    \sqrt{(f(t) - L_1)^2 + (g(t) - L_2)^2 + (h(t) - L_3)^2}
+\end{equation*}
+so if $0 < \abs{t - a} < \delta$, then $\abs{f(t) - L_1} < \epsilon, \abs{g(t) - L_2} < \epsilon, \abs{h(t) - L_3} < \epsilon$, as desired.
+\\ \\ Conversely, let $\lim_{t \to a} f(t) = L_1, \lim_{t \to a} g(t) = L_2, \lim_{t \to a} h(t) = L_3$, and let $\epsilon > 0$. Then, there exists $\delta_1, \delta_2, \delta_3 > 0$ such that if $0 < \abs{t - a} < \delta_1, 0 < \abs{t - a} < \delta_2, 0 < \abs{t - a} < \delta_3$, respectively, then
+\begin{equation*}
+    \abs{f(t) - L_1} < \frac{\epsilon}{\sqrt{3}} \qquad \abs{g(t) - L_2} < \frac{\epsilon}{\sqrt{3}} \qquad \abs{h(t) - L_3} < \frac{\epsilon}{\sqrt{3}}
+\end{equation*}
+Then, let $\delta = \min{(\delta_1, \delta_2, \delta_3)}$. Then, if $0 < t - a < \delta$, then
+\begin{align*}
+    \abs{\vec{r}(t) - \vec{L}} & = \sqrt{(f(t) - L_1)^2 + (g(t) - L_2)^2 + (h(t) - L_3)^2} \\
+    & \leq \sqrt{3 \cdot \brac{\frac{\epsilon}{\sqrt{3}}}^2} \\
+    & = \sqrt{\epsilon^2} \\
+    & = \epsilon
+\end{align*}
+\end{proof}
+
+
+\end{document}
+

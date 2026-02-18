@@ -1,0 +1,291 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Triple Integrals with Cylindrical Coordinates}
+
+\begin{document}
+
+\section*{Cylindrical Coordinates}
+Recall that polar coordinates are helpful to describe some curves and regions in the $xy$-plane. For example, a circle of radius $r_0$ (centered at the origin) can be concisely described by the polar equation $r = r_0$. Polar coordinates can be extended to describe surfaces in space, leading to a coordinate system called cylindrical coordinates.
+\\ \\ Cylindrical coordinates replace the $x$ and $y$ coordinates by their polar counterparts $r$ and $\theta$, and leave the $z$ coordinate unchanged. In other words, converting from Cartesian coordinates $(x,y,z)$ to cylindrical coordinates $(r,\theta,z)$ involves the transformation
+\begin{align*}
+\boxed{\begin{array}{l}
+    x = r \cos{\theta} \\
+    y = r \sin{\theta} \\
+    z = z
+\end{array}}
+\end{align*}
+
+Note that the distance from a point $P$ is cylindrical coordinates to the origin is
+\begin{equation*}
+    d = \sqrt{r^2 + z^2} = \sqrt{x^2 + y^2 + z^2}
+\end{equation*}
+
+\begin{example}
+\textbf{Cylinder}. Recall that in polar coordinates, $r = r_0$ (for $r_0 > 0$) represents a circle of radius $r_0$ centered at the origin. In cylindrical coordinates, $r = r_0$ now lets $z$ be any value, and so represents a vertical right circular cylinder of radius $r_0$, centered at the $z$-axis. This is one reason why its called ``cylindrical coordinates".
+\end{example}
+
+\begin{example}
+\textbf{Half-plane}. Recall that in polar coordinates, $\theta = \theta_0$ represented the line passing through the origin with slope $m = \tan{\theta_0}$. In cylindrical coordinates, again $z$ can be any value, so this represents the vertical half-plane with edge along the $z$-axis.
+\end{example}
+
+\begin{example}
+\textbf{Horizontal plane}. The constant $z$-surface, $z = z_0$ for some $z_0 \in \mathbb{R}$, predictably represents a horizontal plane at with $z$-coordinate $z_0$.
+\end{example}
+
+\begin{example}
+\textbf{Cone}. The equation $z = ar$ represents a vertical cone with vertex at the origin.
+\end{example}
+
+When converting from cylindrical to Cartesian coordinates, the polar relations $r^2 = x^2 + y^2$, $\tan{\theta} = \frac{y}{x}$ can be used, and of course $z = z$. In summary,
+\begin{equation*}
+    \begin{array}{c|c}
+        \text{Cartesian to cylindrical} & \text{cylindrical to Cartesian} \\ \hline
+        \begin{array}{l}
+            x = r \cos{\theta} \\
+            y = r \sin{\theta} \\
+            z = z
+        \end{array} & \begin{array}{l}
+            r^2 = x^2 + y^2 \\
+            \tan{\theta} = \frac{y}{x} \\
+            z = z
+        \end{array}
+    \end{array}
+\end{equation*}
+
+\section*{Triple Integration with Cylindrical Coordinates}
+The volume element in cylindrical coordinates is given by
+\begin{equation*}
+    \boxed{dV = r \,dr \,d\theta \,dz}
+\end{equation*}
+
+\begin{theorem}
+Let $f$ be continuous on a domain $D$, given in cylindrical coordinates by
+\begin{equation*}
+    D = \set{(r,\theta,z): 0 \leq g(\theta) \leq r \leq h(\theta), \alpha \leq \theta \leq \beta, G(x,y) \leq z \leq H(x,y)}
+\end{equation*}
+Then, $f$ is integrable over $D$, and the triple integral of $f$ over $D$ is given by
+\begin{equation*}
+    \boxed{\iiint_D f(x,y,z) \,dV = \int_{\alpha}^{\beta} \int_{g(\theta)}^{h(\theta)} \int_{G(r\cos{\theta}, r\sin{\theta})}^{H(r\cos{\theta}, r\sin{\theta})} f(r\cos{\theta}, r\sin{\theta}) r \,dz \,dr \,d\theta}
+\end{equation*}
+\end{theorem}
+
+
+
+
+
+
+Cylindrical coordinates are often useful to represent domains which have axial symmetry with respect to the $z$-axis.
+
+
+
+
+
+
+
+
+\section*{Examples}
+\begin{example}
+Determine the volume of the region in the first octant bounded by the cylinder $r = 4$ and the plane $z = y$.
+\\ \\ The region of integration $D$ in cylindrical coordinates is $0 \leq \theta \leq \frac{\pi}{2}$, $0 \leq r \leq 4$, and $0 \leq z \leq r\sin{\theta}$. Then,
+\begin{align*}
+    V = \iiint_D \,dV & = \int_0^{\pi/2} \int_0^4 \int_0^{r\sin{\theta}} r \,dz \,dr \,d\theta \\
+    & = \int_0^{\pi/2} \int_0^4 \eval{rz}_{z=0}^{z=r\sin{\theta}} \,dr \,d\theta \\
+    & = \int_0^{\pi/2} \int_0^4 r^2 \sin{\theta} \,dr \,d\theta \\
+    & = \int_0^{\pi/2} \sin{\theta} \,d\theta \int_0^4 r^2 \,dr \\
+    & = \eval{-\cos{\theta}}_0^{\pi/2} \cdot \eval{\frac{r^3}{3}}_0^4 \\
+    & = 1 \cdot \frac{64}{3} \\
+    & = \frac{64}{3}
+\end{align*}
+Thus, the volume is $V = \frac{64}{3}$ cubic units.
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \iiint_D e^{-(x^2 + y^2 + z^2)^{3/2}} \,dV
+\end{equation*}
+where $D$ is a ball of radius 7.
+\\ \\ Using spherical coordinates, the region of integration is
+\begin{equation*}
+    D = \set{(r,\theta,\phi): 0 \leq r \leq 7, 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq \pi}
+\end{equation*}
+Then,
+\begin{align*}
+    \iiint_D e^{-(x^2 + y^2 + z^2)^{3/2}} \,dV & = \int_0^{2\pi} \int_0^{\pi} \int_0^7 e^{-R^3} \cdot R^2 \sin{\phi} \,dR \,d\phi \,d\theta \\
+    & = \int_0^{2\pi} \,d\theta \int_0^{\pi} \sin{\phi} \,d\phi \int_0^7 R^2 e^{-R^3} \,dR \\
+    & = 2\pi \cdot 2 \cdot \frac{1}{3}\brac{1 - e^{-343}} \\
+    & = \frac{4\pi}{3}\brac{1 - e^{-343}}
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate the integral
+\begin{equation*}
+    \iiint_{D} \sqrt{x^2+y^2} \,dV
+\end{equation*}
+where $D$ is the region bounded by the $xy$-plane and the circular paraboloid $z = 16 - 4x^2 - 4y^2$
+\\ \\ Using cylindrical coordinates,
+\begin{align*}
+    D & = \set{(r, \theta, z): 0 \leq r \leq 2, 0 \leq \theta \leq 2\pi, 0 \leq z \leq 16-4r^2} \\ 
+    \sqrt{x^2+y^2} & = \sqrt{(r \cos{\theta})^2 + (r \sin{\theta})^2} = r
+\end{align*}
+Then,
+\begin{align*}
+    \iiint_{D} \sqrt{x^2+y^2} \,dV & = \int_{0}^{2} \int_{0}^{2\pi} \int_{0}^{16-4r^2} r^2 \,dz \,d\theta \,dr \\
+    & = \int_{0}^{2} \int_{0}^{2\pi} \left. r^2 \right|_{z=0}^{z=16-4r^2} \,d\theta \,dr \\
+    & = \int_{0}^{2} \int_{0}^{2\pi} (16r^2 - 4r^4) \,d\theta \,dr \\
+    & = \int_{0}^{2} \left. (16r^2 - 4r^4) \right|_{\theta = 0}^{\theta = 2\pi} \,dr \\
+    & = 2\pi \int_{0}^{2} (16r^2 - 4r^4) \,dr \\
+    & = 2\pi \left. \left(\dfrac{16r^3}{3} - \dfrac{4r^5}{5} \right) \right|_{r=0}^{r=2} \\
+    & = \dfrac{512\pi}{15}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine
+\begin{equation*}
+    \iiint_{D} \dfrac{e^{-(x^2+y^2+z^2)}}{\sqrt{x^2+y^2+r^2}}
+\end{equation*}
+where $D$ is the region bounded by the spheres $x^2 + y^2 + z^2 = 1$ and $x^2 + y^2 + z^2 = 4$.
+\\ \\ Using spherical coordinates, $D = \set{(R, \theta, \phi): 1 \leq R \leq 2, 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq \pi}$
+\begin{align*}
+    \iiint_{D} \dfrac{e^{-(x^2+y^2+z^2)}}{\sqrt{x^2+y^2+r^2}} & = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{1}^{2} Re^{-R^2} \sin{\phi} \,dR \,d\phi \,d\theta \\
+    & = \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi} \sin{\phi} \,d\phi \int_{1}^{2} Re^{-R^2} \,dR \\
+    & = 2\pi \cdot 2 \cdot \dfrac{1}{2} \int_{1}^{4} e^{-u} \,du \\
+    & = 2\pi \left. (-e^{-u}) \right|_{1}^{4} \\
+    & = 2\pi(-e^{-4} + e^{-1})
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $R$ be the cylinder $R = \set{(x,y,z): 0 \leq x^2 + y^2 \leq 4, 0 \leq z \leq 1}$. Determine $\int_{R} (x^2+y^2+z^2) \,dV$
+\\ \\ Using cylindrical coordinates $(r, \theta, z)$,
+\begin{align*}
+    \int_{0}^{2} \int_{0}^{2\pi} \int_{0}^{1} (r^2 + z^2)r \,dz \,d\theta \,dr & = \dots
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $D$ be the region above the cone $z = \sqrt{x^2+y^2}$ and below the plane $z = 4$. Determine $\int_{D} (x^2+y^2) \,dV$
+\\ \\ In cylindrical coordinates, $0 \leq r \leq 4$, $0 \leq \theta \leq 2\pi$, $r \leq z \leq 4$. Then,
+\begin{align*}
+    \int_{0}^{4} \int_{0}^{2\pi} \int_{r}^{4} r^2 \cdot r \,dz \,d\theta \,dr
+\end{align*}
+In spherical coordinates, $0 \leq \phi \leq \pi/4$, $0 \leq \theta \leq 2\pi$, $0 \leq R \leq 4/\cos{\phi}$. Then,
+\begin{align*}
+    \int_{0}^{\pi/4} \int_{0}^{2\pi} \int_{0}^{4/\cos{\phi}} R^2 \sin^2{\phi} \cdot R^2 \sin{\phi} \,dR \,d\theta \,d\phi
+\end{align*}
+\end{example}
+
+
+\section*{Cylindrical Coordinates in $\mathbb{R}^3$}
+Coordinates are given $(r, \theta, z)$, where $(r, \theta)$ are the polar coordinates in the $xy$ plane, and $z$ is the $z$-coordinate. Thus, $x = r \cos{\theta}$, $y = r \sin{\theta}$, for $r \geq 0$ and $0 \leq \theta \leq 2\pi$.
+\\ \\ Geometrically, $r$ is represented by a cylinder of radius $r$, $\theta$ is represented by a half-plane, and $z$ is a plane parallel to the $xy$ plane. The coordinate $(r, \theta, z)$ is the intersection.
+\\ \\ The Jacobian is
+\begin{align*}
+    \abs{\dfrac{\partial (x,y,z)}{\partial (r, \theta, z)}} = \abs{\begin{vmatrix} \cos{\theta} & -r \sin{\theta} & 0 \\ \sin{\theta} & r \cos{\theta} & 0 \\ 0 & 0 & 1 \end{vmatrix}} = \abs{r \cos^2{\theta} + r \sin^2{\theta}} = r
+\end{align*}
+
+\begin{example}
+Let $f(x,y) = xz$, $D$ be the region bounded by $z = 0$, $z = 2$, $x = y$, $y = 0$, $x^2 + y^2 \leq 1$, and only in the first octant. Determine $\int_{D} f(x,y) \,dV$.
+\\ \\ In cylindrical coordinates, $D = \set{(r,\theta, z): 0 \leq r \leq 1, 0 \leq \theta \leq \pi/4, 0 \leq z \leq 2}$. Then,
+\begin{align*}
+    \int_{0}^{1} \int_{0}^{\pi/4} \int_{0}^{2} r^2 \cos{\theta} \,dz \,d\theta \,dr  & = \int_{0}^{1} r^2 \,dr \int_{0}^{\pi/4} \cos{\theta} \int_{0}^{2} \,dz \\
+    & = \dfrac{1}{3} \cdot \dfrac{\sqrt{2}}{2} \cdot 2 \\
+    & = \sqrt{2}/3
+\end{align*}
+\end{example}
+
+
+
+
+\section*{Spherical Coordinates}
+The Jacobian is
+\begin{align*}
+    \abs{\dfrac{\partial(x,y,z)}{\partial(R,\theta,\phi)}} & = \dots \\
+    & = R^2 \sin{\phi}
+\end{align*}
+
+\begin{example}
+Determine the volume of the region above the cone $z = \sqrt{x^2 + y^2}$ and inside the sphere $x^2 + y^2 + z^2 = 1$.
+\\ \\ In spherical coordinates, $D = \set{(R, \theta, \phi): 0 \leq R \leq 1, 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq \pi/4}$. Then,
+\begin{align*}
+    V & = \int_{D} \,dV \\
+    & = \int_{0}^{1} \int_{0}^{2\pi} \int_{0}^{\pi/4} R^2 \sin{\phi} \,d\phi \,d\theta \,dR \\
+    & = \int_{0}^{1} R^2 \,dR \int_{0}^{2\pi} \,d\theta \int_{0}^{\pi/4} \sin{\phi} \,d\phi \\
+    & = \dfrac{1}{3} \cdot 2\pi \cdot \left(-\dfrac{\sqrt{2}}{2} + 1 \right) \\
+    & = 
+\end{align*}
+Determine the average value of $z$ on $D$.
+\begin{align*}
+    \text{Average} & = \dfrac{\int_{D} z \,dV}{\int_{D} \,dV}
+\end{align*}
+$z = R \cos{\phi}$, so
+\begin{align*}
+    \int_{D} z \,dV & = \int_{0}^{1} \int_{0}^{2\pi} \int_{0}^{\pi/4} (R \cos{\phi}) R^2 \sin{\phi} \,d\phi \,d\theta \,dR \\
+    & = \dots \\
+    & = \pi/8
+\end{align*}
+\end{example}
+
+\section*{Spherical Coordinates}
+Converts $(x,y,z)$ to $(R, \phi, \theta)$, $R \geq 0$, $0 \leq \phi \leq \pi$, $0 \leq \theta \leq 2\pi$
+\begin{itemize}
+    \item $x = R \sin{\phi} \cos{\theta}$
+    \item $y = R \sin{\phi} \cos{\theta}$
+    \item $z = R \cos{\phi}$
+    \item $R^2 = x^2 + y^2 + z^2 = r^2 + z^2$
+    \item $r = \sqrt{x^2+y^2} = R \sin{\phi}$
+    \item $\tan{\phi} = \dfrac{r}{z} = \dfrac{\sqrt{x^2+y^2}}{z}$
+    \item $\tan{\theta} = \dfrac{y}{x}$
+\end{itemize}
+
+Some textbooks denote the radial coordinate by $R$, or $r$, or $\rho$.
+
+\section*{Volume of a Sphere}
+Determine the volume of a sphere of radius $R$, given by $x^2 + y^2 + z^2 = R^2$.
+\\ \\ Using spherical coordinates, the region of integration is given by
+\begin{equation*}
+    D = \set{(r, \theta, \phi): 0 \leq r \leq R, 0 \leq \theta \leq 2\pi, 0 \leq \phi \leq \pi}
+\end{equation*}
+Then,
+\begin{align*}
+    \iiint_{D} \,dV & = \int_{0}^{\pi} \int_{0}^{2\pi} \int_{0}^{R} r^2 \sin{\phi} \,dr \,d\theta \,d\phi \\
+    & = \int_{0}^{\pi} \sin{\phi} \int_{0}^{2\pi} \,d\theta \int_{0}^{R} r^2 \,dr \\
+    & = 2 \cdot 2\pi \cdot \dfrac{R^3}{3} \\
+    & = \dfrac{4}{3} \pi R^3
+\end{align*}
+
+\section*{Examples}
+\begin{example}
+Evaluate $\int_0^8 \int_0^{\sqrt{64-x^2}} \int_{-\sqrt{64-x^2-y^2}}^{\sqrt{64-x^2-y^2}} \,dz\,dy\,dx$ by recognizing the region and converting to spherical coordinates. Answer: $\int_0^{\pi/2} \int_0^{\pi/2} \int_0^8 r^2 \sin{\phi} \,dr \,d\theta \,d\phi = \frac{256\pi}{3}$.
+\end{example}
+
+
+\section*{Centroid}
+\begin{example}
+Find the $z$-coordinate of the centroid of the solid bounded by the paraboloids $z = 8 - x^2 - y^2$ and $z = x^2 + y^2$.
+\begin{align*}
+    \iiint_{R} z \,dV & = \int_{0}^{2\pi} \int_{0}^{2} \int_{r^2}^{8-r^2} zr \,dz \,dr \,d\theta \\
+    & = \int_{0}^{2\pi} \int_{0}^{2} r \left(\dfrac{(8 - r^2)^2}{2} - \dfrac{r^4}{2} \right) \,dr \,d\theta \\
+    & = \dfrac{1}{2} \int_{0}^{2\pi} \,d\theta \int_{0}^{2} (r^5 - r^4 - 16r^3 + 64r) \,dr \\
+    & = \dfrac{1}{2} \cdot 2\pi \cdot \dfrac{1024}{15} \\
+    & = \dfrac{1024\pi}{15}
+\end{align*}
+\begin{align*}
+    \iiint_{R} \,dV & = \int_{0}^{2\pi} \int_{0}^{2} \int_{r^2}^{8-r^2} r \,dz \,dr \,d\theta \\
+    & = \int_{0}^{2\pi} \int_{0}^{2} r(8 - 2r^2) \,dr \,d\theta \\
+    & = \int_{0}^{2\pi} \,d\theta \int_{0}^{2} (8r - 2r^3) \,dr \\
+    & = 2\pi \cdot 8 \\
+    & = 16\pi
+\end{align*}
+Thus, the $z$-coordinate of the centroid is
+\begin{equation*}
+    \overline{z} = \dfrac{\iiint_{R} z \,dV}{\iiint_{R} \,dV} = \dfrac{\frac{1024\pi}{15}}{16\pi} = \dfrac{64\pi}{15}
+\end{equation*}
+\end{example}
+
+
+
+\end{document}

@@ -1,0 +1,266 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Kepler's Laws of Planetary Motion}
+
+\begin{document}
+
+One major motivating problem of calculus was to explain the motion of the planets.
+\\ \\ In the 16th century, \textbf{Nicolaus Copernicus} (1473-1543), Polish astronomer and mathematician, originally postulated that the Earth and other planets orbited around the sun. However, the religious and political climate in Europe at that time still favored explaining the motion of the planets as circular orbits around Earth.
+\\ \\ In the early 17th century, \textbf{Johannes Kepler} (1571-1630), German astronomer and mathematician, studied the motion of the planets. Kepler was looking for mathematical patterns that would explain the motion of the planets. Kepler was motivated by the religious belief that God created the world (in particular the planets, or the ``heavens", i.e. heavenly bodies) to have some kind of order. He spent decades observing the position of plants, recording data, and looking for patterns. He was helped by \textbf{Tycho Brahe}, Danish astronomer, of which Kepler was his student. Brahe was skilled at recording a large amount of accurate astrological observations, which Kepler analyzed. Note that this was largely before telescoped were invented, as the first telescopes were only invented in about 1608.
+\\ \\ Kepler understood that no simple model based on circles could be made to conform to the actual orbit of the planets, especially the orbit of Mars. At first, Kepler proposed a model for the 6 known planets (Earth, Mercury, Venus, Mars, Jupiter, and Saturn), which was pretty complicated geometrically. It involved the 5 platonic solids (the tetrahedron, cube, octahedron, dodecahedron, and icosahedron) nested inside one another, with inscribed and circumscribed spheres, and the 6 planets being in between them. In fact, this theory actually fit the observations pretty well, but not perfectly. Of course, we now know this is simply a coincidence.
+\\ \\ Later, Kepler realized that the orbits were not quite circular but some kind of ovoid. Eventually, in 1609, Kepler concluded that the planets move around the sun in elliptical orbits. This fact is now known as Kepler's first law. Ellipses were a natural choice, because they were studied by the ancient Greeks as a conic section. This connection again illustrated the relationship between nature and geometry.
+\\ \\ Later on, Kepler discovered that a line from the sun to the planet sweeps out equal areas in equal intervals of time. This is known as Kepler's second law. Intuitively, if the line between the planet and the sun is thought of as a windshield wiper, its rate of area swept out is constant. For example, if you plot the position of the planet once per month, the area swept will be equal. Essentially, it means that planets do not move at a constant speed, but rather move faster when they are closer to the sun, and slower when they are further away. Also, Kepler used Archimedes method of exhaustion to calculate these areas, approximating the sector of the ellipse with triangles.
+\\ \\ In 1619, Kepler discovered that the square of the period $T$ of a planet is proportional to the cube of its average distance $a$ from the sun. In other words, $\frac{T^3}{a^2}$ is constant for all planets. Roughly, this means that the further away a planet is, the longer it takes to complete its orbit. It turns out that instead of average distance, it is the length of the semi-major axis? Kepler viewed the discovery of his laws as signs of God's handiwork.
+\\ \\ Kepler deduced his laws from observations, but did not explain the theoretical causes behind them. The explanation for the fact that the planets move around the sun in elliptical orbits came later, due to Newton. In 1687, Newton used his laws of gravitation, written in the language of calculus i.e. differential equations, to derive the elliptical orbits of the planets, and Kepler's other laws, proposed in his work \textit{Principia}. The varying position of a planet gave information about its velocity and acceleration, which in turn gave information about the forces acting on the planet, in particular gravity. A planet revolving around the sun changes its speed and direction of motion. Later on, Newton realized that Kepler's 2nd law was essentially equivalent to the law of conservation of angular momentum.
+\\ \\ Can we also derive the average distance of a planet from the sun? Then, Kepler's laws implied an inverse square law for gravitation force, which is Newton's law of universal gravitation.
+
+\section*{Polar Velocity and Acceleration}
+To most easily analyze Kepler's laws, we will first decompose the vector motion in a different way. Recall that previously we decomposed acceleration $\vec{a}$ into components which are parallel and perpendicular to the direction of the velocity vector $\vec{v}$. It is also possible to decompose it into components which are parallel and perpendicular to the \textit{position} vector $\vec{r}$. This could be called a polar decomposition. This is helpful, because when considering gravitation, if the large body is placed at the origin, then its gravitational force will be along the direction of $\vec{r}$. In addition, with this radial emphasis on acceleration, it is more convenient to use polar coordinates.
+\\ \\ Let $\vec{r}(t)$ be the position vector of a particle in the plane $\mathbb{R}^2$. Throughout, the variables introduced will all depend on $t$, but we will omit the argument for notational simplicity. First, $\vec{r}$ can be decomposed into polar form, with a radial component and a angular component, as,
+\begin{align*}
+    \vec{r} & = \abs{\vec{r}} \cdot \hat{\vec{r}} \\
+    & = r \hat{\vec{r}}
+\end{align*}
+where $r = \abs{\vec{r}}$ is the distance from the point $\vec{r}$ to the origin, and $\hat{\vec{r}}$ is a unit vector pointing in the direction of $\vec{r}$. Then,
+\begin{equation*}
+    \hat{\vec{r}} = \vecii{\cos{\theta}}{\sin{\theta}}
+\end{equation*}
+where $\theta$ is the angle formed by $\vec{r}$ in standard position. Note that $\theta$ is also a function of $t$, as it changes over time.
+\\ \\ Then, we will also consider another vector that is perpendicular to $\hat{\vec{r}}$ in the direction $\ang{90}$ rotated counter-clockwise, i.e. in the direction of increasing $\theta$, or the counter-clockwise direction. We will denote this vector by $\hat{\vec{\theta}}$. Then,
+\begin{align*}
+    \hat{\vec{\theta}} & = \vecii{\cos{\brac{\theta + \frac{\pi}{2}}}}{\sin{\brac{\theta + \frac{\pi}{2}}}} \\
+    \hat{\vec{\theta}} & = \vecii{-\sin{\theta}}{\cos{\theta}}
+\end{align*}
+
+Together, $\set{\hat{\vec{r}}, \hat{\vec{\theta}}}$ form a orthonormal basis for vectors in the plane, because they are a pair of perpendicular unit vectors. Then, the $\hat{\vec{r}}$ component is called the \textbf{radial component}, and $\hat{\vec{\theta}}$ is called the \textbf{transverse component}. Note that both of these vectors are functions of $\theta$ only, and do not depend on the magnitude $r$.
+\\ \\ Then, we will compute the velocity and acceleration vectors $\vec{v}$ and $\vec{a}$ in terms of this basis $\hat{\vec{r}}, \hat{\vec{\theta}}$. First,
+\begin{align*}
+    \vec{v} = \dot{\vec{r}} & = \frac{d}{dt} \brac{r \hat{\vec{r}}} \\
+    & = \dot{r} \hat{\vec{r}} + r \cdot \frac{d\vec{r}}{dt} && \text{by the product rule}
+\end{align*}
+which depends on $\frac{d\vec{r}}{dt}$. Then,
+\begin{align*}
+    \dot{\hat{\vec{r}}} = \frac{d\vec{r}}{dt} & = \frac{d\vec{r}}{d\theta} \cdot \frac{d\theta}{dt} \\
+    & = \frac{d}{d\theta} \vecii{\cos{\theta}}{\sin{\theta}} \cdot \dot{\theta} \\
+    & = \vecii{-\sin{\theta}}{\cos{\theta}} \cdot \dot{\theta} \\
+    & = \dot{\theta} \hat{\vec{\theta}}
+\end{align*}
+Thus,
+\begin{equation*}
+    \boxed{\vec{v} = \dot{r} \hat{\vec{r}} + r \dot{\theta} \hat{\vec{\theta}}}
+\end{equation*}
+\begin{itemize}
+    \item The \textbf{radial component} of velocity is $\dot{r}$.
+    \item The \textbf{transverse component} of velocity is $r \dot{\theta}$.
+\end{itemize}
+
+Also, since $\hat{\vec{r}}, \hat{\vec{\theta}}$ are perpendicular unit vectors, the speed is given by the magnitude,
+\begin{align*}
+    v = \abs{\vec{v}} & = \sqrt{\dot{r}^2 + r^2 \dot{\theta}^2}
+\end{align*}
+Next, acceleration is given by,
+\begin{align*}
+    \vec{a} = \dot{\vec{v}} & = \frac{d}{dt} \brac{\dot{r} \hat{\vec{r}} + r \dot{\theta} \hat{\vec{\theta}}}
+\end{align*}
+To expand this, we use the product rule twice,
+\begin{align*}
+    & = \ddot{r} \hat{\vec{r}} + \dot{r} \dot{\theta} \hat{\vec{\theta}} + \dot{r} \dot{\theta} \hat{\vec{\theta}} + r \ddot{\theta} \hat{\vec{\theta}} r \dot{\theta} \cdot \frac{d\hat{\vec{\theta}}}{dt} \\
+    & = \brac{\ddot{r} + r \dot{\theta} \cdot \frac{d\hat{\vec{\theta}}}{dt}} \hat{\vec{r}} + \brac{r \ddot{\theta} + 2 \dot{r} \dot{\theta}} \hat{\vec{\theta}}
+\end{align*}
+which requires $\frac{d\hat{\vec{\theta}}}{dt}$. Then,
+\begin{align*}
+    \dot{\hat{\theta}} = \frac{d\hat{\vec{\theta}}}{dt} & = \frac{d\hat{\theta}}{d\theta} \cdot \frac{d\theta}{dt} \\
+    & = \frac{d}{d\theta} \vecii{-\sin{\theta}}{\cos{\theta}} \cdot \dot{\theta} \\
+    & = \vecii{-\cos{\theta}}{-\sin{\theta}} \cdot \dot{\theta} \\
+    & = -\dot{\theta} \hat{\vec{r}}
+\end{align*}
+Thus,
+\begin{equation*}
+    \boxed{\vec{a} = \brac{\ddot{r} - r \dot{\theta}^2} \hat{\vec{r}} + \brac{r \ddot{\theta} + 2 \dot{r} \dot{\theta}} \hat{\vec{\theta}}}
+\end{equation*}
+\begin{itemize}
+    \item The \textbf{radial component} of acceleration is $\ddot{r} - r \dot{\theta}^2$.
+    \item The \textbf{transverse component} of acceleration is $r \ddot{\theta} + 2 \dot{r} \dot{\theta}$.
+\end{itemize}
+
+\section*{Kepler's Laws}
+\begin{theorem}
+\textbf{Kepler's laws of planetary motion}.
+\begin{enumerate}
+    \item The orbit of a planet is an ellipse with the Sun at one of the two foci.
+    \item A planet's orbit is such that a line segment (or vector) joining a planet and the Sun sweeps out equal areas during equal intervals of time. That is, it sweeps out area at a constant rate.
+    \item The square of a planet's orbital period $T$ is proportional to the cube of the length of the semi-major axis $a$ of its orbit. That is, $\frac{T^2}{a^3}$ is the same constant for all planets.
+\end{enumerate}
+\end{theorem}
+
+\section*{Deriving Newton's Law of Universal Gravitation Using Kepler's Laws}
+First, we can show that Kepler's first and second law imply Newton's law of universal gravitation. Consider a curve in the polar form as above. Then, let $A(t)$ be the area enclosed by the graph from $\theta_0$ to $t$. Then, Then, Kepler's second law says that the area is being swept out at a constant rate, in other words,
+\begin{equation*}
+    \frac{dA}{dt} = \text{constant}
+\end{equation*}
+for some constant $C$. Then, recall that the area enclosed by the polar graph from an initial point $\theta_0$ to $\theta(t)$ is given by,
+\begin{equation*}
+    A(t) = \int_{\theta_0}^{\theta(t)} \frac{1}{2} r^2 \,d\theta
+\end{equation*}
+Then, by the FTC,
+\begin{equation*}
+    \frac{dA}{d\theta} = \frac{1}{2} r^2
+\end{equation*}
+Then, by the chain rule,
+\begin{align*}
+    \frac{dA}{dt} & = \frac{dA}{d\theta} \cdot \frac{d\theta}{dt} \\
+    & = \frac{1}{2} r^2 \cdot \dot{\theta}
+\end{align*}
+Then, putting these together with Kepler's second law,
+\begin{equation*}
+    \frac{1}{2} r^2 \dot{\theta} = \text{constant} \qquad \text{or, more simply,} \qquad r^2 \dot{\theta} = \text{constant}
+\end{equation*}
+Then, also,
+\begin{align*}
+    \frac{d}{dt} \brac{r^2 \dot{\theta}} & = \frac{d}{dt} C \\
+    \ddot{\theta} r^2 + 2 \dot{\theta} r \dot{r} & = 0
+\end{align*}
+In particular, $r \brac{\ddot{\theta} r + 2 \dot{\theta} \dot{r}} = 0$. Since $r \neq 0$, this implies that $\ddot{\theta} r + 2 \dot{\theta} \dot{r}$, and so the acceleration vector reduces to have no transverse component,
+\begin{equation*}
+    \vec{a} = \brac{\ddot{r} - \dot{r} \dot{\theta}^2} \vec{\hat{r}}
+\end{equation*}
+This shows that if a path $\vec{r}$ satisfies Kepler's second law, then its acceleration is parallel to $\vec{r}$. Notice that a circle is a special case of this principle.
+\\ \\ Next, Kepler's first law says that the orbit of a planet is an ellipse with the sun at one of the two foci. If the sun is placed at the origin, and the major axis of the ellipse is chosen to be the $x$-axis, then the ellipse has the polar form,
+\begin{equation*}
+    r = \frac{k}{1 - \epsilon \cos{\theta}}
+\end{equation*}
+where $\epsilon \in (0,1)$ and $k > 0$. Then, to compute $\vec{a}$, we need to first compute $\ddot{r}$. Then,
+\begin{align*}
+    \dot{r} & = -\frac{k \epsilon \sin{\theta}}{\brac{1 - \epsilon \cos{\theta}}^2} \dot{\theta}
+\end{align*}
+This can be simplified using Kepler's second law, which implies that $r^2 \dot{\theta} = C$,
+\begin{align*}
+    \dot{r} & = -\frac{\epsilon \sin{\theta}}{k} \cdot \underbrace{\brac{\frac{k}{1 - \epsilon \cos{\theta}}}^2 \cdot \dot{\theta}}_{r^2 \dot{\theta} = C} \\
+    & = -\frac{C \epsilon}{k} \sin{\theta}
+\end{align*}
+Then,
+\begin{align*}
+    \ddot{r} & = -\frac{C \epsilon}{k} \cos{\theta} \cdot \dot{\theta}
+\end{align*}
+Then, the radial component of the acceleration is given by,
+\begin{align*}
+    \ddot{r} - r \dot{\theta}^2 & = -\frac{C \epsilon}{k} \cos{\theta} \cdot \dot{\theta} - \frac{\dot{\theta}}{r} \underbrace{r^2 \dot{\theta}}_{=C} \\
+    & = -\frac{C \epsilon}{k} \cos{\theta} \cdot \dot{\theta} - \frac{C \dot{\theta}}{r} \\
+    & = - C \dot{\theta} \brac{\frac{\epsilon \cos{\theta}}{k} + \frac{1}{r}} \\
+    & = - C \dot{\theta} \brac{\frac{\epsilon \cos{\theta}}{k} + \frac{1 - \epsilon \cos{\theta}}{k}} && \text{as $r = \frac{k}{1-\epsilon \cos{\theta}}$} \\
+    & = -\frac{C \dot{\theta}}{k} \\
+    & = -\frac{C^2}{k} \cdot \frac{1}{r^2} && \text{using $r^2 \dot{\theta} = C$ again}
+\end{align*}
+Thus,
+\begin{equation*}
+    \boxed{\vec{a} = -\frac{C^2}{k} \cdot \frac{1}{r^2} \hat{\vec{r}}}
+\end{equation*}
+This shows that the acceleration $\vec{a}$ is inversely proportional to $r^2$, and also is directed towards the origin.
+\\ \\ Further, we can show that,
+\begin{equation*}
+    \vec{a} = \frac{G M}{r^2} \hat{\vec{r}}
+\end{equation*}
+where $M$ is the mass of the sun, and $G$ is the gravitational constant.
+
+\section*{Kepler's Laws from Newton's Law of Motions}
+
+In addition, we can use Newton's laws of motion, to derive Kepler's laws. First, consider a force on an object which is directed towards the origin, given by $\vec{F} = \lambda(\vec{r}) \vec{r}$, where $\lambda(\vec{r})$ is a scalar function which depends on the position $\vec{r}$. Then, by Newton's second law of motion, $\vec{F} = m \vec{a}$. Combining these,
+\begin{equation*}
+    m \vec{a} = \lambda(\vec{r}) \vec{r}
+\end{equation*}
+This shows that $\vec{a}$ and $\vec{r}$ are parallel, i.e. the acceleration is in the same direction as the force. Then,
+\begin{align*}
+    \frac{d}{dt} \brac{\vec{r} \times \vec{v}} & = \dot{\vec{r}} \times \vec{v} + \vec{r} \times \dot{\vec{v}} \\
+    & = \underbrace{\vec{v} \times \vec{v}}_{=\vec{0}} + \underbrace{\vec{r} \times \vec{a}}_{=\vec{0}} \\
+    & = \vec{0}
+\end{align*}
+where the two cross products are zero because the cross product of parallel vectors is zero. Then,
+\begin{equation*}
+    \frac{d}{dt} \brac{\vec{r} \times \vec{v}} = \vec{0}
+\end{equation*}
+which implies that,
+\begin{equation*}
+    \vec{r} \times \vec{v} = \vec{h}
+\end{equation*}
+where $\vec{h}$ is a constant vector. In fact, $\vec{h}$ represents the angular momentum per unit mass of the object about the origin. Also, this says that $\vec{r}$ is always perpendicular to $\vec{h}$, so the motion takes places in a plane through the origin with normal vector $\vec{h}$. If we take the plane of orbit to be the $xy$-plane, then $\vec{h} = h \hat{\vec{k}}$ is in the direction of the $z$-axis (where $h = \abs{\vec{h}}$). Then,
+\begin{align*}
+    \vec{r} \times \vec{v} & = (r \hat{\vec{v}}) \times \brac{\dot{r} \hat{\vec{r}} + r \dot{\theta} \hat{\vec{\theta}}} \\
+    & = r \dot{r} \underbrace{\hat{\vec{r}} \times \hat{\vec{r}}}_{=\vec{0}} + r^2 \dot{\theta} \underbrace{\hat{\vec{r}} \times \hat{\vec{\theta}}}_{=\hat{\vec{k}}} \\
+    & = r^2 \dot{\theta} \hat{\vec{k}}
+\end{align*}
+Then, putting this together,
+\begin{equation*}
+    h \hat{\vec{k}} = r^2 \dot{\theta} \hat{\vec{k}}
+\end{equation*}
+which implies that,
+\begin{equation*}
+    h = r^2 \dot{\theta}
+\end{equation*}
+That is, $r^2 \dot{\theta} = h$ is constant for the motion.
+\\ \\ Next,
+\begin{align*}
+    \frac{d\vec{v}}{d\theta} = \frac{\frac{d\vec{v}}{dt}}{\frac{d\theta}{dt}} = \frac{\vec{a}}{\dot{\theta}} & = \frac{-\frac{k}{r^2} \hat{\vec{r}}}{\frac{h}{r^2}} \\
+    & = -\frac{k}{h} \hat{\vec{r}}
+\end{align*}
+Then,
+\begin{align*}
+    \vec{v} & = -\frac{k}{h} \int \hat{\vec{r}} \,d\theta
+\end{align*}
+Then, since $\frac{d\hat{\vec{\theta}}}{d\theta} = -\hat{\vec{r}}$, this directly implies that,
+\begin{align*}
+    \vec{v} & = \frac{k}{h} \underbrace{\int -\hat{\vec{r}} \,d\theta}_{\hat{\vec{\theta}}} \\
+    \vec{v} & = \frac{k}{h} \hat{\vec{\theta}} + \vec{C}
+\end{align*}
+where $\vec{C}$ is a constant vector of integration. Then, we will choose the direction of the $y$-axis to be parallel to $\vec{C}$, so that $\vec{C} = C \jhat$. Then, we can compute $\vec{r} \times \vec{v}$ again,
+\begin{align*}
+    h \khat = \vec{r} \times \vec{v} & = \brac{r \hat{\vec{r}}} \times \brac{\frac{k}{h} \hat{\vec{\theta}} + C \jhat} \\
+    & = \frac{k}{h} r \hat{\vec{r}} \times \hat{\vec{\theta}} + C r \hat{\vec{r}} \times \jhat \\
+    & = \frac{k}{h} r \khat + C r \hat{\vec{r}} \times \jhat
+\end{align*}
+Then, to evaluate $\hat{\vec{r}} \times \hat{\vec{j}}$, recall that $\hat{\vec{r}} = \cos{\theta} \ihat + \sin{\theta} \jhat$, and so,
+\begin{align*}
+    \hat{\vec{r}} \times \hat{\vec{j}} & = \brac{\cos{\theta} \ihat + \sin{\theta} \jhat} \times \jhat \\
+    & = \cos{\theta} \ihat \times \jhat + \sin{\theta} \underbrace{\jhat \times \jhat}_{=\vec{0}} \\
+    & = \cos{\theta} \khat
+\end{align*}
+Thus,
+\begin{equation*}
+    h \khat = \brac{\frac{k}{h} r + Cr \cos{\theta}} \khat
+\end{equation*}
+which implies that,
+\begin{equation*}
+    h = r \brac{\frac{k}{h} + C\cos{\theta}}
+\end{equation*}
+Then, solving for $r$,
+\begin{align*}
+    r & = \frac{h}{\frac{k}{h} + C \cos{\theta}} \\
+    r & = \frac{\frac{h^2}{k}}{1 + \frac{Ch}{k} \cos{\theta}}
+\end{align*}
+This is the polar equation of the orbit. If we let $C = \frac{\epsilon k}{h}$, then it reduces to,
+\begin{equation*}
+    r = \frac{\frac{h^2}{k}}{1 + \epsilon \cos{\theta}}
+\end{equation*}
+and $\epsilon$ is the eccentricity of the curve. If $\epsilon < 1$, then it is an ellipse, with one focus at the origin (the sun). This is Kepler's first law.
+
+\section*{Kepler's Second Law}
+If $A(t)$ represents the area bounded by the orbit and the radial lines $\theta = \theta_0$ and $\theta = \theta(t)$, then recall that,
+\begin{equation*}
+    \frac{dA}{dt} = \frac{1}{2} r^2 \dot{\theta}
+\end{equation*}
+Then, combining this with before, we get that,
+\begin{equation*}
+    \frac{dA}{dt} = \frac{1}{2}h
+\end{equation*}
+which means that $\frac{dA}{dt}$ is constant, which is precisely Kepler's second law. In fact, this could also be derived directly from considering the derivative of $r^2 \dot{\theta}$,
+\begin{align*}
+    \frac{d}{dt} \brac{r^2 \dot{\theta}} & = 2r \dot{r} \dot{\theta} + r^2 \ddot{\theta} \\
+    & = r \brac{2 \dot{r} \dot{\theta} + r \ddot{\theta}}
+\end{align*}
+Then, since the acceleration has no transverse component, $r \ddot{\theta} + 2 \dot{r} \dot{\theta} = 0$, which implies that $\frac{d}{dt} \brac{r^2 \dot{\theta}} = 0$. Then, $r^2 \dot{\theta} = h$ for some constant $h$, and so,
+\begin{equation*}
+    \frac{dA}{dt} = \frac{1}{2} h
+\end{equation*}
+as before.
+
+\end{document}

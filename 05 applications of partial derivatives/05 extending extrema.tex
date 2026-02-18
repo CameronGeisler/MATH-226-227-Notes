@@ -1,0 +1,125 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Extending Extrema}
+
+\begin{document}
+
+\section*{Second partial derivative test}
+The second derivative test generalized to functions of two and $n$ variables.
+
+\begin{definition}
+Let all second partial derivatives of $f$ be continuous on $D(f)$. Then, the \textbf{Hessian matrix} of $f$, $\mathcal{H}(\vec{x})$, is the symmetric $n \times n$ matrix where $\mathcal{H}(\vec{x})_{ij} = f_{ij}(\vec{x})$
+\begin{equation*}
+    \mathcal{H}(\vec{x}) = \begin{pmatrix} f_{11}(\vec{x}) & f_{12}(\vec{x}) & \dots & f_{1n}(\vec{x}) \\
+    f_{21}(\vec{x}) & \ddots & & \vdots \\
+    \vdots & & & \\
+    f_{n1}(\vec{x}) & \dots & & f_{nn}(\vec{x}) \end{pmatrix}
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $f$ be a function of two variables, $(a,b)$ be a critical point of $f$ in the interior of $D(f)$, with $f_{xx}$, $f_{yy}$, $f_{xy} = f_{yx}$ continuous on a neighbourhood of $(a,b)$. Then,
+\begin{enumerate}
+    \item If $\det{(\mathcal{H}(a,b))} > 0$ and $f_{xx}(a,b) > 0$, then $(a,b)$ is a local maximum of $f$
+    \item If $\det{(\mathcal{H}(a,b))} > 0$ and $f_{xx}(a,b) < 0$, then $(a,b)$ is a local minimum of $f$
+    \item If $\det{(\mathcal{H}(a,b))} < 0$, then $(a,b)$ is a saddle point for $f$
+    \item If $\det{(\mathcal{H}(a,b))} = 0$, then the test is inconclusive, so $(a,b)$ could either be a local maximum, local minimum, or saddle point.
+\end{enumerate}
+\end{theorem}
+
+This extends to functions of $n$ variables.
+\begin{theorem}
+Let $f$ be a function of $n$ variables, $\vec{a}$ be a critical point in the interior of $D(f)$, with all second partial derivatives of $f$ continuous on a neighbourhood of $\vec{a}$. Then,
+\begin{enumerate}
+    \item If $\mathcal{H}f(\vec{a})$ is positive definite, then $\vec{a}$ is a local maximum of $f$
+    \item If $\mathcal{H}f(\vec{a})$ is negative definite, then $\vec{a}$ is a local minimum of $f$
+    \item If $\mathcal{H}f(\vec{a})$ is indefinite, then $\vec{a}$ is a saddle point of $f$
+    \item Otherwise, the test is inconclusive.
+\end{enumerate}
+\end{theorem}
+
+
+\section*{Misc}
+Let $f$ be a function of $n$ variables, $\vec{a} \in D(f)$.
+$\vec{a}$ if for a neighbourhood $U$ of $\vec{a}$, $\forall \vec{x} \in U \cap D(f)$, $f(\vec{x}) \geq f(\vec{a})$.
+
+\begin{definition}
+$f$ has a \textbf{local maximum} at $\vec{a}$ if for a neighbourhood $U$ of $\vec{a}$, $\forall \vec{x} \in U \cap D(f)$, $f(\vec{x}) \leq f(\vec{a})$.
+\end{definition}
+
+\begin{definition}
+$f$ has a \textbf{local minimum} at $\vec{a}$ if $\forall \vec{x} \in D(f)$, $f(\vec{x}) \geq f(\vec{a})$.
+\end{definition}
+
+\begin{definition}
+$f$ has a \textbf{local maximum} at $\vec{a}$ if $\forall \vec{x} \in D(f)$, $f(\vec{x}) \leq f(\vec{a})$.
+\end{definition}
+
+\begin{definition}
+$f$ has a \textbf{critical point} at $\vec{a}$ if $\nabla f(\vec{a}) = \vec{0}$
+\begin{itemize}
+    \item In other words, $f_x(\vec{a}) = f_y(\vec{a}) = 0$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+$f$ has a \textbf{singular point} at $\vec{a}$ if $\nabla f(\vec{a})$ does not exist.
+\end{definition}
+
+\begin{definition}
+$f$ has a \textbf{saddle point} at $\vec{a}$ if $\vec{a}$ is an interior critical point for $f$ and $f$ is not a local maximum or minimum.
+\begin{itemize}
+    \item Saddle points are the extension of horizontal inflection points to higher dimensions.
+\end{itemize}
+\end{definition}
+
+\section*{Determining Local and Absolute Extrema}
+\begin{theorem}
+$f$ has a local or absolute extreme value at $\vec{a} \in D(f)$ only if $\vec{a}$ is a critical point, singular point, or boundary point on the domain of $f$
+\end{theorem}
+
+\begin{proof}
+Let $\vec{a} \in D(f)$ be an extrema of $f$ with $\vec{a} \notin$ boundary, $\nabla f(\vec{a})$ exists. We want to prove (3).
+\\ \\ $\vec{a}$ is not in the boundary, so there exists a neighbourhood $U$ of $\vec{a}$ such that $U \subset D(f)$. If $\partial f / \partial x_j (\vec{a})$ exists for all $j$, then
+\end{proof}
+
+
+
+
+\section*{Positive and Negative Definite Matrices}
+\begin{definition}
+A symmetric $n \times n$ matrix $A$ is \textbf{negative definite} if $\forall \vec{x} \neq 0$, $\vec{x}^T A \vec{x} < 0$
+\end{definition}
+
+\begin{definition}
+A symmetric $n \times n$ matrix $A$ is \textbf{indefinite} if $\exists \vec{x}$, $\vec{y} \neq 0$ such that $\vec{x}^T A \vec{x} > 0$ and $\vec{y}^T A \vec{y} < 0$.
+\end{definition}
+
+\begin{corollary}
+A symmetric $n \times n$ matrix $A$ is
+\begin{itemize}
+    \item positive definite if and only if all of its eigenvalues are positive
+    \item negative definite if and only if all of its eigenvalues are negative
+    \item indefinite if and only if has at least one positive eigenvalue and at least one negative eigenvalue
+\end{itemize}
+\end{corollary}
+
+\begin{definition}
+The \textbf{leading principal submatrix} or order $k$ of a $n \times n$ matrix $A$ is the matrix obtained by removing the last $n-k$ rows and columns.
+\end{definition}
+
+\begin{definition}
+A \textbf{leading principal minor} of $A$ is the determinant of a leading principal matrix.
+\end{definition}
+
+\begin{theorem}
+Let $M_k$ be the leading principal minor of order $k$.
+\begin{itemize}
+    \item If $M_1, \dots, M_n$ are all positive, then $\mathcal{H}f(\vec{a})$ is positive definite.
+    \item If $M_i$ is negative for $i$ odd and $M_i$ is positive for $i$ even, then $\mathcal{H}f(\vec{a})$ is negative definite.
+    \item Otherwise, if $M_n \neq 0$, $\mathcal{H}f(\vec{a})$ is indefinite.
+\end{itemize}
+\end{theorem}
+
+\end{document}

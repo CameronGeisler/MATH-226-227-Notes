@@ -1,0 +1,166 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Triple Integrals}
+
+\begin{document}
+
+A triple integral, like,
+\begin{align*}
+    \iiint_V f(x,y,z) \,dV
+\end{align*}
+means to sum up $f$ throughout a 3-dimensional region $V$, like accumulating a quantity that fills a volume.
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+If $f(x,y,z)$ represents\dots & The integral gives\dots \\
+\hline
+Mass density & Total mass \\
+Charge density & Total charge \\
+Energy density & Total energy \\
+Probability density & Total probability in the region \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+
+\begin{example}
+Let $R$ be the region bounded by the plane $x + 2y + 3z = 5$ and the coordinate planes. The region is given by
+\begin{equation*}
+    R = \set{(x,y,z): 0 \leq z \leq (5 - x - 2y)/3, 0 \leq y \leq (5 - x)/2, 0 \leq x \leq 5}
+\end{equation*}
+\end{example}
+
+
+
+
+
+
+
+\begin{example}
+Determine the volume of the solid in $\mathbb{R}^3$ bounded by $y = x^2$, $x = y^2$, $z = x + y + 9$, and $z = 0$
+\\ \\ The region of integration is $D = \set{(x,y,z): 0 \leq x \leq 1, x^2 \leq x \leq \sqrt{x}, 0 \leq z \leq x+y+9}$
+\begin{align*}
+    V & = \iiint_{D} \,dV \\
+    & = \int_{0}^{1} \int_{x^2}^{\sqrt{x}} \int_{0}^{x+y+9} \,dz \,dy \,dx \\
+    & = \int_{0}^{1} \int_{x^2}^{\sqrt{x}} (x + y + 9) \,dy \,dx \\
+    & = \int_{0}^{1} \left. \left(xy + \dfrac{y^2}{2} + 9y \right) \right|_{y=x^2}^{y=\sqrt{x}} \\
+    & = \int_{0}^{1} \left(x^{3/2} + 9x^{1/2} + \dfrac{x}{2} - x^3 - 9x^2 - \dfrac{x^4}{2} \right) \,dx \\
+    & = \left. \left(\dfrac{2x^{5/2}}{5} + 6x^{3/2} + \dfrac{x^2}{4} - \dfrac{x^4}{4} - 3x^3 - \dfrac{x^5}{10} \right) \right|_{0}^{1} \\
+    & = \dfrac{33}{10}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine
+\begin{equation*}
+    \iiint_{D} xy \,dV
+\end{equation*}
+where $D$ is the solid tetrahedron with vertices $(0,0,0)$, $(7,0,0)$, $(0,9,0)$, and $(0,0,9)$.
+\\ \\ The plane that bounds the region above is
+\begin{align*}
+    \dfrac{x}{7} + \dfrac{y}{9} + \dfrac{z}{9} & = 1 \\
+    9x + 7y + 7z & = 63 \\
+    z & = \dfrac{63 - 9x - 7y}{7}
+\end{align*}
+The line that bounds the integral in the $xy$-plane is
+\begin{align*}
+    9x + 7y & = 63 \\
+    y & = \dfrac{63 - 9x}{7}
+\end{align*}
+Thus, $D = \set{(x,y,z): 0 \leq x \leq 4,  0 \leq y \leq \frac{63 - 9x}{7}, 0 \leq z \leq \frac{63 - 9x - 7y}{7}}$
+\begin{align*}
+    \iiint_{D} xy \,dV & = \int_{0}^{7} \int_{0}^{\frac{63 - 9x}{7}} \int_{0}^{\frac{63 - 9x - 7y}{7}} xy \,dz \,dy \,dx \\
+    & = \int_{0}^{7} \int_{0}^{\frac{63 - 9x}{7}} xy \left(\frac{63 - 9x - 7y}{7} \right) \,dy \,dx \\
+    & = \int_{0}^{7} \int_{0}^{\frac{63 - 9x}{7}} \left(9xy - \dfrac{9x^2y}{7} - xy^2 \right) \,dy \,dx \\
+    & = \int_{0}^{7} \left. \left(\dfrac{9xy^2}{2} - \dfrac{9x^2y^2}{14} - \dfrac{xy^3}{3} \right) \right|_{y=0}^{y=\frac{63-9x}{7}} \,dx \\
+    & = \int_{0}^{7} \left(\dfrac{9x(\frac{63-9x}{7})^2}{2} - \dfrac{9x^2(\frac{63-9x}{7})^2}{14} - \dfrac{x(\frac{63-9x}{7})^3}{3} \right) \,dx \\
+    & = \dfrac{243}{686} \int_{0}^{7} (-x^4 + 21x^3 - 147x^2 + 343x) \,dx \\
+    & = \dfrac{11907}{40}
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate the integral
+\begin{equation*}
+    \iiint_{D} z \,dV
+\end{equation*}
+where $D$ is the region bounded by the cylinder $y^2 + z^2 = 9$, and the planes $x = 0$, $y = 3x$, $z = 0$ in the first octant.
+\\ \\ $D = \set{(x,y,z): 0 \leq x \leq 1, 3x \leq y \leq 3, 0 \leq z \leq \sqrt{9-y^2}}$
+\begin{align*}
+    \iiint_{D} z \,dV & = \int_{0}^{1} \int_{3x}^{3} \int_{0}^{\sqrt{9-y^2}} z \,dz \,dy \,dx \\
+    & = \int_{0}^{1} \int_{3x}^{3} \left. \dfrac{z^2}{2} \right|_{z = 0}^{z = \sqrt{9-y^2}} \,dy \,dx \\
+    & = \int_{0}^{1} \int_{3x}^{3} \dfrac{1}{2}(9 - y^2) \,dy \,dx \\
+    & = \int_{0}^{1} \left. \left(\dfrac{9y}{2} - \dfrac{y^3}{6} \right) \right|_{y = 3x}^{y = 3} \,dx \\
+    & = \int_{0}^{1} \left(9 - \dfrac{27x^2}{4} + \dfrac{9x^4}{8} \right) \,dx \\
+    & = \dfrac{27}{8}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the mass of a ball $\mathcal{S}$ of radius 1 given by $x^2 + y^2 + z^2 = 1$, with mass density given by $\rho(x,y,z) = \abs{xyz}$.
+\\ \\ By symmetry, the mass of the ball is 8 times the mass of the ball in the first octant. The region in the first octant $\mathcal{S}_1$ can be given by
+\begin{equation*}
+    \mathcal{S}_1 = \set{(x,y,z): 0 \leq z \leq 1, 0 \leq y \leq \sqrt{1 - z^2}, 0 \leq x \leq \sqrt{1 - y^2 - z^2}}
+\end{equation*}
+Then,
+\begin{align*}
+    m & = 8 \iiint_{\mathcal{S}_1} xyz \,dV \\
+    & = 8 \int_{0}^{1} \int_{0}^{\sqrt{1 - z^2}} \int_{0}^{\sqrt{1 - y^2 - z^2}} xyz \,dx \,dy \,dz \\
+    & = 8 \int_{0}^{1} \int_{0}^{\sqrt{1 - z^2}} \dfrac{1}{2}yz(1 - y^2 - z^2) \,dy \,dz \\
+    & = 4 \int_{0}^{1} \int_{0}^{\sqrt{1 - z^2}} (yz - y^3z - yz^3) \,dy \,dz \\
+    & = 4 \int_{0}^{1} \left(\dfrac{z^5}{4} - \dfrac{z^3}{2} + \dfrac{z}{4} \right) \,dz \\
+    & = \int_{0}^{1} (z^5 - 2z^3 + z) \,dz \\
+    & = \dfrac{1}{6}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $R$ be the region given by $R = [1,4] \times [0,3] \times [1,4]$. Evaluate
+\begin{equation*}
+    \iiint_{R} x^2 e^{y + 3z} \,dV
+\end{equation*}
+\begin{align*}
+    \iiint_{R} x^2 e^{y + 3z} \,dV & = \int_{1}^{4} \int_{0}^{3} \int_{2}^{6} x^2 e^{y + 3z} \,dz \,dy \,dx \\
+    & = \int_{1}^{4} x^2 \,dx \int_{0}^{3} e^y \,dy \int_{2}^{6} e^{3z} \,dz \\
+    & = \dfrac{e^{18} - e^6}{3} \cdot (e^3 - 1) \cdot 21 \\
+    & = 7(e^{18} - e^6)(e^3 - 1)
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $R$ be the region between the planes $z = x + y$, $z = 3x + 5y$, and over $[0,3] \times [0,2]$. Evaluate
+\begin{equation*}
+    \iiint_{R} z \,dV
+\end{equation*}
+The region is given by $R = \set{(x,y,z): 0 \leq x \leq 3, 0 \leq y \leq 2, x + y \leq z \leq 3x + 5y}$. Then,
+\begin{align*}
+    \iiint_{R} z \,dV & = \int_{0}^{3} \int_{0}^{2} \int_{x+y}^{3x+5y} z \,dz \,dy \,dx \\
+    & = \dfrac{1}{2} \int_{0}^{3} \int_{0}^{2} ((3x + 5y)^2 - (x + y)^2) \,dy \,dx \\
+    & = \dfrac{1}{2} \int_{0}^{3} \\
+    & = 294
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $R$ be the region bounded by the paraboloids $z = x^2 + 3y^2$ and $z = 4 - x^2 - y^2$. Evaluate
+\begin{equation*}
+    \iiint_{R} x \,dV
+\end{equation*}
+The intersection of the paraboloids is $x^2 + 3y^2 = 4 - x^2 - y^2$, or $x^2 + 2y^2 = 2$. Then, the region $R$ can be given by $R = \set{(x,y,z): -1 \leq x \leq 1, -\sqrt{1 - x^2/2} \leq y \leq \sqrt{1 - x^2/2}, x^2 + 3y^2 \leq z \leq 4 - x^2 - y^2}$. Then,
+\begin{align*}
+    \iiint_{R} x \,dV & = \int_{-1}^{1} \int_{}
+\end{align*}
+\end{example}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,17 @@
+# Build output directories
+**/.build/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.toc
+
+# Stray directory from previous config
+%FILEDIR%/
+
+# Tasks folder (local only)
+tasks/

@@ -1,0 +1,122 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Quadric Surfaces in $\mathbb{R}^3$}
+
+\begin{document}
+In $\mathbb{R}^2$, $F(x,y) = 0$ typically describes a curve (with exceptions being a point, or no points at all).
+\\ \\ In $\mathbb{R}^3$, $F(x, y, z) = 0$ describes an \textbf{equation} in $x$, $y$, and $z$. We can also form an inequality $F(x, y, z) \leq 0, < 0, \geq 0, > 0$.
+\begin{itemize}
+    \item Equations typically describe a \textbf{surface}
+    \item Inequalities typically describe a \textbf{solid region}
+\end{itemize}
+\begin{itemize}
+    \item In general, if a variable $x$, $y$, or $z$ is not included in the equation, the surface is parallel to that axis.
+\end{itemize}
+
+\begin{definition}
+A \textbf{quadric surface} is a generalization of a conic section (parabolas, ellipses, hyperbolas), of the form $Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fxz + Gx + Hy + Iz = J$, where at least one of $A$, $B$, $C$, $D$, $E$, or $F$ is non-zero.
+\end{definition}
+
+\section*{Types of Quadric Surfaces}
+\begin{definition}
+A \textbf{cylinder} (or \textbf{elliptic cylinder}) is of the form $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$
+\begin{itemize}
+    \item A \textbf{circular cylinder} of radius $r$ is an elliptic cylinder with $a = b$, of the form $x^2 + y^2 = r^2$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+An \textbf{ellipsoid} with semi-axes $a$, $b$ and $c$ is of the form $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$
+\begin{itemize}
+    \item A \textbf{sphere} of radius $r$ is an ellipse with $a = b = c$, of the form $x^2 + y^2 + z^2 = r^2$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A \textbf{cone} (or \textbf{elliptic cone}) is of the form $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = \dfrac{z^2}{c^2}$
+\begin{itemize}
+    \item A \textbf{circular cone} is of the form $x^2 + y^2 = a^2z^2$, where $\tan^{-1}(a)$ is the semi-vertical angle.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+An \textbf{elliptic paraboloid} is of the form $z = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}$
+\begin{itemize}
+    \item A \textbf{circular paraboloid} is an elliptic paraboloid with $a = b$, of the form $a^2z = x^2 + y^2$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A \textbf{hyperbolic paraboloid} is of the form $z = \dfrac{x^2}{a^2} - \dfrac{y^2}{b^2}$
+\end{definition}
+
+\begin{definition}
+A \textbf{hyperboloid of one sheet} is of the form $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = 1$
+\end{definition}
+
+\begin{definition}
+A \textbf{hyperboloid of two sheets} is of the form $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = -1$
+\end{definition}
+
+Examples
+\begin{itemize}
+    \item $z = 2$
+    \item $y \geq -1$
+    \item $z = x$
+    \item $x + y = 1$
+    \item $x^2 + y^2 + z^2 = 4$
+\end{itemize}
+
+
+
+\section*{Level Curves}
+We can help sketch the function $z = f(x,y)$ by forming the vertical projection onto the $xy$-plane of the intersection between the surface and the planes $z = c$ for different $c \in \mathbb{R}$.
+
+\begin{example}
+Let $f(x,y) = x^2 + y^2$ be a circular paraboloid. Then, for $c = 0, 1, 2$, we get circular cross sections.
+\begin{align*}
+    0 & = x^2 + y^2 && \text{point $(0,0)$} \\
+    1 & = x^2 + y^2 && \text{circle with radius $1$} \\
+    2 & = x^2 + y^2 && \text{circle with radius $\sqrt{2}$}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $z^2 = x^2 + y^2$ be a circular cone. Then, for $c = 0, 1, 2, 3$ we get circular cross sections.
+\begin{align*}
+    0 & = x^2 + y^2 && \text{point $(0,0)$} \\
+    1^2 & = x^2 + y^2 && \text{circle with radius $1$} \\
+    2^2 & = x^2 + y^2 && \text{circle with radius $2$} \\
+    3^2 & = x^2 + y^2 && \text{circle with radius $3$}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $f(x,y) = y^2 - x^2$ be a hyperbolic paraboloid. Then, for $c = 0, 1, -1, 2, -2$, we get vertical hyperbolas for $c > 0$, horizontal parabolas for $c < 0$, and a pair of lines for $c = 0$.
+\begin{align*}
+    0 & = y^2 - x^2 && \text{pair of lines $y = x$, $y = -x$} \\
+    1 & = y^2 - x^2 && \text{vertical hyperbola} \\
+    2 & = y^2 - x^2 && \text{vertical hyperbola $1 = y^2/2 -  x^2/2$} \\
+    -1 & = y^2 - x^2 && \text{horizontal hyperbola $1 = x^2 - y^2$} \\
+    -2 & = y^2 - x^2 && \text{vertical hyperbola $1 = x^2/2 - y^2/2$}
+\end{align*}
+\end{example}
+
+
+
+\section*{Level Surfaces}
+For functions of three variables $z = f(x,y,z)$, they cannot be sketched in $3$-space, however, for constant values of $z = c$, we can sketch a level surface.
+
+\begin{example}
+Let $f(x,y,z) = x^2 + y^2 + z^2$. Then, for $c = 0, 1, 2$, we get circles of radius $\sqrt{c}$
+\begin{align*}
+    0 & = x^2 + y^2 + z^2 && \text{point $(0,0,0)$} \\
+    1 & = x^2 + y^2 + z^2 && \text{sphere of radius $1$} \\
+    2 & = x^2 + y^2 + z^2 && \text{sphere of radius $\sqrt{2}$}
+\end{align*}
+\end{example}
+
+
+
+\end{document}

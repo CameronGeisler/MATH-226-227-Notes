@@ -1,0 +1,133 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage{esint} % for integral over closed surface
+\pagestyle{fancy}
+
+\lhead{Math 227}
+\chead{Homework 4}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+
+%% Vectors
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\vecii}[2]{\left< #1, #2 \right>}
+\newcommand{\veciii}[3]{\left< #1, #2, #3 \right>}
+\newcommand{\grad}[1]{\mathbf{grad} \, \vec{#1}}
+\renewcommand{\div}[1]{\mathbf{div} \, \vec{#1}}
+\newcommand{\curl}[1]{\mathbf{curl} \, \vec{#1}}
+
+\begin{document}
+
+\subsection*{Question 1}
+$\mathcal{S}$ is the ellipsoid $x^2 + y^2 + 2(z - 1)^2 = 6$, $z \geq 0$. The boundary $\mathcal{C}$ of $\mathcal{S}$ is the circle $x^2 + y^2 = 4$, $z = 0$, oriented clockwise from the positive $z$-axis, with normal vector $\vec{\hat{N}} = \veciii{0}{0}{1}$. $\mathcal{C}$ is also the boundary of the disc $\mathcal{S}_1$: $x^2 + y^2 \leq 4$, $z = 0$, where $\vec{\hat{N}} = \veciii{0}{0}{1}$. On $S_1$, $\vec{F} = \veciii{-y^3}{x^3}{0}$. Then,
+\begin{align*}
+    \curl{\vec{F}} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ -y^3 & x^3 e^x & 0 \end{vmatrix} = \veciii{0}{0}{3x^2 + 3y^2}
+\end{align*}
+Then,
+\begin{align*}
+    \iint_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS & = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} && \text{by Stokes' theorem, surface $\mathcal{S}$, boundary $\mathcal{C}$, vector field $\vec{F}$} \\
+    & = \iint_{\mathcal{S}_1} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS && \text{by Stokes' theorem, surface $\mathcal{S}_1$, boundary $\mathcal{C}$, vector field $\vec{F}$} \\
+    & = 3 \iint_{\mathcal{S}_1} (x^2 + y^2) \,dS \\
+    & = 3 \int_{0}^{2\pi} \int_{0}^{2} r^2 \cdot r \,dr \,d\theta && \text{using polar coordinates} \\
+    & = 3 \int_{0}^{2\pi} \,d\theta \int_{0}^{2} r^3 \,dr \\
+    & = 3 \cdot 2\pi \cdot 4 \\
+    & = 24\pi
+\end{align*}
+
+\subsection*{Question 2}
+The oriented boundary $\mathcal{C}$ of the paraboloid $z = 9 - x^2 - y^2$ is the circle $x^2 + y^2 = 9$, $z = 0$, oriented counterclockwise from the positive $z$-axis. $\mathcal{C}$ is also the boundary of the disc $\mathcal{S}$: $x^2 + y^2 \leq 9$, $z = 0$, with $\vec{\hat{N}} = \veciii{0}{0}{1}$. Then,
+\begin{align*}
+    \curl{\vec{F}} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ -y & x^2 & z \end{vmatrix} = \veciii{0}{0}{2x + 1}
+\end{align*}
+Then,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{\mathcal{S}} (2x + 1) \,dS && \text{by Stokes' theorem, surface $\mathcal{S}$, boundary $\mathcal{C}$, vector field $\vec{F}$} \\
+    & = \int_{0}^{2\pi} \int_{0}^{3} (2 r \cos{\theta} + 1) r \,dr \,d\theta && \text{using polar coordinates} \\
+    & = \int_{0}^{2\pi} \left(9 \cos{\theta} + \dfrac{9}{2} \right) \,d\theta \\
+    & = 9 \pi
+\end{align*}
+
+\subsection*{Question 3a)}
+\begin{align*}
+    \phi \wedge \psi & = a_1 dx_1 \wedge dx_3 \wedge dx_4 \wedge dx_1 + a_2 dx_1 \wedge dx_3 \wedge dx_4 \wedge dx_2 + a_3 dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4 \\
+    & = a_2 dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4
+\end{align*}
+where the first and third terms are zero.
+
+\subsection*{Question 3b)}
+\begin{align*}
+    \phi \wedge \psi & = 4 dx_2 \wedge dx_3 \wedge dx_1 \wedge dx_2 - dx_2 \wedge dx_3 \wedge dx_1 \wedge dx_3 + 5 dx_2 \wedge dx_3 \wedge dx_2 \wedge dx_3 \\
+    & \qquad + 4 dx_1 \wedge dx_4 \wedge dx_1 \wedge dx_2 - dx_1 \wedge dx_4 \wedge dx_1 \wedge dx_3 + 5 dx_1 \wedge dx_4 \wedge dx_2 \wedge dx_3 \\
+    & = 5 dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4
+\end{align*}
+where all terms are zero except the last term.
+
+\subsection*{Question 4}
+\begin{align*}
+    dx_1 \wedge dx_3 \wedge dx_4 & = \begin{vmatrix} 1 & 3 & 5 \\ 0 & 6 & 3 \\ 5 & -1 & -1 \end{vmatrix} = \begin{vmatrix} 6 & 3 \\ -1 & 1 \end{vmatrix} - \begin{vmatrix} 0 & 3 \\ 5 & 1 \end{vmatrix} + \begin{vmatrix} 0 & 6 \\ 5 & -1 \end{vmatrix} = -6
+\end{align*}
+
+\subsection*{Question 5a)}
+\begin{align*}
+    d\Phi & = 5 dx_2 \wedge dx_1 \wedge dx_3 + 3 dx_3 \wedge dx_3 \wedge dx_4 - dx_1 \wedge dx_3 \wedge dx_4 \\
+    & = -5 dx_1 \wedge dx_2 \wedge dx_3 - dx_1 \wedge dx_3 \wedge dx_4
+\end{align*}
+
+\subsection*{Question 5b)}
+\begin{align*}
+    d\Psi & = (x_2^2 \,dx_1 + 2x_1 x_2 \,dx_2) \wedge dx_1 \wedge dx_3 \wedge dx_4 + (2x_3 x_4 \,dx_3 + x_3^2 \,dx_4) \wedge dx_2 \wedge dx_3 \wedge dx_4 \\
+    & = x_2^2 \,dx_1 \wedge dx_1 \wedge dx_3 \wedge dx_4 + 2x_1 x_2 \,dx_2 \wedge dx_1 \wedge dx_3 \wedge dx_4 + 2x_3 x_4 \,dx_3 \wedge dx_2 \wedge dx_3 \wedge dx_4 \\
+    & \qquad + x_3^2 \,dx_4 \wedge dx_2 \wedge dx_3 \wedge dx_4 \\
+    & = -2x_1 x_2 \,dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4
+\end{align*}
+
+\subsection*{Question 6}
+\begin{align*}
+    0 = d\Phi & = d\left(\sum_{j=1}^k a_j(\vec{x}) \,dx_j \right) \\
+    & = \sum_{j=1}^k da_j(\vec{x}) \wedge dx_j \\
+    & = \sum_{j=1}^k \left(\sum_{i=1}^k \dfrac{\partial a_j(\vec{x})}{\partial x_i} \,dx_i \right) \wedge dx_j \\
+    0 & = \sum_{i < j} \left(\dfrac{\partial a_j(\vec{x})}{\partial x_i} - \dfrac{\partial a_i(\vec{x})}{\partial x_j} \right) dx_i \wedge dx_j
+\end{align*}
+Since $dx_i \wedge dx_j \neq 0$ for $i \neq j$ (in particular $i < j$). This equation is true only if
+\begin{align*}
+    \dfrac{\partial a_j(\vec{x})}{\partial x_i} - \dfrac{\partial a_i(\vec{x})}{\partial x_j} = 0 && \implies && \dfrac{\partial a_j(\vec{x})}{\partial x_i} = \dfrac{\partial a_i(\vec{x})}{\partial x_j}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+\end{document}

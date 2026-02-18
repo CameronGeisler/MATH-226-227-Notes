@@ -1,0 +1,88 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Linear Regression}
+
+\begin{document}
+
+Linear regression is a huge topic in statistics, and the main technique used for linear regression has foundations in multivariable calculus.
+
+\section*{Linear Regression}
+Consider a data set with $n$ points $(x_i, y_i)$ for $i = 1, \dots, n$. The goal of linear regression is to determine the best-fit line $y = mx + b$, called the \textbf{regression line}. Here, ``best-fit" is defined using the \textbf{method of least squares}, minimizing the sum of the squares of the residuals (or error) between the line and the data values. The residual of a data value is the difference between the predicted and observed value, or
+\begin{equation*}
+    \underbrace{mx_i + b}_{\text{predicted}} - \underbrace{y_i}_{\text{observed}}
+\end{equation*}
+In other words, minimize the quantity
+\begin{equation*}
+    \sum_{i=1}^n (mx_i + b - y_i)^2
+\end{equation*}
+In other words, determine the values of $m$ and $b$ such that this sum is minimized. This is a problem involving minimizing a function of two variables.
+
+\section*{Solving the Problem}
+The goal is to find the absolute minimum of the ``error" function
+\begin{equation*}
+    E(m,b) = \sum_{i=1}^n (mx_i + b - y_i)^2
+\end{equation*}
+To determine the critical points of $E$, we need to determine the partial derivatives of $E$. Recall that differentiation is linear, in that differentiating a (finite) sum can be done term-by-term. Then,
+\begin{align*}
+    \frac{\partial E}{\partial m} & = \sum_{i=1}^n 2(mx_i + b - y_i) x_i
+\end{align*}
+Then, this can be rewritten using the linearity of summation, breaking apart the sum into multiple sums,
+\begin{align*}
+    \frac{\partial E}{\partial m} = 2m \sum_{i=1}^n x_i^2 + 2b \sum_{i=1}^n x_i - 2\sum_{i=1}^n x_i y_i
+\end{align*}
+Similarly, the other partial derivative,
+\begin{align*}
+    \frac{\partial E}{\partial b} & = \sum_{i=1}^n 2(mx_i + b - y_i) \\
+    & = 2m \sum_{i=1}^n x_i + 2b \sum_{i=1}^n 1 - 2\sum_{i=1}^n y_i \\
+    & = 2m \sum_{i=1}^n x_i + 2bn - 2\sum_{i=1}^n y_i
+\end{align*}
+Setting these partial derivatives equation to 0, and simplifying each by dividing by two,
+\begin{align*}
+    0 & = m \sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_i y_i \\
+    0 & = m \sum_{i=1}^n x_i + bn - \sum_{i=1}^n y_i
+\end{align*}
+In these two equations, there are a lot of symbols, however recall that all of the values of $x_i$ and $y_i$ are known, and so the value of any summation involving $x_i$ and $y_i$ is known, i.e. just a constant. The only unknowns (or variables) in this problem are $m$ and $b$. To make this clear, define
+\begin{equation*}
+    S_x = \sum_{i=1}^n x_i \qquad S_y = \sum_{i=1}^n y_i \qquad S_{x^2} = \sum_{i=1}^n x_i^2 \qquad S_{xy} = \sum_{i=1}^n x_i y_i
+\end{equation*}
+Then, the equations become
+\begin{align*}
+    \begin{cases} mS_{x^2} + b S_x - S_{xy} = 0 \\ m S_x + bn - S_y = 0 \end{cases}
+\end{align*}
+Recall that the goal is to determine the value of $m$ and $b$ which satisfy these equations, as that will be the critical points and will be the minimum values. Doing so involves solving this system of equations. One way to do this, is to first move the constants to the other side of the equation,
+\begin{align*}
+    m S_{x^2} + bS_x & = S_{xy} \\
+    mS_x + bn & = S_y
+\end{align*}
+Then, to eliminate the $b$ variable, multiply the first equation by $n$, the second equation by $S_x$, and then subtract the 2nd equation from the 1st. This result in,
+\begin{align*}
+    \begin{array}{cc}
+        & mn S_{x^2} + bn S_x = nS_{xy} \\
+        - & \brac{\quad m(S_x)^2 + bn S_x = S_x S_y \quad} \\ \hline
+        & mnS_{x^2} - m(S_x)^2 = nS_{xy} - S_x S_y
+    \end{array}
+\end{align*}
+Then, solving for $m$,
+\begin{align*}
+    m(nS_{x^2} - (S_x)^2) & = nS_{xy} - S_x S_y \\
+    m & = \frac{nS_{xy} - S_x S_y}{nS_{x^2} - (S_x)^2}
+\end{align*}
+Then, to solve for $b$,
+\begin{align*}
+    mS_x + bn & = S_y \\
+    b & = \frac{S_y - mS_x}{n} \\
+    & = \frac{S_y - \frac{nS_{xy} - S_x S_y}{nS_{x^2} - (S_x)^2} \cdot S_x}{n} \\
+    & = \frac{S_y(nS_{x^2} - (S_x)^2) - nS_x S_{xy} + (S_x)^2 S_y}{n(nS_{x^2} - (S_x)^2} \\
+    b & = \frac{nS_{x^2} S_y - S_x S_{xy}}{nS_{x^2} - (S_x)^2}
+\end{align*}
+In summary,
+
+\begin{theorem}
+The line of best fit is given by $y = mx + b$, where
+\begin{equation*}
+    \boxed{m = \frac{nS_{xy} - S_x S_y}{nS_{x^2} - (S_x)^2}} \qquad \boxed{\frac{nS_{x^2} S_y - S_x S_{xy}}{nS_{x^2} - (S_x)^2}}
+\end{equation*}
+\end{theorem}
+
+\end{document}

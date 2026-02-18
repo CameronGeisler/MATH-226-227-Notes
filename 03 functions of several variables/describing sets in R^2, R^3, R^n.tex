@@ -1,0 +1,96 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Describing Sets in R2, R3, and Rn}
+
+\begin{document}
+
+
+
+\begin{definition}
+Let $r > 0$. A \textbf{neighbourhood} of a point P in $\mathbb{R}^n$ is a set of the form
+\begin{equation*}
+    B_r(P) = \{Q \in \mathbb{R}^n: \text{distance from Q to P} < r\}
+\end{equation*}
+\begin{itemize}
+    \item in $\mathbb{R}$, for $P = x$, we have the \textbf{open interval}
+    \begin{equation*}
+    B_r(P) = (x - r, x + r)
+    \end{equation*}
+    \item in $\mathbb{R}^2$, for $P = (x, y)$, we have the \textbf{open disk}
+    \begin{equation*}
+        B_r(P) = \{(x,y) \in \mathbb{R}^2: \sqrt{x^2 + y^2} < r\}
+    \end{equation*}
+    \item in $\mathbb{R}^3$, for $P = (x, y, z)$, we have the \textbf{open ball}
+    \begin{equation*}
+        B_r(P) = \{(x, y, z) \in \mathbb{R}^3: \sqrt{x^2 + y^2 + z^2} < r\}
+    \end{equation*}
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $S \subset \mathbb{R}^n$. S is \textbf{open} if $\forall P \in S$, $P$ has a neighbourhood contained in S.
+\begin{itemize}
+    \item Most sets defined with strict inequalities are open.
+    \item e.g. all points with $x > 0$, $S = \{(x,y) \in \mathbb{R}^2: x > 0\}$
+    \item e.g. all points with $y > x^2$, $S = \{(x,y) \in \mathbb{R}^2: y > x^2\}$
+    \item e.g. all points in the unit square not including the boundary, \\ $S = \{(x,y) \in \mathbb{R}^2: 0 < x < 1, 0 < y < 1\}$
+    \item The empty set is vacuously open
+    \item The entire space $\mathbb{R}^n$ is open
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $S \subset \mathbb{R}^n$. The \textbf{complement} of $S$, $S^c \in \mathbb{R}^n$ is the set of all points in $\mathbb{R}^n$ that are not in S.
+\begin{itemize}
+    \item e.g. In $\mathbb{R}^2$, If $S = \{(x,y) \in \mathbb{R}^2: x > 0\}$, then $S^c = \{(x,y) \in \mathbb{R}^2: x \leq 0\}$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $S \subset \mathbb{R}^n$. S is \textbf{closed} if $S^c$ is open.
+\begin{itemize}
+    \item Most sets defined with non-strict inequalities are closed.
+    \item In $\mathbb{R}$, closed intervals are closed, i.e. $S = [a,b]$, with $a, b, \in \mathbb{R}$ is closed, because $S^c = (-\infty,a) \cup (b, \infty)$ is open.
+    \item e.g. $S = \set{(x, y) \in \mathbb{R}^2: 0 \leq x \leq 1, 0 \leq y \leq 1}$
+    \item e.g. $S = \set{(x, y, z) \in \mathbb{R}^3: x^2 + y^2 + z^2 \leq 4}$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $S \in \mathbb{R}^n$, $P \in S$. P is a \textbf{boundary point} of $S$ if every neighbourhood of $P$ contains points in $S$ and $S^c$.
+\end{definition}
+
+\begin{definition}
+The \textbf{boundary}, $bdry(S)$, of S is the set of all boundary points of $S$.
+\begin{itemize}
+    \item e.g. for the closed disk, $S = \{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 1\}$, the boundary is $bdry(S) = \{(x,y) \in \mathbb{R}^2: x^2 + y^2 = 1\}$
+\end{itemize}
+\end{definition}
+
+Let $S \in \mathbb{R}^n$, $P \in S$.
+\begin{definition}
+P is an \textbf{interior point} of $S$ if $P \in S$ and $P \notin S^c$. 
+\end{definition}
+
+\begin{definition}
+P is an \textbf{exterior point} of $S$ if $P \in S^c$ and $P \notin S$.
+\end{definition}
+
+\begin{definition}
+The \textbf{interior} of $S$, $int(S)$, is the set of all interior points of $S$.
+\begin{itemize}
+    \item $\forall S$, $int(S)$ is open.
+    \item $S$ is open if and only if $int(S) = S$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+The \textbf{exterior} of $S$, $ext(S)$, is the set of all interior points of $S$.
+\begin{itemize}
+    \item $\forall S$, $ext(S)$ is open.
+    \item $S$ is closed if and only if $ext(S) = S^c$
+\end{itemize}
+\end{definition}
+
+\end{document}

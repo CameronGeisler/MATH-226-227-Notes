@@ -1,0 +1,161 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Green's Theorem, Divergence Theorem in the Plane}
+
+\begin{document}
+
+\section*{Integral Theorems}
+Recall that fundamental theorem of calculus for the single-variable definite integral,
+\begin{equation*}
+    \int_a^b \dfrac{d}{dx} f(x) \,dx = f(b) - f(a)
+\end{equation*}
+expresses the integral, over the interval $[a,b]$, of the derivative of a single-variable function $f$, in terms of the values of $f$ on the boundary of the interval $[a,b]$. In particular, as a sum of values of $f$ at the oriented boundary of $[a,b]$, where $a$ gives a negative contribution and $b$ gives a positive contribution.
+\\ \\ In a similar way, the fundamental theorem for line integrals states that for a conservative vector field $\nabla \phi$ over a curve $\mathcal{C}$ from $A$ to $B$,
+\begin{equation*}
+    \int_{\mathcal{C}} \nabla \phi \bullet d\vec{r} = \phi(B) - \phi(A)
+\end{equation*}
+This has a similar interpretation, in that it expresses the integral, over the one-dimensional object $\mathcal{C}$, of the derivative of a single-variable function $\phi$, as the sum of values at the boundary of $\mathcal{C}$.
+
+\section*{Green's Theorem in the Plane}
+Green's theorem is the extension of the fundamental theorem of calculus to two dimensions. It relates the double integral of a certain kind of derivative of a two-dimensional vector field $\vec{F}$ over a region $R$, in terms of function values of $\vec{F}$ on the boundary of $R$. It relates the double integral over a region $R$ in the $xy$-plane as a line integral (i.e. a ``sum") of the tangential components of $\vec{F}$ around the curve $\mathcal{C}$, the oriented boundary of $R$.
+
+\begin{theorem}
+Let $R$ be a regular, closed region in the $xy$-plane, with boundary $\mathcal{C}$ that is made up of one or more piecewise smooth, simple closed curves that are positively oriented with respect to $R$. Let $\vec{F} = \vecii{F_1(x,y)}{F_2(x,y)}$ be a smooth vector field on $R$. Then,
+\begin{equation*}
+    \boxed{\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{R} \curl{F} \bullet \vec{\hat{k}} \,dA}
+\end{equation*}
+More explicitly,
+\begin{equation*}
+    \boxed{\oint_{\mathcal{C}} F_1(x,y) \,dx + F_2(x,y) \,dy = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) \,dA}
+\end{equation*}
+\end{theorem}
+
+\section*{Examples}
+\begin{example}
+Evaluate
+\begin{equation*}
+    \oint_{\mathcal{C}} \vecii{8y - 3}{2x^2 + 4} \bullet \,d\vec{r}
+\end{equation*}
+where $\mathcal{C}$ is the boundary of the rectangle with vertices $(0,0), (6,0), (6,4), (0,4)$, oriented counterclockwise.
+\\ \\ Notice that here, the line integral will require 4 parametrizations, one for each side of the rectangle. On the other hand, the region enclosed by $\mathcal{C}$ is just a rectangle, so evaluating a double integral over this region will be easier. By Green's theorem,
+\begin{equation*}
+    \oint_{\mathcal{C}} \vecii{8y - 3}{2x^2 + 4} \bullet \,d\vec{r} = \iint_R (4x - 8) \,dA
+\end{equation*}
+where $R$ is the rectangle bounded by $\mathcal{C}$, given by $0 \leq x \leq 6, 0 \leq y \leq 4$. Then,
+\begin{align*}
+    & = \int_0^6 \int_0^4 (4x - 8) \,dy \,dx \\
+    & = \int_0^6 (4x - 8) \,dx \int_0^4 \,dy \\
+    & = 24 \cdot 4 \\
+    & = 96
+\end{align*}
+\end{example}
+
+\section*{Area Bounded by a Simple Closed Curve}
+Green's theorem can be used to calculate the area of a region enclosed by a curve.
+\\ \\ Let $\mathcal{C}$ be a positively oriented, piecewise smooth, simple closed curve, that bounds a region $R$ in the $xy$-plane. For any of the vector fields
+\begin{align*}
+    \vec{F} = x \jhat \qquad \vec{F} = -y \ihat \qquad \vec{F} = \dfrac{1}{2}(-y\ihat + x\jhat)
+\end{align*}
+we have
+\begin{align*}
+    \dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} = 1
+\end{align*}
+Then, by Green's theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} x \,dy = - \oint_{\mathcal{C}} y \,dx = \dfrac{1}{2} \oint_{\mathcal{C}} x \,dy - y \,dx = \iint_{R} \,dA = \text{Area of $R$}
+\end{align*}
+
+In summary,
+\begin{theorem}
+Let $\mathcal{C}$ be a positively oriented, piecewise smooth, simple closed curve, that bounds a region $R$ in the $xy$-plane. Then, the area of $R$ is given by
+\begin{equation*}
+    \boxed{\text{Area of $R$} = \oint_{\mathcal{C}} x \,dy = - \oint_{\mathcal{C}} y \,dx = \dfrac{1}{2} \oint_{\mathcal{C}} x \,dy - y \,dx}
+\end{equation*}
+\end{theorem}
+
+\section*{Connection to Fundamental Theorem of Calculus for Line Integrals}
+Recall that for a conservative vector field $\vec{F}$ and a closed curve $\mathcal{C}$, the line integral of $\vec{F}$ around $\mathcal{C}$ is 0. This can be proved using Green's theorem.
+\\ \\ For a conservative vector field, $\vec{F}$,
+\begin{equation*}
+    \dfrac{\partial F_2}{\partial x} = \dfrac{\partial F_1}{\partial y}
+\end{equation*}
+and so, by Green's theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) = 0
+\end{align*}
+where $R$ is the region bounded by $\mathcal{C}$.
+
+\section*{Application: Planimeter}
+Intuitively, Green's theorem gives the double integral (``area") of a region only in terms of information about its boundary. A \textbf{planimeter} is a device that measures the area of a region in the plane only by tracing out its boundary. It does this using Green's theorem.
+
+\section*{Area of an Ellipse}
+\begin{example}
+Determine the area of the ellipse given by
+\begin{equation*}
+    \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1
+\end{equation*}
+The boundary of the ellipse can be parametrized with positive orientation by $x = a \cos{t}$, $y = b \sin{t}$, $0 \leq t \leq 2\pi$. Then, $dx = -a \sin{t}$, $dy = b \cos{t}$. Then, by Green's theorem,
+\begin{align*}
+    A & = \dfrac{1}{2} \oint_{\mathcal{C}} a\cos{t} \cdot b\cos{t} - b\sin{t} \cdot -a\sin{t} \\
+    & = \dfrac{ab}{2} \int_{0}^{2\pi} \,dt \\
+    & = \dfrac{ab}{2} \cdot 2\pi \\
+    A & = \pi ab
+\end{align*}
+\end{example}
+
+\section*{Divergence Theorem in the Plane}
+\begin{theorem}
+Let $R$ be a regular, closed region in the $xy$-plane whose boundary $\mathcal{C}$ consists of finitely many piecewise smooth, simple closed curves. Let $\vec{\hat{N}}$ be the unit normal field on $\mathcal{C}$, oriented outward from $R$. Let $\vec{F} = \vecii{F_1(x,y)}{F_2(x,y)}$ be a smooth vector field. Then,
+\begin{equation*}
+    \boxed{\oint_{\mathcal{C}} \vec{F} \bullet \vec{\hat{N}} \,ds = \iint_{R} \div{F} \,dA}
+\end{equation*}
+More explicitly,
+\begin{equation*}
+    \boxed{\oint_{\mathcal{C}} F_1 \,dy - F_2 \,dx = \iint_R \brac{\frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y}} \,dA}
+\end{equation*}
+In other words, the outward flux of $\vec{F}$ across $\mathcal{C}$ is equal to the double integral over $R$ of the divergence of $\vec{F}$.
+\end{theorem}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \oint_{\mathcal{C}} (2x + \ln{(2y)}) \,dy - (7y^2 - \sinh{x}) \,dx
+\end{equation*}
+where $\mathcal{C}$ is the boundary of the square with vertices $(0,3), (3,3), (3,6), (0,6)$, oriented counterclockwise.
+\\ \\ By the divergence theorem,
+\begin{equation*}
+    \oint_{\mathcal{C}} (2x + \ln{(2y)}) \,dy - (7y^2 - \sinh{x}) \,dx = \iint_R (2 + 14y) \,dA
+\end{equation*}
+The region $R$ enclosed by $\mathcal{C}$ is given by $0 \leq x \leq 3, 3 \leq y \leq 6$. Then,
+\begin{align*}
+    & = \int_0^3 \int_3^6 (2 + 14y) \,dy \,dx \\
+    & = \int_0^3 \,dx \int_3^6 (2 + 14y) \,dy \\
+    & = 3 \cdot \eval{\brac{2y + 7y^2}}_3^6 \\
+    & = 3 \cdot 195 \\
+    & = 585
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \oint_{\mathcal{C}} f \,dy - g \,dx
+\end{equation*}
+where $\vecii{f}{g} = \vecii{9x^2}{2y^2}$, and $\mathcal{C}$ is the upper half of the unit circle and the line segment $-1 \leq x \leq 1$, oriented clockwise.
+\\ \\ By the divergence theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} f \,dy - g \,dx & = \iint_R (18x + 4y) \,dA
+\end{align*}
+where $R$ is the region enclosed by $\mathcal{C}$, given in polar coordinates by $0 \leq r \leq 1, 0 \leq \theta \leq \pi$. Then,
+\begin{align*}
+    & = \int_0^{\pi} \int_0^1 (18 r\cos{\theta} + 4 r\sin{\theta}) \cdot r \,dr \,d\theta \\
+    & = \int_0^{\pi} (18\cos{\theta} + 4\sin{\theta}) \,d\theta \int_0^1 r^2 \,dr \\
+    & = \eval{\brac{18 \sin{\theta} - 4 \cos{\theta}}}_0^{\pi} \cdot \eval{\frac{r^3}{3}}_0^1 \\
+    & = 8 \cdot \frac{1}{3} \\
+    & = \frac{8}{3}
+\end{align*}
+Since $\mathcal{C}$ is oriented clockwise, the value of the line integral is $-\frac{8}{3}$.
+\end{example}
+
+\end{document}

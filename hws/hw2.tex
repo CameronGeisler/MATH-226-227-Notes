@@ -1,0 +1,128 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 227}
+\chead{Homework 2}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+
+%% Vectors
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\newcommand{\vecii}[2]{\left< #1, #2 \right>}
+\newcommand{\veciii}[3]{\left< #1, #2, #3 \right>}
+
+\begin{document}
+
+\subsection*{Question 1}
+\begin{align*}
+    \vec{OQ} & = \vec{OP} + \vec{PQ} \\
+    & = \vec{r}(t) + \rho \hat{N} \\
+    \vec{OQ} 
+    & = \vec{r}(t) + r \cos{\theta} \hat{N}
+\end{align*}
+where $\theta$ is the angle between $\vec{PO}$ and $\hat{N}$. Also,
+\begin{equation*}
+    \vec{r}(t) \bullet \hat{N} = \vec{OP} \bullet \hat{N} = -\vec{PO} \bullet \hat{N} = -r \cos{\theta}
+\end{equation*}
+Then,
+\begin{align*}
+    \vec{OQ} \bullet \hat{N} & = (\vec{r}(t) + r \cos{\theta} \hat{N}) \bullet \hat{N} \\
+    & = \vec{r}(t) \bullet \hat{N} + r \cos{\theta} \hat{N} \bullet \hat{N} \\
+    & = -r \cos{\theta} + r \cos{\theta} && \text{as $\hat{N} \bullet \hat{N} = \abs{\hat{N}}^2 = 1$} \\
+    & = 0
+\end{align*}
+Also,
+\begin{align*}
+    \vec{OQ} \bullet \hat{T} & = (\vec{r}(t) + r \cos{\theta} \hat{N}) \bullet \hat{T} \\
+    & = \vec{r}(t) \bullet \hat{T} + r \cos{\theta} \hat{N} \bullet \hat{T} \\
+    & = 0 && \text{as $\vec{r} \perp \hat{T}$ and $\hat{N} \perp \hat{T}$}
+\end{align*}
+Thus, $\vec{OQ}$ is perpendicular to $\hat{N}$ and $\hat{T}$, and so it perpendicular to the osculating plane. Thus, the osculating circle lies in the sphere.
+\\ \\ If $\vec{OQ} = 0$, then the center of the osculating circle coincides with the origin, so the radius of the osculating circle is $r$, and so it lies in the sphere.
+
+\subsection*{Question 2}
+\textbf{(a)} For $x \neq 0, -1$ and $y \neq 0$, we have
+\begin{align*}
+    \dfrac{1}{x(x+1)} \,dx & = \dfrac{1}{y} \,dy \\
+    \int \left(\dfrac{1}{x} - \dfrac{1}{x + 1} \right) \,dx & = \int \dfrac{1}{y} \,dy \\
+    \ln{\abs{\dfrac{x}{x + 1}}} & = \ln{\abs{y}} + C_1 \\
+    y & = \dfrac{Cx}{x + 1}
+\end{align*}
+
+\textbf{(c)}
+\begin{itemize}
+    \item If $x = 0$, then $\vec{F} = \vecii{0}{y}$, field line is $x = 0$.
+    \item If $x = -1$, then $\vec{F} = \vecii{0}{y}$, field line is $x = -1$.
+    \item If $y = 0$, then $\vec{F} = \vecii{x(x+1)}{0}$, field line is $y = 0$.
+\end{itemize}
+
+\textbf{(d)}
+Yes, the unique field line through $\vec{r_0} = \vecii{a}{b}$, where $\vecii{a}{b} \neq \vecii{0}{0}, \vecii{-1}{0}$, is given by
+\begin{align*}
+    \begin{cases}
+    x = 0 & \text{if $a = 0$} \\
+    x = -1 & \text{if $a = -1$} \\
+    y = \dfrac{(a + 1)bx}{a(x + 1)} & \text{on $(-1,\infty)$, if $a \in (-1,0) \cup (0, \infty)$} \\
+    y = \dfrac{(a + 1)bx}{a(x + 1)} & \text{on $(-\infty, -1)$, if $a \in (-\infty,-1)$}
+    \end{cases}
+\end{align*}
+
+
+\subsection*{Question 3}
+\textbf{(a)} $\vec{F} = \veciii{F_1(x)}{F_2(y)}{F_3(z)}$
+\begin{align*}
+    \dfrac{\partial \phi}{\partial x} = F_1(x) && \dfrac{\partial \phi}{\partial y} = F_2(y) && \dfrac{\partial \phi}{\partial z} = F_3(z)
+\end{align*}
+Let $G_1$, $G_2$, $G_3$ be antiderivatives of $F_1$, $F_2$, and $F_3$ respectively. These antiderivatives exist because $F_1$, $F_2$, and $F_3$ are smooth, so they are continuous. Then, a function $\phi$ that satisfies $\vec{F} = \nabla \phi$ is
+\begin{equation*}
+    \phi(x,y,z) = G_1(x) + G_2(y) + G_3(z) + C
+\end{equation*}
+
+\textbf{(b)} A counter example is $F_1(x) = x$, $F_2(y) = y$, $F_3(z) = 1/z$, with domain $D$ being all of $\mathbb{R}^3$ except where $z = 0$. Then,
+\begin{equation*}
+    \vec{F}(x,y,z) = \veciii{xz}{yz}{1}
+\end{equation*}
+A potential function must satisfy
+\begin{align*}
+    \dfrac{\partial \phi}{\partial x} = xz && \dfrac{\partial \phi}{\partial y} = yz && \dfrac{\partial \phi}{\partial z} = 1
+\end{align*}
+Then,
+\begin{align*}
+    \phi(x,y,z) & = \dfrac{x^2z}{2} + C(y,z) \\
+    \dfrac{\partial C}{\partial y} & = yz \\
+    C(y,z) & = \dfrac{y^2z}{2} + D(z) \\
+    \dfrac{y^2}{2} + D'(z) & = 1
+\end{align*}
+which is a contradiction for all $y \neq 0$. Therefore, no potential function exists, and so $\vec{F}$ is not conservative.
+
+
+\end{document}

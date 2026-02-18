@@ -1,0 +1,96 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{The Chain Rule}
+
+\begin{document}
+
+Recall that the chain rule (for single-variable functions) gives information about the derivative of a composition of functions. In a similar way, we can develop a chain rule for functions of two or more variables, where each of these input variables are themselves functions of other variables.
+
+\section*{Chain Rule with One Independent Variable}
+
+First, consider the case where $z = f(x,y)$, and both $x$ and $y$ are dependent on $t$. In other words,
+\begin{equation*}
+    z = f(x(t), y(t))
+\end{equation*}
+In this case, $f$ is really a function of a single independent variable $t$, and $x$ and $y$ are just \textbf{intermediate variables}, variables which are determined by other variables, but are then also used to determine the value of another variable.
+
+\begin{theorem}
+Let $f$ be a function of $x$ and $y$, with $x = x(t)$ and $y = y(t)$. Then,
+\begin{equation*}
+    \boxed{\frac{d}{dt} f(x(t),y(t)) = f_x(x(t),y(t))x'(t) + f_y(x(t),y(t))y'(t)}
+\end{equation*}
+If $z = f(x,y)$, then in Leibniz notation,
+\begin{equation*}
+    \boxed{\frac{dz}{dt} = \frac{\partial z}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial z}{\partial y} \cdot \frac{dy}{dt}}
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+\textbf{This is not a rigorous proof, but just an intuitive outline}. Again, here $f$ is technically a function of a single variable $t$, so using the definition of a single-variable derivative,
+\begin{align*}
+    \frac{d}{dt} f(x(t),y(t)) & = \lim_{h \to 0} \frac{f(x(t+h),y(t+h)) - f(x(t),y(t))}{h}
+\end{align*}
+Then, adding and subtracting $f(x(t), y(t + h))$ and splitting up the limit,
+\begin{align*}
+    & = \lim_{h \to 0} \frac{f(x(t+h),y(t+h)) - f(x(t),y(t+h))}{h} + \lim_{h \to 0} \frac{f(x(t),y(t+h)) - f(x(t),y(t))}{h}
+\end{align*}
+Then, notice that the expression on the left is the partial derivative of $f$ with respect to $x$, which by the single-variable chain rule, is $f_x(x(t),y(t)) x'(t)$. Similarly, the limit on the right is the partial derivative of $f$ with respect to $y$, and so together we get
+\begin{align*}
+    & = f_x(x(t),y(t))x'(t) + f_y(x(t),y(t))y'(t)
+\end{align*}
+\end{proof}
+
+This can be extended to functions of 3 variables.
+
+\begin{corollary}
+Let $f$ be a function of $x$, $y$, and $z$, with $x = x(t)$, $y = y(t)$, and $z = z(t)$. Then,
+\begin{equation*}
+    \boxed{\frac{d}{dt} f(x(t),y(t),z(t)) = f_x(x(t),y(t),z(t))x'(t) + f_y(x(t),y(t),z(t))y'(t) + f_z(x(t),y(t),z(t))z'(t)}
+\end{equation*}
+If $w = f(x,y,z)$, then in Leibniz notation,
+\begin{equation*}
+    \boxed{\frac{dw}{dt} = \frac{\partial w}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial w}{\partial y} \cdot \frac{dy}{dt} + \frac{\partial w}{\partial z} \cdot \frac{dz}{dt}}
+\end{equation*}
+\end{corollary}
+
+\begin{example}
+Let $f(x,y,z) = \cos{(x)}e^{3y} + z^2$, where $x(t) = 5t^2$, $y(t) = 2t$, and $z(t) = \sin{t}$. Determine $\frac{d}{dt} f(x(t),y(t),z(t))$.
+\begin{align*}
+    \frac{d}{dt} f(x,y,z) & = -\sin{(x)}e^{3y} \cdot 10t + 3\cos{(x)}e^{3y} \cdot 2 + 2z \cdot \cos{t} \\
+    & = -10t\sin{(5t^2)}e^{6t} + 6\cos{(5t^2)}e^{6t} + 2\sin{t}\cos{t}
+\end{align*}
+\end{example}
+
+\section*{Chain Rule with Two Independent Variables}
+Consider a function $f(x,y)$, where $x$ and $y$ are both dependent on two variables $s$ and $y$, i.e. $x = x(s,t), y = y(s,t)$. Then, $f$ is again ultimately dependent on $s$ and $t$ only, and we can consider the partial derivatives of $f$ with respect to $s$ and $t$.
+
+\begin{theorem}
+Let $f$ be a function of $x$ and $y$, with $x = x(s,t)$ and $y = y(s,t)$. Then, the first partial derivatives with respect to $s$ and $t$ are
+\begin{align*}
+    \boxed{f_s(x(s,t), y(s,t)) = f_x(x(s,t), y(s,t)) x_s(s,t) + f_y(x(s,t), y(s,t)) y_s(s,t)} \\
+    \boxed{f_t(x(s,t), y(s,t)) = f_x(x(s,t), y(s,t)) x_t(s,t) + f_y(x(s,t), y(s,t)) y_t(s,t)}
+\end{align*}
+If $z = f(x,y)$, then in Leibniz notation,
+\begin{align*}
+    \boxed{\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial s}} \\
+    \boxed{\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial t}}
+\end{align*}
+\end{theorem}
+
+\begin{example}
+Let $f(x,y,z) = x^3 + \ln{(yz)}$, where $x(u,v) = u^2 + v^2$, $y(u,v) = 5v$, and $z(u,v) = uv$. Determine $\frac{\partial f}{\partial u}$ at $(u,v) = (1,2)$.
+\begin{align*}
+    \frac{\partial f}{\partial u} & = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} + \frac{\partial f}{\partial z} \frac{\partial z}{\partial u} \\
+    & = 3x^2 \cdot 2u + \frac{1}{y} \cdot 0 + \frac{1}{z} \cdot v \\
+    & = 6u(u^2 + v^2)^2 + \frac{1}{u}
+\end{align*}
+At $(u,v) = (1,2)$, $\frac{\partial f}{\partial u} = 151$.
+\end{example}
+
+
+
+
+
+
+\end{document}

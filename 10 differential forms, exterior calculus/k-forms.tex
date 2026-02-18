@@ -1,0 +1,238 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{k-Forms}
+
+\begin{document}
+
+\begin{definition}
+A 0-form on $\mathbb{R}^n$ is a function $f: \mathbb{R}^n \mapsto \mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+Let $\phi: \mathbb{R}^n \rightarrow \mathbb{R}$ be a function. $\phi$ is a \textbf{1-form} (or \textbf{linear functional}) on $\mathbb{R}^n$ if for all $\vec{x}$, $\vec{y} \in \mathbb{R}^n$, $a$, $b \in \mathbb{R}$,
+\begin{equation*}
+    \phi(a\vec{x} = b\vec{y}) = a \phi(\vec{x}) + b \phi(\vec{y})
+\end{equation*}
+Alternatively? an expression of the form
+\begin{equation*}
+    F_1(x,y,z) \,dx + F_2(x,y,z) \,dy + F_3(x,y,z) \,dz
+\end{equation*}
+where $F_1$, $F_2$, $F_3$ are functions.
+\begin{itemize}
+    \item The set of all 1-forms on $\mathbb{R}^n$, denoted by $\Lambda_1(\mathbb{R}^n)$, is called the \textbf{dual space} of $\mathbb{R}^n$, a real vector space of $\mathbb{R}^n$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A \textbf{2-form} is a bilinear form on $\mathbb{R}^n$ that is \textbf{anti-symmetric} (or \textbf{skew-symmetric}).
+\\ \\ Alternatively, an expression of the form
+\begin{equation*}
+    F_1(x,y,z) \,dx \wedge dy + F_2(x,y,z) \,dy \wedge dz + F_3(x,y,z) \,dx \wedge dz
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A \textbf{3-form} is an expression of the form
+\begin{equation*}
+    f(x,y,z) \,dx \wedge dy \wedge dz
+\end{equation*}
+\end{definition}
+
+
+\begin{definition}
+A \textbf{k-form} on $\mathbb{R}^n$ is a multilinear anti-symmetric functional $\phi$ defined on $(\mathbb{R}^n)^k$. In other words, $\phi$ maps $(\mathbb{R}^n)^k$ to $\mathbb{R}$.
+\begin{itemize}
+    \item The vector space of all $k$-forms on $\mathbb{R}^n$ is denoted by $\Lambda_k(\mathbb{R}^n)$, and has dimension $n \choose k$, since we can choose $k$ indices from $n$ choices
+\end{itemize}
+\end{definition}
+Intuitively, a $k$-form is the integrand when integrating over a $k$-dimensional object.
+
+\section*{Addition of k-Forms}
+Addition of $k$-forms is defined in the obvious way. For 0-forms,
+\begin{equation*}
+    f + g = 0
+\end{equation*}
+For 1-forms,
+\begin{equation*}
+    (F_1 \,dx + F_2 \,dy + F_3 \,dz) + (G_1 \,dx + G_2 \,dy + G_3 \,dz) = (F_1 + G_1) \,dx + (F_2 + G_2) \,dy + (F_3 + G_3) \,dz
+\end{equation*}
+And so on, adding each corresponding ``component".
+
+All $k$-forms are linear combinations of the elementary $k$-forms
+\begin{equation*}
+    dx_{i_1} \wedge \dots \wedge dx_{i_k}(\vec{v}_1, \dots, \vec{v}_k) = \begin{vmatrix} v_{1i_k} & \dots & v_{1i_k} \\ \vdots & & \vdots \\ v_{ki_1} & \dots & v_{ki_k} \end{vmatrix}
+\end{equation*}
+A basis for $\Lambda_k(\mathbb{R}^n)$ is
+\begin{equation*}
+    dx_{i_1} \wedge \dots \wedge dx_{i_k}
+\end{equation*}
+where $i_1 < i_2 < \dots < i_k$.
+\\ \\ Interchanging the order of two differentials in a $k$-form adds a negative sign if odd number, no change if even number.
+
+\section*{Wedge Product (Exterior Product)}
+\begin{definition}
+Let $\phi$ be a $k$-form, $\psi$ be an $l$-form, such that
+\begin{align*}
+    \phi = \sum_{i_1 < \dots < i_k} a_{i_1, \cdots, i_k} dx_{i_1} \wedge \dots \wedge dx_{i_k} && \psi = \sum_{j_1 < \dots < j_l} b_{ji, \cdots j_l} dx_{j_1} \wedge \dots \wedge dx_{j_l}
+\end{align*}
+Then, the \textbf{wedge product} (or \textbf{exterior product}) $\phi \wedge \psi$, is given by
+\begin{align*}
+    \phi \wedge \psi & = \sum_{i_1 < \dots < i_k, j_1 < \dots j_l} a_{i_1, \dots, i_k} b_{j_1, \dots, j_l} dx_{i_1} \wedge \dots \wedge dx_{i_k} \wedge dx_{j_1} \wedge \dots \wedge dx_{j_l}
+\end{align*}
+where the wedges will likely have to be simplified.
+\end{definition}
+
+\begin{example}
+Let $\phi = 3dx_1 - 4dx_2$, $\psi = dx_1 + dx_3$. Then,
+\begin{align*}
+    \phi \wedge \psi & = 3dx_1 \wedge dx_1 - 4 dx_2 \wedge dx_1 + 3dx_1 \wedge dx_3 - 4 dx_2 \wedge dx_3 \\
+    & = 4 dx_1 \wedge dx_2 - 4dx_2 \wedge dx_3 + 3dx_1 \wedge dx_3
+\end{align*}
+If $\omega = dx_1 \wedge dx_3 \wedge dx_4$, then
+\begin{align*}
+    \phi \wedge \omega & = 3dx_1 \wedge dx_1 \wedge dx_3 \wedge dx_4 - 4 dx_2 \wedge dx_1 \wedge dx_3 \wedge dx_4 \\
+    & = 4 dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4
+\end{align*}
+\end{example}
+Also,
+\begin{align*}
+    \psi \wedge \phi & = (-1)^{kl} \phi \wedge \psi
+\end{align*}
+
+\section*{Differential k-Forms}
+\begin{definition}
+A \textbf{differential k-form} $\Phi$ is a k-form
+\begin{align*}
+    \Phi = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k}
+\end{align*}
+where $a_{i_1}, \dots, a_{i_k}$ are smooth functions (continuous derivatives of all orders).
+\begin{itemize}
+    \item A differential 0-form is a function $f(\vec{x})$ smooth.
+\end{itemize}
+\end{definition}
+
+\section*{Exterior Derivative}
+\begin{definition}
+Let $\Phi$ be a differential $k$-form. The \textbf{exterior derivative} (or \textbf{derivative}) $d: \Phi \mapsto d\Phi$, where $d\Phi$ is a differential $(k+1)$-form.
+\end{definition}
+For 0-forms,
+\begin{equation*}
+    df = \sum \dfrac{df}{dx_i} dx_i
+\end{equation*}
+For $k$-forms,
+\begin{align*}
+    \Phi = \sum a_{i_1, \dots, i_k}(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k} \\
+    d\Phi = \sum \left(da_{i_1, \dots, i_k}) \right) \wedge dx_{i_1} \wedge \dots \wedge dx_{i_j}
+\end{align*}
+
+\begin{example}
+\begin{align*}
+    d(xy) & = y \,dx + x \,dy \\
+    d(x^2 + y^2) & = 2x \,dx + 2y \,dy \\
+    d(xy \,dx + (x^2 + y^2) \,dy) & = (y \,dx + x \,dy) \wedge dx + (2x \,dx + 2y \,dy) \wedge dy \\
+    & = x \,dy \wedge dx + 2x \,dx \wedge dy \\
+    & = x \,dx \wedge dy
+\end{align*}
+\end{example}
+
+\begin{align*}
+    da(\vec{x}) & = \dfrac{\partial a}{\partial x_1} \,dx_1 + \dots + \dfrac{\partial a}{\partial x_n} \,dx_n \\
+    d(a(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k}) & = da(\vec{x}) \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k}
+\end{align*}
+
+\begin{theorem}
+Derivative of the derviative of a differential form is 0.
+\begin{equation*}
+    d(d\Phi) = d^2 \Phi = 0
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Let $\Phi = a(\vec{x}) dx_{i_1} \wedge \dots \wedge dx_{i_k}$. Then,
+\begin{align*}
+    d(d \Phi) & = d\left(\left(\dfrac{\partial a}{\partial x_1} \,dx_1 + \dots + \dfrac{\partial a}{\partial x_n} \,dx_n \right) \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k}\right) \\
+    & = \sum_{j=1}^n d\left(\dfrac{\partial a}{\partial x_j} \,dx_j \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k} \right) \\
+    & = \sum_{j=1}^n d\left(\dfrac{\partial a}{\partial x_j} \right) \wedge dx_j \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k} \\
+    & = \sum_{j=1}^n \sum_{i=1}^n \dfrac{\partial^2 a}{\partial x_j \partial x_i} \,dx_i \wedge dx_j \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k} \\
+\end{align*}
+If $i = j$, then $dx_i \wedge dx_i = 0$. If $i \neq j$, then $dx_i \wedge dx_j = -dx_j \wedge dx_i$. Then,
+\begin{align*}
+    & = \sum_{i < j} \dfrac{\partial^2 a}{\partial x_j \partial x_i} \left(dx_i \wedge dx_j + dx_j \wedge dx_i \right) \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k} \\
+    & = 0
+\end{align*}
+This uses equality of mixed partials.
+\end{proof}
+
+\section*{Connection to Curl}
+Let $\Phi = F_1 \,dx + F_2 \,dy + F_3 \,dz$ be a 1-form. Then,
+\begin{align*}
+    d\Phi & = \left(\dfrac{\partial F_1}{\partial x} \,dx + \dfrac{\partial F_1}{\partial y} \,dy + \dfrac{\partial F_1}{\partial z} \,dz \right)  \wedge dx + \left(\dfrac{\partial F_2}{\partial x} \,dx + \dfrac{\partial F_2}{\partial y} \,dy + \dfrac{\partial F_2}{\partial z} \,dz \right) \wedge dy + \left(\dfrac{\partial F_3}{\partial x} \,dx + \dfrac{\partial F_3}{\partial y} \,dy + \dfrac{\partial F_3}{\partial z} \,dz \right)  \wedge dz \\
+    & = \left(\dfrac{\partial F_3}{\partial y} - \dfrac{\partial F_2}{\partial z} \right) \,dy \wedge dz + \left(\dfrac{\partial F_1}{\partial z} - \dfrac{\partial F_3}{\partial x} \right) \,dz \wedge dx + \left(\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) \,dx \wedge dy
+\end{align*}
+using $dx \wedge dx = 0$. If $\vec{F} = \veciii{F_1}{F_2}{F_3}$, $\vec{G} = \curl{\vec{F}}$. Then,
+\begin{align*}
+    d\Phi = G_1 \,dy \wedge dz + G_2 \,dz \wedge dx + G_3 \,dx \wedge dy
+\end{align*}
+Also, let $\Psi = G_1 \,dy \wedge dz + G_2 \,dz \wedge dx + G_3 \,dx \wedge dy$ (more generally, not necessarily $\vec{G} = \curl{\vec{F}}$). Then,
+\begin{align*}
+    d\Psi & = dG_1 \wedge dy \wedge dz + dG_2 \wedge dz \wedge dx + dG_3 \wedge dx \wedge dy + \dots \\
+    & = \dfrac{\partial G_1}{\partial x} \,dx \wedge dy \wedge dz + \dfrac{\partial G_2}{\partial y} \,dy \wedge dz \wedge dx + \dfrac{\partial G_3}{\partial z} \,dz \wedge dx \wedge dy \\
+    & = \left(\dfrac{\partial G_1}{\partial x} + \dfrac{\partial G_2}{\partial y} + \dfrac{\partial G_3}{\partial z} \right) \,dx \wedge dy \wedge dz
+\end{align*}
+
+\begin{theorem}
+$d(d\Phi) = 0$, $d(d\Psi) = 0$, where $\Phi$ is related to curl above. 
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    d(d\Psi) & = d\left(\left(\dfrac{\partial G_1}{\partial x} + \dfrac{\partial G_2}{\partial y} + \dfrac{\partial G_3}{\partial z} \right) \,dx \wedge dy \wedge dz \right) \\
+    & = 0
+\end{align*}
+$d\Phi = \Psi$, with $\vec{G} = \curl{\vec{F}}$
+\begin{align*}
+    d(d\Phi) & = d\Psi \\
+    & = \div{\vec{G}} \,dx \wedge dy \wedge dz
+\end{align*}
+The theorem says that $0 = d(d\Phi) = \div{(\curl{\vec{F}})} \,dx \wedge dy \wedge dz = 0$.
+\end{proof}
+Let $\vec{F} = \nabla f$. Then,
+\begin{align*}
+    df & = \dfrac{\partial f}{\partial x} \,dx + \dfrac{\partial f}{\partial y} \,dy + \dfrac{\partial f}{\partial z} \,dz \\
+    & = \Phi \\
+    d(df) & = d\Phi = \Psi && \text{curl form}
+\end{align*}
+and so $\curl{(\nabla f)} = \vec{0}$.
+
+
+
+\begin{definition}
+A $k$-form $\Phi$ (on $\mathbb{R}^n$) is \textbf{closed} if $d\Phi = 0$, \textbf{exact} if $\Phi = d\Psi$, for some $(k-1)$-form $\Psi$.
+\begin{itemize}
+    \item e.g. exact 1-forms are of the form
+    \begin{align*}
+        df & = \dfrac{\partial f}{\partial x_1} \,dx_1 + \dots + \dfrac{\partial f}{\partial x_n} \,dx_n \\
+        & = F_1 \,dx_1 + \dots + F_n \,dx_n \\
+        & = \nabla f
+    \end{align*}
+    with $\vec{F} = \nabla f$.
+    \item In $\mathbb{R}^3$, if $\Phi = F_1 \,dx_1 + F_2 \,dx_2 + F_3 \,dx_3$, then
+    \begin{align*}
+        d\Phi & = G_1 \,dx_2 \wedge dx_3 + G_2 \,dx_3 \wedge dx_1 + G_3 \,dx_1 \wedge dx_2
+    \end{align*}
+    where $\vec{G} = \curl{\vec{F}}$. And so $d(df) = 0$ and $\curl{\vec{F}} = \vec{0}$ if $\vec{F} = \nabla f$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+Every exact form is closed.
+\end{theorem}
+\begin{theorem}
+Poincare's lemma. For a star-shaped domain, every closed form is exact.
+\end{theorem}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Generalized Stokes' Theorem}
+
+\begin{document}
+
+\section*{Manifold Pieces with Boundary}
+Let $\mathcal{M}$ be an manifold oriented by $\omega$ k-form, $M \subseteq \mathcal{M}$ be a piece of $\mathcal{M}$ with piecewise smooth boundary $\partial M$.
+\\ \\ The inherited (or induced) orientation on $\partial M$, given by the $(k-1)$-form
+\begin{equation*}
+    \partial \omega(\vec{v}_1, \dots, \vec{v}_{k-1}) = \omega(\vec{n}, \vec{v}_1, \dots, \vec{v}_{k-1})
+\end{equation*}
+where $\vec{n}$ is tangent to $\mathcal{M}$ and perpendicular to $\partial M$, points ``away" from $M$.
+
+\begin{example}
+Let $\mathcal{M} = \mathbb{R}^3$, $M \subseteq \mathcal{M}$ be a region bounded by a closed surface, orientation induced by $dx \wedge dy \wedge dz$.
+\end{example}
+
+\begin{theorem}
+Let $M$ be a $k$-dimensional, oriented, bounded, closed manifold piece with boundary $\partial M$, $\Phi$ be a $(k-1)$ differential form smooth on a neighbourhood of $M$. Then,
+\begin{equation*}
+    \int_{M} d\Phi = \int_{\partial M} \Phi
+\end{equation*}
+\begin{itemize}
+    \item $M$ and $\partial M$ are oriented manifolds, given by $\omega$ on $M$, inherited from $M$ on $\partial M$
+    \item $\partial M$ is $(k-1)$-dimensional, $d\Phi$ has dimension $k$.
+    \item Parametrization of $M$, $\partial M$ should be consistent with orientation. In other words, if $M$ is parametrized by $\vec{p}(u)$, $\vec{T}_j = \partial \vec{p}/ \partial u_j$, then we should have $\omega(\vec{T}_1, \dots, \vec{T}_n) > 0$.
+\end{itemize}
+\end{theorem}
+
+\section*{Connection to Stokes Theorem}
+(Includes Green's theorem in $\mathbb{R}^2$)
+Let $\mathcal{S}$ be a piecewise smooth, oriented surface in $\mathbb{R}^3$, with boundary $\mathcal{C}$, $\Phi = F_1 \,dx + F_2 \,dy + F_3 \,dz$. Then,
+\begin{align*}
+    \int_{\mathcal{S}} \,d\Phi & = \int_{\mathcal{C}} \Phi \\
+    \int_{\mathcal{S}} G_1 \,dy \wedge dz + G_2 \,dz \wedge dx + G_3 \,dx \wedge dy & = \int_{\mathcal{C}} F_1 \,dx + F_2 \,dy + F_3 \,dz \\
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \int_{\mathcal{C}} \vec{F} \bullet d\vec{r}
+\end{align*}
+for $\vec{F} = \veciii{F_1}{F_2}{F_3}$, $\vec{G} = \veciii{G_1}{G_2}{G_3} = \curl{\vec{F}}$.
+
+
+\section*{Connection to Divergence Theorem}
+Let $M$ be a domain in $\mathbb{R}^3$, bounded by a smooth surface $\mathcal{S}$, with normal vector outward. Let $\Psi = G_1 \,dy \wedge dz + G_2 \,dz \wedge dx + G_3 \,dx \wedge dy$. Then,
+\begin{align*}
+    \int_{M} d\Psi & = \int_{\mathcal{S}} \Psi \\
+    \int_{M} \div{\vec{G}} \,dx \,dy \,dz & = \int_{\mathcal{S}} \vec{G} \bullet d\vec{S}
+\end{align*}
+In $\mathbb{R}^n$, let $M$ be a domain in $\mathbb{R}^n$, bounded by a $(n-1)$-dimensional hypersurface $\partial M = \mathcal{S}$. Let $\Psi = G_1 \,dx_2 \wedge \cdots \wedge dx_n + G_2 \,dx_3 \wedge \cdots \wedge dx_n \wedge dx_1 + \dots + G_n dx_1 \wedge \cdots \wedge dx_{n-1}$. Then,
+\begin{align*}
+    d(G_1 \,dx_2 \wedge \cdots \wedge dx_n) & = \left(\dfrac{\partial G_1}{\partial x_1} dx_1 + \dots \right) \wedge dx_2 \wedge dx_n \\
+    & = \dfrac{\partial G_1}{\partial x_1} \,dx_1 \wedge \cdots \wedge dx_n \\
+    d(G_2 \,dx_3 \wedge \cdots \wedge dx_n \wedge dx_1) & = \left(\dfrac{\partial G_2}{\partial x_2} dx_2 + \dots \right) \wedge dx_3 \wedge \cdots \wedge dx_n \wedge dx_1 \\
+    & = \dfrac{\partial G_2}{\partial x_2} \wedge dx_2 \wedge dx_3 \wedge \cdots \wedge dx_n \wedge dx_1 \\
+    & = (-1)^{n-1} \dfrac{\partial G_2}{\partial x_2} \wedge dx_1 \wedge dx_2 \wedge dx_3 \wedge \cdots \wedge dx_n \wedge
+\end{align*}
+Thus,
+\begin{align*}
+    d\Psi & = \left(\dfrac{\partial G_1}{\partial x_1} + (-1)^{n-1} \dfrac{\partial G_2}{\partial x_2} + (-1)^{n-2} \dfrac{\partial G_3}{\partial x_3} + \dots + \dfrac{\partial G_n}{\partial x_n} \right) \,dx_1 \wedge \cdots \wedge dx_n
+\end{align*}
+
+\begin{example}
+In $\mathbb{R}^4$, let $D = \set{\vec{x} \in \mathbb{R}^4: x_1^2 + x_2^2 \leq 4, x_3^2 + x_4^2 \leq 9}$, with boundary $\partial D$, $\Phi = x_1^3 \,dx_2 \wedge dx_3 \wedge dx_4 - x_2^3 \,dx_3 \wedge dx_4 \wedge dx_1$.
+\begin{align*}
+    d\Phi & = 3x_1^2 \,dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4 - 3x_2^2 \,dx_2 \wedge dx_3 \wedge dx_4 \wedge dx_1 \\
+    & = (3x_1^2 + 3x_2^2) \,dx_1 \wedge dx_2 \wedge dx_3 \wedge dx_4
+\end{align*}
+Using generalized Stokes' theorem,
+\begin{align*}
+    \int_{\partial D} \Phi & = \int_{D} d\Phi \\
+    & = \int_{D} (3x_1^2 + 3x_2^2) \,dx_1 \,dx_2 \,dx_3 \,dx_4 \\
+    & = \iint_{x_3^2 + x_4^2 \leq 9} \iint_{x_1^2 + x_2^2 \leq 4} 3(x_1^2 + x_2)^2 \,dx_1 \,dx_2 \,dx_3 \,dx_4 \\
+    & = 9\pi \cdot 28\pi \\
+    & = 252\pi^2
+\end{align*}
+using polar coordinates.
+\end{example}
+
+
+\section*{Stokes' Theorem}
+Recall: Stokes' theorem in $\mathbb{R}^3$.
+\begin{equation*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
+\end{equation*}
+
+
+
+
+\begin{theorem}
+Let $\omega$ be a $k$-form, $D$ be a $(k+1)$-dimensional region of integration. Then,
+\begin{equation*}
+    \int_{D} \,d\omega = \int_{\partial D} \omega
+\end{equation*}
+For $k = 0$, Stokes' theorem simplifies to the Fundamental theorem of calculus. For $k = 1$, it simplifies to Green's theorem and the ``regular" Stokes theorem, and for $k = 2$, it simplifies to the divergence theorem.
+\end{theorem}
+
+\end{document}
+

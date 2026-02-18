@@ -1,0 +1,42 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Introduction to Vector-Valued Functions}
+
+\begin{document}
+
+Recall that vectors, in particular position vectors, can be used to specify the position of an object in space. For example, a particle might have position $\vec{r} = \veciii{x}{y}{z}$. In order to describe the trajectory of this particle over time, we can make each component vary with respect to the parameter of time $t$, or $\vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)}$. Then, $\vec{r}(t)$ is a function with a scalar input $t$ and a vector output $\vec{r}(t)$, and is called a \textit{vector-valued function}.
+
+\section*{Vector-Valued Functions}
+\begin{definition}
+A \textbf{vector-valued function} (or \textbf{vector function}) of a single real variable is a function of the form,
+\begin{equation*}
+    \boxed{\vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)} = x(t)\ihat + y(t)\jhat + z(t)\khat}
+\end{equation*}
+where $f$, $g$, and $h$ are called the \textbf{component functions}, and are functions of the parameter $t$, and $\vec{r}(t)$ is defined for all $t$ in some interval $I$.
+\begin{itemize}
+    \item Vector functions have inputs of real numbers, and outputs of 3D vectors.
+    \item $t$ is the most common parameter, as a vector function's input often represents time. Sometimes, $s$, $x$, or $\theta$ is used.
+    \item $\vec{r}$, $\vec{u}$, $\vec{v}$, and $\vec{w}$ are typically used to represent vector-valued functions.
+    \item The largest domain for a vector-valued function is the intersection of the domains of $f$, $g$, and $h$.
+\end{itemize}
+\end{definition}
+
+A vector function can be graphed by plotting the \textit{terminal point} of the vector $\vec{r}(t)$ in standard position for varying $t$. More generally, the component functions can be labelled as $f(t), g(t), h(t)$, respectively.
+
+\section*{Vector-Valued Functions as Parametric Equations}
+Vector-valued functions can equivalently be viewed as a set of 3 parametric equations, where the point $(x,y,z)$ is given by $x = x(t), y = y(t), z = z(t)$. Notice that in effect, a vector-valued function is a set of 3 parametric equations,
+\begin{equation*}
+    \begin{pmatrix} \text{vector-valued function} \\ \vec{r}(t) = \veciii{x(t)}{y(t)}{z(t)} \end{pmatrix} \quad \iff \quad \begin{pmatrix} \text{3 parametric equations} \\ \begin{cases} x = x(t) \\ y = y(t) \\ z = z(t) \end{cases} \end{pmatrix}
+\end{equation*}
+
+The advantage to vector-valued functions is that the theory of vectors can be used to analyze the curve in space formed by the equations, by analyzing how the position vector $\vec{r}(t)$ changes as $t$ varies.
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,202 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Double Integrals as Iterated Integrals}
+
+\begin{document}
+
+\section*{Double Integrals as Iterated Integrals (Fubini's Theorem)}
+
+\begin{theorem}
+If $f(x,y)$ is continuous on the rectangle $R = [a,b] \times [c,d]$, then
+\begin{equation*}
+    \boxed{\int_R f(x,y) dA = \int_a^b \brac{\int_c^d f(x,y) \,dy} dx = \int_c^d \brac{\int_a^b f(x,y) \,dx} dy}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Beyond the scope.
+\end{proof}
+
+\begin{example}
+Let $f(x,y) = x + y$ on $D = [0,2] \times [0,1]$. Then,
+\begin{align*}
+    \int_{D} f(x,y) dA & = \int_{0}^{1} \int_{0}^{2} (x+y)dx \,dy \\
+    & = \int_{0}^{1} \eval{\brac{\dfrac{x^2}{2} + yx}}_{0}^{2} dy \\
+    & = \int_{0}^{1} (2 + 2y) dy \\
+    & = \eval{\brac{2y + y^2}}_0^1 \\
+    & = 3
+\end{align*}
+\end{example}
+
+\begin{example}
+$\int_1^4 \int_0^2 \brac{6x^2+y^2} \,dx \,dy$.
+\end{example}
+
+\begin{example}
+$\int_0^1 \int_{4y}^4 e^{x^2} \,dx \,dy$. Hint: reverse the order of integration.
+\end{example}
+
+\section*{Iterated Integrals}
+Intuitively, we are integrating ``from curve to curve" and then ``from point to point".
+\section*{Area of a Rectangle}
+Determine the area of the rectangle bounded by $(a,c)$, $(a,d)$, $(b,c)$, $(b,d)$, where $b > a$ and $d > c$. The region $R$ is given by $R = \set{(x,y): a \leq x \leq b, c \leq y \leq d}$. Then,
+\begin{align*}
+    A = \int_{a}^{b} \int_{c}^{d} \,dy \,dx = \int_{a}^{b} (d - c) \,dx = (d - c)(b - a)
+\end{align*}
+which is just as expected.
+
+\section*{Area of a Triangle}
+The area of a triangle can be determined using double integrals.
+
+\section*{Double Integral over a Rectangle}
+If the region of integration is a rectangle (the limits of integration are all constants) and the function can be written as a product of a function of $x$ and function of $y$, then the integral can be split up into the product of two single integrals.
+\begin{theorem}
+Let $f(x,y)$ be a function such that $f(x,y) = g(x)h(y)$, $R$ be the rectangle $R = \set{(x,y): a \leq x \leq b, c \leq y \leq d}$. Then,
+\begin{equation*}
+    \iint_{R} f(x,y) \,dx \,dy = \int_{a}^{b} \int_{c}^{d} g(x)h(y) \,dy \,dx = \left(\int_{a}^{b} g(x) \,dx \right) \left(\int_{c}^{d} h(y) \,dy \right)
+\end{equation*}
+\end{theorem}
+Intuitively, this works because $g$ and $dx$ are constant with respect to the inner $y$-integral, so they can be ``pulled" out to the left. Similarly, $h$ and $dy$ are constant with respect to the $x$-integral, so they can be ``pulled" out to the right.
+
+\section*{Area of a Region}
+Recall that the length of an interval $[a,b]$ is given by
+\begin{equation*}
+    \int_{a}^{b} \,dx = b - a
+\end{equation*}
+In other words, the integral from $a$ to $b$ of the function $f(x) = 1$. In a similar way, the area of a region in $\mathbb{R}^2$ is given by the integral of 1 over that region.
+\begin{equation*}
+    \boxed{\iint_{D} dA = \text{area of $D$}}
+\end{equation*}
+
+
+
+
+\section*{Double Integral over a Simple Domain}
+\begin{definition}
+A domain $D \subset \mathbb{R}^2$ is \textbf{y-simple} if $D$ is bounded by vertical lines $x = a$ and $x = b$, and by continuous curves $y = c(x)$ and $y = d(x)$.
+\begin{itemize}
+    \item Similarly, $D$ is \textbf{x-simple} if $D$ is bounded by horizontal lines $y = c$ and $y = d$, and by continuous curves $x = a(y)$ and $x = b(y)$.
+\end{itemize}
+\end{definition}
+    
+\begin{definition}
+A domain $D \subset \mathbb{R}^2$ is \textbf{regular} if and only if $D$ is $x$-simple and $y$-simple.
+\end{definition}
+
+\begin{theorem}
+If $f(x,y)$ is continuous on the $y$-simple domain $D = \set{(x,y): a \leq x \leq b, c(x) \leq y \leq d(x)}$, then
+\begin{align*}
+    \iint_{D} f(x,y) dA & = \int_a^b \int_{c(x)}^{d(x)} f(x,y) \,dy \,dx
+\end{align*}
+Similarly, if $f(x,y)$ is continuous on the $x$-simple domain $D = \set{(x,y): a(y) \leq x \leq b(y), c \leq y \leq d}$, then
+\begin{align*}
+    \iint_{D} f(x,y) dA & = \int_c^d \int_{a(y)}^{b(y)} f(x,y) \,dx \,dy
+\end{align*}
+\end{theorem}
+
+\begin{example}
+Determine $\int_{D} x^2y \,dA$ for $D = \set{(x,y): 0 \leq y \leq x, 0 \leq x \leq 1}$
+\begin{align*}
+    \int_{D} x^2y \,dA & = \int_{0}^{1} \int_{0}^{x} x^2y \,dy \,dx = \int_{0}^{1} \eval{\dfrac{x^2y^2}{2}}_{y=0}^{y=x} \,dx = \int_{0}^{1} \dfrac{x^4}{4} \,dx = \eval{\dfrac{x^5}{10}}_0^1 = \dfrac{1}{10}
+\end{align*}
+Alternatively,
+\begin{align*}
+    \int_{0}^{1} \int_{y}^{1} x^2y \,dx \,dy
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the area above $0 \leq x \leq 2$, below the parabola $y = x^2$.
+\begin{align*}
+    A = \int_{D} \,dA = \int_{0}^{2} \int_{0}^{x^2} \,dy \,dx = \int_{0}^{2} \eval{y}_{y=0}^{y=x^2} \,dx = \int_{0}^{2} x^2 \,dx
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \int_{\pi/4}^{\pi/3} \int_{\cos{x}}^{\sin{x}} \,dy \,dx
+\end{equation*}
+\begin{align*}
+    \int_{\pi/4}^{\pi/3} \int_{\cos{x}}^{\sin{x}} \,dy \,dx & = \int_{\pi/4}^{\pi/3} \brac{\sin{x} - \cos{x}} \,dx \\
+    & = \eval{\brac{-\cos{x} - \sin{x}}}_{\pi/4}^{\pi/3} \\
+    & = \frac{-1-\sqrt{3}}{2} + \sqrt{2}
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \int_0^{\pi/2} \int_0^{5y\cos{y}} \,dx \,dy
+\end{equation*}
+\begin{align*}
+    \int_0^{\pi/2} \int_0^{5y\cos{y}} \,dx \,dy & = \int_0^{\pi/2} 5y\cos{y} \,dy \\
+    & = 5 \eval{\brac{y\sin{y} + \cos{y}}}_0^{\pi/2} && \text{by integration by parts} \\
+    & = 5 \cdot \brac{\frac{\pi}{2} - 1}
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \iint_R y^2 \,dA
+\end{equation*}
+where $R$ is the region bounded by $x = 2$, $y = 3x + 6$, and $y = -x - 2$.
+\\ \\ The region can be described by $-2 \leq x \leq 2, -x - 2 \leq y \leq 3x + 6$. Then,
+\begin{align*}
+    \iint_R y^2 \,dA & = \int_{-2}^2 \int_{-x-2}^{3x+6} y^2 \,dy \,dx \\
+    & = \int_{-2}^2 \eval{\frac{y^3}{3}}_{-x-2}^{3x+6} \,dx \\
+    & = \int_{-2}^2 \frac{1}{3}\brac{(3x + 6)^3 - (-x - 2)^3} \,dx
+\end{align*}
+Here, we could expand the cubic expressions and collect like terms, however notice that $3x + 6 = 3(x + 2)$ and $-x - 2 = -(x + 2)$, so
+\begin{align*}
+    & = \frac{1}{3} \int_{-2}^2 \brac{(3(x + 2))^3 - (-(x + 2))^3} \,dx \\
+    & = \frac{1}{3} \int_{-2}^2 \brac{27(x + 2)^3 + (x + 2)^3} \,dx \\
+    & = \frac{28}{3} \int_{-2}^2 (x + 2)^3 \,dx \\
+    & = \frac{28}{3} \eval{\frac{(x + 2)^4}{4}}_{-2}^2 \\
+    & = \frac{28}{3} \cdot 64 \\
+    & = \frac{1792}{3}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the volume of the solid above the region $R = \set{(x,y): 0 \leq x \leq 2, 0 \leq y \leq 4 - x}$ and between the planes $-5x - 3y + z = 0$ and $-3x - y + z = 12$.
+\begin{figure}[H]
+    \centering
+    \includegraphics{images/double-integral-1.png}
+\end{figure}
+The integrand is the height of the solid at a point $(x,y)$, i.e. the difference in $z$-values between the planes. Solving for $z$ in each equation, we get
+\begin{align*}
+    z & = 3x + y + 12 \\
+    z & = 5x + 3y
+\end{align*}
+so the integrand is $3x + y + 12 - (5x + 3y) = -2x - 2y + 12$. Then,
+\begin{align*}
+    V & = \iint_R (-2x - 2y + 12) \,dA \\
+    & = \int_0^2 \int_0^{4-x} (-2x - 2y + 12) \,dy \,dx \\
+    & = \int_0^2 \eval{\brac{-2xy - y^2 + 12y}}_0^{4-x} \,dx \\
+    & = \int_0^2 \brac{-2x(4 - x) - (4 - x)^2 + 12(4 - x)} \,dx \\
+    & = \int_0^2 \brac{x^2 - 12x + 32} \,dx && \text{simplifying} \\
+    & = \eval{\brac{\frac{x^3}{3} - 6x^2 + 32x}}_0^2 \\
+    & = \frac{128}{3}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the volume of the column with a square base $R = \set{(x,y): \abs{x} \leq 4, \abs{y} \leq 4}$, cut by the plane $z = 11 - x - y$.
+\\ \\ Notice that $\abs{x} \leq 4$ implies that $-4 \leq x \leq 4$, and similarly $\abs{y} \leq 4$ implies that $-4 \leq y \leq 4$. Also notice that $z = 11 - x - y$ is positive in this region $R$. Then,
+\begin{align*}
+    V & = \iint_R (11 - x - y) \,dA \\
+    & = \int_{-4}^4 \int_{-4}^4 (11 - x - y) \,dy \,dx
+\end{align*}
+Note that in this example, we can integrate in either order.
+\begin{align*}
+    & = \int_{-4}^4 \eval{\brac{11y - xy - \frac{y^2}{2}}}_{-4}^4 \,dx \\
+    & = \int_{-4}^4 88 \,dx \\
+    & = 88 \cdot 8 \\
+    & = 704
+\end{align*}
+Thus, the volume is 704 cubic units.
+\end{example}
+
+\end{document}

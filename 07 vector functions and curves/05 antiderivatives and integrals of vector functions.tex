@@ -1,0 +1,31 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{}
+
+\begin{document}
+
+\section*{Antiderivatives (Integrals) of Vector Functions}
+As with regular functions, we can consider antidifferentiation of vector functions, which works in the same way.
+
+\begin{definition}
+Let $\vec{r}$ be a vector function. A function $\vec{R}$ is an \textbf{antiderivative} of $\vec{r}$ on an interval $I$ if $\vec{R}'(t) = \vec{r}(t)$ on $I$.
+\end{definition}
+
+\begin{definition}
+Let $\vec{r}$ be a vector function. The \textbf{general antiderivative} (or \textbf{indefinite integral}) of $\vec{r}$ on an interval $I$ is the set of all functions of the form $\vec{R}(t) + \vec{C}$, where $\vec{R}$ is any antiderivative of $\vec{r}$, and $\vec{C}$ is an arbitrary constant vector. It is denoted by,
+\begin{equation*}
+    \int \vec{r}(t) \,dt = \vec{R}(t) + \vec{C}
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $\vec{r}(t) = \veciii{f(t)}{g(t)}{h(t)}$ where $f, g, h$ are integrable functions on $[a,b]$. Then, the \textbf{definite integral} of $\vec{r}$ on an interval $[a,b]$, denoted by $\int_a^b \vec{r}(t) \,dt$, is defined by,
+\begin{equation*}
+    \int_a^b \vec{r}(t) \,dt = \veciii{\int_a^b f(t) \,dt}{\int_a^b g(t) \,dt}{\int_a^b h(t) \,dt}
+\end{equation*}
+\end{theorem}
+
+Integration is done componentwise. Note that the definite integral of a vector function is a vector (constant), and in particular is not a real number.
+
+\end{document}

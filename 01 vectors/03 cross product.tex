@@ -1,0 +1,321 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Cross Product}
+
+\begin{document}
+
+\section*{Motivation of Cross Product as Plane and Normal Vector}
+Let $P, Q, R$ be 3 distinct points in $\mathbb{R}^3$, that are not all on the same line (i.e. not collinear). Intuitively, geometrically, there is a unique plane that contains all 3 points. To determine a plane, you need a normal vector. This normal vector needs to be perpendicular to every vector in the plane. In particular, it needs to be perpendicular to $\overrightarrow{PQ}$ and $\overrightarrow{PR}$. It turns out that this is enough information to determine the normal vector.
+\\ \\ Let $\vec{v}, \vec{w} \in \mathbb{R}^3$ be vectors. Then, there is a unique vector (up to a scalar multiple) that is perpendicular to both $\vec{v}$ and $\vec{w}$, called the \textit{cross product} of $\vec{v}$ and $\vec{w}$.
+\\ \\ We can derive its formula. If $\vec{x}$ is this vector, then $\vec{v} \bullet \vec{x} = 0$ and $\vec{w} \bullet \vec{x} = 0$. If $\vec{x} = (x_1, x_2, x_3), \vec{v} = (v_1, v_2, v_3), \vec{w} = (w_1, w_2, w_3)$, then, the vector $\vec{x}$ satisfies the system of equations,
+\begin{align*}
+    v_1 x_1 + v_2 x_2 + v_3 x_3 & = 0 \\
+    w_1 x_1 + w_2 x_2 + w_3 x_3 & = 0
+\end{align*}
+Then, by solving this system of equations, we will get a vector that is perpendicular to both $\vec{v}$ and $\vec{w}$. There are 2 equations and 3 variables, so we expect that there are infinitely many solutions in general. The coefficient matrix is,
+\begin{equation*}
+    \begin{bmatrix} v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{bmatrix}
+\end{equation*}
+Then, converting to RREF,
+\begin{equation*}
+    \begin{bmatrix} 1 & 0 & \frac{v_2 w_3 - v_3 w_2}{v_2 w_1 - v_1 w_2} \\ 0 & 1 & \frac{v_3 w_1 - v_1 w_3}{v_2 w_1 - v_1 w_2} \end{bmatrix}
+\end{equation*}
+which correspond to the equations,
+\begin{align*}
+    x_1 + \frac{v_2 w_3 - v_3 w_2}{v_2 w_1 - v_1 w_2} x_3 & = 0 \\
+    x_2 + \frac{v_3 w_1 - v_1 w_3}{v_2 w_1 - v_1 w_2} x_3 & = 0
+\end{align*}
+Here, $x_3$ is a free variable, as expected, and the general solution is,
+\begin{align*}
+    \begin{bmatrix} \frac{v_3 w_2 - v_2 w_3}{v_2 w_1 - v_1 w_2} x_3 \\ \frac{v_1 w_3 - v_3 w_1}{v_2 w_1 - v_1 w_2} x_3 \\ x_3 \end{bmatrix} = x_3 \begin{bmatrix} \frac{v_3 w_2 - v_2 w_3}{v_2 w_1 - v_1 w_2} \\ \frac{v_1 w_3 - v_3 w_1}{v_2 w_1 - v_1 w_2} \\ 1 \end{bmatrix}
+\end{align*}
+As expected, there are infinitely many solutions, corresponding to various values of $x_3$. For the cross product, it turns out that a convenient solution is $x_3 = -(v_2 w_1 - v_1 w_2)$. This solution cancels out the denominator, which cleans up the algebra. Also, the negative sign will turn out to mean that the cross product follows the so-called \textit{right-hand rule}. Then, the solution is,
+\begin{equation*}
+    \veciii{v_2 w_3 - v_3 w_2}{v_3 w_1 - v_1 w_2}{v_1 w_2 - v_2 w_1}
+\end{equation*}
+
+\section*{Cross Product}
+\begin{definition}
+Let $\vec{v}, \vec{w} \in \mathbb{R}^3$. The \text{cross product} of $\vec{v}$ and $\vec{w}$, denoted by $\vec{v} \times \vec{w}$, is given by,
+\begin{equation*}
+    \boxed{\vec{v} \times \vec{w} = \veciii{v_2 w_3 - v_3 w_2}{v_3 w_1 - v_1 w_3}{v_1 w_2 - v_2 w_1}}
+\end{equation*}
+\end{definition}
+
+The entries of the cross product seem complicated, but it is helpful to notice they are $2 \times 2$ determinants,
+\begin{equation*}
+    \vec{v} \times \vec{w} = \veciii{\begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix}}{-\begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix}}{\begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix}}
+\end{equation*}
+Further, you may notice that this has the form of a $3 \times 3$ determinant that has been expanded into $2 \times 2$ minors. In particular, using the standard basis vectors,
+\begin{align*}
+    \vec{v} \times \vec{w} & = \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \ihat - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \jhat + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \khat
+\end{align*}
+This has the form of the expansion of the determinant,
+\begin{equation*}
+    \begin{vmatrix} \ihat & \jhat & \khat \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}
+\end{equation*}
+Strictly speaking, this is a formal expansion, meaning it is purely symbolic. This is because a determinant is defined for a matrix with number entries and outputs a number, whereas this has vector entries like $\ihat$ and $\jhat$ and outputs a vector. This is the formula that is typically used to compute the cross product by-hand.
+
+\begin{theorem}
+\textbf{Cross product determinant formula}.
+\begin{equation*}
+    \boxed{\vec{v} \times \vec{w} = \begin{vmatrix} \ihat & \jhat & \khat \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix} = \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \ihat - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \jhat + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \khat}
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+The cross product has magnitude given by $\abs{\vec{v} \times \vec{w}} = \abs{\vec{v}} \abs{\vec{w}} \sin{\theta}$, where $\theta$ is the angle between $\vec{v}$ and $\vec{w}$, $\theta \in [0,\pi]$
+\end{theorem}
+
+\begin{proof}
+This formula can be shown from tedious algebra. First,
+\begin{align*}
+    \abs{\vec{v} \times \vec{w}}^2 & = (v_2 w_2 - v_3 w_2)^2 + (v_3 w_1 - v_1 w_3)^2 + (v_1 w_2 - v_2 w_2)^2 \\
+    & = v_2^2 w_3^2 + v_3^2 w_2^2 + v_3^2 w_1^2 + v_1^2 w_3^2 + v_1^2 w_2^2 + v_2^2 w_1^2 - 2v_2 w_2 v_3 w_2 - 2v_3 w_1 v_1 w_3 - 2 v_1 w_2 v_2 w_1
+\end{align*}
+Then, on the other hand,
+\begin{align*}
+    \brac{\abs{\vec{v} \abs{\vec{w}} \sin{\theta}}}^2 & = \abs{\vec{v}}^2 \abs{\vec{w}}^2 \sin^2{\theta} \\
+    & = \abs{\vec{v}}^2 \abs{\vec{w}}^2 \brac{1 - \cos^2{\theta}} \\
+    & = \abs{\vec{v}}^2 \abs{\vec{w}}^2 - \abs{\vec{v}}^2 \abs{\vec{w}}^2 \cos^2{\theta} \\
+    & = \abs{\vec{v}}^2 \abs{\vec{w}}^2 - \brac{\vec{v} \vec{w} \cos{\theta}}^2 \\
+    & = \abs{\vec{v}}^2 \abs{\vec{w}}^2 - \brac{\vec{v} \bullet \vec{w}}^2 \\
+    & = \brac{v_1^2 + v_2^2 + v_3^2} \brac{w_1^2 + w_2^2 + w_3^2} - \brac{v_1 w_1 + v_2 w_2 + v_3 w_3}^2
+\end{align*}
+This expression, when expanded, is equal to the previous expression for $\abs{\vec{v} \times \vec{w}}^2$. Thus, $\abs{\vec{v} \times \vec{w}}^2 = \brac{\abs{\vec{v} \abs{\vec{w}} \sin{\theta}}}^2$, and so $\abs{\vec{v} \times \vec{w}} = \abs{\vec{v} \abs{\vec{w}} \sin{\theta}}$.
+\end{proof}
+
+Then, if $\vec{v}$ and $\vec{w}$ are parallel, then $\vec{v} \times \vec{w} = \vec{0}$.
+
+\begin{theorem}
+Direction being perpendicular to both $\vec{v}$ and $\vec{w}$, given by the right hand rule.
+\end{theorem}
+
+This means that the thumb, forefinger, and middle finger of the right hand can be made to point in the directions of $\vec{v}, \vec{w}$ and $\vec{v} \times \vec{w}$, respectively.
+
+\begin{theorem}
+$\vec{v} \times \vec{w} = \vec{0}$ if and only if $\vec{v} = \vec{0}$, $\vec{w} = \vec{0}$, or $\theta = 0$. That is, for vectors $\vec{v}, \vec{w} \neq \vec{0}$, $\vec{v} \times \vec{w} = \vec{0}$ if and only if $\vec{v}$ and $\vec{w}$ are parallel (or antiparallel).
+\end{theorem}
+
+Observe the contrast between the previous theorem, and the theorem that $\vec{v} \bullet \vec{w} = 0$ if and only if $\vec{v}$ and $\vec{w}$ are perpendicular.
+
+
+\section*{Verification of the Cross Product}
+It can be verified that $\vec{v} \times \vec{w}$ is indeed perpendicular to $\vec{v}$ and $\vec{w}$, by verifying that $\vec{v} \bullet (\vec{v} \times \vec{w}) = 0$ and $\vec{w} \bullet (\vec{v} \times \vec{w}) = 0$.
+
+\begin{theorem}
+The cross product $\vec{v} \times \vec{w}$ is perpendicular to both $\vec{v}$ and $\vec{w}$.
+\end{theorem}
+
+\section*{Properties of the Cross Product}
+
+\begin{theorem}
+\begin{itemize}
+    \item \textbf{Anti-commutative property}.
+    \begin{equation*}
+        \vec{v} \times \vec{w} = - (\vec{w} \times \vec{v})
+    \end{equation*}
+    \item \textbf{Distributive property}.
+    \begin{align*}
+        \vec{u} \times (\vec{v} + \vec{w}) & = \vec{u} \times \vec{v} + \vec{u} \times \vec{w} \\
+        (\vec{u} + \vec{v}) \times \vec{w} & = \vec{u} \times \vec{w} + \vec{v} \times \vec{w}
+    \end{align*}
+\end{itemize}
+Also, the dot product is not associative.
+\end{theorem}
+
+\section*{Examples}
+\begin{example}
+If $\vec{v} = \veciii{1}{2}{-1}$ and $\vec{w} = \veciii{1}{0}{3}$, then
+\begin{align*}
+    \vec{v} \times \vec{w} & = \begin{vmatrix}
+    \ihat & \jhat & \hat{k} \\
+    1 & 2 & -1 \\
+    1 & 0 & 3
+    \end{vmatrix} \\
+    & = \begin{vmatrix} 2 & -1 \\ 0 & 3 \end{vmatrix} \ihat - \begin{vmatrix} 1 & -1 \\ 1 & 3 \end{vmatrix} \jhat + \begin{vmatrix} 1 & 2 \\ 1 & 0 \end{vmatrix} \hat{k} \\
+    & = 6\ihat - 4\jhat - 2\hat{k}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\vec{u} = u_1 \ihat = u_2 \jhat$, $\vec{v} = v_1 \ihat + v_2 \jhat$ (in $\mathbb{R}^3$). Then,
+\begin{equation*}
+    \vec{u} \times \vec{v} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ u_1 & u_2 & 0 \\ v_1 & v_2 & 0 \end{vmatrix} = \begin{vmatrix} u_2 & 0 \\ v_2 & 0 \end{vmatrix} \ihat - \begin{vmatrix} u_1 & 0 \\ v_1 & 0 \end{vmatrix} \jhat + \begin{vmatrix} u_1 & u_2 \\ v_1 & v_2 \end{vmatrix} \hat{k} = (u_1 v_2 - u_2 v_1) \hat{k}
+\end{equation*}
+The resulting vector $\vec{u} \times \vec{v}$ only has a $\hat{k}$ component, so it is perpendicular to both $\vec{u}$ and $\vec{v}$.
+\end{example}
+
+\begin{itemize}
+    \item Finding the area of a triangle using cross product, volume of a parallelepiped, bonus problem see exercises
+\end{itemize}
+
+\section*{Area of a Triangle Using the Cross Product}
+\begin{theorem}
+Let $\bigtriangleup ABC$ be a triangle. Then the area of the triangle is given by,
+\begin{equation*}
+    \boxed{A = \frac{1}{2} \abs{\avec{AB} \times \avec{AC}}}
+\end{equation*}
+\end{theorem}
+
+\section*{Scalar Triple Product}
+\begin{definition}
+Let $\vec{u}, \vec{v}, \vec{w}$ be vectors. The \textbf{scalar triple product} is the dot product of one of the vectors with the cross product of the other two. For example, the quantity,
+\begin{equation*}
+    \vec{u} \bullet (\vec{v} \times \vec{w})
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $\vec{u} = u_1 \ihat + u_2 \jhat + u_3 \hat{k}$, $\vec{v} = v_1 \ihat + v_2 \jhat + v_3 \hat{k}$, $\vec{w} = w_1 \ihat + w_2 \jhat + w_3 \hat{k}$. The scalar triple product can be expressed as the determinant,
+\begin{equation*}
+    \boxed{\vec{u} \bullet (\vec{v} \times \vec{w}) = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    \vec{u} \bullet (\vec{v} \times \vec{w}) & = (u_1 \ihat + u_2 \jhat + u_3 \hat{k}) \bullet \left(\begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \ihat - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \jhat + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \hat{k} \right) \\
+    & = u_1 \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} - u_2 \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} + u_3 \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \\
+    & = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+The scalar triple product is associative only in the same cyclic order. That is, rearranging the scalar triple product with same cyclic order does not change the quantity,
+\begin{equation*}
+    \vec{u} \bullet (\vec{v} \times \vec{w}) = \vec{v} \bullet (\vec{w} \times \vec{u}) = \vec{w} \bullet (\vec{u} \times \vec{v})
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+Rearranging the scalar triple product, reversing the order of one pair of vectors introduces a factor of $-1$.
+\end{theorem}
+
+\begin{theorem}
+The three vectors $\vec{u}$, $\vec{v}$, $\vec{w}$ are coplanar if and only if $\vec{u} \bullet (\vec{v} \times \vec{w})$.
+\begin{itemize}
+    \item Equivalently, at least one of them are zero, or any pair of vectors are parallel, or one vector can be written as a linear combination of the other two.
+\end{itemize}
+\end{theorem}
+
+Scalar triple product and linear combinations and span.
+
+\begin{theorem}
+If $\vec{u} \bullet (\vec{v} \times \vec{w}) \neq 0$, then every $\vec{x} \in \mathbb{R}^3$ can be written as a linear combination of $\vec{u}, \vec{v}, \vec{w}$.
+\end{theorem}
+
+\begin{theorem}
+Let $\vec{u}, \vec{v}, \vec{w}$ be vectors in $\mathbb{R}^3$, such that $\vec{v} \times \vec{w} \neq \vec{0}$. If $\vec{u} \bullet (\vec{v} \times \vec{w}) = 0$, then,
+\begin{equation*}
+    \vec{u} = \lambda \vec{v} + \mu \vec{w}
+\end{equation*}
+for some $\lambda, \mu \in \mathbb{R}$.
+\end{theorem}
+
+\section*{Volume of a Parallelepiped Using the Scalar Triple Product}
+\begin{theorem}
+The volume of a parallelepiped spanned by vectors $\vec{u}$, $\vec{v}$, and $\vec{w}$ is
+\begin{equation*}
+    V = \abs{\vec{u} \bullet (\vec{v} \times \vec{w})}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+The base area of the parallelepiped is $\abs{\vec{v} \times \vec{w}}$, and the height is $\abs{\operatorname{proj}_{\vec{v} \times \vec{w}}(\vec{u})}$. Thus,
+\begin{align*}
+    V & = \abs{\vec{v} \times \vec{w}} \abs{\operatorname{proj}_{\vec{v} \times \vec{w}}(\vec{u})} \\
+    & = \abs{\vec{v} \times \vec{w}} \abs{\frac{\vec{v} \times \vec{w}}{\abs{\vec{v} \times \vec{w}}} \bullet \vec{u}} \\
+    & = \abs{\vec{u} \bullet (\vec{v} \times \vec{w})}
+\end{align*}
+\end{proof}
+
+
+\begin{example}
+Determine the volume of the parallelepiped spanned by the vectors $\vec{u} = \veciii{2}{0}{0}$, $\vec{v} = \veciii{0}{1}{-1}$, and $\vec{w} = \veciii{3}{0}{1}$.
+\begin{equation*}
+    V = \abs{\begin{vmatrix} 2 & 0 & 0 \\ 0 & 1 & -1 \\ 3 & 0 & 1 \end{vmatrix}} = \abs{2 \begin{vmatrix} 1 & -1 \\ 0 & 1 \end{vmatrix} - 0 + 0} = 2
+\end{equation*}
+\end{example}
+
+\begin{example}
+Give an example of non-zero vectors $\vec{u}$, $\vec{v}$, $\vec{w}$ such that $\vec{v} \times \vec{w} \neq 0$ but $\vec{u} \bullet (\vec{v} \times \vec{w}) = 0$. Let $\vec{u} = \vec{v} = \ihat$, $\vec{w} = \jhat$. Then,
+\begin{equation*}
+    \vec{v} \times \vec{w} = \ihat \times \jhat = \hat{k} \neq \vec{0}
+\end{equation*}
+Also,
+\begin{equation*}
+    \vec{u} \bullet (\vec{v} \times \vec{w}) = \ihat \bullet \hat{k} = 0
+\end{equation*}
+\end{example}
+
+
+\begin{theorem}
+Let $\vec{v}, \vec{w} \neq \vec{0}$ be non-parallel vectors (so $\vec{v} \times \vec{w} \neq \vec{0}$). If $\vec{u} \bullet (\vec{v} \times \vec{w}) = 0$, then $\vec{u}$ is a linear combination of $\vec{v}$ and $\vec{w}$.
+\end{theorem}
+
+\section*{Coplanar Vectors}
+
+Every two vectors $\vec{u}, \vec{v}$ are co-planar, in that there is a plane (that passes through the origin) for which both vectors lie in that plane. However, if a third vector $\vec{w}$ is introduced, these vectors are co-planar only if $\vec{w}$ lies in the same plane as $\vec{u}$ and $\vec{v}$. By definition, the plane spanned by $\vec{u}$ and $\vec{v}$ has normal vector $\vec{u} \times \vec{v}$. Then, a vector $\vec{w}$ lies in the plane only if it is perpendicular to $\vec{u} \times \vec{v}$, or,
+\begin{equation*}
+    \vec{w} \bullet (\vec{u} \times \vec{v}) = 0
+\end{equation*}
+
+\section*{Applications of the Cross Product}
+\begin{itemize}
+    \item Linear velocity as the cross product of angular velocity and the position vector, $\vec{v} = \vec{\omega} \times \vec{r}$.
+    \item Angular momentum as the cross product of position vector and linear momentum, $\vec{L} = \vec{r} \times (m \vec{v})$.
+    \item Electric force on a particle in an electric field, $\vec{F} = q(\vec{v} \times \vec{B})$.
+    \item Torque as the cross product of the position vector and force.
+\end{itemize}
+
+\section*{Distance Between Line and Point in 3D (Using Cross Product)}
+Consider a point $P = (x_1, y_1, z_1)$ and a line in 3D given by $\vec{r} = \vec{r}_0 + t \vec{v}$, where $\vec{r}_0 = (x_0,y_0,z_0)$ and $\vec{v} = (v_x,v_y,v_z)$. We want to find the distance $d$ between the point and the line, i.e. the length of the shortest line from $P$ to the the line. Then, the magnitude of the cross product of $\abs{\vec{PP_0} \times \vec{v}}$ gives the area of the parallelogram formed by $\vec{PP_0}$ and $\vec{v}$. Alternatively, the area of this parallelogram is given by $A = bh$, and the base length is $\abs{\vec{v}}$, and the height is $d$. Then,
+\begin{align*}
+    \abs{\vec{PP_0} \times \vec{v}} & = \abs{\vec{v}} \cdot d \\
+    d & = \frac{\abs{\vec{PP_0} \times \vec{v}}}{\abs{\vec{v}}}
+\end{align*}
+
+\begin{theorem}
+\textbf{Distance from line to point}. The distance from a point $P$ to a line in 3d defined by a point $P_0$ on the line and direction vector $\vec{v}$ is given by,
+\begin{equation*}
+    \boxed{d = \frac{\abs{\vec{PP_0} \times \vec{v}}}{\abs{\vec{v}}}}
+\end{equation*}
+\end{theorem}
+
+
+\section*{Distance Between Two Non-Parallel Lines}
+For lines with direction vectors $\vec{v}_1$ and $\vec{v}_2$ and points $\vec{r}_1$ and $\vec{r}_2$. The distance between the lines is the length of the projection of $\vec{r}_2 - \vec{r}_1$ on $\vec{n} = \vec{v}_1 \times \vec{v}_2$, and so is given by,
+\begin{align*}
+    \abs{\frac{(\vec{r}_2 - \vec{r}_1) \bullet (\vec{v}_1 \times \vec{v}_2)}{\abs{\vec{v}_1 \times \vec{v}_2}^2} \cdot (\vec{v}_1 \times \vec{v}_2)}
+\end{align*}
+
+\section*{Distance Between Point and Plane}
+Consider a point $P = (x_1, y_1, z_1)$ and a plane with normal vector $\vec{n}$ and point $P_0$. First, form the vector $\vec{PP_0}$, and project it onto $\vec{n}$. The distance $d$ is the length of this project, i.e. the scalar projection of $\vec{PP_0}$ onto $\vec{n}$.
+\begin{align*}
+    \boxed{d = \frac{\vec{PP_0} \bullet \vec{n}}{\abs{\vec{n}}}}
+\end{align*}
+
+For a plane $Ax + By + Cz = D$ and point $P_0 = (x_0,y_0,z_0)$, this becomes,
+\begin{equation*}
+    d = \frac{\abs{Ax_0 + By_0 + Cz_0 - D}}{\sqrt{A^2 + B^2 + C^2}}
+\end{equation*}
+
+\section*{Distance Between Line and Plane}
+With a line and a plane, there are 3 cases:
+\begin{itemize}
+    \item \textbf{Line intersects the plane}, which is the most common case. In this case, the distance between the plane is $d = 0$.
+    \item \textbf{Line is parallel to the plane}. Here, we can calculate the distance $d$.
+    \item \textbf{Line lies in the plane}. Again, $d = 0$.
+\end{itemize}
+
+If the line is parallel to the plane (but doesn't lie in the plane), then the line's direction vector is perpendicular to the plane's normal vector, or $\vec{v} \bullet \vec{n} = 0$. Then, the distance between the line and the plane can be found by taking the distance between any point on the line, to the plane.
+
+
+\section*{Angle Between Planes}
+Angle between normal vectors.
+\begin{equation*}
+    \theta = \cos^{-1}\brac{\frac{\vec{n}_1 \bullet \vec{n}_2}{\abs{\vec{n}_1} \cdot \abs{\vec{n}_2}}}
+\end{equation*}
+
+
+\end{document}

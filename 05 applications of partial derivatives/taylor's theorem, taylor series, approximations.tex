@@ -1,0 +1,170 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Taylor's Theorem, Taylor Series, Approximations}
+
+\begin{document}
+\section*{Taylor Series}
+Recall: Let $f$ be a function of one variable. Then the $k$th dergree Taylor polynomial centered at $x = a$ is $f(x) \approx p_k(x)$, is
+\begin{equation*}
+    p_k(x) = f(a) + f'(a)(x-a) + \dfrac{f''(a)}{2!}(x-a)^2 + \dots + \dfrac{f^{(k)}(a)}{k!}(x-a)^k
+\end{equation*}
+Note that the values are equal at $x = a$, $p_k(a) = f(a)$, and that the first $k$ derivatives are equal at $x = a$, $p_k'(a) = f'(a), \dots, p_k^{(k)} = f^{k}(a)$.
+
+\begin{theorem}
+If $f$ is $k$ times differentiable on a neighbourhood of $a$, then
+\begin{align*}
+    lim_{x \to a} \dfrac{f(x) - p_k(x)}{(x-a)^k} = 0
+\end{align*}
+\end{theorem}
+
+\begin{theorem}
+If $f$, $f'$, $\dots$, $f^{k}$, $f^{k+1}$ are all continuous on a neighbourhood of $a$, then $\exists u$ between $x$ and $a$ such that
+\begin{align*}
+    R_k(x) = f(x) - p_k(x) = \dfrac{f({k+1}(u)}{(k+1)!}(x-a)^{k+1}
+\end{align*}
+\end{theorem}
+
+
+\section*{Functions of Two Variables}
+Let $f$ be a function of two variables, with $f$, and the first $k$ partial derivatives of $f$ are continuous on a neighbourhood of $(a,b)$.
+\\ \\ Consider $f((a,b) + t \vec{u})$, where $\vec{u}$ is a unit vector. Determine its Taylor polynomial in $t$.
+\begin{align*}
+    & f((a,b) + t \vec{u}) \\
+    & \approx f(a,b) + \left. \frac{d}{dt} f(a + tu_1, b + tu_2) \right|_{t=0} t + \frac{1}{2} \left. \dfrac{d^2}{dt^2} f(a + tu_1, b + tu_2) \right|_{t=0} t^2 + \dots 
+\end{align*}
+Note that
+\begin{align*}
+    \left. \dfrac{d}{dt} f(a + tu_1, b + tu_2) \right|_{t=0} = D_{\vec{u}} f(a,b) = \nabla f \bullet \vec{u}
+\end{align*}
+Differentiating $f$ in $t$, we get
+\begin{align*}
+    \dfrac{d}{dt} f(a + tu_1, b + tu_2) = f_1(a + tu_1, b + tu_2) u_1 + f_2(a + tu_1, b + tu_2) u_2
+\end{align*}
+Differentiating in $t$ again,
+\begin{align*}
+    & \dfrac{d^2}{dt^2} f(a + tu_1, b + tu_2) \\
+    & = f_{11}(a + tu_1, b + tu_2) u_1^2 + f_{12}(a + tu_1, b + tu_2) u_1 u_2 + f_{21}(a + tu_1, b + tu_2) u_2 u_1 + f_{22}(a + tu_1, b + tu_2) u_2^2 \\
+    & = f_{11}(a + tu_1, b + tu_2) u_1^2 + 2f_{12}(a + tu_1, b + tu_2) u_1 u_2 + f_{22}(a + tu_1, b + tu_2) u_2^2
+\end{align*}
+We can rewrite this as the product of matrices for simplicity
+\begin{align*}
+    \begin{pmatrix} u_1 & u_2 \end{pmatrix} \begin{pmatrix} f_{11} & f_{12} \\ f_{21} & f_{22} \end{pmatrix} \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}
+\end{align*}
+This is the \textbf{Hessian matrix}.
+Thus, 
+\begin{align*}
+    f(a + tu_1, b + tu_2) & \approx f(a,b) + \nabla f(a,b) \bullet t \vec{u} + \dfrac{1}{2} \begin{pmatrix} tu_1 & tu_2 \end{pmatrix} \begin{pmatrix} f_{11}(a,b) & f_{12}(a,b) \\ f_{21}(a,b) & f_{22}(a,b) \end{pmatrix} \begin{pmatrix} tu_1 \\ tu_2 \end{pmatrix}
+\end{align*}
+In terms of $x$ and $y$, let $x = a + tu_1$, $y = b + tu_2$, so that $tu_1 = x - a$, $tu_2 = y - b$. Then,
+\begin{align*}
+    f(x,y) \approx p_2(x,y) = f(a,b) + \nabla f(a,b) \bullet \left< -a,y-b \right> + \dfrac{1}{2} \begin{pmatrix} x-a & y-b \end{pmatrix} Hf(a,b) \begin{pmatrix} x - a \\ y - b \end{pmatrix}
+\end{align*}
+Where $Hf(a,b) = \begin{pmatrix} f_{11} & f_{12} \\ f_{21} & f_{22} \end{pmatrix}$, and its symmetric if $f$, and the first and second order partial derivatives are continuous on the neighbourhood of $(a,b)$.
+\\ \\ How well does $p_2$ approximate $f$? If $f$, and all partials up to third order are continuous, then
+\begin{align*}
+    \abs{f(x,y) - p_2(x,y)} \leq \dfrac{M}{3!} \sqrt{(x-a)^2 + (y-b)^2}^3
+\end{align*}
+for some $M$, depending on the partial derivatives of $f$.
+
+\begin{example}
+Let $f(x,y) = e^x \cos{(3y)}$, $(a,b) = (0, \pi/2)$. Determine $p_2$.
+\begin{align*}
+    f(0, \pi/2) & = 1 \cdot \cos(3\pi/2) = 0 \\
+    f_x & = e^x \cps{(3y)} && f_x(0,\pi/2) = 0 \\
+    f_y & = -3e^x \sin{(3y)} && f_y(0, \pi/2) = 3
+\end{align*}
+Then,
+\begin{align*}
+    f_{xx} = e^x \cos{(3y)} && f_{xx}(0, \pi/2) = 0 \\
+    f_{xy} = f_{yx} = \dfrac{\partial}{\partial y} (e^x cos{(3y)}) = -3e^x \sin{(3y)} \\
+    f_{xy}(0, \pi/2) = 3
+    f_{yy} = -9e^x \cos{(3y)} && f_{yy}(0, \pi/2) = 0
+\end{align*}
+Thus, the Taylor polynomial is given by
+\begin{align*}
+    p_2(x,y) = 0 + \left<0,3 \right> \bullet \left< x-0, y - \pi/2 \right> + \frac{1}{2} \left<x, y-\pi/2 \right> \begin{pmatrix} 0 & 3 \\ 3 & 0 \end{pmatrix} \begin{pmatrix} x \\ y - \pi/2 \end{pmatrix}
+\end{align*}
+\end{example}
+
+\section*{Taylor Polynomials of functions of two variables, 2nd degree}
+Recall:
+\begin{align*}
+    f(x,y) & \approx p_2(x,y) \\
+    & = f(a,b) + \nabla f(a,b) \bullet \left< x-a, y-b \right> + \dfrac{1}{2} \left< x-a, y-b \right> \begin{pmatrix} f_11(a,b) & f_{12}(a,b) \\ f_{21}(a,b) & f_{22}(a,b) \end{pmatrix} \begin{pmatrix} x-a \\ y-b \end{pmatrix}
+\end{align*}
+For functions of three or more variables, let $\vec{x} = (x_1, \dots, x_n)$, $\vec{a} = (a_1, \dots, a_n)$. Then,
+\begin{align}
+    f(\vec{x}) \approx f(\vec{a}) + \nabla f(\vec{a}) \bullet (\vec{x} - \vec{a}) + \dfrac{1}{2}(\vec{x} - \vec{a}) \begin{pmatrix} f_{11} & \dots & f_{1n} \\ \dots & & \dots \\ f_{n1} & \dots & f_{nn} \end{pmatrix} (\vec{x} - \vec{a})^t
+\end{align}
+If $f$ and all first order partials are continuous on a neighbourhood of $\vec{a}$, then the Hassan matrix is symmetric.
+
+\subsection*{Higher Order Taylor Polynomials}
+Let $f(\vec{x})$ be a function of $n$ variables, $\vec{x} = (x_1, \dots, x_n)$, near $\vec{a} = (a_1, \dots, a_n)$.
+\\ Let $\vec{v} = \vec{x} - \vec{a}$. Assume $\vec{v} = t \vec{u}$, where $\vec{u}$ is a fixed unit vector.
+\\ \\ Let $g(t) = f(\vec{a} + t\vec{u})$, then the Taylor approximation at $t = 0$ is
+\begin{align*}
+    g(t) & \approx g(0) + g'(0)t + \dfrac{1}{2}g''(0)t^2 + \dots + \dfrac{g^{k}(0)t^k}{k!} \\
+    g'(t) & = \dfrac{d}{dt} f(\vec{a} + t \vec{u}) = \nabla f(\vec{a} + t\vec{u}) \bullet \vec{u} \\
+    tg'(t) & = t \vec{u} \bullet \nabla f(\vec{a} + t \vec{u}) = \vec{v} \bullet \nabla f(\vec{a} + t\vec{u})
+\end{align*}
+Let $\vec{v} \bullet \nabla = v_1 \dfrac{\partial}{\partial x_1} + \dots + v_n \dfrac{\partial}{\partial x_n}$. In other words, for a function $F$,
+\begin{align*}
+    (\vec{v} \bullet \nabla) F = v_1 \dfrac{\partial F}{\partial x_1} + \dots + v_n \dfrac{\partial F}{\partial x_n}
+\end{align*}
+$F$ is a function of $\vec{x}$ with values in $\mathbb{R}$, and $(\vec{v} \bullet \nabla)F$ is also a function of $\vec{x}$ with values in $\mathbb{R}$.
+\begin{align*}
+    g'(t) & = (\vec{u} \bullet \nabla) f(\vec{a} + t\vec{u}) \\
+    g''(t) & = \dfrac{d}{dt} (g'(t)) \\
+    & = (\vec{u} \bullet \nabla)^2 f(\vec{a} + t\vec{u})
+\end{align*}
+Similarly,
+\begin{align*}
+    g^{(3)}(t) & = (\vec{u} \bullet \nabla)^3 f(\vec{a} + t\vec{u})
+\end{align*}
+We can also rewrite $g(t)$ as
+\begin{align*}
+    g(t) & \approx g(0) + g'(0)t + \dfrac{1}{2}g''(0)t^2 + \dots + \dfrac{g^{k}(0)t^k}{k!} \\
+    & = f(\vec{a}) + (\vec{v} \bullet \nabla) f(\vec{a} + \vec{v}) + \dfrac{1}{2} (\vec{v} \bullet \nabla)^2 f(\vec{a} + \vec{v}) + \dots + \dfrac{1}{k!}(\vec{v} \bullet \nabla)^k f(\vec{a} + \vec{v})
+\end{align*}
+
+\section*{Remainder Estimates}
+Let $f$ be a $k$-times differentiable function, with all partial derivatives continuous on a neighbourhood of $\vec{a}$.
+\\ \\ Recall: the error expression from single-variables calculus is
+\begin{align*}
+    f(\vec{a} + \vec{v}) - p_k(\vec{a} + \vec{v}) & = \dfrac{g^{(k+1)}(s)}{(k+1)!}t^{k+1} \\
+    & = \dfrac{1}{(k+1)!} (\vec{v} \bullet \nabla)^{k+1} f(\vec{a} + \vec{w})
+\end{align*}
+where $s$ is between $0$ and $t$, $\vec{w}$ is ``between" $\vec{0}$ and $\vec{v}$.
+\\ \\ Also, we have
+\begin{align*}
+    \lim_{\vec{v} \to \vec{0}} \dfrac{error term}{t^k} = 0
+\end{align*}
+Also,
+\begin{align*}
+    \abs{error term} \leq \abs{\vec{v}}^{k+1}
+\end{align*}
+which is a constant depending on $f$, and the partials of $f$.
+
+\begin{example}
+Using $1$-dimensional Taylor polynomials to evaluate Taylor polynomials of functions of $n$ variables, $f(\vec{x})$.
+\\ \\ Let $f(x,y) = e^{2x+3y}$, determine $p_3(x,y)$ centered at $(0,0)$.
+\\ \\ Recall that
+\begin{align*}
+    e^t \approx 1 + t + \dfrac{t^2}{2} + \dfrac{t^3}{3!} + \dots
+\end{align*}
+Then for $t = 2x + 3y$,
+\begin{align*}
+    f(x,y) & = e^{2x+3y} \approx 1 + 2x + 3y + \dfrac{(2x+3y)^2}{2!} + \dfrac{(2x+3y)^3}{3!}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $f(x,y) = e^x \cos{(3y)}$ at $(a,b) = (0, \pi/2)$. To find the Taylor polynomial, find them for each function and multiply them.
+\end{example}
+
+\end{document}
+
+
+
+

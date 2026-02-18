@@ -1,0 +1,63 @@
+\newcommand{\myname}{Cameron Geisler}
+
+%% Suppress common warnings
+\usepackage{silence}
+\WarningFilter{rerunfilecheck}{File}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\setlength{\headheight}{14.5pt}
+\addtolength{\topmargin}{-2.5pt}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphicx}
+\pagestyle{fancy}
+\usepackage{tkz-euclide} %% figures
+\usepackage{hyperref} %% for links
+\usepackage{exsheets} %% for tasks
+\usepackage{esint} %% for closed surface integrals
+\graphicspath{{../images/}} %% graphics in images folder
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage{tasks}
+\settasks{label-width=15pt}
+
+\lhead{Math 226/227} \chead{} \rhead{}
+\lfoot{} \cfoot{Page \thepage} \rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\parindent}{0pt}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{remark}{Remark}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+%% Vectors
+\newcommand{\ihat}{\boldsymbol{\hat{\imath}}}
+\newcommand{\jhat}{\boldsymbol{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\avec}[1]{\overrightarrow{#1}}
+\newcommand{\vecii}[2]{\left< #1, #2 \right>}
+\newcommand{\veciii}[3]{\left< #1, #2, #3 \right>}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+%% Vector calculus
+\newcommand{\grad}[1]{\mathbf{grad} \, #1}
+\renewcommand{\div}[1]{\mathbf{div} \, \vec{#1}}
+\newcommand{\curl}[1]{\mathbf{curl} \, \vec{#1}}

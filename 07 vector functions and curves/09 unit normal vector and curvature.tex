@@ -1,0 +1,213 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Unit Normal Vector and Curvature}
+
+\begin{document}
+
+Recall that for curves, we previously defined curvature (denoted by $\kappa$), which is the rate of change in the angle of the tangent line per unit arc length. That is, if $\phi$ is the angle from the $x$-axis and the tangent line, and $s(t)$ is the arc length, then, the curvature is defined as,
+\begin{equation*}
+    \frac{d\phi}{ds}
+\end{equation*}
+
+Recall that a parametric curve $x = x(t), y = y(t)$, the curvature is given by,
+\begin{equation*}
+    \kappa = \frac{\abs{\frac{dx}{dt} \cdot \frac{d^2 y}{dt^2} - \frac{dy}{dt} \cdot \frac{d^2 x}{dt^2}}}{\brac{\brac{\frac{dx}{dt}}^2 + \brac{\frac{dy}{dt}}^2}^{3/2}}
+\end{equation*}
+Using vectors, we can analyze this further.
+
+\section*{Curvature}
+
+In this section, we will consider a curve $\mathcal{C}$ be a curve with arc length parametrization $\vec{r}(s)$.
+
+\begin{definition}
+The \textbf{curvature} of the curve, $\kappa(s)$, is the rate of change of the tangent vector per unit arc length, given by,
+\begin{equation*}
+    \kappa(s) = \abs{\frac{d\hat{\vec{T}}}{ds}}
+\end{equation*}
+\end{definition}
+
+First, notice that $\kappa(s) \geq 0$. Since the unit tangent is a unit vector, its derivative information only gives information about the change in angle. Alternatively, in terms of $t$, by the chain rule,
+\begin{align*}
+    \kappa(t) = \abs{\frac{d\hat{\vec{T}}}{ds}} = \abs{\frac{\frac{d\hat{\vec{T}}}{dt}}{\frac{ds}{dt}}} = \frac{\abs{\hat{\vec{T}}'(t)}}{\abs{\vec{r}'(t)}}
+\end{align*}
+
+\begin{theorem}
+Let $\kappa > 0$ on an interval containing $s$, $\Delta \theta$ be the angle between $\hat{\vec{T}}(s + \Delta s)$ and $\hat{\vec{T}}(s)$. Then,
+\begin{equation*}
+    \kappa(s) = \lim_{\Delta s \to 0} \abs{\frac{\Delta \theta}{\Delta s}}
+\end{equation*}
+\end{theorem}
+
+Intuitively, the direction of $\frac{d\hat{\vec{T}}}{ds}$ is the direction that the curve is turning. It turns out that this vector is always perpendicular to the tangent vector. This is because, $\abs{\vec{\hat{T}}} = 1$, and so
+\begin{equation*}
+    \abs{\vec{\hat{T}}}^2 = \vec{\hat{T}} \bullet \vec{\hat{T}} = 1
+\end{equation*}
+Then, differentiating this identity,
+\begin{align*}
+    \frac{d}{ds} \vec{T} \bullet \vec{T} & = \frac{d}{ds} 1 \\
+    \vec{\hat{T}} \bullet \frac{d\vec{\hat{T}}}{ds} + \frac{d\vec{\hat{T}}}{ds} \bullet \vec{\hat{T}} & = 0 && \text{using the derivative rule for dot product} \\
+    2 \cdot \vec{\hat{T}} \bullet \frac{d\vec{\hat{T}}}{ds} & = 0
+\end{align*}
+and so the vectors $\vec{\hat{T}}$ and $\frac{d\vec{\hat{T}}}{ds}$ are perpendicular. Then, since $\vec{\hat{T}}$ is tangent to the path, $\frac{d\vec{\hat{T}}}{ds}$ is perpendicular to the path, i.e. points either ``left" or ``right". Further, $\frac{d\vec{\hat{T}}}{ds}$ points in the direction that the curve is ``turning". This is intuitively true, because by definition,
+\begin{equation*}
+    \frac{d\vec{\hat{T}}}{ds} = \lim_{\Delta s \to 0} \frac{\Delta \vec{\hat{T}}}{\Delta s}
+\end{equation*}
+Then, for small $\Delta s > 0$,
+\begin{equation*}
+    \frac{d\vec{\hat{T}}}{ds} \approx \frac{\Delta \vec{\hat{T}}}{\Delta s}
+\end{equation*}
+This intuitively says that the direction of $\frac{d\vec{\hat{T}}}{ds}$ is approximately equal to the direction of $\Delta \vec{\hat{T}}$. Then, $\Delta \vec{\hat{T}}$ is in the direction that the curve is turning. Then, intuitively, as $\Delta s \to 0$, these two directions are equal.
+
+\begin{theorem}
+Let the unit tangent vector $\hat{\vec{T}}(s)$ be differentiable (in $s$). Then, $\frac{d\hat{\vec{T}}}{dt}$ is perpendicular to the curve, and points in the direction that the curve is turning.
+\end{theorem}
+
+\section*{Unit Normal Vector}
+
+The direction that the unit tangent vector is turning is defined to be the unit normal vector.
+
+\begin{definition}
+The \textbf{unit normal vector} $\vec{\hat{N}}(s)$ of the curve is the unit vector perpendicular to the unit tangent vector at $\vec{r}(s)$, pointing in the direction of the curvature.
+\end{definition}
+
+Sometimes, it is more precisely called the \textit{principal} unit normal vector, because it points in the direction that the curve is turning (rather than in the opposite direction).
+\\ \\ First, $\vec{T} = \vecii{\cos{\phi}}{\sin{\phi}}$, where $\phi$ is the angle between the positive $x$-axis and the tangent vector $\vec{r}'(t)$. Then, $\phi$ is a differentiable function of $s$, so by the chain rule,
+\begin{equation*}
+    \frac{d\vec{\hat{T}}}{ds} = \frac{d\vec{\hat{T}}}{d\phi} \cdot \frac{d\phi}{ds}
+\end{equation*}
+Then,
+\begin{align*}
+    \abs{\frac{d\vec{\hat{T}}}{ds}} & = \abs{\frac{d\vec{\hat{T}}}{d\phi}} \cdot \abs{\frac{d\phi}{ds}} \\
+    & = \abs{\vecii{-\sin{\phi}}{\cos{\phi}}} \cdot \kappa \\
+    & = \kappa
+\end{align*}
+Thus, $\frac{d\vec{\hat{T}}}{ds}$ points in the direction of $\vec{\hat{N}}$, and has magnitude $\kappa$. Thus,
+
+\begin{theorem}
+\begin{equation*}
+    \frac{d\vec{\hat{T}}}{ds} = \kappa(s) \cdot \vec{\hat{N}(s)}
+\end{equation*}
+Or, if $\kappa \neq 0$, then,
+\begin{equation*}
+    \boxed{\hat{\vec{N}}(s) = \frac{1}{\kappa(s)} \frac{d\hat{\vec{T}}}{ds} = \frac{\frac{d\hat{\vec{T}}}{ds}}{\abs{\frac{d\hat{\vec{T}}}{ds}}}}
+\end{equation*}
+\end{theorem}
+
+That is, $\vec{\hat{N}}$ is the unit vector in the direction of $\frac{d\vec{\hat{T}}}{ds}$.
+
+\begin{theorem}
+\begin{equation*}
+    \boxed{\vec{N} = \frac{1}{\sqrt{(x'(t))^2 + (y'(t))^2}} \vecii{-y'(t)}{x'(t)}}
+\end{equation*}
+\end{theorem}
+
+\section*{Line if and only if Zero Curvature}
+\begin{theorem}
+A curve is a line if and only if it has zero curvature everywhere. In other words, a curve $\mathcal{C}$ with parametrization $\vec{r}(t)$ is a line of the form $\vec{r}(t) = \vec{r}_0 + t \vec{v}$ if and only if $\kappa(t) = 0$ for all $t$.
+\end{theorem}
+
+\begin{proof}
+Let $\vec{r}(t) = \vec{r_0} + t \vec{v}$. Then,
+\begin{align*}
+    \hat{\vec{T}}(t) & = \frac{\vec{r}'(t)}{\abs{\vec{r}'(t)}} = \frac{\vec{v}}{\abs{\vec{v}}} \\
+    \hat{\vec{T}}'(t) & = 0
+\end{align*}
+Thus,
+\begin{equation*}
+    \kappa(t) = \frac{\abs{\hat{\vec{T}}'(t)}}{\abs{\vec{r}'(t)}} = 0
+\end{equation*}
+Conversely, let $\kappa = 0$ for all $s$. Then,
+\begin{align*}
+    \frac{d\hat{\vec{T}}}{ds} & = \kappa \hat{\vec{N}} = 0 \\
+    \hat{\vec{T}}(s) & = \vec{C}
+\end{align*}
+so the tangent vector is constant, say $\hat{\vec{T}}(0) = \vec{C}$. Also
+\begin{align*}
+    \frac{d\vec{r}}{ds} & = \hat{\vec{T}}(s) = \hat{\vec{T}}(0) \\
+    \vec{r}(s) & = \hat{\vec{T}}(0) s + \vec{C_1}
+\end{align*}
+Since $\vec{r}(0) = \vec{C_1}$, we have $\vec{r}(s) = \hat{\vec{T}}(0)s + \vec{r}(0)$, which is the vector parametric equation of a line.
+\end{proof}
+
+\begin{example}
+Consider a circle $\vec{r}(t) = \vecii{r \cos{t}}{r \sin{t}}$, $r > 0$
+\begin{align*}
+    \vec{r}'(t) & = \vecii{-r \sin{t}}{r \cos{t}} \\
+    \abs{\vec{r}'(t)} & = \sqrt{r^2 \sin^2{t} + r^2 \cos^2{t}} = r \\
+    \hat{\vec{T}}(t) & = \vecii{-\sin{t}}{\cos{t}} \\
+    \hat{\vec{T}}'(t) & = \vecii{-\cos{t}}{-\sin{t}} \\
+    \abs{\hat{\vec{T}}'(t)} & = \sqrt{\cos^2{t} + \sin^2{t}} = 1 \\
+    \kappa(t) & = \frac{1}{r}
+\end{align*}
+Thus, the curvature of a circle is the reciprocal of the radius of the circle.
+\end{example}
+
+\section*{Velocity and Acceleration Revisited}
+
+Intuitively, velocity is the vector which points in the direction of motion (which is $\vec{\hat{T}}$), and has magnitude equal to the speed of the particle $\frac{ds}{dt} = \vec{r}'(t)$. Recall that,
+\begin{equation*}
+    \vec{v}(t) = \vec{r}'(t) = \frac{d\vec{r}}{dt} \qquad \text{and} \qquad v(t) = \abs{\vec{r}'(t)}
+\end{equation*}
+and also that,
+\begin{equation*}
+    \vec{T}(t) = \frac{\vec{r}'(t)}{\abs{\vec{r}'(t)}}
+\end{equation*}
+Then,
+\begin{equation*}
+    \vec{T}(t) = \frac{\vec{v}(t)}{v(t)}
+\end{equation*}
+Or,
+
+\begin{theorem}
+The velocity vector is given by,
+\begin{equation*}
+    \boxed{\vec{v}(t) = v(t) \vec{\hat{T}}(t)}
+\end{equation*}
+\end{theorem}
+
+This writes $\vec{v}$ in terms of its magnitude and direction. Again, velocity is a vector in the direction of the tangent vector, with magnitude of speed.
+\begin{proof}
+\begin{equation*}
+    \vec{v} = \frac{d\vec{r}}{dt} = \frac{d\vec{r}}{ds} \cdot \frac{ds}{dt} = v \hat{\vec{T}}
+\end{equation*}
+\end{proof}
+
+\begin{theorem}
+The acceleration vector can be decomposed as,
+\begin{equation*}
+    \boxed{\vec{a} = \frac{dv}{dt} \hat{\vec{T}} + v^2 \kappa \hat{\vec{N}}}
+\end{equation*}
+\end{theorem}
+
+This splits up the acceleration into components which are parallel and perpendicular to the direction of the velocity $\vec{\hat{T}}$.
+
+\begin{proof}
+\begin{align*}
+    \vec{a} = \frac{d\vec{v}}{dt} & = \frac{d}{dt}\left(v \hat{\vec{T}} \right) \\
+    & = \frac{dv}{dt} \cdot \hat{\vec{T}} + v \cdot \frac{d\hat{\vec{T}}}{dt} && \text{by the product rule}
+\end{align*}
+Then,
+\begin{equation*}
+    \frac{d\vec{T}}{dt} = \frac{d\vec{T}}{ds} \cdot \frac{ds}{dt} = \kappa \hat{\vec{N}} \cdot v
+\end{equation*}
+\end{proof}
+
+Then, the components of the acceleration are called the \textbf{tangential acceleration} $a_T$ and the \textbf{normal acceleration} (or \textbf{centripetal acceleration}) $a_N$, given by,
+\begin{equation*}
+    \boxed{a_T = \frac{dv}{dt} = \frac{d^2 s}{dt^2}} \qquad \text{and} \qquad \boxed{a_N = \kappa \abs{\vec{v}}^2 = \frac{\abs{\vec{v} \times \vec{a}}}{\abs{\vec{v}}}}
+\end{equation*}
+
+The acceleration component $a_T$ is tangential to the motion, and $a_N$ is the ``sideways" acceleration.
+
+\begin{example}
+Recall that a circle of radius $r$ has curvature $\kappa = \frac{1}{r}$. Then, if a particle is moving along a circle with constant speed $v$, then the centripetal acceleration is given by,
+\begin{equation*}
+    \vec{a} = \kappa v^2 \hat{\vec{N}} = \frac{v^2}{r} \cdot \hat{\vec{N}}
+\end{equation*}
+That is, it has magnitude $\frac{v^2}{r}$ (which you may recall from physics) and is directed towards $\hat{\vec{N}}$, which recall points towards the center of the circle.
+\end{example}
+
+
+
+\end{document}

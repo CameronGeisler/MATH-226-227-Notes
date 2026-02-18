@@ -1,0 +1,111 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{}
+
+\begin{document}
+
+
+
+\section*{Piecewise Smooth Curves}
+\begin{definition}
+A \textbf{piecewise smooth curve} is a curve that consists of finitely many smooth arcs. In other words, it fails to be smooth at finitely many points.
+\end{definition}
+For a piecewise smooth curve, the length can be written as the sum of the lengths of the individual arcs, which each has a parameterization.
+
+\section*{Curve on a Sphere has Perpendicular Velocity}
+\begin{theorem}
+Let $\mathcal{C}$ be a curve with parametrization $\vec{r}(t)$. Then, $\abs{\vec{r}(t)}$ is constant for all $t \in (a,b)$ if and only if velocity $\vec{r}'(t)$ is perpendicular to position $\vec{r}(t) = 0$ for all $t \in (a,b)$.
+\begin{itemize}
+    \item If $\abs{\vec{r}(t)}$ is constant, then the curve lies on a sphere centered at the origin.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Let $\abs{\vec{r}(t)} = r$, $r \in \mathbb{R}$, for all $t$ in some interval. Then, since $\abs{\vec{r}(t)}^2 = \vec{r}(t) \bullet \vec{r}(t)$, we have
+\begin{align*}
+    \abs{\vec{r}(t)}^2 & = \vec{r}(t) \bullet \vec{r}(t) \\
+    r^2 & = \vec{r}(t) \bullet \vec{r}(t) \\
+    0 & = \vec{r}'(t) \bullet \vec{r}(t) + \vec{r}(t) \bullet \vec{r}'(t) && \text{differentiating both sides} \\
+    0 & = 2 \vec{r}(t) \bullet \vec{r}'(t)
+\end{align*}
+Thus, $\vec{r}(t)$ and $\vec{r}'(t)$ are perpendicular for all $t$.
+\\ \\ Conversely, let $\vec{r}(t)$, $\vec{r}'(t)$ be perpendicular for all $t$ in some interval. Then,
+\begin{align*}
+    0 & = \vec{r}(t) \bullet \vec{r}'(t) \\
+    0 & = 2 \vec{r}(t) \bullet \vec{r}'(t) \\
+    & = \frac{d}{dt} \left(\vec{r}(t) \bullet \vec{r}(t) \right) \\
+    0 & = \frac{d}{dt} \abs{\vec{r}(t)}^2
+\end{align*}
+The derivative of $\abs{\vec{r}(t)}^2$ is 0, so for some $C \in \mathbb{R}$, we have
+\begin{align*}
+    C & = \abs{\vec{r}(t)}^2 \\
+    \sqrt{C} & = \abs{\vec{r}(t)}
+\end{align*}
+Thus, $\abs{\vec{r}(t)} = \sqrt{C} \in \mathbb{R}$, so it is constant for all $t$ in that interval.
+\end{proof}
+
+\section*{Parameterizing the Curve of Intersection of Two Surfaces}
+Many curves are defined as the intersection of two surfaces with Cartesian equations, and can be parameterized.
+
+\begin{example}
+Parameterize the curve formed by the intersection of the paraboloid $z = 2x^2 + 3y^2$ and the cylinder $y = 3x^2$.
+\\ \\ Let $x = t$. Then, $y = 3t^2$, and $z = 2x^2 + 3(3t^2)^2 = 2t^2 + 27t^4$. Thus,
+\begin{equation*}
+    \vec{r}(t) = \veciii{t}{3t^2}{2t^2 + 27t^4}
+\end{equation*}
+\end{example}
+
+\begin{example}
+Parameterize the curve $x = -3z^2$ in the $xz$-plane.
+\\ \\ Let $z = t$. Then, $x = -3t^2$, and the curve is in the $xz$-plane, so $y = 0$. Thus,
+\begin{equation*}
+    \vec{r}(t) = \veciii{-3t^2}{0}{t}
+\end{equation*}
+\end{example}
+
+\begin{example}
+Parameterize the curve formed by the intersection of the plane $z = x + y$ and the circular cylinder $x^2 + y^2 = 9$.
+\\ \\ Let $x = 3\cos{t}$, $y = 3\sin{t}$. Then,
+\begin{equation*}
+    z = 3\cos{t} + 3\sin{t}
+\end{equation*}
+Thus,
+\begin{align*}
+    \vec{r}(t) & = \veciii{3\cos{t}}{3\sin{t}}{3\cos{t} + 3\sin{t}} && \text{for $0 \leq t \leq 2\pi$}
+\end{align*}
+\end{example}
+
+\begin{example}
+Parameterize the curve formed by the intersection of the plane $x + 2y + 4z = 4$ and the elliptic cylinder $x^2 + 4y^2 = 4$.
+\\ \\ Let $x = 2 \cos{t}$, $y = \sin{t}$ for $0 \leq t \leq 2\pi$. Then,
+\begin{align*}
+    z & = -\frac{1}{4}x - \frac{1}{2}y + 1 \\
+    z & = -\frac{1}{2}\cos{t} - \frac{1}{2}\sin{t} + 1 = 1 - \frac{\cos{t} + \sin{t}}{2}
+\end{align*}
+Thus,
+\begin{align*}
+    \vec{r}(t) & = \veciii{2\cos{t}}{\sin{t}}{1 - \frac{\cos{t} + \sin{t}}{2}} && \text{for $0 \leq t \leq 2\pi$}
+\end{align*}
+\end{example}
+
+\begin{example}
+Parameterize the curve formed by the intersection of surfaces $xz - x = 1$ and $yz + x = 1$
+\\ \\ Let $z = t$. Then,
+\begin{align*}
+    xt - x & = 1 \\
+    x & = \frac{1}{t-1} && \text{for $t \neq 1$} \\
+    y & = \frac{1 - x}{z} = \frac{1 - \frac{1}{t-1}}{t} = \frac{t - 2}{t(t - 1)} && \text{for $t \neq 0, 1$}
+\end{align*}
+For $t = 0 = z$, $x = 1$ and $-x = 1$, so there is no solution.
+\\ For $t = 1 = z$, $y + x = 1$ and $0 = 1$, so there is no solution.
+Thus,
+\begin{align*}
+    \vec{r}(t) & = \veciii{\frac{1}{t-1}}{\frac{t-2}{t(t-1)}}{t} && \text{for $t \in (-\infty, 0) \cup (0,1) \cup (1,\infty)$}
+\end{align*}
+\end{example}
+
+
+\section*{Curves in $\mathbb{R}^d$}
+Smooth curves can be extended to $\mathbb{R}^d$ for $d \in \mathbb{N}$, $d \geq 2$.
+
+\end{document}

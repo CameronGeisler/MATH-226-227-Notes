@@ -1,0 +1,374 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Stokes' Theorem}
+
+\begin{document}
+
+Recall the Divergence theorem in 2D
+\begin{equation*}
+    \iint_{D} \div{\vec{F}} \,dA = \oint_{\mathcal{C}} \vec{F} \bullet \vec{\hat{N}} \,ds
+\end{equation*}
+where $\vec{\hat{N}}$ is the outward unit normal. Green's theorem,
+\begin{equation*}
+    \iint_{D} \curl{\vec{F}} \bullet \hat{k} \,dA = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
+\end{equation*}
+When $\vec{G} = -F_2 \ihat + F_1 \jhat$, using Green's theorem, we get the Divergence theorem in 2D. The Divergence theorem in 3D,
+\begin{equation*}
+    \iiint_{R} \div{\vec{F}} \,dV = \iint_{\mathcal{S}} \vec{F} \bullet \hat{N} \,dS
+\end{equation*}
+where $\hat{N}$ is the outward unit normal.
+
+
+\section*{Stokes's Theorem}
+\begin{theorem}
+Let $\mathcal{S}$ be a piecewise smooth, oriented surface, with unit normal field $\hat{N}$ and boundary $\mathcal{C}$ consisting of a finite number of piecewise smooth, closed curves with orientation inherited from $\mathcal{S}$ (i.e. oriented counter-clockwise when seen from the direction of $\vec{N}$). Let $\vec{F}$ be a smooth vector field. Then,
+\begin{equation*}
+    \boxed{\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS}
+\end{equation*}
+\end{theorem}
+Intuitively, under the hypotheses of the theorem, the accumulated rotation of the vector field over a surface $\mathcal{S}$ is equal to the net circulation along the boundary $\mathcal{C}$ of $\mathcal{S}$.
+\\ \\ Notice that if $\mathcal{S}, \mathcal{C}$ are in the plane, then Stokes's theorem reduces to Green's theorem with $\vec{\hat{N}} = \hat{k}$.
+
+\section*{Infinitesimal Version}
+Let $\mathcal{S}$ be a disk of radius $\epsilon$ and center $P$, perpendicular to $\vec{\hat{N}}$, $\mathcal{C}$ be the circle boundary of $\mathcal{S}$. By Stokes's theorem,
+\begin{equation*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS
+\end{equation*}
+If $\epsilon > 0$ is small, then $\curl{\vec{F}} \approx \curl{\vec{F}(P)}$, and
+\begin{align*}
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS & \approx \curl{\vec{F}} \bullet \vec{\hat{N}} (area of \mathcal{S}) \\
+    & = \abs{\curl{\vec{F}}} \cos{\theta} (area of \mathcal{S})
+\end{align*}
+where $\theta$ is the angle between $\curl{\vec{F}}$ and $\vec{\hat{N}}$. $\theta = 0$ maximizes the rotation effect, $\theta = \pi/2$ minimizes the rotation effect.
+
+\section*{Examples}
+\begin{example}
+Let $\mathcal{S}$ be a surface bounded by $\mathcal{C}$, then
+\begin{equation*}
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
+\end{equation*}
+The surface $\mathcal{S}$ is not unique, there are infinitely many choices that make the equation true. For two surfaces with parallel unit normals $\vec{\hat{N}}$, let $\mathcal{S} = \mathcal{S}_2 - \mathcal{S}_1$. Then, by the divergence theorem,
+\begin{align*}
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \iiint_{R} \div{(\curl{\vec{F}})} \,dV \\
+    & = 0
+\end{align*}
+Also,
+\begin{align*}
+    \int_{\mathcal{S}} \curl{\vec{F}} & = \int_{\mathcal{S}_2} \curl{\vec{F}} - \int_{\mathcal{S}_1} \curl{\vec{F}} \\
+    \int_{\mathcal{S}_1} \curl{\vec{F}} & = \int_{\mathcal{S}_2} \curl{\vec{F}}
+\end{align*}
+with the minus sign due to opposite direction unit normal.
+\end{example}
+
+\begin{example}
+Let $\mathcal{S}$ be the paraboloid $z = 9 - x^2 - y^2$, $z \geq 0$, oriented upward, $\vec{F} = \veciii{2z - y}{x + z}{3y - 2z}$. Determine $\int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}$.
+\\ \\ Let $\mathcal{C}$ be the circle $x^2 + y^2 = 9$, parametrized by $x = 3 \cos{\theta}$, $y = 3 \sin{\theta}$, $0 \leq \theta \leq 2\pi$. Then, with $z = 0$,
+\begin{align*}
+    \vec{F} = \veciii{-y}{x}{3y}
+\end{align*}
+Then,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \int_{0}^{2\pi} (-3 \sin{\theta})(-3 \sin{\theta}) + (3 \cos{\theta})(3 \cos{\theta}) \,d\theta \\
+    & = \int_{0}^{2\pi} 9 \,d\theta \\
+    & = 18\pi
+\end{align*}
+Alternatively,
+\begin{align*}
+    \curl{\vec{F}} & = \veciii{2}{2}{2}
+\end{align*}
+Exercise. Integrate on $\mathcal{S}_1$ instead of $\mathcal{S}$, where $\mathcal{S}_1$ is an ``easier" surface with the same boundary $\mathcal{C}$, e.g. the disk $x^2 + y^2 \leq 9$.
+\\ \\ Let $\mathcal{S}_1 = \set{(x,y,z): x^2 + y^2 \leq 9, z = 0}$, then $\vec{\hat{N}} = \hat{k}$. Then, $\curl{\vec{F}} \bullet \vec{\hat{N}} = 2$. Then,
+\begin{align*}
+    \int_{\mathcal{S}_1} = 2 (area of S_1) = 18 \pi
+\end{align*}
+\end{example}
+
+\section*{Curl and Conservative Fields}
+\begin{theorem}
+Let $\vec{F}$ be a vector field. If $\vec{F}$ is conservative, then $\curl{F} = \vec{0}$.
+\begin{itemize}
+    \item Follows from equality of mixed partials.
+    \item In $\mathbb{R}^2$, this follows from Green's theorem. Let $R$ be the region bounded by $\mathcal{C}$. Then,
+    \begin{align*}
+        \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{R} \curl{F} \bullet \hat{k} \,dA = 0
+    \end{align*}
+    \item If $D$ is simply connected, then the converse is also true.
+\end{itemize}
+\end{theorem}
+
+\begin{definition}
+$D \subseteq \mathbb{R}^3$ is simply connected if for every closed, simple, piecewise smooth curve $\mathcal{C} \subseteq D$, there exists a piecewise smooth, bounded oriented surface $\mathcal{S}$ whose boundary is $\mathcal{C}$.
+\begin{itemize}
+    \item e.g. $\mathbb{R}^3$, ball, cube are simply connected.
+    \item e.g. $\mathbb{R}^3 \setminus \set{(x,y,z): z = 0}$ is not simple connected.
+    \item e.g. $\mathbb{R}^3 \setminus \set{(x,y,z): x = 0, y^2 + z^2 = 1}$ is not simply connected.
+    \item e.g. $\mathbb{R}^3 \setminus \set{(0,0,0)}$
+    \item e.g. $\mathbb{R}^3 \setminus \set{(x,y,z): x^2 + y^2 + z^2 \leq 1}$
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+If $D \subseteq \mathbb{R}^3$ is simply connected and $\curl{F} = 0$ on $D$, then $\vec{F}$ is conservative on $D$.
+\end{theorem}
+\begin{proof}
+Since $D$ is simply connected, by Stokes's theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iiint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} = 0
+\end{align*}
+\end{proof}
+
+\begin{example}
+Let $\vec{F}(x,y,z) = \veciii{-\dfrac{y}{x^2+y^2}}{\dfrac{x}{x^2+y^2}}{0}$.
+\\ \\ $\curl{F} = \vec{0}$ except on the $z$-axis. Then, for a general circle $C$ given by $x^2 + y^2 = 1$, $z = 1$, $\int_{\mathcal{C}} \vec{F} \bullet d\vec{r} \neq 0$. For a circle $\mathcal{C}_1$ with different $z$-value and same orientation, the line integral is equal.
+\\ \\ Also, using delta functions
+\begin{equation*}
+    \curl{\vec{F}} = 2\pi \delta_0(x) \delta_0(y)
+\end{equation*}
+where $2\pi$ comes from evaluating $\oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}$, for $C: x^2 + y^2 = 1$, $z = 0$.
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be the curve of intersection of the cylinder $x^2 + y^1 = 1$ and $z = xe^y$, oriented counterclockwise. Let $\vec{F}(x,y,z) = \veciii{-y^3}{x^3}{-z^3}$. Determine $\int_{\mathcal{C}} \vec{F} \bullet d\vec{r}$.
+\\ \\ The parametrization is difficult. $\curl{\vec{F}} = 3(x^2 + y^2) \hat{k}$ (exercise). $\curl{\vec{F}}$ is perpendicular to the normal vector to the cylinder.
+\begin{align*}
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet \hat{N} \,dS = 0
+\end{align*}
+if $\mathcal{S}$ is part of the cylinder. Let $\mathcal{S}$ be the part of the cylinder between $\mathcal{C}$ and $\mathcal{C}_1 = \set{x^2 + y^2 = 1, z = 0}$. Then,
+\begin{align*}
+    \int_{\mathcal{C}} - \int_{\mathcal{C}_1} = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} = 0
+\end{align*}
+Thus,
+\begin{equation*}
+    \int_{\mathcal{C}} = \int_{\mathcal{C}_1} = \dfrac{3\pi}{2}
+\end{equation*}
+\end{example}
+
+
+\section*{Stokes Theorem Proof}
+\begin{theorem}
+\begin{equation*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Special case. Let $\mathcal{S}$ be represented by $z = g(x,y)$, for $(x,y) \in R$, where $R$ is bounded by a closed, simple, piecewise smooth curve $\mathcal{C}_1$, $C$, $C_1$ oriented counterclockwise.
+\\ \\ Parametrize $\mathcal{S}$ using $z = g(x,y)$, i.e. $\vec{r}(x,y) = \veciii{x}{y}{g(x,y)}$, and so $d\vec{S} = \veciii{-g_x}{-g_y}{1}$.
+\\ \\ Parametrize $\mathcal{C}$. If $\mathcal{C}_1: (x(t), y(t))$, then $C: (x(t),y(t),g(x(t),y(t))$. Then,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} = \int_{\mathcal{C}_1} F_1 \,dx + F_2 \,dy + F_3 \,dz
+\end{align*}
+By the chain rule,
+\begin{align*}
+    \dfrac{dz}{dt} & = g_x \dfrac{dx}{dt} + g_y \dfrac{dy}{dt} \\
+    dz & = g_x \,dx + g_y \,dy
+\end{align*}
+Then,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \int_{\mathcal{C}_1} F_1 \,dx + F_2 \,dy + F_3 \,dz \\
+    & = \int_{\mathcal{C}_1} F_1 \,dx + F_2 \,dy + F_3 g_x \,dx + F_3 g_y \,dy \\
+    & = \int_{\mathcal{C}_1} (F_1 + F_3 g_x) \,dx + (F_2 + F_3 g_y) \,dy \\
+\end{align*}
+Using Green's theorem with $\mathcal{C}_1$ and $R$,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} + \dfrac{\partial}{\partial x}(F_3 g_y) - \dfrac{\partial F_1}{\partial y} - \dfrac{\partial}{\partial y}(F_3 g_x) \right) \,dx \,dy \\
+    & = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} + \dfrac{\partial F_3}{\partial x} g_y + F_3 g_{yx} - \dfrac{\partial F_1}{\partial y} - \dfrac{\partial F_2}{\partial y} g_x - F_3 g_{xy} \right) \,dx \,dy
+\end{align*}
+except $F_1$, $F_2$, $F_3$ all depend on $z = g(x,y)$, so by the chain rule we have to account for that.
+\begin{align*}
+    & = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} + \dfrac{\partial F_3}{\partial x} g_y + F_3 g_{yx} - \dfrac{\partial F_1}{\partial y} - \dfrac{\partial F_2}{\partial y} g_x - F_3 g_{xy} + \dfrac{\partial F_2}{\partial z} g_x + \dfrac{\partial F_3}{\partial z} g_x g_y - \dfrac{\partial F_1}{\partial z} g_y - \dfrac{\partial F_3}{\partial z} g_y g_x \right) \,dx \,dy \\
+    & = \iint_{R} \left(\dfrac{\partial F_2}{\partial x} + \dfrac{\partial F_3}{\partial x} g_y - \dfrac{\partial F_1}{\partial y} - \dfrac{\partial F_2}{\partial y} g_x + \dfrac{\partial F_2}{\partial z} g_x - \dfrac{\partial F_1}{\partial z} g_y \right) \,dx \,dy
+\end{align*}
+The other side of the equation, we get
+\begin{align*}
+    \curl{F} & = \veciii{\dfrac{\partial F_3}{\partial y} - \dfrac{\partial F_2}{\partial z}}{-\left(\dfrac{\partial F_3}{\partial x} - \dfrac{\partial F_1}{\partial z} \right)}{\dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y}} \\
+    \int_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \iint_{R} \left(-g_x \left(\dfrac{\partial F_3}{\partial y} - \dfrac{\partial F_2}{\partial z} \right) + g_y \left(\dfrac{\partial F_3}{\partial x} - \dfrac{\partial F_1}{\partial z} \right) + \dfrac{\partial F_2}{\partial x} - \dfrac{\partial F_1}{\partial y} \right) \,dx \,dy
+\end{align*}
+which matches the other side.
+\end{proof}
+
+\section*{Applications}
+Applications in physics, differential equations, wave equations, Maxwell's equations, etc.
+
+\begin{example}
+Laplace operator in $\mathbb{R}^3$, $\nabla^2$ or $\Delta$
+\begin{equation*}
+    \nabla^2 = \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2} + \dfrac{\partial}{\partial z^2}
+\end{equation*}
+used in Laplace's equation $\nabla^2 f = 0$, heat equation $du/dt = c \nabla^2 u$, wave equation, etc.
+\end{example}
+
+\begin{example}
+Uniqueness for the Dirichlet problem. Determining a function that satisfies $\nabla^2 f = 0$, and $f = 0$ on the boundary $\mathcal{S}$ of a surface $W$.
+\\ \\ If $f$ satisfies those conditions, then $f = 0$ in $W$.
+\end{example}
+\begin{proof}
+Using the divergence theorem with $\vec{F} = f \cdot \nabla f$.
+\begin{align*}
+    \div{\vec{F}} & = f_x^2 + f_y^2 + f_z^2 + f(f_{xx} + f_{yy} + f_{zz}) \\
+    & = f_x^2 + f_y^2 + f_z^2
+\end{align*}
+Then,
+\begin{align*}
+    \iint_{W} \abs{\nabla f}^2 \,dV & = \iint_{\mathcal{S}} \vec{F} \bullet d\vec{S} = 0
+\end{align*}
+Thus, $\nabla f = \vec{0}$, and so $f = 0$ on $\mathcal{S}$, so $f = 0$.
+\end{proof}
+
+\section*{Examples}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/stokes'-theorem/04.jpg}
+\end{figure}
+\begin{example}
+The boundary of $\mathcal{S}$ is the circle $\mathcal{C}$ given by $x^2 + y^2 = 1$, $z = 1$, which can be parametrized by
+\begin{align*}
+    \vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{1} && 0 \leq t \leq 2\pi \\
+    \vec{r}'(t) = \veciii{-\sin{t}}{\cos{t}}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \vec{F}(\vec{r}(t)) \bullet \vec{r}'(t) & = \veciii{-11\sin{t}}{11x}{11\cos{t}}{8} \bullet \veciii{-\sin{t}}{\cos{t}}{0} \\
+    & = 11\sin^2{t} + 11\cos^2{t} \\
+    & = 11
+\end{align*}
+Then, by Stokes' theorem,
+\begin{align*}
+    \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} \\
+    & = \int_{0}^{2\pi} 11 \,dt \\
+    & = 22\pi
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\vec{F} = \veciii{2x}{2y}{2x + 2z}$. Evaluate the integral of $\vec{F}$ over the curve consisting of straight lines joining the points $(1,0,1)$, $(0,1,0)$, and $(0,0,1)$.
+\\ \\ The curve is the boundary of a plane $\mathcal{S}$. $\vec{PQ} = \veciii{-1}{1}{-1}$, $\vec{PR} = \veciii{-1}{0}{0}$, and
+\begin{align*}
+    \vec{n} & = \vec{PQ} \times \vec{PR} = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ -1 & 1 & -1 \\ -1 & 0 & 0 \end{vmatrix} = \veciii{0}{1}{1} \\
+    \curl{\vec{F}} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 2x & 2y & 2x + 2z \end{vmatrix} = \veciii{0}{-2}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \curl{\vec{F}} \bullet d\vec{S} & = \veciii{0}{-2}{0} \bullet \veciii{0}{1}{1} \,dx \,dy \\
+    & = -2 \,dx \,dy
+\end{align*}
+Then, by Stokes' theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} \\
+    & = \int_{0}^{1} \int_{0}^{1-x} -2 \,dy \,dx \\
+    & = -2 \int_{0}^{1} (1 - x) \,dx \\
+    & = -2 \cdot \dfrac{1}{2} \\
+    & = -1
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\vec{F} = \veciii{x}{y}{9(x^2 + y^2)}$, $\mathcal{C}$ be the boundary of the part of the paraboloid $z = 81 - x^2 - y^2$ above the $xy$-plane, oriented counterclockwise when viewed from above. Evaluate
+\begin{equation*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r}
+\end{equation*}
+$\mathcal{S}$ is the paraboloid $z = 81 - x^2 - y^2$, $z \geq 0$.
+\begin{align*}
+    \vec{n} & = \veciii{2x}{2y}{1} \\
+    \curl{\vec{F}} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ x & y & 9(x^2 + y^2) \end{vmatrix} = \veciii{18y}{-18x}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \curl{\vec{F}} \bullet d\vec{S} & = \veciii{18y}{-18x}{0} \bullet \veciii{2x}{2y}{1} \,dx \,dy \\
+    & = 0
+\end{align*}
+Thus, by Stokes' theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} \\
+    & = 0
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\vec{F} = \veciii{zx + z^2y + 2y}{z^3yx + 4x}{z^4x^2}$, $\mathcal{S}$ be the capped cylindrical surface which is the union of two surfaces, a cylinder given by $x^2 + y^2 = 1$, $0 \leq z \leq 1$, and a hemispherical cap given by $x^2 + y^2 + (z - 1)^2 = 1$, $z \geq 1$. Evaluate
+\begin{equation*}
+    \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S}
+\end{equation*}
+The boundary of $\mathcal{S}$ is $x^2 + y^2 = 1$, $z = 0$, parametrized by
+\begin{align*}
+    \vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{0} && 0 \leq t \leq 2\pi \\
+    \vec{r}'(t) = \veciii{-\sin{t}}{\cos{t}}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \vec{F}(\vec{r}(t)) \bullet \vec{r}'(t) & = \veciii{2\sin{t}}{4\cos{t}}{0} \bullet \veciii{-\sin{t}}{\cos{t}}{0} \\
+    & = -2\sin^2{t} + 4\cos^2{t} \\
+    & = -2 \cdot \dfrac{1 - \cos{(2t)}}{2} + 4 \cdot \dfrac{1 + \cos{(2t)}}{2} \\
+    & = 3\cos{(2t)} + 1
+\end{align*}
+Then, by Stokes' theorem,
+\begin{align*}
+    \iint_{\mathcal{S}} \curl{\vec{F}} \bullet d\vec{S} & = \int_{0}^{2\pi} (3\cos{(2t)} + 1) \,dt \\
+    & = 2\pi 
+\end{align*}
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/stokes'-theorem/01.jpg}
+\end{figure}
+\begin{example}
+The unit normal of $\mathcal{S}$ is given by
+\begin{align*}
+    \vec{\hat{N}} & = \veciii{2x}{0}{1} \\
+    \curl{\vec{F}} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ xy & yz & xz \end{vmatrix} = \veciii{-y}{-z}{-x} \\
+    \curl{\vec{F}} \bullet \vec{\hat{N}} & = \veciii{-y}{-z}{-x} \bullet \veciii{2x}{0}{1} \\
+    & = -2xy - x \\
+    & = -x(2y + 1)
+\end{align*}
+Then, by Stokes' theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{\mathcal{S}} \curl{\vec{F}} \bullet \vec{\hat{N}} \,dS \\
+    & = \int_{0}^{2} \int_{0}^{5} -x(2y + 1) \,dy \,dx \\
+    & = -\int_{0}^{2} x \,dx \int_{0}^{5} (2y + 1) \,dy \\
+    & = -2 \cdot 10 \\
+    & = -20
+\end{align*}
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/stokes'-theorem/02.jpg}
+\end{figure}
+\begin{example}
+Let $\mathcal{S}$ be the disc $(x - 9)^2 + (y - 6)^2 \leq 25$, $z = 3$, with boundary $\mathcal{C}$. Then, the unit normal is $\vec{N} = \veciii{0}{0}{1}$.
+\begin{align*}
+    \curl{\vec{F}} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 7y & 3z & 5x \end{vmatrix} = \veciii{-3}{-5}{-7} \\
+    \curl{\vec{F}} \bullet \vec{\hat{N}} & = -7
+\end{align*}
+Then, by Stokes' theorem,
+\begin{align*}
+    \oint_{\mathcal{C}} \vec{F} \bullet d\vec{r} & = \iint_{\mathcal{S}} -7 \,dS \\
+    & = -7 \iint_{\mathcal{S}} \,dS \\
+    & = -7 \cdot \pi \cdot 5^2 \\
+    & = -175\pi
+\end{align*}
+\end{example}
+
+\section*{Divergence and Stokes' Theorem Question}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.9]{images/stokes'-theorem/03.jpg}
+\end{figure}
+\begin{example}
+$\div{\vec{F}} = a + 0 + 0 = a$. Let $\mathcal{S}$ be a closed surface, which is the boundary of the region $D$. By the divergence theorem,
+\begin{align*}
+    \iiint_{D} a \,dV & = \iint_{\mathcal{S}} \vec{F} \bullet \vec{\hat{N}} \,dS \\
+    a \iiint_{D} \,dV & = 0
+\end{align*}
+Since the volume of $D$ is non-zero, this implies that $a = 0$. The other constants cannot be determined.
+\\ \\ If the circulation around any closed curve is zero, then $\vec{F}$ is conservative, and so $\curl{\vec{F}} = 0$. Then,
+\begin{align*}
+    \curl{\vec{F}} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ ax + by + 4z & x + cz & 3y + mx \end{vmatrix} = \veciii{3-c}{4-m}{1-b} = \vec{0}
+\end{align*}
+Thus, $3 - c = 0$, $4 - m = 0$, $1 - b = 0$, and so $c = 3$, $m = 4$, $b = 1$.
+
+\end{example}
+
+
+\end{document}

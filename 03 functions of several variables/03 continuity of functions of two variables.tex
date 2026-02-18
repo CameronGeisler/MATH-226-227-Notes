@@ -1,0 +1,51 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Continuity of Functions of Two Variables}
+
+\begin{document}
+
+We can extend the definition of continuity to functions of two variables, using limits.
+
+\section*{Continuity of Functions of Two Variables}
+
+\begin{definition}
+Let $f$ be a function of two variables. $f$ is \textbf{continuous} at $(a, b)$ if,
+\begin{itemize}
+    \item $(a, b) \in D(f)$
+    \item $\lim_{(x,y) \to (a,b)} f(x,y)$ exists
+    \item $\lim_{(x,y) \to (a,b)} f(x, y) = f(a, b)$
+\end{itemize}
+\end{definition}
+
+As with single-variable functions, algebraic combinations of continuous functions are continuous, everywhere the combination is defined. That is, the sum, difference, constant multiple, product, quotient, and powers of continuous functions are continuous. In particular, polynomials of two variables are continuous everywhere, and rational functions of two variables are continuous everywhere they are defined.
+
+\section*{Proving a Function is Continuous}
+\begin{example}
+Let $f(x,y) = (x^2 + y^2)^a$, for $a > 0$. Prove that $f$ is continuous at $(0,0)$.
+\end{example}
+\begin{proof}
+Let $\epsilon > 0$, $\delta = \epsilon^{\frac{1}{2\alpha}}$. Then, $\forall (x,y) \in D(f)$, if $0 < \sqrt{x^2 + y^2} < \delta$, then
+\begin{align*}
+    \abs{(x^2 + y^2)^a} & = (x^2 + y^2)^a \\
+    & = \sqrt{x^2 + y^2}^{2a} \\
+    & < \delta^{2a} \\
+    & = (\epsilon^{\frac{1}{2a}})^{2a} \\
+    & = \epsilon
+\end{align*}
+Thus, $\lim_{(x,y) \to (0,0)} f(x,y) = 0 = f(0,0)$, so $f$ is continuous at $(0,0)$
+\end{proof}
+
+\begin{example}
+Let $f(x,y) = \begin{cases} \frac{x^3}{x^2 + y^2} & \text{if $(x,y) \neq (0,0)$} \\ 0 & \text{if $(x,y) = (0,0)$} \end{cases}$
+\\ \\ Prove that $f$ is continuous at $(0,0)$.
+\\ \\ If $(x,y) \neq (0,0)$, then
+\begin{equation*}
+    0 \leq \abs{f(x,y)} = \abs{\frac{x^3}{x^2+y^2}} = \abs{x} \cdot \abs{\frac{x^2}{x^2+y^2}} \leq \abs{x} \cdot \abs{\frac{x^2}{x^2}} = \abs{x}
+\end{equation*}
+As $(x,y) \to (0,0)$, $0 \to 0$ and $\abs{x} \to 0$. Thus, by the squeeze theorem, $\lim_{(x,y) \to (0,0)} f(x,y) = 0 = f(0,0)$. Therefore, $f$ is continuous of $(0,0)$.
+\end{example}
+
+
+
+\end{document}

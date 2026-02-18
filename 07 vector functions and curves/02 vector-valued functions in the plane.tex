@@ -1,0 +1,59 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Vector-Valued Functions in the Plane}
+
+\begin{document}
+
+\section*{Vector-Valued Functions in the Plane}
+
+First, we will consider two-dimensional vector-valued functions, which can describe curves in the plane $\mathbb{R}^2$. These can be thought of as a vector-valued function with 2 components, i.e.
+\begin{equation*}
+    \vec{r}(t) = \vecii{x(t)}{y(t)}
+\end{equation*}
+or, as a three-dimensional vector-valued function with zero $z$-component, or,
+\begin{equation*}
+    \vec{r}(t) = \veciii{x(t)}{y(t)}{0}
+\end{equation*}
+Again, notice that a two-dimensional vector-valued function is equivalent to a parametric equation in the plane, or
+\begin{equation*}
+    \begin{pmatrix} \text{2D vector-valued function} \\ \vec{r}(t) = \vecii{x(t)}{y(t)} \end{pmatrix} \quad \iff \quad \begin{pmatrix} \text{parametric equations} \\ \begin{cases} x = x(t) \\ y = y(t) \end{cases} \end{pmatrix}
+\end{equation*}
+
+\section*{Curves in $\mathbb{R}^2$, $\mathbb{R}^3$}
+Vector-valued functions can be used to represent curves in $\mathbb{R}^2$ and $\mathbb{R}^3$. Any given curve can have multiple parameterizations.
+
+\begin{example}
+$\vec{r}(t) = \vec{r_0} + t \vec{v}$ represents a line parallel to $\vec{v}$.
+\begin{itemize}
+    \item Replacing $\vec{v}$ with any other vector that is a scalar multiple of $\vec{v}$ will represent the same line.
+\end{itemize}
+\end{example}
+
+\begin{example}
+For $r > 0$, $\vec{r}(t) = \vecii{r \cos{t}}{r \sin{t}}$ represents a circle in $\mathbb{R}^2$.
+\end{example}
+
+\begin{example}
+$\vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{t}$ represents a helix of radius 1
+\begin{itemize}
+    \item $\vec{r}(t) = \veciii{\cos{t^2}}{\sin{t^2}}{t^2}$ also represents the same curve (helix), but with acceleration as $t$ increases.
+\end{itemize}
+$\vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{t^2}$ represents a helix that is stretched out more as $t$ increases (i.e. as $z$ increases)
+\end{example}
+
+\begin{example}
+$\vec{r}(t) = \veciii{t}{t^2}{t^3}$
+\end{example}
+
+\section*{Tangent Lines to Parametric Curves}
+For a vector-valued function $\vec{r}(t)$, the parametric equation of the tangent line at $x = x_0$ is given by,
+\begin{equation*}
+    \vec{T}(t) = \vec{r}(x_0) + t \vec{r}'(x_0)
+\end{equation*}
+
+
+
+
+
+\end{document}

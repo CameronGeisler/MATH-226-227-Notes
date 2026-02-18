@@ -1,0 +1,53 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Mass}
+
+\begin{document}
+
+\section*{Density and Mass in the Plane}
+\begin{theorem}
+The mass of a region $R$ in the plane with area density $\rho(x,y)$ is given by
+\begin{equation*}
+    \boxed{m = \iint_R \rho(x,y) \,dA}
+\end{equation*}
+\end{theorem}
+
+
+\section*{Centroid}
+\begin{theorem}
+The centroid $(\overline{x}, \overline{y})$ of a region $R$ is given by,
+\begin{equation*}
+    \boxed{\overline{x} = \frac{\iint_R x \,dA}{\iint_R \,dA}} \qquad \text{and} \qquad \boxed{\overline{y} = \frac{\iint_R y \,dA}{\iint_R \,dA}}
+\end{equation*}
+\end{theorem}
+
+\section*{Center of Mass}
+\begin{theorem}
+The center of mass $(\overline{x}, \overline{y})$ of a distribution of mass with area density $\rho(x,y)$ on a region $R$ is given by,
+\begin{equation*}
+    \boxed{\overline{x} = \frac{M_y}{m} = \frac{\iint_R x \rho(x,y) \,dA}{\iint_R \rho(x,y) \,dA}} \qquad \text{and} \qquad \boxed{\overline{y} = \frac{M_x}{m} = \frac{\iint_R y \rho(x,y) \,dA}{\iint_R \rho(x,y) \,dA}}
+\end{equation*}
+\end{theorem}
+
+The numerators are moments.
+
+
+\section*{Density and Mass in Space}
+\begin{theorem}
+The mass of a region $D$ in space with volume density $\rho(x,y,z)$ is given by
+\begin{equation*}
+    \boxed{m = \iiint_D \rho(x,y,z) \,dV}
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+The center of mass $(\overline{x}, \overline{y}, \overline{z})$ of a distribution of mass with volume density $\rho(x,y,z)$ on a region $R$ in space is given by
+\begin{align*}
+    \overline{x} & = \frac{M_{yz}}{m} = \frac{1}{m} \iiint_D x \rho(x,y,z) \,dV \\
+    \overline{y} & = \frac{M_{xz}}{m} = \frac{1}{m} \iiint_D y \rho(x,y,z) \,dV \\
+    \overline{z} & = \frac{M_{xy}}{m} = \frac{1}{m} \iiint_D z \rho(x,y,z) \,dV
+\end{align*}
+\end{theorem}
+
+\end{document}

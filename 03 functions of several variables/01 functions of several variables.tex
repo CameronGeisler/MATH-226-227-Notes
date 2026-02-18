@@ -1,0 +1,148 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Functions of Several Variables}
+
+\begin{document}
+
+Recall that in single-variable calculus, we considered functions $f$ which depended on a single real variable. That is, a function $f$ as a rule that assigns to each input $x$ a unique output $f(x)$. This definition can be naturally extended to functions with inputs that consist of multiple real numbers (and still have a single output), which are called \textbf{functions of several variables}, or simply \textbf{multivariable functions}. Multivariable functions are the subject of multivariable calculus. That is, multivariable calculus studies the concepts of calculus for functions which have multiple input variables. Functions of several variables naturally arise in applications.
+
+\begin{example}
+On a map, temperature might be a function of the location on the map, so say on the longitude and latitude, say $x$ and $y$. Or, more precisely, the physical world is 3-dimensional, so quantities such as temperature or air pressure will depend on the coordinates of an object in space, say with variables $x, y, z$.
+\end{example}
+
+\begin{example}
+In data science and machine learning, a common problem is to consider data involving thousands, or even millions, of independent variables, and to determine which of these variables has a significant effect on the dependent variable.
+\end{example}
+
+\begin{example}
+You may recall from geometry that many formulas for volume and surface area involve multiple variables. For example, the volume of a cylinder is given by $V = \pi r^2 h$, where $V$ is the volume, $r$ is the radius, and $h$ is the height. That is, the quantity $V$ is dependent on the two quantities $r$ and $h$.
+\end{example}
+
+\section*{Functions of Several Variables}
+First, we will introduce functions of 2 variables, as the concepts associated with multivariable functions are most easily presented using them. Then, they will naturally extend them to functions with 3 variables, or more generally $n$ variables.
+
+\begin{definition}
+A \textbf{function of two variables}, $z = f(x,y)$, is a rule that assigns to each point $(x, y)$ in the \textbf{domain} $D(f) \subseteq \mathbb{R}^2$ a unique real number $z = f(x,y)$ in the \textbf{codomain} $\mathbb{R}$.
+\begin{itemize}
+    \item The \textbf{domain} of $f$, $D(f)$, is the set of all points where $f$ is defined, or
+    \begin{equation*}
+        D(f) = \set{(x,y): f \text{ is defined}}
+    \end{equation*}
+    \item The \textbf{range} of $f$, $R(f)$, is the set of all real numbers that $f$ maps to, or
+    \begin{equation*}
+        R(f) = \set{f(x,y): (x,y) \in D(f)}
+    \end{equation*}
+\end{itemize}
+\end{definition}
+
+The \textbf{domain convention} specifies that the implied domain of a function $f$ is the largest set of points $(x,y)$ where $f(x,y)$ makes sense as a real number, unless the domain is specified to be a smaller set.
+\\ \\ Recall that for a single variable function, its domain was a subset of $\mathbb{R}$, or an interval on the real number line. For a function of two variables, its domain is a subset of $\mathbb{R}^2$, or the Cartesian plane. Typically, the domain of a function $z = f(x,y)$ is a region in the plane, that is bounded by one or more curves. Then, the function $f$ assigns a number $z$ to each point $(x,y)$ in this region.
+\\ \\ Also, note that a function of two variables is defined by an equation in three variables $z = f(x,y)$. This is just as a function of one variable is defined by an equation in two variables $y = f(x)$.
+
+\section*{Domain of a Function of Two Variables (Sets in $\mathbb{R}^2$)}
+Recall that for single-variable functions, the domain is typically an interval, or union of intervals. Also, these intervals can be closed $[a,b]$ which includes their \textit{boundary points} $a$ and $b$, or open intervals which don't include their boundary points, or half-open intervals $(a,b]$ or $[a,b)$. All of these concepts can be generalized to regions in $\mathbb{R}^2$, which are analogous to intervals of $\mathbb{R}$.
+
+\begin{definition}
+Let $R$ be a region (set) in the $xy$-plane.
+\begin{itemize}
+    \item A point $(x_0,y_0)$ is an \textbf{interior point} of $R$ if it is the center of a disk of positive radius that lies entirely in $R$.
+    \item A point $(x_0,y_0)$ is a \textbf{boundary point} of $R$ if every disk centered at $(x_0,y_0)$ contains points that lie outside of $R$ and points that lie in $R$. Note that this point does not necessarily need to be a point in $R$.
+\end{itemize}
+\begin{itemize}
+    \item The \textbf{interior} of $R$ is the set of all interior points of $R$.
+    \item The \textbf{boundary} of $R$ is the set of all boundary points of $R$.
+    \item $R$ is \textbf{open} if it contains only interior points.
+    \item $R$ is \textbf{closed} if it contains all of its boundary points.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A region $R$ is \textbf{bounded} if it is contained in a disk of finite radius. Otherwise, it is \textbf{unbounded}.
+\end{definition}
+
+The domain will often involve a region in the $xy$-plane, which will often involve an \textit{inequality in two variables}.
+
+\begin{example}
+Determine the domain of,
+\begin{equation*}
+    f(x,y) = \frac{1}{x - y}
+\end{equation*}
+The domain is
+\begin{equation*}
+    D(f) = \set{(x, y) \in \mathbb{R}^2: x \neq y}
+\end{equation*}
+\end{example}
+
+\begin{example}
+Consider the domain of,
+\begin{equation*}
+    f(x,y) = \sqrt{y - 5x - 3}
+\end{equation*}
+The domain is $y - 5x - 3 \geq 0$.
+\end{example}
+
+\begin{example}
+Determine the domain of
+\begin{equation*}
+    f(x,y) = \arcsin{(2y - 4x^2)}
+\end{equation*}
+The domain is $-1 \leq 2y - 4x^2 \leq 1$.
+\end{example}
+
+\begin{example}
+Determine the domain of,
+\begin{equation*}
+    f(x,y) = \ln\brac{x^2 + y^2 - 4}
+\end{equation*}
+\end{example}
+
+\begin{itemize}
+    \item $f(x,y,z) = \sqrt{z - x^2 - y^2}$, $D(f) = \set{(x,y,z) \in \mathbb{R}^3: z \geq x^2 + y^2}$
+\end{itemize} 
+
+\begin{itemize}
+    \item Functions of two and three variables are typically represented as $z = f(x,y)$ and $w = f(x,y,z)$, respectively.
+    \item Some equations do not define a function e.g. $x^2 + y^2 + z^2 = 4$
+\end{itemize}
+
+\section*{Graphs of Functions}
+To graph a function of two variables, we sketch the surface $z = f(x,y)$ in space. For each points $(x,y)$, the output $z = f(x,y)$ is denoted by the $z$-coordinate or height of the surface. This considerably more difficult than graphing functions in the plane.
+    
+\section*{Level Curves}
+Another method to explore and describe the graph of a function of two variables, is to plot multiple curves in the $xy$-plane, for different $z$-values. Each of these curves is called a \textbf{level curve} of $f$.
+\\ \\ We can consider characteristics of the level curves. For example, they could be lines, circles, ellipses, hyperbolas, etc.
+    
+\section*{Functions of 3 Variables}
+
+For a function of 3 variables, we typically denote this as $w = f(x,y,z)$, and the domain is a region in (3D) space.
+\\ \\ The definitions for interior point, boundary point, interior, boundary, open, closed, bounded, and unbounded, are analogous to regions in $\mathbb{R}^2$.
+
+\section*{Level Surfaces}
+
+
+\section*{Functions of n Variables}
+\begin{definition}
+A \textbf{function} $f$ of $n$ real variables is a rule that assign to each element $(x_1, x_1, \dots, x_n)$ in the domain $D(f) \subseteq \mathbb{R}^n$ to a unique element $f(x_1, x_2, \dots, x_n)$ in the codomain $\mathbb{R}^n$.
+\begin{itemize}
+    \item The \textbf{domain} of $f$ is the set of all points where $f$ is defined
+    \begin{itemize}
+        \item $D(f) = \set{(x_1, \dots, x_n): f \text{ is defined}}$
+        \item The \textbf{domain convention} specifies that the implied domain of a function $f$ is the largest set of points $(x_1, \dots, x_n)$ where $f(x_1, \dots, x_n)$ makes sense as a real number, unless the domain is specified to be a smaller set.
+    \end{itemize}
+    \item The \textbf{range} of $f$ is the set of real numbers that $f$ maps to.
+    \begin{itemize}
+        \item $R(f) = \set{f(x_1, \dots, x_n): (x_1, \dots, x_n) \in D(f)}$
+    \end{itemize}
+\end{itemize}
+\end{definition}
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Vectors}
+
+\begin{document}
+
+Recall that in single-variable calculus, both the domain and range of functions are a single (real) variable. However, many problems in applications involve multiple variables. This leads to multi-variable calculus, which incorporates multiple variables, and vectors, with the theory of calculus.
+\begin{itemize}
+    \item In multi-variable calculus, we will introduce first \textbf{vector-valued functions of a single real variable}, i.e. functions whose inputs are a single real number, and outputs are a \textit{vector} of (multiple) real numbers.
+    \item Then, later we will consider \textbf{vector-valued functions of a vector variable}, i.e. functions where both their inputs and outputs are vectors of real numbers.
+\end{itemize}
+The theory of \textbf{vectors} form the foundation for multivariable calculus. In precalculus, we considered vectors in the plane $\mathbb{R}^2$. Here, we will extend vectors to 3-space $\mathbb{R}^3$. Then, we can more generally consider vectors in $\mathbb{R}^n$ (vectors with $n$ coordinates, for general $n \geq 2$).
+
+\section*{Vectors in $\mathbb{R}^3$}
+The algebra and geometry of vectors in $\mathbb{R}^2$ extends to $\mathbb{R}^3$. Vectors in $\mathbb{R}^3$ can be represented as directed line segments, with addition and scalar multiplication.
+
+\begin{definition}
+In $\mathbb{R}^3$, the \textbf{standard basis vectors} are $\ihat = (1, 0, 0)$, $\jhat = (0, 1, 0)$, and $\hat{k} = (0, 0, 1)$.
+\begin{itemize}
+    \item Every vector $\vec{v} = (x, y, z)$ can be written as a linear combination of the standard basis vectors, as
+    \begin{equation*}
+        \vec{v} = x \ihat + y \jhat + z \hat{k}
+    \end{equation*}
+    \item A vector $\vec{PQ}$ from $P = (x_1, y_1, z_1)$ to $Q = (x_2, y_2, z_2)$ is $\vec{PQ} = (x_2 - x_1, y_2 - y_1, z_2 - z_1)$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $P = (x, y, z)$. The \textbf{position vector} of $P$, $\vec{OP}$, is the vector representing its position in $\mathbb{R}^3$ with respect to the origin.
+\begin{itemize}
+    \item $\vec{OP} = \veciii{x}{y}{z}$
+\end{itemize}
+\end{definition}
+
+\end{document}

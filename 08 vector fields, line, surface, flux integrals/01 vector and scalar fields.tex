@@ -1,0 +1,201 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Vector and Scalar Fields}
+
+\begin{document}
+
+\begin{equation*}
+    \begin{array}{cc}
+        \text{``Do vector calculus just for fun"} \\
+        \text{--Wierd Al, in ``White and Nerdy"} 
+    \end{array}
+\end{equation*}
+
+Recall that a scalar-valued function has inputs of scalars and outputs of scalars, and a vector-valued function has inputs of a scalar and outputs of a vector. Next, we will consider vector-valued functions of a vector variable, which are functions whose inputs and outputs are both vectors. These functions are called \textbf{vector fields}.
+
+\section*{Vector Fields in Two Dimensions}
+First, we will consider vector fields in two dimensions, where the output and input vectors are in $\mathbb{R}^2$.
+
+\begin{definition}
+A \textbf{vector field} in $\mathbb{R}^2$ (or a \textbf{plane vector field}) is a function $\vec{F}$ that assigns to each vector $\vec{x}$ in a domain $D \subseteq \mathbb{R}^2$, a unique vector $\vec{F}(\vec{x}) \in \mathbb{R}^2$. A vector field can be written in terms of its component functions, as
+\begin{equation*}
+    \vec{F}(x,y) = \vecii{f(x,y)}{g(x,y)} \qquad \text{or} \qquad \vec{F}(x,y) = f(x,y) \ihat + g(x,y) \jhat
+\end{equation*}
+where $f, g$ are scalar functions of $x$ and $y$, defined on $D$.
+\begin{itemize}
+    \item Sometimes, we will omit the arguments for simplicity, $\vec{F} = \vecii{f}{g}$.
+\end{itemize}
+\end{definition}
+
+A vector field takes a region on the plane, and for each point $(x,y)$ in that region, associates a vector $\vec{F}(x,y)$. Intuitively, the function that defines a vector field creates a ``field" of vectors, which gives some insight into its name.
+
+\begin{itemize}
+    \item A vector field $\vec{F} = \vecii{f}{g}$ is said to be \textbf{continuous}/\textbf{differentiable} on $D$ if $f, g$ are continuous/differentiable on $D$.
+\end{itemize}
+
+\section*{Graphing Vector Fields}
+Vector fields assign a vector to every point in a region, but it is impossible to graph a vector for every single point. Instead, when graphing a vector field, we plot a representative sample of vectors, in order to represent the general appearance of the field.
+\begin{itemize}
+    \item In general, try not to draw vectors so that they overlap each other.
+    \item Sometimes, vectors have very large magnitudes which make them inevitably overlap and get out of hand. Instead, we can instead draw the vectors with lengths proportional to their magnitudes, rather than their actual magnitudes.
+    \item Another technique is to represent the magnitude of a vector by its arrow thickness, rather than its length. This is best done by graphing technology.
+\end{itemize}
+
+
+
+\section*{Misc}
+\begin{definition}
+A \textbf{vector field} is a function $\vec{F}: D \rightarrow \mathbb{R}^n$, with domain $D \subseteq \mathbb{R}^n$, that associates a unique vector $\vec{F}(\vec{x})$ to every vector $\vec{x} \in D$.
+\begin{itemize}
+    \item For $n = 3$, each point in space $(x,y,z)$ is associated with a vector $\vec{F}(x,y,z)$.
+    \item A vector field $\vec{F}$ can be written with argument as each of its components $\vec{F}(x_1, \dots, x_n)$ or with argument as a single vector made up of all its components $\vec{F}(\vec{x})$. Often, the argument $\vec{r}$ is used to represent position.
+\end{itemize}
+\end{definition}
+A vector field can be written as
+\begin{align*}
+    \vec{F}(x,y,z) & = F_1(x,y,z) \ihat + F_2(x,y,z) \jhat + F_3(x,y,z) \\
+    & = \veciii{F_1(x,y,z)}{F_2((x,y,z)}{F_3(x,y,z)}
+\end{align*}
+where $F_1$, $F_2$, $F_3$ are scalar-valued functions, called \textbf{scalar fields}.
+
+\begin{definition}
+A vector field is \textbf{smooth} if its component scalar fields have continuous partial derivatives up to at least second order.
+\end{definition}
+
+\section*{Examples}
+
+\begin{example}
+\textbf{Constant field}. The constant field $\vec{F}(\vec{r}) = \vec{a}$, for $\vec{a} \in \mathbb{R}^3$. At each point, $\vec{F}$ returns the same vector.
+\end{example}
+
+\begin{example}
+\textbf{Rotation field}. The field $\vec{F}(x,y) = \vecii{-y}{x}$.
+\end{example}
+
+
+\section*{Radial Fields}
+\begin{definition}
+A vector field $\vec{F}$ is a \textbf{radial field} if all of its outputs either point away from or towards the origin. In other words, its outputs are proportional to its inputs, or $\vec{F}$ is of the form
+\begin{equation*}
+    \vec{F} = f(x,y) \vecii{x}{y}
+\end{equation*}
+where $f$ is a scalar-valued function.
+\end{definition}
+
+\begin{example}
+The vector field $\vec{F}(\vec{r}) = \vec{r}$, a radial field.
+\end{example}
+
+\begin{example}
+$\vec{F}(\vec{r}) = \begin{cases} \frac{\vec{r}}{\abs{\vec{r}}} & \text{if $\vec{r} \neq 0$} \\ 0 & \text{if $\vec{r} = 0$} \end{cases}$
+\begin{itemize}
+    \item Gives the unit vector in the direction of $\vec{r}$
+\end{itemize}
+\begin{align*}
+    \vec{F}(x,y,z) & = \veciii{\dfrac{x}{\sqrt{x^2 + y^2 + z^2}}}{\dfrac{y}{\sqrt{x^2 + y^2 + z^2}}}{\dfrac{z}{\sqrt{x^2 + y^2 + z^2}}}
+\end{align*}
+The partial derivatives do not exist at $\vec{r} = 0$, so $\vec{F}$ is smooth everywhere except at $\vec{r} = 0$.
+\end{example}
+
+\section*{Gravitational Fields}
+\begin{example}
+By Newton's law of gravitation, the force of attraction exerted on a particle of mass $m$ located at $\vec{r} = (x,y,z)$, by a particle of mass $M$ located at the origin, is given by
+\begin{align*}
+    \vec{F}(x,y,z) = - \dfrac{GmM}{x^2 + y^2 + z^2} \vec{u} && \text{or} && \vec{F}(\vec{r}) = -\dfrac{GmM}{\abs{\vec{r}}^2} \vec{u}
+\end{align*}
+where $G$ is the graviational constant, $\vec{u}$ is the unit vector with direction from the origin to $(x,y,z)$. Alternatively,
+\begin{equation*}
+    \vec{u} = \dfrac{\veciii{x}{y}{z}}{\sqrt{x^2 + y^2 + z^2}} = \dfrac{\vec{r}}{\abs{\vec{r}}}
+\end{equation*}
+and so
+\begin{align*}
+    \vec{F}(\vec{r}) & = -\dfrac{GmM}{\abs{\vec{r}}^2} \cdot \dfrac{\vec{r}}{\abs{\vec{r}}} \\
+    \vec{F}(\vec{r}) & = -\dfrac{GmM}{\abs{\vec{r}}^3} \cdot \vec{r}
+\end{align*}
+$\vec{F}$ is in the opposite direction of $\vec{r}$, so it points towards the origin, and the magnitude of $\vec{F}$ is given by
+\begin{equation*}
+    \abs{\vec{F}} = \dfrac{GmM}{\abs{\vec{r}}^3} \cdot \abs{\vec{r}} = \dfrac{GmM}{\abs{\vec{r}}^2} \vec{r}
+\end{equation*}
+Note that the magnitude of $\vec{F}$ is constant for all points equidistant from the origin.
+\end{example}
+
+\section*{Electric Fields}
+Vector fields can model the electromagnetic force exerted at a point in a electromagnetic field.
+
+\begin{example}
+By Coulomb's law, the force $\vec{F}$ exerted on a particle with electric charge $q_1$ located at $\vec{r} = (x,y,z)$, by a particle with electric charge $q_2$ located at the origin is given by
+\begin{align*}
+    \vec{F}(x,y,z) = \dfrac{k q_1 q_2}{x^2 + y^2 + z^2} \vec{u} && \text{or} && \vec{F}(\vec{r}) = \dfrac{k q_1 q_2}{\abs{\vec{r}}^2} \vec{u}
+\end{align*}
+where $k$ is the Coulomb constant, $\vec{u}$ is the unit vector with direction from the origin to $(x,y,z)$. Similar to the gravitational field, $\vec{u} = \vec{r}/\abs{\vec{r}}$, and
+\begin{align*}
+    \vec{F}(\vec{r}) & = \dfrac{k q_1 q_2}{\abs{r}^2} \cdot \dfrac{\vec{r}}{\abs{\vec{r}}} = \dfrac{k q_1 q_2}{\abs{\vec{r}}^3} \vec{r}
+\end{align*}
+Note that this formula is equivalent to Newton's law of gravitation, with $-m_1$ replaced with $q_1$, as like charges repel.
+\end{example}
+
+\begin{definition}
+A vector field $\vec{F}$ is an \textbf{inverse square field} if it is of the form
+\begin{equation*}
+    \vec{F}(\vec{r}) = \dfrac{k}{\abs{\vec{r}}^2} \vec{u}
+\end{equation*}
+for some $k \in \mathbb{R}$ and vector $\vec{u}$.
+\begin{itemize}
+    \item Gravitational fields and electric fields are inverse square fields.
+\end{itemize}
+\end{definition}
+
+\section*{Gradient as a Vector Field}
+Recall that the gradient of a scalar-valued function $\phi$, $\nabla \phi$, is a vector. In this way, the gradient defines a vector field.
+
+\begin{definition}
+Let $\phi$ be differentiable on a region of $\mathbb{R}^2$ or $\mathbb{R}^3$. Then, the vector field $\vec{F} = \nabla \phi$ is called a \textbf{gradient field}, and the function $\phi$ is called a \textbf{potential function} for $\vec{F}$.
+\end{definition}
+
+The intuition behind calling $\phi$ a ``potential function" will become more clear later.
+
+\section*{Field Lines}
+\begin{definition}
+Let $\vec{F}$ be a vector field. A \textbf{field line} for $\vec{F}$ (or \textbf{integral curve}, or \textbf{trajectory}) is a curve such that the field $\vec{F}$ is tangent to the curve at every point.
+\begin{itemize}
+    \item For a field representing fluid flow, the lines are often called \textbf{flow lines} or \textbf{streamlines}.
+    \item For a force field, the field lines are often called \textbf{lines of force}.
+    \item If $\vec{F} = \nabla f$ is a gradient field, then along a field line, $f$ increases, and the field lines move along the steepest path.
+    \item For a velocity field, if a particle was initially placed on a field line, it would follow the path of the line.
+\end{itemize}
+\end{definition}
+
+Vector fields can model the velocity of air as it moves around a wing of an airplane.
+
+If $\vec{r}(t)$ is a field line, then $\vec{r}'(t)$ is parallel to $\vec{F}(\vec{r}(t))$. In other words,
+\begin{equation*}
+    \vec{r}'(t) = \lambda(t) \vec{F}(\vec{r}(t))
+\end{equation*}
+for some $\lambda(t) > 0$. Alternatively, there exists a parametrization of $\vec{r}(u)$ such that $\vec{r}'(u) = \vec{F}(\vec{r}(u))$, but this can be difficult to find.
+\\ \\ For some vector fields, we can break $\vec{r}'(t)$ into it's components.
+\begin{align*}
+    \vec{x}'(t) & = \dfrac{dx}{dt} = \lambda(t) F_1(x,y,z) \\
+    \vec{y}'(t) & = \dfrac{dy}{dt} = \lambda(t) F_2(x,y,z) \\
+    \vec{z}'(t) & = \dfrac{dz}{dt} = \lambda(t) F_3(x,y,z)
+\end{align*}
+Then, we can solve for $\lambda(t)dt$ in each equation and equate the results.
+\begin{align*}
+    \dfrac{dx}{F_1(x,y,z)} = \dfrac{dy}{F_2(x,y,z)} = \dfrac{dz}{F_3(x,y,z)} && \text{if $F_1$, $F_2$, $F_3 \neq 0$}
+\end{align*}
+which forms a differential equation for the field lines of $\vec{F}$. Then, the general solution will form the set of all possible field lines.
+\\ \\ By existence and uniqueness for differential equations, if $\vec{F}$ is smooth, and $\vec{F}(\vec{r_0}) \neq 0$, then there is exactly one field line through $\vec{r_0}$
+
+\begin{example}
+$\vec{F}(x,y) = \vecii{-y}{x}$
+\begin{align*}
+    -\dfrac{1}{y} \,dx & = \dfrac{1}{x}\,dy \\
+    -x\,dx & = y \,dy \\
+    \int -x\,dx & = \int y \,dy \\
+    -\dfrac{x^2}{2} & = \dfrac{y^2}{2} + C_1 \\
+    x^2 + y^2 & = C
+\end{align*}
+Thus, field lines are circles centered at the origin of radius $\sqrt{C}$.
+\end{example}
+
+\end{document}

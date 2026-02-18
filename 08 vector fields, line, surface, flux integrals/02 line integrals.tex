@@ -1,0 +1,191 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Line Integrals}
+
+\begin{document}
+
+Recall that the definite integral $\int_a^b f(x) \,dx$ is an integral over an interval $[a,b]$ in $\mathbb{R}$, a double integral $\iint_D f(x,y) \,dA$ is an integral over a region $D$ in $\mathbb{R}^2$, and similarly a triple integral $\iiint_D f(x,y,z) \,dV$ is an integral over a region $D$ in $\mathbb{R}^3$.
+\\ \\ Intuitively, the integral $\int_a^b \,dx$ (where $f(x) = 1$) can be thought of as summing up, over the interval $[a,b]$, small changes in $x$. Extending this, the general integral $\int_a^b f(x) \,dx$ can be thought of as summing up, over $[a,b]$, the products $f(x)$ and a small change in $x$. Physically, this can be thought of as a quantity distributed along the $x$-axis between $a$ and $b$ with line density $f(x)$ at each point $x$, and finding the total quantity by summing up, over $[a,b]$, the products,
+\begin{equation*}
+    \text{quantity} = \text{density} \times \text{width} = f(x) \times \,dx
+\end{equation*}
+Similarly, double integrals $\iint_R f(x,y) \,dA$ and triple integrals $\iiint_R f(x,y,z) \,dV$ can be thought of as summing up, over $R$, the products of function values $f(x,y)$ (or $f(x,y,z)$) and small pieces of area $\,dA$ (or volume $\,dV$). In fact, to be consistent with the double and triple integral notation, we could write $\int_a^b f(x) \,dx$ as
+\begin{equation*}
+    \int_I f(x) \,dx
+\end{equation*}
+where $I = [a,b]$ is the ``interval of integration". The intuitive theme of an integral as a sum, over a domain, of a product of a function with a small piece of that domain, will persist as we consider using integrals to solve different problems.
+
+\section*{Line Integrals}
+Consider a quantity distributed along a \textit{curve} in the plane or 3-space with specified density function $f$ at each point along the curve. We can consider the total quantity along this curve as the sum, along the curve, of the product of the function value $f$ and a small segment of the curve. This leads to the concept of a \textbf{line integral}.
+\\ \\ Consider a smooth curve $\mathcal{C}$ in the plane, with parametrization $\vec{r}(t)$, $a \leq t \leq b$, and let $f(x,y)$ be the density at each point $(x,y)$ in the plane, a continuous function on $\mathcal{C}$. Partition the interval $[a,b]$ into $a < t_0 < t_1 < \dots < t_n = b$. Form the Riemann sum
+\begin{equation*}
+    s_n = \sum_{i=1}^n f(x_{i}^{*}, y_{i}^{*}, z_{i}^{*}) \abs{\Delta \vec{r_i}}
+\end{equation*}
+As $n \to \infty$ and max $\abs{\Delta \vec{r_i}} \to 0$, this expression converges to the line integral of $f$ along $\mathcal{C}$
+\begin{equation*}
+    \int_{\mathcal{C}} f(x,y) \,ds
+\end{equation*}
+If $\mathcal{C}$ is only piecewise smooth (and $f$ is continuous on $\mathcal{C}$) then the line integral will exist, and will be equal to the sum of the line integrals along each smooth arc.
+\\ \\ If $\mathcal{C}$ is a closed curve, then the line integral is often written with a circle on the integral sign, as
+\begin{equation*}
+    \oint_{\mathcal{C}} f(x,y,z) \,ds
+\end{equation*}
+
+Extending to 3-space, let $\mathcal{C}$ be a smooth curve in 3-space, with parametrization $\vec{r}(t)$, $a \leq t \leq b$, $f(x,y,z)$ be the density at each point $(x,y)$ in space, continuous on $\mathcal{C}$. Then, the line integral of $f$ on $\mathcal{C}$ is given by
+\begin{equation*}
+    \int_{\mathcal{C}} f(x,y,z) \,ds
+\end{equation*}
+
+Line integrals should actually be called ``curve integrals", since they are integrals over a general curve, which is not necessarily a line. 
+
+\begin{example}
+Basically, if $f$ is the linear mass density (mass per unit length)
+\begin{align*}
+    \int_C f(x,y,z) \,ds = \text{ total mass of the wire}
+\end{align*}
+This applies for $f \geq 0$. 
+\end{example}
+
+\section*{Evaluating Line Integrals}
+Let $\mathcal{C}$ be a smooth curve with parametrization $\vec{r}(t) = \vecii{x(t)}{y(t)}$, $a \leq t \leq b$. Recall that the length of $\mathcal{C}$ is given by
+\begin{equation*}
+    \boxed{\int_{\mathcal{C}} \,ds = \int_a^b \sqrt{(x'(t))^2 + (y'(t))^2} \,dt = \int_a^b \abs{\vec{r}'(t)} \,dt}
+\end{equation*}
+This is a special case of the more general line integral. Let the density function $f(x,y)$ be continuous on $\mathcal{C}$. Then, the line integral of $f$ over $\mathcal{C}$ is given by
+\begin{equation*}
+    \boxed{\int_{\mathcal{C}} f(x,y) \,ds = \int_a^b f(x(t), y(t)) \sqrt{(x'(t))^2 + (y'(t))^2} \,dt = \int_a^b f(x(t), y(t)) \abs{\vec{r}'(t)} \,dt}
+\end{equation*}
+\begin{itemize}
+    \item Note that the value of a line integral is independent of the parametrization of the curve $\mathcal{C}$, and its orientation.
+\end{itemize}
+
+Notice that this is indeed a generalization of the ``regular" definite integral, as for an integral over the $x$-axis $y = 0$ from $x = a$ to $x = b$, it can be parameterized by $\vec{r}(t) = \vecii{a + t(b - a)}{0}$ for $0 \leq t \leq 1$, so $\abs{\vec{r}'(t)} = \sqrt{(b - a)^2 + 0^2} = b - a$. \textbf{CONTINUE}.
+
+\section*{Examples}
+\begin{example}
+Let $\mathcal{C}$ be parametrized by $\vec{r}(t) = \veciii{t}{2t}{t}$, $0 \leq t \leq 1$. Evaluate
+\begin{equation*}
+    \int_{\mathcal{C}} (x^2 - y + 3z) \,ds
+\end{equation*}
+\begin{align*}
+    \vec{r}'(t) = \veciii{1}{2}{1} && \abs{\vec{r}(t)} = \sqrt{6}
+\end{align*}
+Thus,
+\begin{align*}
+    \int_{\mathcal{C}} (x^2 - y + 3z) \,ds & = \int_{0}^{1} (t^2 - 2t + 3t) \sqrt{6} \,dt \\
+    & = \sqrt{6} \int_{0}^{1} (t^2 + t) \,dt \\
+    & = \sqrt{6} \cdot \dfrac{5}{6} \\
+    & = \dfrac{5\sqrt{6}}{6}
+\end{align*}
+\end{example}
+
+
+\begin{example}
+Let $\mathcal{C}$ be the line from the origin to $(2,1)$. Evaluate
+\begin{equation*}
+    \int_{\mathcal{C}} (x^2 + y^2) \,ds
+\end{equation*}
+Parametrize $\mathcal{C}$ as $\vec{r}(t) = \vecii{2t}{t}$, $0 \leq t \leq 1$. Then,
+\begin{align*}
+    \vec{r}'(t) = \vecii{2}{1} && \abs{\vec{r}'(t)} = \sqrt{5}
+\end{align*}
+Thus,
+\begin{align*}
+    \int_{\mathcal{C}} (x^2 + y^2) \,ds & = \int_{0}^{1} (4t^2 + t^2) \sqrt{5} \,dt = 5\sqrt{5} \int_{0}^{1} t^2 \,dt  = \dfrac{5 \sqrt{5}}{3}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be a curve, parametrized by $\vec{r}(t) = \veciii{at}{bt}{ct}$, $0 \leq t \leq m$. Evaluate
+\begin{equation*}
+    \int_{\mathcal{C}} (x + y) \,ds
+\end{equation*}
+\begin{align*}
+    \vec{r}'(t) = \veciii{a}{b}{c} && \abs{\vec{r}'(t)} = \sqrt{a^2 + b^2 + c^2}
+\end{align*}
+Thus,
+\begin{align*}
+    \int_{\mathcal{C}} (x + y) \,ds & = \int_{0}^{m} (at + bt) \sqrt{a^2 + b^2 + c^2} \,dt \\
+    & = (a + b)\sqrt{a^2 + b^2 + c^2} \int_{0}^{m} t \,dt \\
+    & = \dfrac{(a + b)\sqrt{a^2 + b^2 + c^2}}{2} m^2
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be a curve, parametrized by $\vec{r}(t) = \veciii{t^2}{t}{t^2}$, $0 \leq t \leq 1$. Evaluate 
+\begin{equation*}
+    \int_{\mathcal{C}} y \,ds
+\end{equation*}
+\begin{align*}
+    \vec{r}'(t) = \veciii{2t}{1}{2t} && \abs{\vec{r}'(t)} = \sqrt{8t^2 + 1}
+\end{align*}
+Thus,
+\begin{align*}
+    \int_{\mathcal{C}} y \,ds & = \int_{0}^{1} t \sqrt{8t^2 + 1} \,dt \\
+    & = \dfrac{1}{16} \int_{1}^{9} \sqrt{u}\,du && u = 8t^2 + 1 \\
+    & = \dfrac{13}{12}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be a curve with parametrization $\vec{r}(t) = \veciii{2}{2e^t}{e^{2t}}$, $-1 \leq t \leq 1$. Evaluate
+\begin{equation*}
+    \int_{\mathcal{C}} \dfrac{1}{y} \,ds
+\end{equation*}
+\begin{align*}
+    \vec{r}'(t) & = \veciii{1}{2e^t}{2e^{2t}} \\
+    \abs{\vec{r}'(t)} & = \sqrt{1 + 4e^{2t} + 4e^{4t}} = \sqrt{(1 + 2e^{2t})^2} = 1 + 2e^{2t}
+\end{align*}
+Then,
+\begin{align*}
+    \int_{\mathcal{C}} \dfrac{1}{y} \,ds & = \int_{-1}^{1} \dfrac{1}{2e^t} \cdot (1 + 2e^{2t}) \,dt \\
+    & = \dfrac{3e}{2} + \dfrac{1}{2e}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be the parabola $y = x^2$ from the origin to $(1,1)$. Determine
+\begin{equation*}
+    \int_{\mathcal{C}} xy \,dx + x^2 \,dy
+\end{equation*}
+Parametrize $\mathcal{C}$ as $x = t$, $y = t^2$, for $0 \leq t \leq 1$. Then, $dx = dt$ and $dy = 2t \,dt$. Then,
+\begin{align*}
+    \int_{\mathcal{C}} xy \,dx + x^2 \,dy & = \int_{0}^{1} t \cdot t^2 \,dt + t^2 \cdot 2t \,dt \\
+    & = \int_{0}^{1} 3t^3 \,dt \\
+    & = \dfrac{3}{4}
+\end{align*}
+\end{example}
+
+\section*{Application: Mass}
+\begin{example}
+Determine the mass of a wire along the curve $\vec{r}(t) = \veciii{3t}{3t^2}{2t^3}$, with mass density $(1+t)$ g/unit length.
+\begin{align*}
+    \vec{r}'(t) & = \veciii{3}{6t}{6t^2} \\
+    \abs{\vec{r}'(t)} & = 3\sqrt{1 + 4t^2 + 4t^4} = 3\sqrt{(1 + 2t^2)^2} = 3(1 + 2t^2)
+\end{align*}
+Thus,
+\begin{align*}
+    m & = \int_{0}^{1} (1+t) \cdot 3(1 + 2t^2) \,dt \\
+    & = 3 \int_{0}^{1} (2t^3 + 2t^2 + t + 1) \,dt \\
+    & = 3 \cdot 3 \\
+    & = 9
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the mass of the spring defined by $\vec{r}(t) = \veciii{\cos{t}}{\sin{t}}{t}$, $0 \leq t \leq 6\pi$, with mass density $\rho(x,y,z) = 1 + z$.
+\begin{align*}
+    \vec{r}'(t) = \veciii{-\sin{t}}{\cos{t}}{1} && \abs{\vec{r}'(t)} = \sqrt{\sin^2{t} + \cos^2{t} + 1} = \sqrt{2}
+\end{align*}
+Thus,
+\begin{align*}
+    m & = \int_{\mathcal{C}} (1 + z) \,ds \\
+    & = \int_{0}^{6\pi} (1 + t) \cdot \sqrt{2} \,dt \\
+    & = \sqrt{2} \int_{0}^{6\pi} (1 + t) \,dt \\
+    & = \sqrt{2} \cdot (18\pi^2 + 6\pi) \\
+    & = 6\pi \sqrt{2}(3\pi + 1)
+\end{align*}
+\end{example}
+
+\end{document}

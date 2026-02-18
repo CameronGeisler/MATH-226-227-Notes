@@ -1,0 +1,174 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Derivatives and Tangents of Vectors-Valued Functions}
+
+\begin{document}
+
+We want to develop an analogous notion of the derivative, for vector functions. Let $\vec{r}(t) = \vecii{x(t)}{y(t)}$ be a vector function. If $t$ is incremented by $\Delta t$, then the new point is $\vec{r}(t + \Delta t) = \vecii{x(t + \Delta t)}{y(t + \Delta t)}$, and this produces a vector increment of,
+\begin{align*}
+    \Delta \vec{r} = \vec{r}(t + \Delta t) - \vec{r}(t) & = \vecii{x(t + \Delta t)}{y(t + \Delta t)} - \vecii{x(t)}{y(t)} \\
+    & = \vecii{x(t + \Delta t) - x(t)}{y(t + \Delta t) - y(t)}
+\end{align*}
+In other words,
+\begin{equation*}
+    \Delta \vec{r} = \vecii{\Delta x}{\Delta y}
+\end{equation*}
+where $\Delta x = x(t + \Delta t) - x(t), \Delta y = y(t + \Delta t) - y(t)$. This forms the difference vector $\Delta \vec{r}$. Geometrically, $\Delta \vec{r}$ is a vector pointing from $\vec{r}(t)$ to $\vec{r}(t + \Delta t)$. Then, we want to then find the rate of change of this vector with respect to time $t$. Then, we can form a difference quotient,
+\begin{align*}
+    \frac{\Delta \vec{r}}{\Delta t} & = \frac{1}{\Delta t} \vecii{\Delta x}{\Delta y} \\
+    & = \vecii{\frac{\Delta x}{\Delta t}}{\frac{\Delta y}{\Delta t}}
+\end{align*}
+Geometrically, if $\Delta t > 0$, then $\frac{\Delta \vec{r}}{\Delta t}$ points in the same direction as the increment vector $\Delta \vec{r}$. It will be longer if $\Delta t < 1$, and shorter if $\Delta t > 1$. Also, the two components are simply the difference quotients for the component functions $x(t)$ and $y(t)$. Then, as $\Delta t \to 0$,
+\begin{align*}
+    \lim_{\Delta t \to 0} \frac{\Delta \vec{r}}{\Delta t} & = \lim_{\Delta t \to 0} \vecii{\frac{\Delta x}{\Delta t}}{\frac{\Delta y}{\Delta t}} \\
+    & = \vecii{\lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t}}{\lim_{\Delta t \to 0} \frac{\Delta y}{\Delta t}} && \text{by the limit component rule} \\
+    & = \vecii{\frac{dx}{dt}}{\frac{dy}{dt}} = \vecii{x'(t)}{y'(t)}
+\end{align*}
+provided that $x(t), y(t)$ are differentiable. In summary,
+
+\section*{Derivative of a Vector-Valued Function}
+\begin{definition}
+Let $\vec{r}(t)$ be a vector function. The \textbf{derivative} of $\vec{r}(t)$, $\vec{r}'(t)$ or $\frac{dr}{dt}$, is
+\begin{equation*}
+    \boxed{\vec{r}'(t) = \frac{d\vec{r}}{dt} = \lim_{\Delta t \to 0} \frac{\vec{r}(t + \Delta t) - \vec{r}(t)}{\Delta t}}
+\end{equation*}
+If $\vec{r}'(t)$ exists, then $\vec{r}(t)$ is \textbf{differentiable} at $t$. If $\vec{r}'(t)$ exists for all $t \in (a,b)$, then $\vec{r}'(t)$ is \textbf{differentiable} on $(a,b)$.
+\end{definition}
+
+Also,
+
+\begin{theorem}
+The function $\vec{r}(t)$ is differentiable if and only if $x(t)$ and $y(t)$ are differentiable, and,
+\begin{equation*}
+    \boxed{\vec{r}'(t) = \vecii{x'(t)}{y'(t)}}
+\end{equation*}
+\end{theorem}
+
+The derivative $\vec{r}'(t)$ the limit of the secant vector $\frac{\Delta \vec{r}}{\Delta t}$ approaches the point $\vec{r}$ along the path. Geometrically, if $\vec{r}'(t) \neq 0$, then the vector $\vec{r}'(t)$ is a \textbf{tangent vector} in the direction of the curve at the point $P$. Also, $\vec{r}'(t)$ represents the rate of change of the function $\vec{r}(t)$ at the point $P = \vec{r}(t)$.
+
+\begin{example}
+A path whose tangent vector is constant and non-zero must be a line. Let,
+\begin{align*}
+    \frac{d\vec{r}}{dt} = \vecii{x'(t)}{y'(t)} = \vecii{a}{b}
+\end{align*}
+where $a, b \in \mathbb{R}$. Then,
+\begin{align*}
+    \begin{cases} x'(t) = a \\ y'(t) = b \end{cases}
+\end{align*}
+Then, integrating, we get that $x(t) = at + C_1, y(t) = bt + C_2$. Thus,
+\begin{align*}
+    \vec{r}(t) & = \vecii{at + C_1}{bt + C_2} \\
+    & = \vecii{a}{b} t + \vecii{C_1}{C_2}
+\end{align*}
+which is the vector form of a line.
+\end{example}
+
+\section*{Smooth Paths}
+You may recall from single-variable calculus with parametric equations that a parametric curve $(x(t), y(t))$ is \textit{smooth} if $x, y$ have continuous derivatives, and if $x', y'$ are never simultaneously zero. Similarly,
+
+\begin{definition}
+A vector function $\vec{r}(t) = \vecii{x(t)}{y(t)}$ is \textbf{smooth} if $\vec{r}$ is differentiable, its derivative $\vec{r}'$ is continuous, and $\vec{r}' \neq \vec{0}$.
+\end{definition}
+
+
+\section*{Differentiating Vector Functions Componentwise}
+Similar to limits, the derivative of a vector function can be determined by differentiating each of its component functions.
+\begin{theorem}
+Let $f, g, h$ be differentiable functions on an interval $I$, $\vec{r}(t) = f(t)\ihat + g(t)\jhat + h(t)\hat{k}$. Then,
+\begin{equation*}
+    \boxed{\vec{r}'(t) = \veciii{f'(t)}{g'(t)}{h'(t)}}
+\end{equation*}
+\end{theorem}
+
+\section*{Derivative Rules for Vector-Valued Functions}
+
+There are derivative rules for vector functions, that are mostly analogous to their corresponding rules for scalar functions.
+
+\begin{theorem}
+Let $\vec{u}(t)$, $\vec{v}(t)$ be differentiable vector-valued functions, $\lambda(t)$ be a differentiable scalar-valued function. Then, $\vec{u}(t) + \vec{v}(t)$, $\lambda(t)\vec{u}(t)$, $\vec{u}(t) \bullet \vec{v}(t)$, $\vec{u}(t) \times \vec{v}(t)$, and $\vec{u}(\lambda(t))$ are differentiable, and,
+\begin{enumerate}
+    \item Sum and difference rule.
+    \begin{equation*}
+        \frac{d}{dt}\left(\vec{u}(t) + \vec{v}(t) \right) = \vec{u}'(t) + \vec{v}'(t)
+    \end{equation*}
+    \item Product rule for scalar-valued and vector-valued functions.
+    \begin{equation*}
+        \frac{d}{dt}\left(\lambda(t) \vec{u}(t) \right) = \lambda'(t) \vec{u}(t) + \lambda(t)\vec{u}'(t)
+    \end{equation*}
+    \item Dot product rule.
+    \begin{equation*}
+        \frac{d}{dt}\left(\vec{u}(t) \bullet \vec{v}(t) \right) = \vec{u}'(t) \bullet \vec{v}(t) + \vec{u}(t) \bullet \vec{v}'(t)
+    \end{equation*}
+    \item Chain rule.
+    \begin{equation*}
+        \frac{d}{dt}\left(\vec{u}(\lambda(t)) \right) = \lambda'(t) \vec{u}'(\lambda(t))
+    \end{equation*}
+    \item Derivative of absolute value.
+    \begin{equation*}
+        \frac{d}{dt} \abs{\vec{u}(t)} = \frac{\vec{u}(t) \bullet \vec{u}'(t)}{\abs{\vec{u}(t)}}
+    \end{equation*}
+    \item Cross product rule.
+    \begin{equation*}
+        \frac{d}{dt}\left(\vec{u}(t) \times \vec{v}(t) \right) = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t)
+    \end{equation*}
+    Note that this rule is unique for vector functions in $\mathbb{R}^3$.
+\end{enumerate}
+\end{theorem}
+
+The chain rule is related to changing the path parameter.
+
+
+\section*{Proofs of the Vector Derivative Rules}
+\begin{proof}
+\begin{enumerate}
+    \item Sum and difference rule
+    \begin{align*}
+        \frac{d}{dt}\left(\vec{u}(t) + \vec{v}(t) \right) & = \lim_{\Delta t \to 0} \frac{(\vec{u} + \vec{v})(t + \Delta t) - (\vec{u} + \vec{v})(t)}{\Delta t} \\
+        & = \lim_{\Delta t \to 0} \frac{\vec{u}(t + \Delta t) + \vec{v}(t + \Delta t) - \vec{u}(t) - \vec{v}(t)}{\Delta t} \\
+        & = \lim_{\Delta t \to 0} \frac{\vec{u}(t + \Delta t) - \vec{u}(t)}{\Delta t} + \lim_{\Delta t \to 0} \frac{\vec{v}(t + \Delta t) - \vec{v}(t)}{\Delta t} \\
+        & = \vec{u}'(t) + \vec{v}'(t)
+    \end{align*}
+    \item Product rule for scalar-valued and vector-valued functions
+    \begin{align*}
+        \frac{d}{dt}\left(\lambda(t) \vec{u}(t) \right) & = \lim_{\Delta t \to 0} \frac{\lambda(t + \Delta t)\vec{u}(t + \Delta t) - \lambda(t)\vec{u}(t)}{\Delta t} \\
+        & = \lim_{\Delta t \to 0} \frac{\lambda(t + \Delta t)\vec{u}(t + \Delta t) - \lambda(t + \Delta t)\vec{u}(t) + \lambda(t + \Delta t)\vec{u}(t) - \lambda(t)\vec{u}(t)}{\Delta t} \\
+        & = \lim_{\Delta t \to 0} \frac{\lambda(t + \Delta t)(\vec{u}(t + \Delta t) - \vec{u}(t))}{\Delta t} + \lim_{\Delta t \to 0} \frac{\vec{u}(t)(\lambda(t + \Delta t) - \lambda(t)}{\Delta t} \\
+        & = \lim_{\Delta t \to 0} \lambda(t + \Delta t) \cdot \lim_{\Delta t \to 0} \frac{\vec{u}(t + \Delta t) - \vec{u}(t)}{\Delta t} + \vec{u}(t) \lim_{\Delta t \to 0} \frac{\lambda(t + \Delta t) - \lambda(t)}{\Delta t} \\
+        & = \lambda(t) \vec{u}'(t) + \lambda'(t) \vec{u}(t)
+    \end{align*}
+    \item Dot product rule. Let $\vec{u}(t) = \veciii{u_1(t)}{\dots}{u_n(t)}$, $\vec{v}(t) = \veciii{v_1(t)}{\dots}{v_n(t)}$
+    \begin{align*}
+        \frac{d}{dt}\left(\vec{u}(t) \bullet \vec{v}(t) \right) & = \frac{d}{dt}\left(\sum_{i=1}^n u_i(t) v_i(t) \right) && \text{definition of dot product} \\
+        & = \sum_{i=1}^n \frac{d}{dt}(u_i(t) v_i(t)) && \text{derivative sum rule} \\
+        & = \sum_{i=1}^n (u_i'(t) v_i(t) + u_i(t) v_i'(t)) && \text{derivative product rule for scalar functions} \\
+        & = \sum_{i=1}^n u_i'(t) v_i(t) + \sum_{i=1}^n u_i(t) v_i'(t) \\
+        & = \vec{u}'(t) \bullet \vec{v}(t) + \vec{u}(t) \bullet \vec{v}'(t) && \text{definition of dot product}
+    \end{align*}
+    \item Cross product rule. Let $\vec{u}(t) = \veciii{u_1(t)}{u_2(t)}{u_3(t)}$, $\vec{v}(t) = \veciii{v_1(t)}{v_2(t)}{v_3(t)}$. Then,
+    \begin{align*}
+        & \frac{d}{dt}\left(\vec{u}(t) \times \vec{v}(t) \right) \\
+        & = \frac{d}{dt} \veciii{u_2(t) v_3(t) - u_3(t) v_2(t)}{u_3(t) v_1(t) - u_1(t) v_3(t)}{u_1(t) v_2(t) - u_2(t) v_1(t)} \\
+        & = \veciii{u_2'v_3 + u_2v_3' - u_3'v_2 - u_3v_2'}{u_3'v_1 + u_3v_1' - u_1'v_3 - u_1v_3'}{u_1'v_2 + u_1v_2' - u_2'v_1 - u_2v_1'} \\
+        & = \veciii{\begin{vmatrix} u_2' & u_3' \\ v_2 & v_3 \end{vmatrix} + \begin{vmatrix} u_2 & u_3 \\ v_2' & v_3' \end{vmatrix}}{-\begin{vmatrix} u_1' & u_3' \\ v_1 & v_3 \end{vmatrix} - \begin{vmatrix} u_1 & u_3 \\ v_1' & v_3' \end{vmatrix}}{\begin{vmatrix} u_1' & u_2' \\ v_1 & v_2 \end{vmatrix} + \begin{vmatrix} u_1 & u_2 \\ v_1' & v_2' \end{vmatrix}} \\
+        & = \veciii{\begin{vmatrix} u_2' & u_3' \\ v_2 & v_3 \end{vmatrix}}{-\begin{vmatrix} u_1' & u_3' \\ v_1 & v_3 \end{vmatrix}}{\begin{vmatrix} u_1' & u_2' \\ v_1 & v_2 \end{vmatrix}} + \veciii{\begin{vmatrix} u_2 & u_3 \\ v_2' & v_3' \end{vmatrix}}{- \begin{vmatrix} u_1 & u_3 \\ v_1' & v_3' \end{vmatrix}}{\begin{vmatrix} u_1 & u_2 \\ v_1' & v_2' \end{vmatrix}} \\
+        & = \vec{u}'(t) \times \vec{v}(t) + \vec{u} \times \vec{v}'(t)
+    \end{align*}
+    \item Chain rule. Let $\vec{u}(t) = \veciii{u_1(t)}{\dots}{u_n(t)}$
+    \begin{align*}
+        \frac{d}{dt}\left(\vec{u}(\lambda(t)) \right) & = \frac{d}{dt} \left(\veciii{u_1(\lambda(t))}{\dots}{u_n(\lambda(t))} \right) \\
+        & = \veciii{\lambda'(t) u_1'(\lambda(t))}{\dots}{\lambda'(t) u_n'(\lambda(t))} && \text{chain rule for scalar functions} \\
+        & = \lambda'(t) \veciii{u_1'(\lambda(t))}{\dots}{u_n'(\lambda(t))} \\
+        & = \lambda'(t) \vec{u}'(\lambda(t))
+    \end{align*}
+    \item Derivative of Absolute Value
+    \begin{align*}
+        \frac{d}{dt} \abs{\vec{u}(t)} & = \frac{d}{dt} \sqrt{\vec{u}(t) \bullet \vec{u}(t)} \\
+        & = \frac{1}{2\sqrt{\vec{u}(t) \bullet \vec{u}(t)}} \cdot \frac{d}{dt}(\vec{u}(t) \bullet \vec{u}(t)) \\
+        & = \frac{1}{2 \abs{\vec{u}(t)}} \cdot \left(\vec{u}'(t) \bullet \vec{u}(t) + \vec{u}(t) \bullet \vec{u}'(t) \right) \\
+        & = \frac{\vec{u}(t) \bullet \vec{u}'(t)}{\abs{\vec{u}(t)}}
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,262 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Implicit Differentiation, Implicit Functions}
+
+\begin{document}
+
+\section*{Implicit Differentiation as Partial Differentiation}
+Recall that in single-variable calculus, for relations which are defined implicitly (not explicitly), we can use \textbf{implicit differentiation} in order to find derivatives. In particular, if $x$ and $y$ are related implicitly, and $y$ is treated as a function of $x$, we can determine $\frac{dy}{dx}$ using implicit differentiation. The process of implicit differentiation can be viewed more clearly through the perspective of the chain rule for partial derivatives.
+\\ \\ Consider an implicit relation, for example,
+\begin{equation*}
+    x^2 + y^2 = 1
+\end{equation*}
+Implicit relationships can be written in the form
+\begin{equation*}
+    F(x,y) = 0
+\end{equation*}
+where $F$ is a function of two variables. Intuitively, this means ``moving" all the terms to one side of the equation. For the above example, $F(x,y) = x^2 + y^2 - 1$. Previously, we would have differentiated both sides implicitly with respect to $x$, and then collect and rearrange terms to solve for $y' = \frac{dy}{dx}$. 
+\\ \\ Instead, we can differentiate both sides with respect to $x$, treating $y = y(x)$ as a function of $x$. By the chain rule for multivariable functions,
+\begin{align*}
+    \frac{d}{dx} F(x,y(x)) & = \frac{d}{dx} 0 \\
+    \frac{\partial F}{\partial x} \underbrace{\frac{\partial x}{\partial x}}_{1} + \frac{\partial F}{\partial y} \frac{dy}{dx} & = 0
+\end{align*}
+Then, solving for $\frac{dy}{dx}$, we get
+\begin{equation*}
+    \frac{\partial y}{\partial x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}
+\end{equation*}
+This relates the slope of the curve $y = y(x)$ as a function of the partial derivatives of the function $F$. In summary,
+
+\section*{Implicit Differentiation}
+\begin{theorem}
+Let $F(x,y) = 0$ define $y$ as a differentiable function of $x$, $F$ be differentiable at $(x,y)$, and $F_y(x,y) \neq 0$. Then,
+\begin{equation*}
+    \boxed{\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)}}
+\end{equation*}
+Omitting the arguments for simplicity,
+\begin{equation*}
+    \boxed{\frac{dy}{dx} = -\frac{F_x}{F_y}}
+\end{equation*}
+\end{theorem}
+
+\section*{Extending to Functions in Space}
+The formula for finding derivatives of implicit functions can be extended to implicit functions of two variables, i.e. relations of the form
+\begin{equation*}
+    F(x,y,z) = 0
+\end{equation*}
+where $z = f(x,y)$ is an implicit function of $x$ and $y$.
+
+\begin{theorem}
+Let $F(x,y,z(x,y))$ implicitly defines $z$ as a differentiable function of $x$ and $y$. Then, the partial derivatives of $z$ with respect to $x$ and $y$ are given by,
+\begin{equation*}
+    \boxed{\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}} \quad \text{and} \quad \boxed{\frac{\partial z}{\partial y} = -\frac{F_y}{F_z}}
+\end{equation*}
+\end{theorem}
+
+
+\begin{example}
+The equation $7xyz = 2x^2 + y^2 + 2z^2 + 2$ defines $z$ implicitly as a function of $x$ and $y$. Find $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$
+\end{example}
+
+\section*{Implicit Functions}
+For functions $f$ defined implicitly by an equation, we cannot use standard calculus techniques. To find the partial derivatives at a point, we want to determine an explicit function defined locally on a neightbourhood of the point.
+
+\section*{Implicit Function Theorem}
+The implicit function theorem gives sufficient conditions for when an explicit locally defined function at a point exists.
+\begin{theorem}
+Let $F(x,y) = 0$ be an equation, If $F_x$ and $F_y$ are continuous on a neighbourhood of $(a,b)$ with $F(a,b) = 0$ (the point is on the curve), and $F_y(a,b) \neq 0$ (the tangent line is non-vertical), then
+\begin{enumerate}
+    \item There exists a function $f$ such that $f(a) = b$ and $F(x,f(x)) = 0$ for some neighbourhood of $(a,b)$
+    \item $f$ is differentiable, and $f'(x) = -\frac{F_x(x,f(x))}{F_y(x,f(x))}$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[]
+    \item[2] Let $F_x$ and $F_y$ be continuous on a neighbourhood of $(a,b)$ with $F(x,f(x)) = 0$. Then, differentiating implicitly with respect to $x$, we get
+    \begin{equation*}
+        F_x(x,f(x)) + F_y(x,f(x)) f'(x) = 0
+    \end{equation*}
+    Thus, $f'(x) = -F_x(x,f(x))/F_y(x,f(x))$
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+Let $F(x,y,z) = 0$ be an equation, If $F_x$, $F_y$, and $F_z$ are continuous on a neighbourhood of $(x_0,y_0,z_0)$ with $F(x_0,y_0,z_0) = 0$, and $F_z(x_0,y_0,z_0) \neq 0$, then
+\begin{enumerate}
+    \item There exists a function $f$ such that $f(x_0,y_0) = z_0$ and $F(x,y,f(x,y)) = 0$ for some neighbourhood of $(x_0,y_0,z_0)$
+    \item $\frac{\partial z}{\partial x} = -\frac{F_x(x,y,z)}{F_z(x,y,z)}$ and $\frac{\partial z}{\partial y} = -\frac{F_y(x,y,z)}{F_z(x,y,z)}$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[]
+    \item Sketch of a proof. Approximate the surface $F(x,y,z) = 0$ at $(a,b,c)$ with a tangent plane, with normal vector $\nabla F(a,b,c)$. Then, the plane has equation $F_1(a,b,c)(x - a) + F_2(a,b,c)(y - b) + F_3(a,b,c)(z - c) = 0$. If $F_3(a,b,c) \neq 0$, we can solve this equation for $z$. If $F$, $F_1$, $F_2$, and $F_3$ are all continuous on a neighbourhood of $(a,b,c)$, then the surface is the tangent plane, plus some small error. Prove that this error does not prevent the solution $z = f(x,y)$.
+    \item Let $F_x$, $F_y$, and $F_z$ be continuous on a neighbourhood of $(a,b)$ with $F(x,y,f(x,y)) = 0$. Then, differentiating implicitly with respect to $x$ and $y$, we get
+    \begin{align*}
+        F_1(x,y,z) + F_3(x,y,z) \frac{\partial z}{\partial x} & = 0 \\
+        F_2(x,y,z) + F_3(x,y,z) \frac{\partial z}{\partial y} & = 0
+    \end{align*}
+    Thus,
+    \begin{align*}
+        \frac{\partial z}{\partial x} & = -\frac{F_x(x,y,z)}{F_z(x,y,z)} \\
+        \frac{\partial z}{\partial y} & = -\frac{F_y(x,y,z)}{F_z(x,y,z)}
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{itemize}
+    \item Given equations $\begin{cases} u = f(x,y) \\ v = g(x,y) \end{cases}$, can we find $x$, $y$ as functions of $u$ and $v$?
+\end{itemize}
+
+\section*{Examples}
+\begin{example}
+Let $F(x,y,z) = x^2 + y^2 + z^2 - 4 = 0$. Then, $F_1 = 2x$, $F_2 = 2y$, and $F_3 = 2z$. Thus, for $z \neq 0$, an explicit function $z = f(x,y)$ exists.
+\end{example}
+
+\begin{example}
+Let $x + x \sin{y} + y \sin{z} = 2z \cos{x}$. Determine $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$ in a neighbourhood of $(0, \pi, \pi / 2)$.
+\\ \\ $F(x,y,z) = x + x \sin{y} + y \sin{z} - 2z \cos{x}$.
+\begin{align*}
+    F_x & = 1 + \sin{y} + 2z \sin{x} \\
+    F_y & = x \cos{y} + \sin{z} \\
+    F_z & = y \cos{z} - 2 \cos{x}
+\end{align*}
+At $(0, \pi, \pi/2)$, $F_3 = \pi \cos{(\pi/2)} - 2 \cos{0} = -2 \neq 0$. Thus,
+\begin{align*}
+    \frac{\partial z}{\partial x} & = - \frac{F_x(0, \pi, \pi/2)}{F_z(0, \pi, \pi/2)} = \frac{1}{2} \\
+    \frac{\partial z}{\partial y} & = -\frac{F_y(0, \pi, \pi/2)}{F_z(0, \pi, \pi/2)} = 0
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $z$ be an implicit function of $x$, $y$ defined by $x^2 + 3y^2 + 5z^2 = 8$. Determine $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$ at $(x,y,z) = (1,2,3)$.
+\begin{align*}
+    \frac{\partial z}{\partial x} & = -\frac{2x}{10z} = -\frac{x}{5z} \\
+    \frac{\partial z}{\partial x}(1,2,3) & = -\frac{1}{15}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $x$ be an implicit function of $y$, $z$ defined by $xy^3 + e^{xy+z} = 1 + e^3$. Determine $\frac{\partial x}{\partial z}$ at $(1,1,2)$.
+\\ \\ Let $F(x,y,z) = xy^3 + e^{xy+z}-1-e^3 = 0$. Then,
+\begin{align*}
+    \frac{\partial x}{\partial z} = -\frac{F_z}{F_x} = -\frac{e^{xy+z}}{y^3 + ye^{xy+z}}
+\end{align*}
+At $(1,1,2)$,
+\begin{equation*}
+    \frac{\partial x}{\partial z} = -\frac{e^3}{1+e^3}
+\end{equation*}
+\end{example}
+
+
+\section*{Implicit Function theorem, Systems of Equations}
+Let $u = f(x,y)$, $v = g(x,y)$. When is it possible to determine explicit equations for $x$ and $y$ in terms of $u$ and $v$?
+\\ \\ In the simplest case, when $f$ and $g$ are linear
+\begin{align*}
+    u & = ax + by \\
+    v & = cx + dy
+\end{align*}
+This can be represented in matrix form as
+\begin{align*}
+    \begin{pmatrix} u \\ v \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}
+\end{align*}
+If $A$ is invertible (i.e. $\det{A} \neq 0$), then we can solve for $x$ and $y$, and $\begin{pmatrix} x \\ y \end{pmatrix} = A^{-1} \begin{pmatrix} u \\ v \end{pmatrix}$.
+\\ \\ For functions in higher dimensions, we will use the linear approximations
+\begin{align*}
+    u & \approx f(x_0, y_0) + \frac{\partial f}{\partial x}(x_0, y_0)(x - x_0) + \frac{\partial f}{\partial y}(x_0,y_0)(y - y_0) \\
+    v & \approx g(x_0, y_0) + \frac{\partial g}{\partial x}(x_0, y_0)(x - x_0) + \frac{\partial g}{\partial y}(x_0,y_0)(y - y_0) \\
+\end{align*}
+If $f$, $g$, $f_1$, $f_2$, $g_1$, $g_2$ are all continuous on a neighbourhood of $(x_0, y_0)$, and if
+\begin{align*}
+    \det{\begin{pmatrix} f_1(x_0,y_0) & f_2(x_0,y_0) \\ g_1(x_0,y_0) & g_2(x_0,y_0) \end{pmatrix}} \neq 0
+\end{align*}
+then $x$ and $y$ are (locally) differentiable functions of $u$ and $v$.
+
+\subsubsection*{Differentiate}
+Differentiate equations with respect to $u$ and $v$, with $x = x(u,v)$ and $y = y(u,v)$.
+\begin{align*}
+    1 & = \frac{\partial u}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} \\
+    0 & = \frac{\partial v}{\partial u} = \frac{\partial g}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial g}{\partial y} \frac{\partial y}{\partial u}
+\end{align*}
+The unknowns of this system of equations are $\frac{\partial x}{\partial u}$ and $\frac{\partial y}{\partial u}$. If $A = \begin{pmatrix} f_1 & f_2 \\ g_1 & g_2 \end{pmatrix}$, then
+\begin{align*}
+    \begin{pmatrix} 0 \\ 1 \end{pmatrix} & = A \begin{pmatrix} \frac{\partial x}{\partial u} \\ \frac{\partial y}{\partial u} \end{pmatrix} \\
+\end{align*}
+Thus,
+\begin{align*}
+    \begin{pmatrix} \frac{\partial x}{\partial u} \\ \frac{\partial y}{\partial u} \end{pmatrix} = A^{-1} \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\end{align*}
+We can solve for $A^{-1}$ using Cramer's rule, etc. The process is similar for $\frac{\partial x}{\partial v}$ and $\frac{\partial y}{\partial v}$.
+Note: the matrix $A$ is called the \textbf{Jacobian matrix}, often notated by $\frac{\partial (u,v)}{\partial (x,y)}$. Must be invertible so $\det{A} \neq 0$.
+\section{Next}
+Let $u = f(x,y)$, $v = g(x,y)$, then near $u_0 = f(x_0,y_0)$, $v_0 = g(x_0,y_0)$, we have
+\begin{align*}
+    \begin{pmatrix} u \\ v \end{pmatrix} & \approx \begin{pmatrix} u_0 \\ v_0 \end{pmatrix} + A \begin{pmatrix} x - x_0 \\ y - y_0 \end{pmatrix}
+\end{align*}
+If we approximate $u$ and $v$ at $(x_0,y_0)$, then
+\begin{align*}
+    u & \approx u_0 + f_1(P)(x - x_0) + f_2(P)(y - y_0) \\
+    v & \approx v_0 + f_1(P)(x - x_0) + f_2(P)(y - y_0)
+\end{align*}
+Then,
+\begin{align*}
+    \begin{pmatrix} u \\ v \end{pmatrix} \approx \begin{pmatrix} u_0 \\ v_0 \end{pmatrix} + \begin{pmatrix} f_1 & f_2 \\ g_1 & g_2 \end{pmatrix} \begin{pmatrix} x - x_0 \\ y - y_0 \end{pmatrix} = \vec{L}(x,y)
+\end{align*}
+Then for the differentiability of $(u,v)$ as a function of $(x,y)$, the error $\vec{E}(x,y)$ is
+\begin{align*}
+    \vec{E}(x,y) = \begin{pmatrix} u \\ v \end{pmatrix} - \vec{L}(x,y)
+\end{align*}
+satisfies
+\begin{align*}
+    \lim_{(x,y) \to P} \frac{\abs{\vec{E}(x,y)}}{\abs{(x,y) - P}} = 0
+\end{align*}
+
+\begin{example}
+\begin{equation*}
+    \begin{cases}
+    u = x^2 + 2y \\
+    v = y^2 - 2x \end{cases}
+\end{equation*}
+\\ \\ First, find $\frac{\partial x}{\partial u}$ and $\frac{\partial y}{\partial u}$ where they exist. Differentiate in $u$ to get
+\begin{align*}
+    1 = 2x \frac{\partial x}{\partial u} + 2 \frac{\partial y}{\partial u} \\
+    0 = -2 \frac{\partial x}{\partial u} + 2y \frac{\partial y}{\partial u}
+\end{align*}
+Then,
+\begin{align*}
+    \det{\begin{pmatrix} 2x & 2 \\ -2 & 2y \end{pmatrix}} & = 4xy + 4 \\
+    & \neq 0
+\end{align*}
+for $xy \neq -1$. Thus,
+\begin{align*}
+    \frac{\partial x}{\partial u} = \frac{\det{\begin{pmatrix} 1 & 2 \\ 0 & 2y \end{pmatrix}}}{\det{\begin{pmatrix} 2x & 2 \\ -2 & 2y \end{pmatrix}}} = \frac{2y}{4xy + 4}
+\end{align*}
+\begin{align*}
+    \frac{\partial y}{\partial u} = \frac{\det{\begin{pmatrix} 2x & 1 \\ -2 & 0 \end{pmatrix}}}{\det{\begin{pmatrix} 2x & 2 \\ -2 & 2y \end{pmatrix}}} = \frac{2}{4xy + 4}
+\end{align*}
+Note: If $\det{A} = 0$, this method is inconclusive (may or may not be possible).
+\end{example}
+
+\begin{theorem}
+Cramer's Rule
+\begin{align*}
+    \begin{cases} a_1 x + b_1 y = c_1 \\ a_2 x + b_2 y = c_2 \end{cases}
+\end{align*}
+The solutions are
+\begin{align*}
+    x = \frac{\det{\begin{pmatrix} c_1 & b_1 \\ c_2 & b_2 \end{pmatrix}}}{\det{\begin{pmatrix} a_1 & b_1 \\ a_2 & b_2 \end{pmatrix}}} && y = \frac{\det{\begin{pmatrix} a_1 & c_1 \\ a_2 & c_2 \end{pmatrix}}}{\det{\begin{pmatrix} a_1 & b_1 \\ a_2 & b_2 \end{pmatrix}}}
+\end{align*}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+\end{document}

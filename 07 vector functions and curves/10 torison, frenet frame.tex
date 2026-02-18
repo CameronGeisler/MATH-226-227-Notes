@@ -1,0 +1,293 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Torsion, Frenet Frame}
+
+\begin{document}
+
+For curves in $\mathbb{R}^3$, there are additional ways we can study curves, using planes in $\mathbb{R}^3$, linear algebra, and the cross product. This is basic differential geometry.
+\\ \\ Let $\mathcal{C}$ be a curve in $\mathbb{R}^3$ with smooth parameterization $\vec{r}(s)$, with non-zero curvature $\kappa$, such that $\hat{\vec{T}}(s)$ and $\hat{\vec{N}}(s)$ exist.
+
+\section*{Osculating Plane}
+\begin{definition}
+The \textbf{osculating plane} (or \textbf{local plane}) of $\mathcal{C}$ at $\vec{r}(s)$ is the plane spanned by $\hat{\vec{T}}(s)$ and $\hat{\vec{N}}(s)$.
+\end{definition}
+
+For curves in $\mathbb{R}^3$, the osculating plane varies from point to point. Intuitively, the osculating plane is the plane that ``momentarily" contains the curve.
+
+\begin{example}
+Consider the circle $\vec{r}(t) = \veciii{r \cos{t}}{r \sin{t}}{0}$.
+\begin{align*}
+    \hat{\vec{T}}'(t) = \frac{\vec{r}'(t)}{\abs{\vec{r}(t)}} = \frac{\veciii{-r \sin{t}}{r \cos{t}}{0}}{r} = \veciii{-\sin{t}}{\cos{t}}{0} = \hat{\vec{N}}(s)
+\end{align*}
+Then,
+\begin{equation*}
+    \kappa(t) = \frac{\abs{\hat{\vec{T}}'(t)}}{\abs{\vec{r}'(t)}} = \frac{1}{r}
+\end{equation*}
+Note that curvature is constant, and $r$ increases, curvature decreases.
+\end{example}
+
+\begin{example}
+Consider the helix $\vec{r}(t) = \veciii{a \cos{t}}{a \sin{t}}{bt}$.
+\begin{align*}
+    \hat{\vec{T}}(t) & = \frac{1}{\sqrt{a^2 + b^2}} \veciii{-a \sin{t}}{a \cos{t}}{b} \\
+    \hat{\vec{T}}'(t) & = \frac{1}{\sqrt{a^2 + b^2}} \veciii{-a \cos{t}}{-a \sin{t}}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \kappa(t) = \frac{\abs{\hat{\vec{T}}'(t)}}{\abs{\vec{r}'(t)}} = \frac{\frac{a}{\sqrt{a^2 + b^2}}}{\sqrt{a^2 + b^2}} = \frac{a}{a^2 + b^2}
+\end{align*}
+Note that as $a \to \infty$ (radius increases), $\kappa \to 1/a$. As $b \to 0$, $\kappa \to 1/a$ (like a circle). As $b \to \infty$, $\kappa \to 0$.
+\end{example}
+
+\section*{Osculating Circle}
+\begin{definition}
+The \textbf{radius of curvature}, $\rho(s)$, is the reciprocal of curvature.
+\begin{equation*}
+    \rho(s) = \frac{1}{\kappa(s)}
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+The \textbf{center of curvature} of $\mathcal{C}$ at $\vec{r}(s)$, $\vec{r_c}(s)$, is the point
+\begin{equation*}
+    \vec{r_c}(s) = \vec{r}(s) + \rho(s) \hat{\vec{N}}(s)
+\end{equation*}
+\end{definition}
+
+It is one radius distance from the curve, in the direction of the unit normal vector.
+
+\begin{definition}
+The \textbf{osculating circle} for $\mathcal{C}$ at $\vec{r}(s)$ is a circle with center $\vec{r_c}(s)$ and radius $\rho(s)$ (for $\kappa \neq 0$).
+\begin{itemize}
+    \item The osculating circle is the circle that best approximates the behaviour at $\mathcal{C}$ near $\vec{r}(s)$.
+    \item Alternatively, the osculating circle has center $Q$, where $\vec{PQ} = \rho(s) \hat{\vec{N}}(s)$.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+Consider a circle $\vec{r}(t) = \vecii{r \cos{t}}{r \sin{t}}$. Then, the osculating circle coincides with $\vec{r}(t)$.
+\end{example}
+
+\section*{Unit Binormal Vector}
+The cross product,
+\begin{equation*}
+    \vec{\hat{T}} \times \vec{\hat{N}}
+\end{equation*}
+is another unit vector, which is perpendicular to both $\vec{\hat{T}}$ and $\vec{\hat{N}}$.
+
+\begin{definition}
+The \textbf{binormal vector}, $\vec{\hat{B}}(s)$, is the cross product of the unit tangent and unit normal,
+\begin{equation*}
+    \vec{\hat{B}}(s) = \hat{\vec{T}}(s) \times \hat{\vec{N}}(s)
+\end{equation*}
+
+\end{definition}
+
+The binormal vector $\vec{\hat{B}}(s)$ is a normal vector for the osculating plane of $\mathcal{C}$ at $\vec{r}(s)$, because $\vec{\hat{T}}$ and $\vec{\hat{N}}$ lie in the osculating plane.
+
+\section*{Frenet Frame}
+The vectors $\hat{\vec{T}}, \hat{\vec{N}}$, and $\hat{\vec{B}}$, form an orthonormal basis of $\mathbb{R}^3$ at a point on the curve.
+
+\begin{definition}
+The \textbf{Frenet frame} for $\mathcal{C}$ at $\vec{r}(s)$ is the orthonormal basis $\set{\hat{\vec{T}}(s), \hat{\vec{N}}(s), \vec{\hat{B}}(s)}$ of $\mathbb{R}^3$.
+\end{definition}
+
+\section*{Torsion}
+Recall that $\vec{\hat{B}}$ determines the osculating plane. Then, the derivative $\frac{d\vec{\hat{B}}}{ds}$ intuitively is the (vector) rate of change of space orientation of the osculating plane, or the rate of change at which the curve is twisting. Then, it turns out that $\frac{d\vec{\hat{B}}}{ds}$ is perpendicular to both $\vec{\hat{T}}$ and $\vec{\hat{B}}$. This is because first, any vector with constant length is perpendicular to its derivative, because,
+\begin{equation*}
+    0 = \frac{d}{ds} (\vec{\hat{B}} \bullet \vec{\hat{B}}) = 2 \vec{\hat{B}} \cdot \frac{d\vec{\hat{B}}}{ds}
+\end{equation*}
+and so $\frac{d\vec{\hat{B}}}{ds}$ is perpendicular to $\vec{\hat{B}}$. Also,
+\begin{align*}
+    \frac{d\hat{\vec{B}}}{ds} & = \frac{d\hat{\vec{T}}}{ds} \times \hat{\vec{N}} + \hat{\vec{T}} \times \frac{d\hat{\vec{N}}}{ds} \\
+    & = \kappa \underbrace{\hat{\vec{N}} \times \hat{\vec{N}}}_{=\vec{0}} + \hat{\vec{T}} \times \frac{d\hat{\vec{N}}}{ds} \\
+    \frac{d\hat{\vec{B}}}{ds} & = \hat{\vec{T}} \times \frac{d\hat{\vec{N}}}{ds}
+\end{align*}
+Thus, $\frac{d\hat{\vec{B}}}{ds}$ is perpendicular to $\hat{\vec{T}}$. Then, since $\set{\vec{T}, \vec{N}, \vec{B}}$ is an orthogonal basis, it follows that $\frac{d\hat{\vec{B}}}{ds}$ must be proportional to $\hat{\vec{N}}$, say,
+\begin{equation*}
+    \frac{d\vec{\hat{B}}}{ds} = -\tau \hat{\vec{N}}
+\end{equation*}
+where $\tau > 0$. Then, the magnitude of $\frac{d\vec{\hat{B}}}{ds}$, denoted by $\tau$, is called the \textit{torison} of the curve.
+
+\begin{definition}
+The \textbf{torsion} of $\mathcal{C}$ at $\vec{r}(s)$, $\tau(s)$, measures the rate of change of direction of the osculating plane.
+\begin{equation*}
+    \frac{d\vec{\hat{B}}}{ds} = -\tau(s) \hat{\vec{N}}(s)
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+The magnitude of torsion at $\vec{r}(s)$ is the rate of turning of the unit binormal
+\begin{equation*}
+    \lim_{\Delta s \to 0} \abs{\frac{\Delta \psi}{\Delta s}} = \abs{\tau(s)}
+\end{equation*}
+where $\Delta \psi$ is the angle between $\vec{\hat{B}}(s + \Delta s)$ and $\vec{\hat{B}}(s)$.
+\end{theorem}
+
+\begin{example}
+Consider a helix $\vec{r}(t) = \veciii{a \cos{t}}{a \sin{t}}{bt}$, $a > 0$, $b > 0$. Then,
+\begin{align*}
+    \hat{\vec{T}}(t) & = \frac{1}{\sqrt{a^2 + b^2}} \veciii{-a \sin{t}}{a \cos{t}}{b} \\
+    \hat{\vec{N}}(t) & = \veciii{-\cos{t}}{-\sin{t}}{0} \\
+    \vec{\hat{B}}(t) & = \hat{\vec{T}} \times \hat{\vec{N}} \\
+    & = \frac{1}{\sqrt{a^2 + b^2}} \begin{vmatrix} \ihat & \jhat & \hat{k} \\ -a \sin{t} & a \cos{t} & 0 \\ -\cos{t} & -\sin{t} & 0 \end{vmatrix} \\
+    \vec{\hat{B}}(t) & = \frac{1}{\sqrt{a^2 + b^2}} \veciii{b\sin{t}}{-b\cos{t}}{a} \\
+    \frac{d\vec{\hat{B}}}{dt} & = \frac{1}{\sqrt{a^2 + b^2}} \veciii{b\cos{t}}{b\sin{t}}{0}
+\end{align*}
+Then,
+\begin{align*}
+    \frac{d\vec{\hat{B}}}{ds} & = \frac{\frac{d\vec{\hat{B}}}{dt}}{\frac{ds}{dt}} \\
+    & = \frac{1}{a^2 + b^2} \veciii{b\cos{t}}{b\sin{t}}{0} && \text{$ds/dt = \sqrt{a^2 + b^2}$} \\
+    \frac{d\vec{\hat{B}}}{ds} & = \frac{-b}{a^2 + b^2} \hat{\vec{N}}
+\end{align*}
+Thus, $\tau = b/(a^2 + b^2)$. Note that
+\begin{itemize}
+    \item If $b = 0$, $\tau = 0$, and $\vec{r}(t)$ is a circle in the $xy$-plane.
+    \item If $b > 0$, $\tau > 0$, and $\vec{r}(t)$ is a helix with orientation counter-clockwise, moving up the $z$-axis.
+    \item If $b < 0$, $\tau < 0$, and $\vec{r}(t)$ is a helix with orientation counter-clockwise, moving down the $z$-axis.
+\end{itemize} 
+\end{example}
+
+\begin{align*}
+    \frac{d\hat{\vec{N}}}{ds} & = \frac{d}{ds}\left(\vec{\hat{B}} \times \hat{\vec{T}} \right) \\
+    & = \frac{d\vec{\hat{B}}}{ds} \times \hat{\vec{T}} + \vec{\hat{B}} \times \frac{d\hat{\vec{T}}}{ds} \\
+    & = -\tau \hat{\vec{N}} \times \hat{\vec{T}} + \kappa \vec{\hat{B}} \times \hat{\vec{N}} \\
+    \frac{d\hat{\vec{N}}}{ds} & = -\kappa \hat{\vec{T}} + \tau \vec{\hat{B}}
+\end{align*}
+
+
+
+
+
+
+
+\section*{Normal Plane}
+\begin{definition}
+The \textbf{normal plane} of $\mathcal{C}$ at $\vec{r}(t)$ is the plane that contains the normal vector $\hat{\vec{N}}(t)$
+\end{definition}
+
+
+\section*{Frenet-Serret Formulas}
+Determines the derivatives of the three unit vectors.
+\begin{align*}
+    \frac{d\hat{\vec{T}}}{ds} & = \kappa \hat{\vec{N}} \\
+    \frac{d\hat{\vec{N}}}{ds} & = -\kappa \hat{\vec{T}} + \tau \vec{\hat{B}} \\
+    \frac{d\vec{\hat{B}}}{ds} & = -\tau \hat{\vec{N}}
+\end{align*}
+In matrix form,
+\begin{align*}
+    \frac{d}{ds} \begin{bmatrix} \hat{\vec{T}} \\ \hat{\vec{N}} \\ \vec{\hat{B}} \end{bmatrix} = \begin{bmatrix} 0 & \kappa & 0 \\ -\kappa & 0 & \tau \\ 0 & -\tau & 0 \end{bmatrix} \begin{bmatrix} \hat{\vec{T}} \\ \hat{\vec{N}} \\ \vec{\hat{B}} \end{bmatrix}
+\end{align*}
+
+\section*{Fundamental Theorem of Space Curves}
+\begin{theorem}
+Let $\mathcal{C}_1$, $\mathcal{C}_2$ be curves with the same non-zero curvature function $\kappa(s)$, and same torsion function $\tau(s)$. Then, $\mathcal{C}_1$ and $\mathcal{C}_2$ are congruent. In other words, one can be moved rigidly (translated and rotated) to coincide exactly with the other.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+Let $\mathcal{C}$ be a curve with constant non-zero curvature function $\kappa(s)$ and zero torsion function $\tau(s) = 0$. Then, $\mathcal{C}$ is a circle.
+\end{corollary}
+\begin{proof}
+Let $\mathcal{C}_1$ be a circle defined as
+\begin{equation*}
+    \vec{r}(s) = \vecii{\frac{1}{C}\cos{(Cs)}}{\frac{1}{C}\sin{(Cs)}}
+\end{equation*}
+with $C > 0$. This circle is defined in terms of arc length, since
+\begin{align*}
+    \vec{r}'(s) & = \vecii{-\sin{(Cs)}}{\cos{(Cs)}} \\
+    \abs{\vec{r}'(s)} & = \sqrt{\sin^2{(Cs)} + \cos^2{(Cs)}} = 1
+\end{align*}
+and the circle has curvature $C$ and torsion 0. Thus, by the fundamental theorem of space curves, a curve with curvature $\kappa(s) = C > 0$ and torsion $\tau(s) = 0$ is a circle.
+\end{proof}
+
+\begin{corollary}
+Let $\mathcal{C}$ be a curve with constant non-zero curvature function $\kappa(s)$ and non-zero torsion function $\tau(s)$. Then, $\mathcal{C}$ is a circular helix.
+\end{corollary}
+\begin{proof}
+Let $\mathcal{C}_1$ be a circular helix defined as
+\begin{equation*}
+    \vec{r}(t) = \veciii{a \cos{t}}{a \sin{t}}{bt}
+\end{equation*}
+Then, $\vec{r}(t)$ has curvature and torsion given by
+\begin{align*}
+    \kappa(s) & = \frac{a}{a^2 + b^2} \\
+    \tau(s) & = \frac{b}{a^2 + b^2}
+\end{align*}
+Then, for a curve $\mathcal{C}$ with constant curvature $\kappa(s) = C > 0$ and torsion $\tau(s) = T \neq 0$, let $a = C/(C^2 + T^2)$, $b = T/(C^2 + T^2)$. Then,
+\begin{align*}
+    \frac{a}{a^2 + b^2} & = \frac{\frac{C}{C^2 + T^2}}{\frac{C^2}{(C^2 + T^2)} + \frac{T^2}{C^2 + T^2}} = C \\
+    \frac{b}{a^2 + b^2} & = \frac{\frac{T}{C^2 + T^2}}{\frac{C^2}{(C^2 + T^2)^2} + \frac{T^2}{(C^2 + T^2)^2}} = T
+\end{align*}
+Thus, by the fundamental theorem of space curves, $\mathcal{C}$ is a helix.
+\end{proof}
+
+\section*{General Parameterizations}
+
+
+\begin{theorem}
+The binormal vector is given by
+\begin{equation*}
+    \boxed{\vec{\hat{B}} = \frac{\vec{v} \times \vec{a}}{\abs{\vec{v} \times \vec{a}}}}
+\end{equation*}
+\end{theorem}
+\begin{theorem}
+The curvature is given by,
+\begin{equation*}
+    \boxed{\kappa = \frac{\abs{\vec{v} \times \vec{a}}}{v^3}}
+\end{equation*}
+Equivalently,
+\begin{equation*}
+    \boxed{\kappa = \frac{\abs{\vec{r}'(t) \times \vec{r}''(t)}}{\abs{\vec{r}'(t)}^3}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    \vec{v} \times \vec{a} & = v \hat{\vec{T}} \times \left(\frac{dv}{dt} \hat{\vec{T}} + v^2 \kappa \hat{\vec{N}} \right) \\
+    & = v \frac{dv}{dt} \hat{\vec{T}} \times \hat{\vec{T}} + v^3 \kappa \hat{\vec{T}} \times \hat{\vec{N}} \\
+    \vec{v} \times \vec{a} & = v^3 \kappa \vec{\hat{B}} \\
+    \abs{\vec{v} \times \vec{a}} & = v^3 \kappa
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+The normal vector is given by
+\begin{equation*}
+    \boxed{\hat{\vec{N}} = \frac{\hat{\vec{T}}'(t)}{\abs{\hat{\vec{T}}'(t)}}}
+\end{equation*}
+\end{theorem}
+
+\section*{Examples}
+\begin{example}
+Determine the curvature of $\vec{r}(t) = \veciii{2t}{t^2}{t^3/3}$
+\begin{align*}
+    \vec{v}(t) & = \veciii{2}{2t}{t^2} \\
+    v(t) & = \sqrt{4 + 4t^2 + t^4} = \sqrt{(2 + t^2)^2} = 2 + t^2 \\
+    \vec{a}(t) & = \veciii{0}{2}{2t} \\
+    \vec{v} \times \vec{a} & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ 2 & 2t & t^2 \\ 0 & 2 & 2t \end{vmatrix} = \veciii{2t^2}{-4t}{4} \\
+    \abs{\vec{v} \times \vec{a}} & = 2\sqrt{t^4 + 4t^2 + 4} = 2\sqrt{(t^2 + 2)^2} = 2(t^2 + 2) \\
+    \kappa & = \frac{2(t^2 + 2)}{(2 + t^2)^3} = \frac{2}{(2 + t^2)^2}
+\end{align*}
+\end{example}
+
+\begin{example}
+Consider a car of mass $m$ driving on a curved road with radius of curvature $R = 180 \text{ m}$. To avoid skidding, a friction force of $\vec{F} = m \vec{a}$ is required. The maximum friction force is $\mu mg$, where $\mu = 0.5$ is the coefficient of friction of the road.
+\end{example}
+
+\begin{example}
+Let $\mathcal{C}$ be a curve with parametrization $\vec{r}(t) = \veciii{e^{2t}}{2e^t}{t}$ for all $t \in \mathbb{R}$. Determine all points on the curve where the osculating plane is parallel to the plane $x - 6y + 18z = 0$.
+\begin{align*}
+    \vec{r}'(t) & = \veciii{2e^{2t}}{2e^t}{1} \\
+    \vec{r}''(t) & = \veciii{4e^{2t}}{2e^t}{0}
+\end{align*}
+The osculating plane is parallel to the plane $x - 6y + 18z = 0$ if the normal vector of the osculating plane ($\vec{B}$) is parallel to the normal vector of the plane $\vec{n} = \veciii{1}{-6}{18}$. The binormal vector is parallel to
+\begin{align*}
+    \vec{r}' \times \vec{r}'' & = \begin{vmatrix} \ihat & \jhat & \hat{k} \\ 2e^{2t} & 2e^t & 1 \\ 4e^{2t} & 2e^t & 0 \end{vmatrix} = \veciii{-2e^t}{4e^{2t}}{-4e^{3t}} = -2e^t \veciii{1}{-2e^t}{2e^{2t}}
+\end{align*}
+$\vec{r}' \times \vec{r}''$ is parallel to $\vec{n}$ if $-2e^t = -6$ and $2e^{2t} = 18$. From the first equation, $t = \ln{3}$, which also satisfies the second equation. Thus, the osculating plane is parallel to $x - 6y + 18z = 0$ where $t = \ln{3}$, the point $(9,6,\ln{3})$.
+\end{example}
+
+\end{document}

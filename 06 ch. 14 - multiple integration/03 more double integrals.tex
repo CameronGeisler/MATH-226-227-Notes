@@ -1,0 +1,241 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{More Double Integrals}
+
+\begin{document}
+
+
+\section*{Volume of a Solid Given by a Function}
+Recall: The area of the region bounded by $y = 0$, $y = f(x)$, $x = a$, and $x = b$  (where $f(x) \geq 0$ for all $x \in [a,b]$) is given by,
+\begin{equation*}
+    A = \int_a^b f(x) \,dx
+\end{equation*}
+Similarly,
+\begin{theorem}
+Let $f(x,y)$ be a bounded, continuous function on $D$, $f(x,y) \geq 0$ for all $(x,y) \in D$. Then, the volume of the solid bounded by $z = 0$, $z = f(x,y)$, and the boundary of $D$, is given by
+\begin{equation*}
+    V = \iint_D f(x,y) \,dA
+\end{equation*}
+\end{theorem}
+
+\begin{example}
+Determine the volume of the region above the square $[-1,1] \times [-1,1]$ and below the paraboloid $z = 4 - x^2 - y^2$.
+\begin{align*}
+    V & = \iint_{D} (4 - x^2 - y^2) \,dA \\
+    & = \int_{-1}^{1} \int_{-1}^{1} (4 - x^2 - y^2) \,dx \,dy \\
+    & = 4 \int_{0}^{1} \int_{0}^{1} (4 - x^2 - y^2) \,dx \,dy && \text{by symmetry} \\
+    & = 4 \int_{0}^{1} \left( \frac{11}{3} - y^2 \right) \,dy \\
+    & = 40/3
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the volume above the triangle with vertices $(0,0)$, $(0,1)$ and $(1,0)$, and under the plane $z = 2x + y$.
+\begin{align*}
+    V & = \int_{D} (2x+y) \,dA \\
+    & = \int_{0}^{1} \int_{0}^{1-x} (2x+y) \,dy \,dx \\
+    & = \int_{0}^{1} \eval{\brac{2xy + \frac{y^2}{2}}}_{y=0}^{y=1-x} \,dx \\
+    & = \int_{0}^{1} \\
+    & = 1/2
+\end{align*}
+Alternatively,
+\begin{align*}
+    V & = \int_{0}^{1} \int_{0}^{1-y} (2x+y) \,dx \,dy
+\end{align*}
+\end{example}
+
+\begin{example}
+Evaluate
+\begin{equation*}
+    \int_{0}^{1} \int_{\sqrt{y}}^{1} \sqrt{x^3 + 1} \,dx \,dy
+\end{equation*}
+The region of integration is $D = \set{(x,y): \sqrt{y} \leq x \leq 1, 0 \leq y \leq 1}$. Switching the limits of integrations, $R = \set{(x,y): 0 \leq x \leq 1, 0 \leq y \leq x^2}$. Then,
+\begin{align*}
+    \int_{0}^{1} \int_{\sqrt{y}}^{1} \sqrt{x^3 + 1} \,dx \,dy & = \int_{0}^{1} \int_{0}^{x^2} \sqrt{x^3 + 1} \,dy \,dx \\
+    & = \int_{0}^{1} x^2 \sqrt{x^3 + 1} \,dx \\
+    & = 
+\end{align*}
+\end{example}
+
+
+
+\section*{Mean-Value Theorem for Double integrals}
+Recall: By the mean-value theorem, let $f(x)$ be a function, continuous on $[a,b]$. Then, there exists $c \in (a,b)$ such that
+\begin{equation*}
+    \int_{a}^{b} f(x) \,dx = f(c)(b - a)
+\end{equation*}
+Here, $f(c)$ represents the average value of $f$ on $[a,b]$, and $b - a$ is the length of the interval.
+
+
+\begin{theorem}
+\textbf{Mean value theorem for double integrals}. Let $f(x,y)$ be a function, continuous on a closed, bounded, connected set $D$. Then, there exists a point $(x_0, y_0) \in D$ such that
+\begin{equation*}
+    \iint_{D} f(x,y) \,dA = f(x_0,y_0) \cdot A_D
+\end{equation*}
+where $f(x_0, y_0)$ represents the average value of $f$ on $D$, and $A_D$ is the area of $D$.
+\end{theorem}
+
+\begin{example}
+Determine an upper bound for
+\begin{equation*}
+    \int_{0}^{2} \int_{0}^{2} e^{x^2} \,dx \,dy
+\end{equation*}
+\begin{align*}
+    0 & \leq x \leq 2 \\
+    0 & \leq x^2 \leq 4 \\
+    1 & \leq e^{x^2} \leq e^4 \\
+    \int_{D} \,dA & \leq \int_{D} e^{x^2} \,dA \leq \int_{D} e^4 \,dA \\
+    4 & \leq \int_{D} e^{x^2} \,dA \leq 4e^4
+\end{align*}
+Alternatively, we can subdivide $[0,2] \times [0,2]$ into $4$ unit squares, and calculate the upper bound of $e^{x^2}$, $M_i$, on each. Then, we get $\int_{D} e^{x^2} \,dA \leq 2e + 2e^4$
+\end{example}
+
+\section*{Improper Double Integrals}
+A double integral is improper if $D$ is infinite (has infinite area), or $f$ is unbounded.
+\\ \\ If $f \geq 0$, continuous on $D$, and the boundard of $D$ is nice enough, then the integral exists or is $+\infty$
+
+\begin{example}
+Let $f(x,y) = 1/x$, $D = \set{(x,y): 0 \leq x \leq 1, 0 \leq y \leq x^2}$
+\begin{align*}
+    \int_{0}^{1} \int_{0}^{x^2} \frac{1}{x} \,dy \,dx & = \int_{0}^{1} \eval{\frac{y}{x}}_{y=0}^{y=x^2} \,dx \\
+    & = \int_{x} \,dx \\
+    & = \eval{\frac{x^2}{2}}_0^1 \\
+    & = \frac{1}{2}
+\end{align*}
+\end{example}
+
+\begin{example}
+Let $f(x,y) = \frac{1}{x^3}$, $D = \set{(x,y): 0 \leq x \leq 1, 0 \leq y \leq x^2}$
+\begin{align}
+    \int_{0}^{1} \int_{0}^{x^2} \frac{1}{x^3} \,dy \,dx & = \int_{0}^{1} \frac{1}{x} \,dx \\
+    & = \int_{0}^{1} \frac{1}{x} \\
+    & = \infty
+\end{align}
+\end{example}
+
+\begin{example}
+Let $f(x,y) = \frac{1}{\sqrt{x^2 + y^2}}$, $D = \set{(x,y): 0 \leq x \leq 1, 0 \leq y \leq x^2}$. Determine if $\int_{D} f(x,y) \,dA$ is convergent or divergent.
+\begin{align*}
+    \frac{1}{\sqrt{x^2 + y^2}} \geq \frac{1}{\sqrt{x^2}} = \frac{1}{x} && \text{for $x > 0$}
+\end{align*}
+Thus,
+\begin{align*}
+    \int_{D} \frac{1}{\sqrt{x^2 + y^2}} \,dA \leq \int_{D} \frac{1}{x} \,dA = \frac{1}{2}
+\end{align*}
+Thus, $\int_{D} 1/\sqrt{x^2+y^2}$ is convergent.
+\end{example}
+
+\section*{Applications}
+\section*{Average Value}
+\begin{theorem}
+Let $f(x,y)$ be a function, integrable on a domain $D$. Then, the average value of $f$ on $D$ is
+\begin{equation*}
+    \boxed{\overline{f} = \frac{\iint_{D} f(x,y) \,dA}{\iint_{D} dA}}
+\end{equation*}
+\end{theorem}
+
+\begin{example}
+Consider a hemisphere (or ``dome") of height $a$, given by $z^2 = a^2 - x^2 - y^2$, $z \geq 0$, or $z = \sqrt{a^2 - x^2 - y^2}$. Then, the average height $\overline{z}$ is
+\begin{equation*}
+    \overline{z} = \frac{\iint_{R} \sqrt{a^2 - x^2 - y^2} \,dA}{\iint_{R} \,dA}
+\end{equation*}
+Both integrals can be determined geometrically. The first integral is the volume of the hemisphere, given by $2\pi a^3/3$. The second integral is the area of the region $R$, i.e. a circle with radius $a$, or $\pi a^2$. Then,
+\begin{equation*}
+    \overline{z} = \frac{\frac{2}{3}\pi a^3}{\pi a^2} = \frac{2a}{3}
+\end{equation*}
+Intuitively, this makes sense, since $0 < 2a/3 < a$.
+\end{example}
+
+\section*{Surface Area}
+
+\begin{align*}
+    \boxed{SA = \iint_D \sqrt{1 + (f_x)^2 + (f_y)^2}} \,dA
+\end{align*}
+
+
+
+\section*{Surface Area of a Cylinder}
+\begin{example}
+Let $r$, $h > 0$, $\mathcal{S}$ be a cylinder, given by $\mathcal{S} = \set{(x,y,z): x^2 + z^2 = r^2, 0 \leq y \leq h}$. Then, the surface area can be defined 4 times the surface area of the surface $\mathcal{S}_1$ given by
+\begin{equation*}
+    \mathcal{S}_1 = \set{(x,y,z): z = \sqrt{r^2 - x^2}, 0 \leq x \leq r, 0 \leq y \leq h}
+\end{equation*}
+\begin{align*}
+    f_x = -\frac{x}{\sqrt{r^2 - x^2}} && f_y = 0
+\end{align*}
+Then,
+\begin{align*}
+    dS & = \sqrt{1 + \left(-\frac{x}{\sqrt{r^2 - x^2}} \right)^2} \\
+    & = \sqrt{\frac{r^2}{r^2 - x^2}} \\
+    & = \frac{r}{\sqrt{r^2 - x^2}}
+\end{align*}
+Then,
+\begin{align*}
+    SA & = 4\iint_{S_1} \,dS \\
+    & = 4 \int_{0}^{r} \int_{0}^{h} \frac{r}{\sqrt{r^2 - x^2}} \,dy \,dx \\
+    & = 4r \int_{0}^{r} \frac{1}{\sqrt{r^2 - x^2}} \,dx \int_{0}^{h} \,dy \\
+    & = 4r \cdot \frac{\pi}{2} \cdot h \\
+    & = 2\pi rh
+\end{align*}
+\end{example}
+
+
+\section*{Surface Area of a Sphere}
+Let $\mathcal{S}$ be a sphere of radius $r$, given by $\mathcal{S} = \set{(x,y,z): x^2 + y^2 + z^2 = r^2}$. The surface area of $\mathcal{S}$ is twice the surface area of the top hemisphere $\mathcal{S}_1$, given by
+\begin{equation*}
+    \mathcal{S}_1 = \set{(x,y,z): z = \sqrt{r^2 - x^2 - y^2}, x^2 + y^2 \leq r^2}
+\end{equation*}
+Then,
+\begin{align*}
+    f_x = -\frac{x}{\sqrt{r^2 - x^2 - y^2}} && f_y & = -\frac{y}{\sqrt{r^2 - x^2 - y^2}}
+\end{align*}
+Then,
+\begin{align*}
+    dS & = \sqrt{1 + \left(-\frac{x}{\sqrt{r^2 - x^2 - y^2}} \right)^2 + \left(-\frac{y}{\sqrt{r^2 - x^2 - y^2}} \right)^2} \,dx \,dy \\
+    & = \sqrt{\frac{r^2}{r^2 - x^2 - y^2}} \,dx \,dy \\
+    dS & = \frac{r}{\sqrt{r^2 - x^2 - y^2}} \,dx \,dy
+\end{align*}
+Using polar coordinates, let $x = R \cos{\theta}$, $y = R \sin{\theta}$, and so
+\begin{align*}
+    dS & = \frac{r}{\sqrt{r^2 - (R \cos{\theta})^2 - (R \sin{\theta})^2}} r \,dr \,d\theta \\
+    & = \frac{r^2}{\sqrt{r^2 - R^2}} \,dr \,d\theta
+\end{align*}
+Then,
+\begin{align*}
+    SA & = 2 \iint_{\mathcal{S}_1} \,dS \\
+    & = 2 \int_{0}^{2\pi} \int_{0}^{r} \frac{r^2}{\sqrt{r^2 - R^2}} \,dR \,d\theta \\
+    & = 2 \int_{0}^{2\pi} \,d\theta \int_{0}^{r} \frac{r^2}{\sqrt{r^2 - R^2}} \,dR \\
+    & = 2 \cdot 2\pi \cdot r^2 \\
+    & = 4\pi r^2
+\end{align*}
+
+\section*{Advanced}
+\begin{example}
+Consider the plane $4x + 7y + z = 56$ over the rectangle $R$ with vertices $(0,0),(a,0),(0,b),(a,b)$, where the vertex $(a,b)$ lies on the line where the plane intersects the $xy$-plane (so $7a + 7b = 56$). Determine the point $(a,b)$ where the volume of the solid between the plane and the rectangle $R$ is a maximum.
+\\ \\ The region of integration is $R = \set{(x,y): 0 \leq x \leq a, 0 \leq y \leq b}$. Then, the volume of the solid, in terms of $a$ and $b$, is
+\begin{align*}
+    V = \iint_R \brac{56 - 4x - 7y} \,dA & = \int_0^a \int_0^b \brac{56 - 4x - 7y} \,dy \,dx \\
+    & = \int_0^a \eval{\brac{56y - 4xy - \frac{7y^2}{2}}}_0^b \,dx \\
+    & = \int_0^a \brac{56b - 4xb - \frac{7b^2}{2}} \,dx \\
+    & = \eval{\brac{56bx - 2x^2 b - \frac{7b^2}{2}x}}_0^a \\
+    & = 56ab - 2a^2b - \frac{7ab^2}{2}
+\end{align*}
+In other words, the volume of the solid is given by
+\begin{equation*}
+    V(a,b) = 56ab - 2a^2b - \frac{7ab^2}{2}
+\end{equation*}
+This is a function of both $a$ and $b$ to be maximized, where $a$ and $b$ are subject to the constraint that $4a + 7b = 56$. We can use the constraint to reduce the equation for $V$ to a single variable function. Solving for $b$ in the constraint, we get $b = 8 - \frac{4a}{7}$. Then,
+\begin{align*}
+    V(a) & = 56a\brac{8 - \frac{4a}{7}} - 2a^2 \brac{8 - \frac{4a}{7}} - \frac{7a}{2}\brac{8 - \frac{4a}{7}}^2 \\
+    & = -16a^2 + 224a && \text{simplifying}
+\end{align*}
+Then, determining the critical points,
+\begin{align*}
+    V'(a) = -32a + 224 & = 0 \\
+    a & = 7
+\end{align*}
+Then, $b = 8 - \frac{4 \cdot 7}{7} = 4$. This is a maximum, as $V''(a) = -32 < 0$ by the second derivative test. Thus, the point $(7,4)$ maximizes the volume.
+\end{example}
+
+\end{document}
